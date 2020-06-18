@@ -4,6 +4,7 @@ PODS:
     - Alamofire (~> 4.8)
   - IQKeyboardManagerSwift (6.5.5)
   - MVVM-Swift (1.1.0)
+  - ObjectMapper (3.5.1)
   - SDWebImage (4.4.6):
     - SDWebImage/Core (= 4.4.6)
   - SDWebImage/Core (4.4.6)
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - AlamofireNetworkActivityIndicator (~> 2.3)
   - IQKeyboardManagerSwift (~> 6.2)
   - MVVM-Swift (= 1.1.0)
+  - ObjectMapper
   - SDWebImage (= 4.4.6)
   - SVProgressHUD (~> 2.2)
   - SwifterSwift (~> 4.6)
@@ -43,6 +45,7 @@ SPEC REPOS:
     - AlamofireNetworkActivityIndicator
     - IQKeyboardManagerSwift
     - MVVM-Swift
+    - ObjectMapper
     - SDWebImage
     - SVProgressHUD
     - SwifterSwift
@@ -53,11 +56,12 @@ SPEC CHECKSUMS:
   AlamofireNetworkActivityIndicator: 9acc3de3ca6645bf0efed462396b0df13dd3e7b8
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   MVVM-Swift: 54749cc12bb30af41632f30a2c576a18bf9e4bc8
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwifterSwift: 812ffec6f301922f5430e75be3f2939ea3a80024
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
 
-PODFILE CHECKSUM: 01e07240c595a42cffe83a55499811ec77206877
+PODFILE CHECKSUM: 80c375c13252518adc7149f1ebf4c0d9a1de2b3c
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3

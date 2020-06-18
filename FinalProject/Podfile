@@ -12,6 +12,7 @@ target 'FinalProject' do
     # Network
     pod 'Alamofire', '~> 4.7' # Elegant HTTP Networking in Swift.
     pod 'AlamofireNetworkActivityIndicator', '~> 2.3' # Controls the visibility of the network activity indicator on iOS using Alamofire.
+    pod 'ObjectMapper'
 
     # Utils
     pod 'SwiftLint', '0.27' # A tool to enforce Swift style and conventions.

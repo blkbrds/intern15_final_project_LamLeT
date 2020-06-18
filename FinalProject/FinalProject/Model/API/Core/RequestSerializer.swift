@@ -44,34 +44,8 @@ extension ApiManager {
                                         encoding: encoding,
                                         headers: tempHeader
         ).responseJSON(completion: { (response) in
-            if let error = response.error {
-                if error.code == Api.Error.connectionAbort.code || error.code == Api.Error.connectionWasLost.code {
-                    // Call request one more time when see error 53 or -1_005
-                    Alamofire.request(urlString.urlString,
-                                      method: method,
-                                      parameters: parameters,
-                                      encoding: encoding,
-                                      headers: tempHeader
-                    ).responseJSON { response in
-                        DispatchQueue.main.async {
-                            completion?(response.result)
-                        }
-                    }
-                } else if error.code == 401, let skError = error.SKError(errorsKey: .exception), skError == .sessionInvalid {
-                    AppDelegate.shared.changeRoot(type: .sessionError)
-                    DispatchQueue.main.async {
-                        completion?(response.result)
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        completion?(response.result)
-                    }
-                }
-
-            } else {
-                DispatchQueue.main.async {
-                    completion?(response.result)
-                }
+            DispatchQueue.main.async {
+                completion?(response.result)
             }
         })
         return request

@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 
 typealias Network = NetworkReachabilityManager
-
 // MARK: - Network
 extension Network {
     static let shared: Network = {
@@ -20,7 +19,6 @@ extension Network {
         return manager
     }()
 }
-
 extension Api {
     struct Error {
         static let network = NSError(domain: NSCocoaErrorDomain, message: "The internet connection appears to be offline.")
@@ -31,7 +29,20 @@ extension Api {
         static let emptyData = NSError(domain: Api.Path.baseURL.host, code: 997, message: "Server returns no data")
         static let noResponse = NSError(status: .noResponse)
         static let invalidURL = NSError(domain: Api.Path.baseURL.host, code: 998, message: "Cannot detect URL")
-        static let notFoundSubscription = NSError(domain: NSCocoaErrorDomain, message: "Can not found subscription")
-
+        static let connectionAbort: NSError = NSError(domain: NSPOSIXErrorDomain, code: 53, message: "Software caused connection abort.")
+        static let connectionWasLost: NSError = NSError(domain: NSURLErrorDomain, code: -1_005, message: "The network connection was lost.")
     }
+}
+extension Error {
+    func show() {
+        let `self` = self as NSError
+        self.show()
+    }
+    public var code: Int {
+        let `self` = self as NSError
+        return self.code
+    }
+}
+extension NSError {
+    func show() { }
 }
