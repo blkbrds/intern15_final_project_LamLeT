@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,17 +29,6 @@
 		D10B918C249B1FD8003E0A85 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B90E7249B1FD7003E0A85 /* ApiManager.swift */; };
 		D10B918D249B1FD8003E0A85 /* ResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B90E8249B1FD7003E0A85 /* ResponseSerializer.swift */; };
 		D10B918E249B1FD8003E0A85 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B90E9249B1FD7003E0A85 /* Router.swift */; };
-		D10B91BE249B1FD8003E0A85 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B911F249B1FD7003E0A85 /* RequestManager.swift */; };
-		D10B91BF249B1FD8003E0A85 /* TemplateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B9120249B1FD7003E0A85 /* TemplateManager.swift */; };
-		D10B91C0249B1FD8003E0A85 /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B9121249B1FD7003E0A85 /* ContactManager.swift */; };
-		D10B91C1249B1FD8003E0A85 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B9122249B1FD7003E0A85 /* AppConfiguration.swift */; };
-		D10B91C2249B1FD8003E0A85 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B9123249B1FD7003E0A85 /* PushNotificationManager.swift */; };
-		D10B91C3249B1FD8003E0A85 /* SukekunManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B9124249B1FD7003E0A85 /* SukekunManager.swift */; };
-		D10B91C4249B1FD8003E0A85 /* VersionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B9125249B1FD7003E0A85 /* VersionManager.swift */; };
-		D10B91C5249B1FD8003E0A85 /* MarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B9126249B1FD7003E0A85 /* MarkManager.swift */; };
-		D10B91C6249B1FD8003E0A85 /* BadgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B9127249B1FD7003E0A85 /* BadgeManager.swift */; };
-		D10B91C7249B1FD8003E0A85 /* DataRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B9128249B1FD7003E0A85 /* DataRefreshControl.swift */; };
-		D10B91C8249B1FD8003E0A85 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B9129249B1FD7003E0A85 /* SearchManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,17 +79,6 @@
 		D10B90E7249B1FD7003E0A85 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		D10B90E8249B1FD7003E0A85 /* ResponseSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSerializer.swift; sourceTree = "<group>"; };
 		D10B90E9249B1FD7003E0A85 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		D10B911F249B1FD7003E0A85 /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
-		D10B9120249B1FD7003E0A85 /* TemplateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateManager.swift; sourceTree = "<group>"; };
-		D10B9121249B1FD7003E0A85 /* ContactManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
-		D10B9122249B1FD7003E0A85 /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
-		D10B9123249B1FD7003E0A85 /* PushNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
-		D10B9124249B1FD7003E0A85 /* SukekunManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SukekunManager.swift; sourceTree = "<group>"; };
-		D10B9125249B1FD7003E0A85 /* VersionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionManager.swift; sourceTree = "<group>"; };
-		D10B9126249B1FD7003E0A85 /* MarkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkManager.swift; sourceTree = "<group>"; };
-		D10B9127249B1FD7003E0A85 /* BadgeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeManager.swift; sourceTree = "<group>"; };
-		D10B9128249B1FD7003E0A85 /* DataRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRefreshControl.swift; sourceTree = "<group>"; };
-		D10B9129249B1FD7003E0A85 /* SearchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +113,6 @@
 				71DFB99B885F73AA0CAB7C44 /* Pods-FinalProject.debug.xcconfig */,
 				C457CDE7FE39E7C321A18E9D /* Pods-FinalProject.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -340,17 +317,6 @@
 		D10B911E249B1FD7003E0A85 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				D10B911F249B1FD7003E0A85 /* RequestManager.swift */,
-				D10B9120249B1FD7003E0A85 /* TemplateManager.swift */,
-				D10B9121249B1FD7003E0A85 /* ContactManager.swift */,
-				D10B9122249B1FD7003E0A85 /* AppConfiguration.swift */,
-				D10B9123249B1FD7003E0A85 /* PushNotificationManager.swift */,
-				D10B9124249B1FD7003E0A85 /* SukekunManager.swift */,
-				D10B9125249B1FD7003E0A85 /* VersionManager.swift */,
-				D10B9126249B1FD7003E0A85 /* MarkManager.swift */,
-				D10B9127249B1FD7003E0A85 /* BadgeManager.swift */,
-				D10B9128249B1FD7003E0A85 /* DataRefreshControl.swift */,
-				D10B9129249B1FD7003E0A85 /* SearchManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -543,33 +509,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D10B91C2249B1FD8003E0A85 /* PushNotificationManager.swift in Sources */,
 				D10B908C249B19F2003E0A85 /* AppDelegate.swift in Sources */,
 				D10B90E2249B1EFC003E0A85 /* UITableViewExt.swift in Sources */,
 				D10B90DE249B1DD5003E0A85 /* Font.swift in Sources */,
 				D10B90DC249B1DD5003E0A85 /* Measurement.swift in Sources */,
 				D10B90DB249B1DD5003E0A85 /* Color.swift in Sources */,
 				D10B918A249B1FD8003E0A85 /* RequestSerializer.swift in Sources */,
-				D10B91C6249B1FD8003E0A85 /* BadgeManager.swift in Sources */,
-				D10B91BE249B1FD8003E0A85 /* RequestManager.swift in Sources */,
-				D10B91C5249B1FD8003E0A85 /* MarkManager.swift in Sources */,
 				D10B90C7249B1DBE003E0A85 /* Ratio.swift in Sources */,
-				D10B91C8249B1FD8003E0A85 /* SearchManager.swift in Sources */,
 				D10B918C249B1FD8003E0A85 /* ApiManager.swift in Sources */,
 				D10B90CA249B1DC8003E0A85 /* UIViewExt.swift in Sources */,
 				D10B90D7249B1DD5003E0A85 /* String.swift in Sources */,
-				D10B91BF249B1FD8003E0A85 /* TemplateManager.swift in Sources */,
-				D10B91C4249B1FD8003E0A85 /* VersionManager.swift in Sources */,
 				D10B918E249B1FD8003E0A85 /* Router.swift in Sources */,
 				D10B90DA249B1DD5003E0A85 /* Configuration.swift in Sources */,
 				D10B90D8249B1DD5003E0A85 /* App.swift in Sources */,
-				D10B91C3249B1FD8003E0A85 /* SukekunManager.swift in Sources */,
-				D10B91C7249B1FD8003E0A85 /* DataRefreshControl.swift in Sources */,
 				D10B918D249B1FD8003E0A85 /* ResponseSerializer.swift in Sources */,
 				D10B908E249B19F2003E0A85 /* SceneDelegate.swift in Sources */,
-				D10B91C1249B1FD8003E0A85 /* AppConfiguration.swift in Sources */,
 				D10B918B249B1FD8003E0A85 /* Error.swift in Sources */,
-				D10B91C0249B1FD8003E0A85 /* ContactManager.swift in Sources */,
 				D10B9090249B19F2003E0A85 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
