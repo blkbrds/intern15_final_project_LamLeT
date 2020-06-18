@@ -28,7 +28,10 @@
 		D10B918B249B1FD8003E0A85 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B90E6249B1FD7003E0A85 /* Error.swift */; };
 		D10B918C249B1FD8003E0A85 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B90E7249B1FD7003E0A85 /* ApiManager.swift */; };
 		D10B918D249B1FD8003E0A85 /* ResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B90E8249B1FD7003E0A85 /* ResponseSerializer.swift */; };
-		D10B918E249B1FD8003E0A85 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B90E9249B1FD7003E0A85 /* Router.swift */; };
+		F0BE18DE249B613A004FA5AB /* NSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18DD249B613A004FA5AB /* NSURL.swift */; };
+		F0BE18E0249B6180004FA5AB /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18DF249B617F004FA5AB /* Api.swift */; };
+		F0BE18E2249B6264004FA5AB /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18E1249B6264004FA5AB /* StringExt.swift */; };
+		F0BE18E4249B65E6004FA5AB /* DataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18E3249B65E6004FA5AB /* DataExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +81,10 @@
 		D10B90E6249B1FD7003E0A85 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		D10B90E7249B1FD7003E0A85 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		D10B90E8249B1FD7003E0A85 /* ResponseSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSerializer.swift; sourceTree = "<group>"; };
-		D10B90E9249B1FD7003E0A85 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		F0BE18DD249B613A004FA5AB /* NSURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURL.swift; sourceTree = "<group>"; };
+		F0BE18DF249B617F004FA5AB /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		F0BE18E1249B6264004FA5AB /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		F0BE18E3249B65E6004FA5AB /* DataExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,8 +278,11 @@
 		D10B90C4249B1CD4003E0A85 /* Ext */ = {
 			isa = PBXGroup;
 			children = (
+				F0BE18DD249B613A004FA5AB /* NSURL.swift */,
 				D10B90C8249B1DC8003E0A85 /* UIViewExt.swift */,
 				D10B90E1249B1EFC003E0A85 /* UITableViewExt.swift */,
+				F0BE18E1249B6264004FA5AB /* StringExt.swift */,
+				F0BE18E3249B65E6004FA5AB /* DataExt.swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -298,11 +307,11 @@
 		D10B90E4249B1FD7003E0A85 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F0BE18DF249B617F004FA5AB /* Api.swift */,
 				D10B90E7249B1FD7003E0A85 /* ApiManager.swift */,
 				D10B90E6249B1FD7003E0A85 /* Error.swift */,
 				D10B90E5249B1FD7003E0A85 /* RequestSerializer.swift */,
 				D10B90E8249B1FD7003E0A85 /* ResponseSerializer.swift */,
-				D10B90E9249B1FD7003E0A85 /* Router.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -512,15 +521,18 @@
 				D10B908C249B19F2003E0A85 /* AppDelegate.swift in Sources */,
 				D10B90E2249B1EFC003E0A85 /* UITableViewExt.swift in Sources */,
 				D10B90DE249B1DD5003E0A85 /* Font.swift in Sources */,
+				F0BE18E4249B65E6004FA5AB /* DataExt.swift in Sources */,
+				F0BE18E0249B6180004FA5AB /* Api.swift in Sources */,
 				D10B90DC249B1DD5003E0A85 /* Measurement.swift in Sources */,
 				D10B90DB249B1DD5003E0A85 /* Color.swift in Sources */,
 				D10B918A249B1FD8003E0A85 /* RequestSerializer.swift in Sources */,
+				F0BE18DE249B613A004FA5AB /* NSURL.swift in Sources */,
 				D10B90C7249B1DBE003E0A85 /* Ratio.swift in Sources */,
 				D10B918C249B1FD8003E0A85 /* ApiManager.swift in Sources */,
 				D10B90CA249B1DC8003E0A85 /* UIViewExt.swift in Sources */,
 				D10B90D7249B1DD5003E0A85 /* String.swift in Sources */,
-				D10B918E249B1FD8003E0A85 /* Router.swift in Sources */,
 				D10B90DA249B1DD5003E0A85 /* Configuration.swift in Sources */,
+				F0BE18E2249B6264004FA5AB /* StringExt.swift in Sources */,
 				D10B90D8249B1DD5003E0A85 /* App.swift in Sources */,
 				D10B918D249B1FD8003E0A85 /* ResponseSerializer.swift in Sources */,
 				D10B908E249B19F2003E0A85 /* SceneDelegate.swift in Sources */,
@@ -683,7 +695,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"FinalProject/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = FinalProject/Info.plist;
+				INFOPLIST_FILE = FinalProject/Supports/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -703,7 +715,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"FinalProject/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = FinalProject/Info.plist;
+				INFOPLIST_FILE = FinalProject/Supports/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
