@@ -10,7 +10,7 @@ import UIKit
 
 class HomeCategoryCollectionViewCell: UICollectionViewCell {
 
-    //MARK: Properties
+    //MARK: - Properties
     @IBOutlet private weak var thumbnailCategoryImageView: UIImageView!
     @IBOutlet private weak var categoryView: UIView!
     @IBOutlet private weak var nameCategoryLabel: UILabel!
