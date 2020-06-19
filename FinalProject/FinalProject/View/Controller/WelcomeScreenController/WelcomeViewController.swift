@@ -9,8 +9,7 @@
 import UIKit
 
 private struct Configure {
-    static let corner: CGFloat = 40
-    static let borderWith: CGFloat = 0
+    static let title: String = "Cooking"
 }
 
 final class WelcomeViewController: UIViewController {
@@ -21,6 +20,7 @@ final class WelcomeViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = Configure.title
         nextButton.cornerRadius = nextButton.height / 2
     }
 
