@@ -26,7 +26,6 @@ final class WelcomeViewController: UIViewController {
 
     // MARK: - Actions
     @IBAction private func nextHomeButtonTouchUpInside(_ sender: Any) {
-        let vc = BaseTabBarViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(BaseTabBarViewController(), animated: true)
     }
 }
