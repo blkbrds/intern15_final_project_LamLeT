@@ -11,9 +11,9 @@ import UIKit
 class HomeCategoryCollectionViewCell: UICollectionViewCell {
 
     //MARK: Properties
-    @IBOutlet weak var thumbnailCategoryImageView: UIImageView!
-    @IBOutlet weak var categoryView: UIView!
-    @IBOutlet weak var nameCategoryLabel: UILabel!
+    @IBOutlet private weak var thumbnailCategoryImageView: UIImageView!
+    @IBOutlet private weak var categoryView: UIView!
+    @IBOutlet private weak var nameCategoryLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
