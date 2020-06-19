@@ -27,13 +27,6 @@ final class BaseTabBarViewController: UITabBarController {
         let mapNavi = UINavigationController(rootViewController: searchVC)
         searchVC.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "search"), tag: 1)
 
-
-//        let favoritesVC = FavoritesPageViewController()
-//        let favoritesNavi = UINavigationController(rootViewController: favoritesVC)
-//        favoritesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 2)
-
-
-
         let favoritesVC = FavoritesViewController()
         let favoritesNavi = UINavigationController(rootViewController: favoritesVC)
         favoritesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 2)

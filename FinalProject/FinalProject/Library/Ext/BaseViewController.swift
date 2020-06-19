@@ -17,7 +17,6 @@ class BaseViewController: UIViewController {
     }
 
     func setUpUI() { }
-
+    
     func setUpData() { }
-
 }
