@@ -8,20 +8,26 @@
 
 import UIKit
 
-class WelcomeViewController: UIViewController {
+private struct Configure {
+    static let corner: CGFloat = 40
+    static let borderWith: CGFloat = 0
+}
 
-    @IBOutlet weak var nextButtonTouchUpInside: UIButton!
+final class WelcomeViewController: UIViewController {
 
+    // MARK: - Properties
+    @IBOutlet private weak var nextButtonTouchUpInside: UIButton!
+
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        nextButtonTouchUpInside.layer.cornerRadius = 20
-        nextButtonTouchUpInside.layer.borderWidth = 0
-
+        nextButtonTouchUpInside.layer.cornerRadius = Configure.corner
+        nextButtonTouchUpInside.layer.borderWidth = Configure.borderWith
     }
 
-    @IBAction func nextHomeButtonTouchUpInside(_ sender: Any) {
+    // MARK: - Actions
+    @IBAction private func nextHomeButtonTouchUpInside(_ sender: Any) {
         let vc = BaseTabBarViewController()
         self.navigationController?.pushViewController(vc, animated: true)
-
     }
 }
