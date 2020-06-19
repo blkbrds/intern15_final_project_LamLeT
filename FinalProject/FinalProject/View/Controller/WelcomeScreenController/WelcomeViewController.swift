@@ -16,13 +16,12 @@ private struct Configure {
 final class WelcomeViewController: UIViewController {
 
     // MARK: - Properties
-    @IBOutlet private weak var nextButtonTouchUpInside: UIButton!
+    @IBOutlet private weak var nextButton: UIButton!
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        nextButtonTouchUpInside.layer.cornerRadius = Configure.corner
-        nextButtonTouchUpInside.layer.borderWidth = Configure.borderWith
+        nextButton.cornerRadius = nextButton.height / 2
     }
 
     // MARK: - Actions
