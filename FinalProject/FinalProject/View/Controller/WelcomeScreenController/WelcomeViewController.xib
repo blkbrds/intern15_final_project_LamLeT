@@ -19,13 +19,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Beginner For Cook" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qS-HV-Jmc">
-                    <rect key="frame" x="0.0" y="85" width="320" height="105.5"/>
+                    <rect key="frame" x="0.0" y="74" width="320" height="105.5"/>
                     <fontDescription key="fontDescription" type="italicSystem" pointSize="44"/>
                     <color key="textColor" red="0.9882352941176471" green="0.78431372549019607" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZH1-4u-eAV">
-                    <rect key="frame" x="222" y="439.5" width="128" height="46"/>
+                    <rect key="frame" x="222" y="408.5" width="128" height="46"/>
                     <color key="backgroundColor" red="0.9882352941176471" green="0.78431372549019607" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="Welcome">
@@ -36,20 +36,20 @@
                     </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beginner" translatesAutoresizingMaskIntoConstraints="NO" id="gk4-BT-2Ed">
-                    <rect key="frame" x="50.5" y="220.5" width="219.5" height="189"/>
+                    <rect key="frame" x="50.5" y="189.5" width="219.5" height="189"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ZH1-4u-eAV" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="30" id="77i-A0-HW6"/>
-                <constraint firstItem="2qS-HV-Jmc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="85" id="IYC-sv-4VI"/>
                 <constraint firstItem="2qS-HV-Jmc" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="QXU-hV-ejl"/>
                 <constraint firstItem="gk4-BT-2Ed" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VRl-gA-a7M"/>
                 <constraint firstItem="2qS-HV-Jmc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="fsp-aN-Yqu"/>
-                <constraint firstItem="gk4-BT-2Ed" firstAttribute="top" secondItem="2qS-HV-Jmc" secondAttribute="bottom" constant="30" id="iMc-hl-rRt"/>
+                <constraint firstItem="gk4-BT-2Ed" firstAttribute="top" secondItem="2qS-HV-Jmc" secondAttribute="bottom" constant="10" id="iMc-hl-rRt"/>
                 <constraint firstItem="gk4-BT-2Ed" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.685937" id="l1T-eW-I6H"/>
                 <constraint firstItem="gk4-BT-2Ed" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.332746" id="mhr-t6-9OX"/>
                 <constraint firstItem="ZH1-4u-eAV" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.0809595" id="nvI-Nu-5Nc"/>
+                <constraint firstItem="gk4-BT-2Ed" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="pr4-qr-gHu"/>
                 <constraint firstItem="ZH1-4u-eAV" firstAttribute="top" secondItem="gk4-BT-2Ed" secondAttribute="bottom" constant="30" id="udj-zl-fkB"/>
                 <constraint firstItem="ZH1-4u-eAV" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="150/375" id="zrm-Gu-c4z"/>
             </constraints>
