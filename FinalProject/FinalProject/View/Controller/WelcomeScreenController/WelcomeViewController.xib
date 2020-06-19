@@ -54,7 +54,7 @@
                 <constraint firstItem="ZH1-4u-eAV" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="150/375" id="zrm-Gu-c4z"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="-503" y="27"/>
+            <point key="canvasLocation" x="-456" y="-88"/>
         </view>
     </objects>
     <resources>
