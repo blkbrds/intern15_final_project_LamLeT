@@ -22,12 +22,12 @@ final class BaseTabBarViewController: UITabBarController {
         let homeVC = HomeCategoryViewController()
         let homeNavi = UINavigationController(rootViewController: homeVC)
         homeNavi.navigationBar.isHidden = true
-        homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home"), tag: 0)
+        homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "ic_tabbar_home"), tag: 0)
         
         let searchVC = SearchViewController()
         let mapNavi = UINavigationController(rootViewController: searchVC)
         mapNavi.navigationBar.isHidden = true
-        searchVC.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "search"), tag: 1)
+        searchVC.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "ic_tabbar_search"), tag: 1)
 
         let favoritesVC = FavoritesViewController()
         let favoritesNavi = UINavigationController(rootViewController: favoritesVC)
