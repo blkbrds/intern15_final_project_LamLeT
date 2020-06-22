@@ -8,8 +8,12 @@
 
 import Foundation
 
+struct CategoryResult {
+    var categories: [CategoryMeal]
+}
+
 struct CategoryMealResult {
-    var categoryMeals: [CategoryMeal]
+    var categoryMeals: [Meal]
 }
 
 //MARK: Enum
@@ -22,7 +26,10 @@ enum APIResult<T> {
 typealias APICompletion<T> = (APIResult<T>) -> Void
 
 class Networking {
+
+    // MARK: - Properties
     let urlString = "https://www.themealdb.com/api/json/v1/1/categories.php"
+    let urlString2 = "https://www.themealdb.com/api/json/v1/1/filter.php?c="
 
     private static var sharedNetworking: Networking = {
         let networking = Networking()
@@ -33,14 +40,13 @@ class Networking {
         return sharedNetworking
     }
 
-    func getMeal(apiCompletion: @escaping APICompletion<CategoryMealResult>) {
+    func getCategory(apiCompletion: @escaping APICompletion<CategoryResult>) {
         guard let url = URL(string: urlString) else {
             apiCompletion(.failure("Failed"))
             return
         }
         let config = URLSessionConfiguration.ephemeral
         config.waitsForConnectivity = true
-
         let session = URLSession(configuration: config)
         let task = session.dataTask(with: url) { (data, respone, error) in
             DispatchQueue.main.async {
@@ -55,7 +61,39 @@ class Networking {
                             let categoryMeal = CategoryMeal(json: item)
                             categoryMeals.append(categoryMeal)
                         }
-                        let result = CategoryMealResult(categoryMeals: categoryMeals)
+                        let result = CategoryResult(categories: categoryMeals)
+                        apiCompletion(.success(result))
+                    } else {
+                        apiCompletion(.failure("Connect Failed"))
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+
+    func getMealForCategory(categoryName: String, apiCompletion: @escaping APICompletion<CategoryMealResult>) {
+        guard let url = URL(string: urlString2 + "\(categoryName)") else {
+            apiCompletion(.failure("Failed"))
+            return
+        }
+        let config = URLSessionConfiguration.ephemeral
+        config.waitsForConnectivity = true
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: url) { (data, respone, error) in
+            DispatchQueue.main.async {
+                if let _ = error {
+                    apiCompletion(.failure("Can't Connect"))
+                } else {
+                    if let data = data {
+                        let json = data.toJSON1()
+                        let meals = json["meals"] as! [JSON]
+                        var categoryDetails: [Meal] = []
+                        for item in meals {
+                            let meals = Meal(json: item)
+                            categoryDetails.append(meals)
+                        }
+                        let result = CategoryMealResult(categoryMeals: categoryDetails)
                         apiCompletion(.success(result))
                     } else {
                         apiCompletion(.failure("Connect Failed"))
