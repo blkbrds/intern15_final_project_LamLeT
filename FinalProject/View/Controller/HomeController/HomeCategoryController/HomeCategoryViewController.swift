@@ -11,14 +11,13 @@ import UIKit
 final class HomeCategoryViewController: BaseViewController {
 
     // MARK: - Properties
-    @IBOutlet weak var listCategoryCollectionView: UICollectionView!
-
-    var dummy: [String] = ["Derest", "Breakfast", "Beef", "Chicken", "Lamb"]
+    @IBOutlet private weak var listCategoryCollectionView: UICollectionView!
+    private var viewModel = HomeCategoryViewModel()
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "Category"
     }
 
     // MARK: - Override Functions
@@ -27,9 +26,9 @@ final class HomeCategoryViewController: BaseViewController {
     }
 
     override func setUpData() {
-
+        loadAPI()
     }
-    
+
     // MARK: - Private Functions
     private func registerCollectionView() {
         let nib = UINib(nibName: "HomeCategoryCollectionViewCell", bundle: .main)
@@ -37,19 +36,35 @@ final class HomeCategoryViewController: BaseViewController {
         listCategoryCollectionView.dataSource = self
         listCategoryCollectionView.delegate = self
     }
+
+    private func loadAPI() {
+        viewModel.getAPIListCategory { (done, msg) in
+            if done {
+                self.updateView()
+            } else {
+                print("Failed to load")
+            }
+        }
+    }
+
+    private func updateView() {
+        listCategoryCollectionView.reloadData()
+    }
 }
 
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension HomeCategoryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dummy.count
+        return viewModel.numberOfItemsInSection()
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? HomeCategoryCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.name = dummy[indexPath.row]
+        cell.delegate = self
+        cell.indexPath = indexPath
+        cell.viewModel = viewModel.getListCategory(indexPath: indexPath)
         return cell
     }
 }
@@ -62,5 +77,16 @@ extension HomeCategoryViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+    }
+}
+
+// MARK: - Download Image
+extension HomeCategoryViewController: HomeCategoryCollectionViewCellDelegate {
+    func downloadImageForCell(indexPath: IndexPath) {
+        viewModel.downloadImage(at: indexPath) { (indexPath, image) in
+            if let _ = image {
+                self.listCategoryCollectionView.reloadItems(at: [indexPath])
+            }
+        }
     }
 }
