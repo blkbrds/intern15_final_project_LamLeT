@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailCategoryViewController" customModule="FinalProject" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="KG8-h0-nnO" id="BBQ-rk-SeZ"/>
                 <outlet property="tableView" destination="zuv-pS-gtc" id="Rrj-CR-E8Z"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -26,13 +27,27 @@
                         <outlet property="delegate" destination="-1" id="gm3-lU-plJ"/>
                     </connections>
                 </tableView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="KG8-h0-nnO">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3GC-RT-DVV">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KG8-h0-nnO" secondAttribute="trailing" id="016-rP-zSz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zuv-pS-gtc" secondAttribute="bottom" id="cHf-xT-mfJ"/>
                 <constraint firstItem="zuv-pS-gtc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="eU5-8h-Sq2"/>
                 <constraint firstItem="zuv-pS-gtc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="l1N-54-SB9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="KG8-h0-nnO" secondAttribute="bottom" id="lxa-XZ-nmY"/>
+                <constraint firstItem="KG8-h0-nnO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="mIJ-Wp-dRl"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zuv-pS-gtc" secondAttribute="trailing" id="ndZ-6A-Tc2"/>
+                <constraint firstItem="KG8-h0-nnO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="rTm-wp-MZb"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="42" y="34"/>

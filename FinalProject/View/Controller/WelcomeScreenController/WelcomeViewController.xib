@@ -25,8 +25,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZH1-4u-eAV">
-                    <rect key="frame" x="222" y="408.5" width="128" height="46"/>
+                    <rect key="frame" x="222" y="408.5" width="128" height="50"/>
                     <color key="backgroundColor" red="0.9882352941176471" green="0.78431372549019607" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Mdr-aS-W8e"/>
+                    </constraints>
                     <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="Welcome">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -48,7 +51,6 @@
                 <constraint firstItem="gk4-BT-2Ed" firstAttribute="top" secondItem="2qS-HV-Jmc" secondAttribute="bottom" constant="10" id="iMc-hl-rRt"/>
                 <constraint firstItem="gk4-BT-2Ed" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.685937" id="l1T-eW-I6H"/>
                 <constraint firstItem="gk4-BT-2Ed" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.332746" id="mhr-t6-9OX"/>
-                <constraint firstItem="ZH1-4u-eAV" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.0809595" id="nvI-Nu-5Nc"/>
                 <constraint firstItem="gk4-BT-2Ed" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="pr4-qr-gHu"/>
                 <constraint firstItem="2qS-HV-Jmc" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="pwu-K2-wqP"/>
                 <constraint firstItem="ZH1-4u-eAV" firstAttribute="top" secondItem="gk4-BT-2Ed" secondAttribute="bottom" constant="30" id="udj-zl-fkB"/>

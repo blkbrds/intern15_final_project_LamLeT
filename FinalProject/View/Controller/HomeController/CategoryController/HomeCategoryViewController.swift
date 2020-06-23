@@ -24,6 +24,7 @@ final class HomeCategoryViewController: BaseViewController {
     // MARK: - Override Functions
     override func setUpUI() {
         registerCollectionView()
+        navigationController?.navigationBar.tintColor = UIColor.black
     }
 
     override func setUpData() {
@@ -97,7 +98,7 @@ extension HomeCategoryViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - Define
 private struct Configure {
-    static let title: String = "Cooking"
+    static let title: String = "Category Meal"
     static let defineCell: String = "cell"
     static let nibName: String = "HomeCategoryCollectionViewCell"
 }

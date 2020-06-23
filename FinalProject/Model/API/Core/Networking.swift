@@ -30,7 +30,9 @@ class Networking {
     // MARK: - Properties
     let urlString = "https://www.themealdb.com/api/json/v1/1/categories.php"
     let urlString2 = "https://www.themealdb.com/api/json/v1/1/filter.php?c="
+    let urlString3 = "https://www.themealdb.com/api/json/v1/1/list.php?a=list"
 
+    // MARK: - Singleton
     private static var sharedNetworking: Networking = {
         let networking = Networking()
         return networking
@@ -40,6 +42,7 @@ class Networking {
         return sharedNetworking
     }
 
+    // MARK: - Public Functions
     func getCategory(apiCompletion: @escaping APICompletion<CategoryResult>) {
         guard let url = URL(string: urlString) else {
             apiCompletion(.failure("Failed"))
@@ -94,6 +97,38 @@ class Networking {
                             categoryDetails.append(meals)
                         }
                         let result = CategoryMealResult(categoryMeals: categoryDetails)
+                        apiCompletion(.success(result))
+                    } else {
+                        apiCompletion(.failure("Connect Failed"))
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    func getArea(apiCompletion: @escaping APICompletion<CategoryMealResult>) {
+        guard let url = URL(string: urlString3) else {
+            apiCompletion(.failure("Failed"))
+            return
+        }
+        let config = URLSessionConfiguration.ephemeral
+        config.waitsForConnectivity = true
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: url) { (data, respone, error) in
+            DispatchQueue.main.async {
+                if let _ = error {
+                    apiCompletion(.failure("Can't Connect"))
+                } else {
+                    if let data = data {
+                        let json = data.toJSON1()
+                        let meals = json["meals"] as! [JSON]
+                        var areas: [Meal] = []
+                        for item in meals {
+                            let area = Meal(json: item)
+                            areas.append(area)
+                        }
+                        let result = CategoryMealResult(categoryMeals: areas)
                         apiCompletion(.success(result))
                     } else {
                         apiCompletion(.failure("Connect Failed"))

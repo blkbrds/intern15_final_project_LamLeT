@@ -22,15 +22,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JjN-DU-6AV">
                                 <rect key="frame" x="0.0" y="0.0" width="276" height="251"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UoV-dz-E0p">
-                                <rect key="frame" x="226" y="0.0" width="50" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="Afs-EX-C3f"/>
-                                    <constraint firstAttribute="height" constant="30" id="DWo-7k-Nx8"/>
-                                </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="heart" catalog="system"/>
-                            </button>
                             <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asg-qA-c26">
                                 <rect key="frame" x="0.0" y="205" width="276" height="46"/>
                                 <subviews>
@@ -49,6 +40,30 @@
                                     <constraint firstItem="ffp-sg-wW1" firstAttribute="top" secondItem="asg-qA-c26" secondAttribute="top" id="eqF-QI-HO2"/>
                                 </constraints>
                             </view>
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxy-MV-XF0">
+                                <rect key="frame" x="236" y="0.0" width="40" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IfC-Vt-7Js">
+                                        <rect key="frame" x="5" y="6.5" width="30" height="27.5"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" backgroundImage="heart" catalog="system"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="IfC-Vt-7Js" firstAttribute="leading" secondItem="fxy-MV-XF0" secondAttribute="leading" constant="5" id="9Oj-eO-uGk"/>
+                                    <constraint firstAttribute="bottom" secondItem="IfC-Vt-7Js" secondAttribute="bottom" constant="5" id="d6L-Rw-L53"/>
+                                    <constraint firstAttribute="height" constant="40" id="m1c-QD-CMD"/>
+                                    <constraint firstAttribute="trailing" secondItem="IfC-Vt-7Js" secondAttribute="trailing" constant="5" id="oMm-93-SOk"/>
+                                    <constraint firstItem="IfC-Vt-7Js" firstAttribute="top" secondItem="fxy-MV-XF0" secondAttribute="top" constant="5" id="qsn-rg-49s"/>
+                                    <constraint firstAttribute="width" constant="40" id="uMw-iu-8wz"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -56,12 +71,12 @@
                             <constraint firstAttribute="bottom" secondItem="asg-qA-c26" secondAttribute="bottom" id="GSr-O0-D6Z"/>
                             <constraint firstAttribute="trailing" secondItem="JjN-DU-6AV" secondAttribute="trailing" id="Kt0-rL-16X"/>
                             <constraint firstItem="asg-qA-c26" firstAttribute="leading" secondItem="uyb-B7-SLv" secondAttribute="leading" id="VW5-R1-CUp"/>
-                            <constraint firstItem="UoV-dz-E0p" firstAttribute="top" secondItem="uyb-B7-SLv" secondAttribute="top" id="Zea-YE-9K3"/>
                             <constraint firstItem="JjN-DU-6AV" firstAttribute="top" secondItem="uyb-B7-SLv" secondAttribute="top" id="aib-zt-BAe"/>
                             <constraint firstItem="JjN-DU-6AV" firstAttribute="leading" secondItem="uyb-B7-SLv" secondAttribute="leading" id="axT-4h-J7h"/>
                             <constraint firstItem="asg-qA-c26" firstAttribute="height" secondItem="JjN-DU-6AV" secondAttribute="height" multiplier="0.183267" id="bci-op-ihn"/>
                             <constraint firstAttribute="trailing" secondItem="asg-qA-c26" secondAttribute="trailing" id="eOC-NF-PVa"/>
-                            <constraint firstAttribute="trailing" secondItem="UoV-dz-E0p" secondAttribute="trailing" id="rcI-gw-Yun"/>
+                            <constraint firstAttribute="trailing" secondItem="fxy-MV-XF0" secondAttribute="trailing" id="uQl-8K-Uqc"/>
+                            <constraint firstItem="fxy-MV-XF0" firstAttribute="top" secondItem="uyb-B7-SLv" secondAttribute="top" id="wWQ-7H-huN"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -74,12 +89,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="favoritesButton" destination="UoV-dz-E0p" id="yPj-a2-uvD"/>
                 <outlet property="nameMealLabel" destination="ffp-sg-wW1" id="O9y-jy-CdY"/>
                 <outlet property="thumbnailMealImageView" destination="JjN-DU-6AV" id="mgY-1P-qTr"/>
                 <outlet property="viewContent" destination="uyb-B7-SLv" id="gXk-Uy-hut"/>
             </connections>
-            <point key="canvasLocation" x="-660.86956521739137" y="-2.34375"/>
+            <point key="canvasLocation" x="-654" y="-3"/>
         </tableViewCell>
     </objects>
     <resources>
