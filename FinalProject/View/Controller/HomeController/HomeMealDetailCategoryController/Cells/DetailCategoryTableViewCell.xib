@@ -19,6 +19,9 @@
                     <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="uyb-B7-SLv">
                         <rect key="frame" x="20" y="20" width="276" height="251"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JjN-DU-6AV">
+                                <rect key="frame" x="0.0" y="0.0" width="276" height="251"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UoV-dz-E0p">
                                 <rect key="frame" x="226" y="0.0" width="50" height="30"/>
                                 <constraints>
@@ -28,9 +31,6 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="heart" catalog="system"/>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JjN-DU-6AV">
-                                <rect key="frame" x="0.0" y="0.0" width="276" height="251"/>
-                            </imageView>
                             <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asg-qA-c26">
                                 <rect key="frame" x="0.0" y="205" width="276" height="46"/>
                                 <subviews>

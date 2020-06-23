@@ -10,6 +10,7 @@ import Foundation
 
 import Foundation
 import UIKit
+import SDWebImage
 
 class Downloader {
 
@@ -48,5 +49,4 @@ class Downloader {
         }
         task.resume()
     }
-
 }

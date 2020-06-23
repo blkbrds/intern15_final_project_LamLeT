@@ -33,21 +33,6 @@ class DetailCategoryViewModel {
         }
     }
 
-    // MARK: - Download Image
-    func downloadImage(at indexPath: IndexPath, completion: @escaping (IndexPath, UIImage?) -> Void) {
-        let item = mealCategory[indexPath.row]
-        if item.thumbnail == nil {
-            Downloader.shared().downloadImage(urlString: item.urlMealThumbnail) { (image) in
-                if let image = image {
-                    item.thumbnail = image
-                    completion(indexPath, image)
-                } else {
-                    completion(indexPath, nil)
-                }
-            }
-        }
-    }
-
     // MARK: - TableView Data
     func numberOfRowsInSection() -> Int {
         return mealCategory.count
@@ -57,5 +42,9 @@ class DetailCategoryViewModel {
         let item = mealCategory[indexPath.row]
         let model = DetailCategoryCellViewModel(meal: item)
         return model
+    }
+    
+    func heightForRowAt() -> CGFloat {
+        return 250
     }
 }

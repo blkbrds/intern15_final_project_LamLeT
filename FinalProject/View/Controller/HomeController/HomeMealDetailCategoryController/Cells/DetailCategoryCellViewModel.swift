@@ -11,10 +11,10 @@ import UIKit
 
 class DetailCategoryCellViewModel {
     var nameMeal: String
-    var thumbnailMeal: UIImage?
+    var urlThumnailMeal: String
     
     init(meal: Meal) {
         self.nameMeal = meal.mealName
-        self.thumbnailMeal = meal.thumbnail
+        self.urlThumnailMeal = meal.urlMealThumbnail
     }
 }

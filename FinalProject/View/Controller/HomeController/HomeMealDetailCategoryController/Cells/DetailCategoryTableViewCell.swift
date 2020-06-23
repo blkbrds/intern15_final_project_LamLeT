@@ -8,11 +8,6 @@
 
 import UIKit
 
-// MARK: - Protocol
-protocol DetailCategoryViewCellDelegate: class {
-    func downloadImage(indexPath: IndexPath)
-}
-
 final class DetailCategoryTableViewCell: UITableViewCell {
 
     // MARK: - Properties
@@ -20,10 +15,7 @@ final class DetailCategoryTableViewCell: UITableViewCell {
     @IBOutlet weak var viewContent: UIView!
     @IBOutlet weak var favoritesButton: UIButton!
     @IBOutlet weak var nameMealLabel: UILabel!
-
-    weak var delegate: DetailCategoryViewCellDelegate?
-    var indexPath: IndexPath?
-
+    
     var viewModel: DetailCategoryCellViewModel? {
         didSet {
             updateView()
@@ -44,13 +36,7 @@ final class DetailCategoryTableViewCell: UITableViewCell {
             return
         }
         nameMealLabel.text = viewModel.nameMeal
-        if viewModel.thumbnailMeal == nil {
-            if let delegate = delegate {
-                delegate.downloadImage(indexPath: indexPath!)
-            }
-        } else {
-            thumbnailMealImageView.image = viewModel.thumbnailMeal
-        }
+        thumbnailMealImageView.sd_setImage(with: URL(string: viewModel.urlThumnailMeal))
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

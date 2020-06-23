@@ -7,11 +7,7 @@
 //
 
 import UIKit
-
-// MARK: - Protocol
-protocol HomeCategoryCollectionViewCellDelegate: class {
-    func downloadImageForCell(indexPath: IndexPath)
-}
+import SDWebImage
 
 final class HomeCategoryCollectionViewCell: UICollectionViewCell {
 
@@ -24,10 +20,8 @@ final class HomeCategoryCollectionViewCell: UICollectionViewCell {
     var viewModel: HomeCellCategoryViewModel? {
         didSet {
             updateView()
-        }
+        }		
     }
-    weak var delegate: HomeCategoryCollectionViewCellDelegate?
-    var indexPath: IndexPath?
 
     // MARK: - Life Cycle
     override func awakeFromNib() {
@@ -45,13 +39,7 @@ final class HomeCategoryCollectionViewCell: UICollectionViewCell {
         guard let viewModel = viewModel else {
             return
         }
-        if viewModel.thumbnailCategory == nil {
-            if let delegate = delegate {
-                delegate.downloadImageForCell(indexPath: indexPath!)
-            }
-        } else {
-            thumbnailCategoryImageView.image = viewModel.thumbnailCategory
-        }
+        thumbnailCategoryImageView.sd_setImage(with: URL(string: viewModel.urlThumbnail))
     }
 
 }

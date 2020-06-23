@@ -82,22 +82,13 @@ extension DetailCategoryViewController: UITableViewDelegate, UITableViewDataSour
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DetailCategoryTableViewCell
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
-        cell.indexPath = indexPath
-        cell.delegate = self
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
-    }
-}
 
-extension DetailCategoryViewController: DetailCategoryViewCellDelegate {
-    func downloadImage(indexPath: IndexPath) {
-        viewModel?.downloadImage(at: indexPath) { (indexPath, image) in
-            if let _ = image {
-                self.tableView.reloadRows(at: [indexPath], with: .none)
-            }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let viewModel = viewModel else {
+            return 0
         }
+        return viewModel.heightForRowAt()
     }
 }

@@ -11,10 +11,12 @@ import UIKit
 
 class HomeCellCategoryViewModel {
     var nameCategory: String
+    var urlThumbnail: String
     var thumbnailCategory: UIImage?
     
     init(categoryMeal: CategoryMeal) {
         self.nameCategory = categoryMeal.strCategory
+        self.urlThumbnail = categoryMeal.strCategoryThumb
         self.thumbnailCategory = categoryMeal.thumbnail
     }
 }

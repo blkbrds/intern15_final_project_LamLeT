@@ -73,8 +73,6 @@ extension HomeCategoryViewController: UICollectionViewDataSource, UICollectionVi
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Configure.defineCell, for: indexPath) as? HomeCategoryCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.delegate = self
-        cell.indexPath = indexPath
         cell.viewModel = viewModel.getListCategory(indexPath: indexPath)
         return cell
     }
@@ -97,17 +95,7 @@ extension HomeCategoryViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: - Download Image
-extension HomeCategoryViewController: HomeCategoryCollectionViewCellDelegate {
-    func downloadImageForCell(indexPath: IndexPath) {
-        viewModel.downloadImage(at: indexPath) { (indexPath, image) in
-            if let _ = image {
-                self.listCategoryCollectionView.reloadItems(at: [indexPath])
-            }
-        }
-    }
-}
-
+// MARK: - Define
 private struct Configure {
     static let title: String = "Cooking"
     static let defineCell: String = "cell"

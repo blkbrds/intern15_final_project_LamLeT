@@ -29,20 +29,6 @@ class HomeCategoryViewModel {
         }
     }
 
-    func downloadImage(at indexPath: IndexPath, completion: @escaping (IndexPath, UIImage?) -> Void) {
-        let item = categoryMeals[indexPath.row]
-        if item.thumbnail == nil {
-            Downloader.shared().downloadImage(urlString: item.strCategoryThumb) { (image) in
-                if let image = image {
-                    item.thumbnail = image
-                    completion(indexPath, image)
-                } else {
-                    completion(indexPath, nil)
-                }
-            }
-        }
-    }
-
     // MARK: - Data Collection
     func numberOfItemsInSection() -> Int {
         return categoryMeals.count
