@@ -48,7 +48,7 @@ class Networking {
                     apiCompletion(.failure("Can't Connect"))
                 } else {
                     if let data = data {
-                        let json = data.toJSON1()
+                        let json = data.toJSON()
                         let categories = json["categories"] as! [JSON]
                         var categoryMeals: [CategoryMeal] = []
                         for item in categories {
