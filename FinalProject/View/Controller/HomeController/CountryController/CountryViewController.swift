@@ -20,19 +20,7 @@ final class CountryViewController: BaseViewController {
         super.viewDidLoad()
 
     }
-
-<<<<<<< Updated upstream
-
-    override func setUpUI() {
-        <#code#>
-    }
     
-=======
-    override func setUpUI() {
-        <#code#>
-    }
-
->>>>>>> Stashed changes
     override func setUpData() {
         registerColletionCell()
     }
@@ -75,12 +63,6 @@ extension CountryViewController: UICollectionViewDataSource, UICollectionViewDel
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-<<<<<<< Updated upstream
         return UICollectionViewCell()
     }
-=======
-        <#code#>
-    }
-
->>>>>>> Stashed changes
 }
