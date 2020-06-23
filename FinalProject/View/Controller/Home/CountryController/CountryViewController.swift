@@ -21,6 +21,10 @@ final class CountryViewController: BaseViewController {
 
     }
     
+    override func setUpUI() {
+        configNavi()
+    }
+    
     override func setUpData() {
         registerColletionCell()
     }
@@ -38,10 +42,14 @@ final class CountryViewController: BaseViewController {
         }
         SVProgressHUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
     }
+    
+    private func configNavi() {
+        title = Configure.title
+    }
 
     private func registerColletionCell() {
-        let nib = UINib(nibName: "CountryCollectionViewCell", bundle: .main)
-        collectionView.register(nib, forCellWithReuseIdentifier: "cell")
+        let nib = UINib(nibName: Configure.nibName, bundle: .main)
+        collectionView.register(nib, forCellWithReuseIdentifier: Configure.defineCell)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -51,8 +59,8 @@ final class CountryViewController: BaseViewController {
     }
     
     private func showAlert(message: String) {
-        let alert = UIAlertController(title: "Connect API", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Connect", style: .default, handler: nil))
+        let alert = UIAlertController(title: Configure.titleAlert, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Configure.titleAlertAction, style: .default, handler: nil))
         self.present(alert, animated: true)
     }
 }
@@ -65,4 +73,12 @@ extension CountryViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return UICollectionViewCell()
     }
+}
+// MARK: - Define
+private struct Configure {
+    static let title: String = "Country"
+    static let defineCell: String = "cell"
+    static let nibName: String = "CountryCollectionViewCell"
+    static let titleAlert = "Connect API"
+    static let titleAlertAction = "Connect"
 }
