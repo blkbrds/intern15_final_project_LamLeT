@@ -7,8 +7,6 @@
 //
 
 import Foundation
-
-import Foundation
 import UIKit
 
 class Downloader {
@@ -48,5 +46,4 @@ class Downloader {
         }
         task.resume()
     }
-
 }
