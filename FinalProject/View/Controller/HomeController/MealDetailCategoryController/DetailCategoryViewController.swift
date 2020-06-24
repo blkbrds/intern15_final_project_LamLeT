@@ -73,16 +73,16 @@ final class DetailCategoryViewController: BaseViewController {
         guard let viewModel = viewModel else {
             return
         }
-        SVProgressHUD.show()
+        HUD.show()
         viewModel.getAPIListCategory(detailCategoryCompletion: { (done, msg) in
-            SVProgressHUD.dismiss()
+            HUD.dismiss()
             if done {
                 self.updateUI()
             } else {
                 self.showAlert(message: msg)
             }
         })
-        SVProgressHUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
+        HUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
     }
 
     private func updateUI() {

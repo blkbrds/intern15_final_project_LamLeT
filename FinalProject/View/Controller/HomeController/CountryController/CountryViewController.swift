@@ -12,13 +12,12 @@ import SVProgressHUD
 final class CountryViewController: BaseViewController {
 
     // MARK: - Properties
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     var viewModel = CountryViewModel()
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     override func setUpData() {
@@ -27,21 +26,25 @@ final class CountryViewController: BaseViewController {
 
     // MARK: Private Funtions
     private func loadAPI() {
-        SVProgressHUD.show()
-        viewModel.getAPIListArea { (done, msg) in
-            SVProgressHUD.dismiss()
+        HUD.show()
+        viewModel.getAPIListArea { [weak self] (done, msg) in
+            HUD.dismiss()
+            guard let self = self else {
+                return
+            }
             if done {
                 self.updateView()
             } else {
                 self.showAlert(message: msg)
             }
         }
-        SVProgressHUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
+        HUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
     }
 
     private func registerColletionCell() {
-        let nib = UINib(nibName: "CountryCollectionViewCell", bundle: .main)
-        collectionView.register(nib, forCellWithReuseIdentifier: "cell")
+//        let nib = UINib(nibName: "CountryCollectionViewCell", bundle: .main)
+//        collectionView.register(nib, forCellWithReuseIdentifier: "cell")
+        collectionView.register(nibWithCellClass: CountryCollectionViewCell.self)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -51,8 +54,8 @@ final class CountryViewController: BaseViewController {
     }
     
     private func showAlert(message: String) {
-        let alert = UIAlertController(title: "Connect API", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Connect", style: .default, handler: nil))
+        let alert = UIAlertController(title: App.String.connectAPI, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: App.String.alertAction, style: .default, handler: nil))
         self.present(alert, animated: true)
     }
 }

@@ -41,16 +41,19 @@ final class HomeCategoryViewController: BaseViewController {
     }
 
     private func loadAPI() {
-        SVProgressHUD.show()
-        viewModel.getAPIListCategory { (done, msg) in
-            SVProgressHUD.dismiss()
+        HUD.show()
+        viewModel.getAPIListCategory { [weak self] (done, msg) in
+            HUD.dismiss()
+            guard let self = self else {
+                return
+            }
             if done {
                 self.updateView()
             } else {
                 self.showAlert(message: msg)
             }
         }
-        SVProgressHUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
+        HUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
     }
 
     private func updateView() {
@@ -58,8 +61,8 @@ final class HomeCategoryViewController: BaseViewController {
     }
 
     private func showAlert(message: String) {
-        let alert = UIAlertController(title: "Connect API", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Connect", style: .default, handler: nil))
+        let alert = UIAlertController(title: App.String.connectAPI, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: App.String.alertAction, style: .default, handler: nil))
         self.present(alert, animated: true)
     }
 }

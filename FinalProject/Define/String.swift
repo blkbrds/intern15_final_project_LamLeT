@@ -16,5 +16,10 @@ import Foundation
 extension App {
     struct String {
         // MARK: - Common
+        static let alertFailedAPI = "Failed"
+        static let alertFailedToConnectAPI = "Connect Failed"
+        static let alertFailedToDataAPI = "Data Covernt To Failed"
+        static let connectAPI = "Connect API"
+        static let alertAction = "Connect"
     }
 }
