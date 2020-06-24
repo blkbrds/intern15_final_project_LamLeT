@@ -57,7 +57,7 @@ class Networking {
                     apiCompletion(.failure("Can't Connect"))
                 } else {
                     if let data = data {
-                        let json = data.toJSON1()
+                        let json = data.toJSON()
                         let categories = json["categories"] as! [JSON]
                         var categoryMeals: [CategoryMeal] = []
                         for item in categories {
@@ -89,7 +89,7 @@ class Networking {
                     apiCompletion(.failure("Can't Connect"))
                 } else {
                     if let data = data {
-                        let json = data.toJSON1()
+                        let json = data.toJSON()
                         let meals = json["meals"] as! [JSON]
                         var categoryDetails: [Meal] = []
                         for item in meals {
@@ -121,7 +121,7 @@ class Networking {
                     apiCompletion(.failure("Can't Connect"))
                 } else {
                     if let data = data {
-                        let json = data.toJSON1()
+                        let json = data.toJSON()
                         let meals = json["meals"] as! [JSON]
                         var areas: [Meal] = []
                         for item in meals {
