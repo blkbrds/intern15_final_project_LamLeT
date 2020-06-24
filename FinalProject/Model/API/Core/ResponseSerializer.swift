@@ -40,7 +40,7 @@ extension Request {
                 return .failure(Api.Error.cancelRequest)
             }
             var err: NSError!
-            if let json = data?.toJSON() as? JSObject,
+            if let json = data?.toJSONAny() as? JSObject,
                 let reason = json["reason"] as? String {
                 err = NSError(code: statusCode, message: reason)
             } else if let status = HTTPStatus(code: statusCode) {
@@ -62,7 +62,7 @@ extension Request {
             return .success([:])
         }
 
-        guard let data = data, let json = data.toJSON() else {
+        guard let data = data, let json = data.toJSONAny() else {
             return Result.failure(Api.Error.json)
         }
 

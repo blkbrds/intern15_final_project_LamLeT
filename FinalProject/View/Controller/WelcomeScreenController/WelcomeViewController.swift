@@ -20,15 +20,10 @@ final class WelcomeViewController: BaseViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
-    
+
     override func setUpUI() {
         super.setUpUI()
-        configUI()
-    }
-
-    private func configUI() {
         title = Configure.title
         nextButton.cornerRadius = nextButton.height / 2
     }

@@ -8,8 +8,12 @@
 
 import Foundation
 
+struct CategoryResult {
+    var categories: [CategoryMeal]
+}
+
 struct CategoryMealResult {
-    var categoryMeals: [CategoryMeal]
+    var categoryMeals: [Meal]
 }
 
 //MARK: Enum
@@ -22,8 +26,8 @@ enum APIResult<T> {
 typealias APICompletion<T> = (APIResult<T>) -> Void
 
 class Networking {
-    let urlString = "https://www.themealdb.com/api/json/v1/1/categories.php"
 
+    // MARK: - Singleton
     private static var sharedNetworking: Networking = {
         let networking = Networking()
         return networking
@@ -33,32 +37,96 @@ class Networking {
         return sharedNetworking
     }
 
-    func getMeal(apiCompletion: @escaping APICompletion<CategoryMealResult>) {
-        guard let url = URL(string: urlString) else {
-            apiCompletion(.failure("Failed"))
+    // MARK: - Public Functions
+    func getCategory(completion: @escaping APICompletion<CategoryResult>) {
+        guard let url = URL(string: Api.Path.apiListCategory) else {
+            completion(.failure(App.String.alertFailedAPI))
             return
         }
         let config = URLSessionConfiguration.ephemeral
         config.waitsForConnectivity = true
-
         let session = URLSession(configuration: config)
         let task = session.dataTask(with: url) { (data, respone, error) in
             DispatchQueue.main.async {
                 if let _ = error {
-                    apiCompletion(.failure("Can't Connect"))
+                    completion(.failure(App.String.alertFailedToConnectAPI))
                 } else {
                     if let data = data {
-                        let json = data.toJSON1()
+                        let json = data.toJSON()
                         let categories = json["categories"] as! [JSON]
                         var categoryMeals: [CategoryMeal] = []
                         for item in categories {
                             let categoryMeal = CategoryMeal(json: item)
                             categoryMeals.append(categoryMeal)
                         }
-                        let result = CategoryMealResult(categoryMeals: categoryMeals)
-                        apiCompletion(.success(result))
+                        let result = CategoryResult(categories: categoryMeals)
+                        completion(.success(result))
                     } else {
-                        apiCompletion(.failure("Connect Failed"))
+                        completion(.failure(App.String.alertFailedToDataAPI))
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+
+    func getMealForCategory(categoryName: String, completion: @escaping APICompletion<CategoryMealResult>) {
+        guard let url = URL(string: Api.Path.apiMealCategoryAndArea + "c=\(categoryName)") else {
+            completion(.failure(App.String.alertFailedAPI))
+            return
+        }
+        let config = URLSessionConfiguration.ephemeral
+        config.waitsForConnectivity = true
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: url) { (data, respone, error) in
+            DispatchQueue.main.async {
+                if let _ = error {
+                    completion(.failure(App.String.alertFailedToConnectAPI))
+                } else {
+                    if let data = data {
+                        let json = data.toJSON()
+                        let meals = json["meals"] as! [JSON]
+                        var categoryDetails: [Meal] = []
+                        for item in meals {
+                            let meals = Meal(json: item)
+                            categoryDetails.append(meals)
+                        }
+                        let result = CategoryMealResult(categoryMeals: categoryDetails)
+                        completion(.success(result))
+                    } else {
+                        completion(.failure(App.String.alertFailedToDataAPI))
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    func getArea(completion: @escaping APICompletion<CategoryMealResult>) {
+        guard let url = URL(string: Api.Path.apiListArea) else {
+            completion(.failure(App.String.alertFailedAPI))
+            return
+        }
+        let config = URLSessionConfiguration.ephemeral
+        config.waitsForConnectivity = true
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: url) { (data, respone, error) in
+            DispatchQueue.main.async {
+                if let _ = error {
+                    completion(.failure(App.String.alertFailedToConnectAPI))
+                } else {
+                    if let data = data {
+                        let json = data.toJSON()
+                        let meals = json["meals"] as! [JSON]
+                        var areas: [Meal] = []
+                        for item in meals {
+                            let area = Meal(json: item)
+                            areas.append(area)
+                        }
+                        let result = CategoryMealResult(categoryMeals: areas)
+                        completion(.success(result))
+                    } else {
+                        completion(.failure(App.String.alertFailedToDataAPI))
                     }
                 }
             }
