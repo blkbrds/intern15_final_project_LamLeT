@@ -16,45 +16,61 @@
                 <rect key="frame" x="0.0" y="0.0" width="199" height="169"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zv2-Fl-xzA">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMw-P2-CBq">
                         <rect key="frame" x="0.0" y="0.0" width="199" height="169"/>
-                    </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Mc-ph-EuD">
-                        <rect key="frame" x="0.0" y="138" width="199" height="31"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="category name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOc-Bs-lkC">
-                                <rect key="frame" x="42" y="5" width="115" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zv2-Fl-xzA">
+                                <rect key="frame" x="0.0" y="0.0" width="199" height="169"/>
+                                <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Mc-ph-EuD">
+                                <rect key="frame" x="0.0" y="138" width="199" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="category name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOc-Bs-lkC">
+                                        <rect key="frame" x="0.0" y="0.0" width="199" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="KOc-Bs-lkC" secondAttribute="bottom" id="31i-7G-VE5"/>
+                                    <constraint firstItem="KOc-Bs-lkC" firstAttribute="top" secondItem="2Mc-ph-EuD" secondAttribute="top" id="AyQ-bk-bu2"/>
+                                    <constraint firstAttribute="trailing" secondItem="KOc-Bs-lkC" secondAttribute="trailing" id="RHG-eu-qLI"/>
+                                    <constraint firstItem="KOc-Bs-lkC" firstAttribute="leading" secondItem="2Mc-ph-EuD" secondAttribute="leading" id="ic1-Vg-9Cf"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="KOc-Bs-lkC" firstAttribute="centerX" secondItem="2Mc-ph-EuD" secondAttribute="centerX" id="l0X-ej-DLe"/>
-                            <constraint firstItem="KOc-Bs-lkC" firstAttribute="centerY" secondItem="2Mc-ph-EuD" secondAttribute="centerY" id="m3O-et-VSW"/>
+                            <constraint firstItem="2Mc-ph-EuD" firstAttribute="height" secondItem="zv2-Fl-xzA" secondAttribute="height" multiplier="0.183432" id="6NH-20-MMZ"/>
+                            <constraint firstItem="zv2-Fl-xzA" firstAttribute="top" secondItem="hMw-P2-CBq" secondAttribute="top" id="6UF-MJ-tLy"/>
+                            <constraint firstItem="zv2-Fl-xzA" firstAttribute="leading" secondItem="hMw-P2-CBq" secondAttribute="leading" id="Dp6-1k-bkh"/>
+                            <constraint firstAttribute="bottom" secondItem="zv2-Fl-xzA" secondAttribute="bottom" id="UhU-sr-ub5"/>
+                            <constraint firstAttribute="bottom" secondItem="2Mc-ph-EuD" secondAttribute="bottom" id="aKf-oL-fkw"/>
+                            <constraint firstItem="2Mc-ph-EuD" firstAttribute="leading" secondItem="hMw-P2-CBq" secondAttribute="leading" id="bCr-8s-wcp"/>
+                            <constraint firstAttribute="trailing" secondItem="2Mc-ph-EuD" secondAttribute="trailing" id="kxV-iv-Oql"/>
+                            <constraint firstAttribute="trailing" secondItem="zv2-Fl-xzA" secondAttribute="trailing" id="mIF-PQ-odC"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="zv2-Fl-xzA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2Fh-M5-vyj"/>
-                <constraint firstItem="zv2-Fl-xzA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="MBN-Dj-2AM"/>
-                <constraint firstAttribute="trailing" secondItem="2Mc-ph-EuD" secondAttribute="trailing" id="NuD-rv-wrR"/>
-                <constraint firstItem="2Mc-ph-EuD" firstAttribute="height" secondItem="zv2-Fl-xzA" secondAttribute="height" multiplier="0.183432" id="TrM-R0-I9t"/>
-                <constraint firstAttribute="bottom" secondItem="zv2-Fl-xzA" secondAttribute="bottom" id="Uec-Av-M1w"/>
-                <constraint firstItem="2Mc-ph-EuD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sPr-Ja-2rG"/>
-                <constraint firstAttribute="bottom" secondItem="2Mc-ph-EuD" secondAttribute="bottom" id="uid-8e-M2O"/>
-                <constraint firstAttribute="trailing" secondItem="zv2-Fl-xzA" secondAttribute="trailing" id="yE2-bd-yyv"/>
+                <constraint firstItem="hMw-P2-CBq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Klc-S2-96n"/>
+                <constraint firstAttribute="bottom" secondItem="hMw-P2-CBq" secondAttribute="bottom" id="WXd-jB-ecc"/>
+                <constraint firstItem="hMw-P2-CBq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="csg-hF-THx"/>
+                <constraint firstAttribute="trailing" secondItem="hMw-P2-CBq" secondAttribute="trailing" id="yg1-yO-wEq"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="199" height="169"/>
             <connections>
-                <outlet property="categoryView" destination="2Mc-ph-EuD" id="W7D-Yg-wP5"/>
+                <outlet property="cellCategoryView" destination="hMw-P2-CBq" id="O0F-LV-BVc"/>
                 <outlet property="nameCategoryLabel" destination="KOc-Bs-lkC" id="lu7-zs-hfH"/>
+                <outlet property="nameCategoryView" destination="2Mc-ph-EuD" id="W7D-Yg-wP5"/>
                 <outlet property="thumbnailCategoryImageView" destination="zv2-Fl-xzA" id="4sf-TH-wSF"/>
             </connections>
-            <point key="canvasLocation" x="121" y="59"/>
+            <point key="canvasLocation" x="18" y="-10"/>
         </collectionViewCell>
     </objects>
 </document>

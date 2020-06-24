@@ -18,9 +18,9 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Beginner For Cook" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qS-HV-Jmc">
-                    <rect key="frame" x="0.0" y="74" width="320" height="105.5"/>
-                    <fontDescription key="fontDescription" type="italicSystem" pointSize="44"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beginner For Cook" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qS-HV-Jmc">
+                    <rect key="frame" x="0.0" y="84" width="320" height="95.5"/>
+                    <fontDescription key="fontDescription" type="italicSystem" pointSize="40"/>
                     <color key="textColor" red="0.9882352941176471" green="0.78431372549019607" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -50,11 +50,12 @@
                 <constraint firstItem="gk4-BT-2Ed" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.332746" id="mhr-t6-9OX"/>
                 <constraint firstItem="ZH1-4u-eAV" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.0809595" id="nvI-Nu-5Nc"/>
                 <constraint firstItem="gk4-BT-2Ed" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="pr4-qr-gHu"/>
+                <constraint firstItem="2qS-HV-Jmc" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="pwu-K2-wqP"/>
                 <constraint firstItem="ZH1-4u-eAV" firstAttribute="top" secondItem="gk4-BT-2Ed" secondAttribute="bottom" constant="30" id="udj-zl-fkB"/>
                 <constraint firstItem="ZH1-4u-eAV" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="150/375" id="zrm-Gu-c4z"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="-456" y="-88"/>
+            <point key="canvasLocation" x="-167" y="-131"/>
         </view>
     </objects>
     <resources>

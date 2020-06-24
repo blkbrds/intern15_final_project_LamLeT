@@ -1,17 +1,19 @@
 //
-//  SearchViewController.swift
+//  HomeAreaViewController.swift
 //  FinalProject
 //
-//  Created by PCI0002 on 6/18/20.
+//  Created by PCI0002 on 6/22/20.
 //  Copyright © 2020 Thinh Nguyen X. All rights reserved.
 //
 
 import UIKit
 
-final class SearchViewController: UIViewController {
+
+class HomeAreaViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
 

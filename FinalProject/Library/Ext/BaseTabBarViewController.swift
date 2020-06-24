@@ -31,7 +31,6 @@ final class BaseTabBarViewController: UITabBarController {
 
         let favoritesVC = FavoritesViewController()
         let favoritesNavi = UINavigationController(rootViewController: favoritesVC)
-        favoritesNavi.navigationBar.isHidden = true
         favoritesVC.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(named: "heart"), tag: 2)
 
         self.viewControllers = [homeNavi, mapNavi, favoritesNavi]
