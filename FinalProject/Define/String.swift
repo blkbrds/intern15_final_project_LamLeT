@@ -21,5 +21,8 @@ extension App {
         static let alertFailedToDataAPI = "Data Covernt To Failed"
         static let connectAPI = "Connect API"
         static let alertAction = "Connect"
+        static let iconTable = "icon_tableView"
+        static let iconCollection = "icon_collectionView"
+        static let iconBack = "icon_back"
     }
 }
