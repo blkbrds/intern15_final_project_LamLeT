@@ -46,6 +46,7 @@ final class CountryViewController: BaseViewController {
 
     private func configNavi() {
         title = Configure.title
+        navigationController?.navigationBar.tintColor = UIColor.black
     }
 
     private func registerColletionCell() {
@@ -77,6 +78,12 @@ extension CountryViewController: UICollectionViewDataSource, UICollectionViewDel
         }
         cell.viewModel = viewModel.getListArea(indexPath: indexPath)
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = DetailMealCountryViewController()
+        vc.viewModel = viewModel.getNameArea(indexPath: indexPath)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -12,7 +12,7 @@ struct CategoryResult {
     var categories: [CategoryMeal]
 }
 
-struct CategoryMealResult {
+struct CategoryAreaMealResult {
     var categoryMeals: [Meal]
 }
 
@@ -75,7 +75,7 @@ class Networking {
         task.resume()
     }
 
-    func getMealDetailCategory(categoryName: String, apiCompletion: @escaping APICompletion<CategoryMealResult>) {
+    func getMealDetailCategory(categoryName: String, apiCompletion: @escaping APICompletion<CategoryAreaMealResult>) {
         guard let url = URL(string: apiMealCategoryAndArea + "c=\(categoryName)") else {
             apiCompletion(.failure("Failed"))
             return
@@ -96,7 +96,7 @@ class Networking {
                             let meals = Meal(json: item)
                             categoryDetails.append(meals)
                         }
-                        let result = CategoryMealResult(categoryMeals: categoryDetails)
+                        let result = CategoryAreaMealResult(categoryMeals: categoryDetails)
                         apiCompletion(.success(result))
                     } else {
                         apiCompletion(.failure("Connect Failed"))
@@ -107,7 +107,7 @@ class Networking {
         task.resume()
     }
     
-    func getArea(apiCompletion: @escaping APICompletion<CategoryMealResult>) {
+    func getArea(apiCompletion: @escaping APICompletion<CategoryAreaMealResult>) {
         guard let url = URL(string: apiListArea) else {
             apiCompletion(.failure("Failed"))
             return
@@ -128,7 +128,39 @@ class Networking {
                             let area = Meal(json: item)
                             areas.append(area)
                         }
-                        let result = CategoryMealResult(categoryMeals: areas)
+                        let result = CategoryAreaMealResult(categoryMeals: areas)
+                        apiCompletion(.success(result))
+                    } else {
+                        apiCompletion(.failure("Connect Failed"))
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    func getMealDetailArea(areaName: String, apiCompletion: @escaping APICompletion<CategoryAreaMealResult>) {
+        guard let url = URL(string: apiMealCategoryAndArea + "a=\(areaName)") else {
+            apiCompletion(.failure("Failed"))
+            return
+        }
+        let config = URLSessionConfiguration.ephemeral
+        config.waitsForConnectivity = true
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: url) { (data, respone, error) in
+            DispatchQueue.main.async {
+                if let _ = error {
+                    apiCompletion(.failure("Can't Connect"))
+                } else {
+                    if let data = data {
+                        let json = data.toJSON()
+                        let meals = json["meals"] as! [JSON]
+                        var categoryDetails: [Meal] = []
+                        for item in meals {
+                            let meals = Meal(json: item)
+                            categoryDetails.append(meals)
+                        }
+                        let result = CategoryAreaMealResult(categoryMeals: categoryDetails)
                         apiCompletion(.success(result))
                     } else {
                         apiCompletion(.failure("Connect Failed"))

@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import SVProgressHUD
 
-final class DetailMealAreaViewController: BaseViewController {
+final class DetailMealCountryViewController: BaseViewController {
 
     // MARK: - Properties
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var collectionView: UICollectionView!
-    var viewModel: DetailMealAreaViewModel?
+    var viewModel: DetailMealCountryViewModel?
     var isShowTableView: Bool = true
 
     // MARK: - Life Cycle
@@ -29,9 +30,26 @@ final class DetailMealAreaViewController: BaseViewController {
     override func setUpData() {
         registerTable()
         registerCollection()
+        loadAPI()
     }
 
     // MARK: - Private Functions
+    private func loadAPI() {
+        guard let viewModel = viewModel else {
+            return
+        }
+        SVProgressHUD.show()
+        viewModel.getAPIListArea(detailAreaCompletion: { (done, msg) in
+            SVProgressHUD.dismiss()
+            if done {
+                self.updateUI()
+            } else {
+                self.showAlert(message: msg)
+            }
+        })
+        SVProgressHUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
+    }
+
     private func configNavi() {
         title = viewModel?.nameArea
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: Configure.nameIconCollection), style: .plain, target: self, action: #selector(collectionViewButtonTouchUpInside))
@@ -65,27 +83,70 @@ final class DetailMealAreaViewController: BaseViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+
+    private func updateUI() {
+        tableView.reloadData()
+    }
+
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: "Connect API", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Connect", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
-extension DetailMealAreaViewController: UITableViewDataSource, UITableViewDelegate {
+extension DetailMealCountryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        guard let viewModel = viewModel else {
+            return 0
+        }
+        return viewModel.numberOfRowsInSection()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let viewModel = viewModel else {
+            return UITableViewCell()
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: Configure.defineCell, for: indexPath) as! DetailCategoryTableViewCell
+        cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
+        return cell }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let viewModel = viewModel else {
+            return 0
+        }
+        return viewModel.heightForRowAt()
     }
 }
 
 // MARK: - UICollectionDataSource, UICollectionDataSource
-extension DetailMealAreaViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension DetailMealCountryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        guard let viewModel = viewModel else {
+            return 0
+        }
+        return viewModel.numberOfRowsInSection()
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        guard let viewModel = viewModel else {
+            return UICollectionViewCell()
+        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Configure.defineCell, for: indexPath) as! DetailCategoryCollectionViewCell
+        cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
+        return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension DetailMealCountryViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
     }
 }
 
