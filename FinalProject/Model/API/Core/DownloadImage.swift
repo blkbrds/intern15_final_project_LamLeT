@@ -11,7 +11,7 @@ import UIKit
 
 class Downloader {
 
-    //singleton
+    // MARK: - Singleton
     private static var sharedDownloader: Downloader = {
         let downloader = Downloader()
         return downloader
@@ -21,7 +21,7 @@ class Downloader {
         return sharedDownloader
     }
 
-    //MARK: Download Image
+    // MARK: - Download Image
     func downloadImage(urlString: String, completion: @escaping (UIImage?) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(nil)
