@@ -20,7 +20,7 @@ class DetailCategoryViewModel {
 
     // MARK: - Get API
     func getAPIListCategory(detailCategoryCompletion: @escaping (Bool, String) -> Void) {
-        Networking.shared().getMealForCategory(categoryName: nameCategory) { (detailCategoryResult) in
+        Networking.shared().getMealDetailCategory(categoryName: nameCategory) { (detailCategoryResult) in
             switch detailCategoryResult {
             case .failure(let error):
                 detailCategoryCompletion(false, error)

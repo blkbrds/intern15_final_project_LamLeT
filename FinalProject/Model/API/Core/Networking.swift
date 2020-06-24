@@ -29,7 +29,7 @@ class Networking {
 
     // MARK: - Properties
     let apiListCategory = "https://www.themealdb.com/api/json/v1/1/categories.php"
-    let apiMealCategory = "https://www.themealdb.com/api/json/v1/1/filter.php?c="
+    let apiMealCategoryAndArea = "https://www.themealdb.com/api/json/v1/1/filter.php?"
     let apiListArea = "https://www.themealdb.com/api/json/v1/1/list.php?a=list"
 
     // MARK: - Singleton
@@ -75,8 +75,8 @@ class Networking {
         task.resume()
     }
 
-    func getMealForCategory(categoryName: String, apiCompletion: @escaping APICompletion<CategoryMealResult>) {
-        guard let url = URL(string: apiMealCategory + "\(categoryName)") else {
+    func getMealDetailCategory(categoryName: String, apiCompletion: @escaping APICompletion<CategoryMealResult>) {
+        guard let url = URL(string: apiMealCategoryAndArea + "c=\(categoryName)") else {
             apiCompletion(.failure("Failed"))
             return
         }
