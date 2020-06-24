@@ -20,13 +20,14 @@ final class CountryViewController: BaseViewController {
         super.viewDidLoad()
 
     }
-    
+
     override func setUpUI() {
         configNavi()
     }
-    
+
     override func setUpData() {
         registerColletionCell()
+        loadAPI()
     }
 
     // MARK: Private Funtions
@@ -42,7 +43,7 @@ final class CountryViewController: BaseViewController {
         }
         SVProgressHUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
     }
-    
+
     private func configNavi() {
         title = Configure.title
     }
@@ -53,11 +54,11 @@ final class CountryViewController: BaseViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-    
+
     private func updateView() {
         collectionView.reloadData()
     }
-    
+
     private func showAlert(message: String) {
         let alert = UIAlertController(title: Configure.titleAlert, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: Configure.titleAlertAction, style: .default, handler: nil))
@@ -71,9 +72,25 @@ extension CountryViewController: UICollectionViewDataSource, UICollectionViewDel
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Configure.defineCell, for: indexPath) as? CountryCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        cell.viewModel = viewModel.getListArea(indexPath: indexPath)
+        return cell
     }
 }
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension CountryViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+    }
+}
+
 // MARK: - Define
 private struct Configure {
     static let title: String = "Country"

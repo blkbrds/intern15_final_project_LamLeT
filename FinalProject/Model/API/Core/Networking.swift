@@ -28,9 +28,9 @@ typealias APICompletion<T> = (APIResult<T>) -> Void
 class Networking {
 
     // MARK: - Properties
-    let urlString = "https://www.themealdb.com/api/json/v1/1/categories.php"
-    let urlString2 = "https://www.themealdb.com/api/json/v1/1/filter.php?c="
-    let urlString3 = "https://www.themealdb.com/api/json/v1/1/list.php?a=list"
+    let apiListCategory = "https://www.themealdb.com/api/json/v1/1/categories.php"
+    let apiMealCategory = "https://www.themealdb.com/api/json/v1/1/filter.php?c="
+    let apiListArea = "https://www.themealdb.com/api/json/v1/1/list.php?a=list"
 
     // MARK: - Singleton
     private static var sharedNetworking: Networking = {
@@ -44,7 +44,7 @@ class Networking {
 
     // MARK: - Public Functions
     func getCategory(apiCompletion: @escaping APICompletion<CategoryResult>) {
-        guard let url = URL(string: urlString) else {
+        guard let url = URL(string: apiListCategory) else {
             apiCompletion(.failure("Failed"))
             return
         }
@@ -57,7 +57,7 @@ class Networking {
                     apiCompletion(.failure("Can't Connect"))
                 } else {
                     if let data = data {
-                        let json = data.toJSON1()
+                        let json = data.toJSON()
                         let categories = json["categories"] as! [JSON]
                         var categoryMeals: [CategoryMeal] = []
                         for item in categories {
@@ -76,7 +76,7 @@ class Networking {
     }
 
     func getMealForCategory(categoryName: String, apiCompletion: @escaping APICompletion<CategoryMealResult>) {
-        guard let url = URL(string: urlString2 + "\(categoryName)") else {
+        guard let url = URL(string: apiMealCategory + "\(categoryName)") else {
             apiCompletion(.failure("Failed"))
             return
         }
@@ -89,7 +89,7 @@ class Networking {
                     apiCompletion(.failure("Can't Connect"))
                 } else {
                     if let data = data {
-                        let json = data.toJSON1()
+                        let json = data.toJSON()
                         let meals = json["meals"] as! [JSON]
                         var categoryDetails: [Meal] = []
                         for item in meals {
@@ -108,7 +108,7 @@ class Networking {
     }
     
     func getArea(apiCompletion: @escaping APICompletion<CategoryMealResult>) {
-        guard let url = URL(string: urlString3) else {
+        guard let url = URL(string: apiListArea) else {
             apiCompletion(.failure("Failed"))
             return
         }
@@ -121,7 +121,7 @@ class Networking {
                     apiCompletion(.failure("Can't Connect"))
                 } else {
                     if let data = data {
-                        let json = data.toJSON1()
+                        let json = data.toJSON()
                         let meals = json["meals"] as! [JSON]
                         var areas: [Meal] = []
                         for item in meals {

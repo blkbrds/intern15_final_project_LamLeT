@@ -26,7 +26,7 @@
                             <view alpha="0.40000000596046448" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wfx-Yk-WJ0">
                                 <rect key="frame" x="0.0" y="138" width="199" height="31"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="category name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3w-Qp-7JE">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Area name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3w-Qp-7JE">
                                         <rect key="frame" x="0.0" y="0.0" width="199" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -65,9 +65,10 @@
             <viewLayoutGuide key="safeArea" id="uDq-bl-5Rt"/>
             <size key="customSize" width="199" height="169"/>
             <connections>
-                <outlet property="nameCategoryLabel" destination="k3w-Qp-7JE" id="yKI-1j-uhe"/>
+                <outlet property="areaNameLabel" destination="k3w-Qp-7JE" id="RUY-WS-1Av"/>
+                <outlet property="flagCountryImageView" destination="0M1-sY-hJT" id="xMH-SO-DFD"/>
             </connections>
-            <point key="canvasLocation" x="178" y="-6"/>
+            <point key="canvasLocation" x="-49" y="-4"/>
         </collectionViewCell>
     </objects>
 </document>

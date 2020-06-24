@@ -32,10 +32,12 @@ class CountryViewModel {
     func numberOfItemsInSection() -> Int {
         return areas.count
     }
-    
+
     func getListArea(indexPath: IndexPath) -> CountryCellViewModel {
         let item = areas[indexPath.row]
-        let model = CountryCellViewModel(meal: item, urlFlagCountry: "")
+        let urlFlag = Arr.flag[indexPath.row]
+        let model = CountryCellViewModel(meal: item, urlFlagCountry: urlFlag)
         return model
     }
 }
+
