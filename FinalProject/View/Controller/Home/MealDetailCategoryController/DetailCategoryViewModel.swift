@@ -8,27 +8,32 @@
 
 import Foundation
 import UIKit
+import MVVM
 
 class DetailCategoryViewModel {
-    var nameCategory: String
-
+    
+    // MARK: - Properties
+    var nameCategory: String = ""
     var mealCategory: [Meal] = []
+
+    init() { }
 
     init(nameCategory: String) {
         self.nameCategory = nameCategory
     }
 
     // MARK: - Get API
-    func getAPIListCategory(detailCategoryCompletion: @escaping (Bool, String) -> Void) {
-        Networking.shared().getMealDetailCategory(categoryName: nameCategory) { (detailCategoryResult) in
-            switch detailCategoryResult {
+
+    func getAPIListCategory(completion: @escaping (Bool, String) -> Void) {
+        Networking.shared().getMealForCategory(categoryName: nameCategory) { (result) in
+            switch result {
             case .failure(let error):
-                detailCategoryCompletion(false, error)
+                completion(false, error)
             case .success(let detailCategory):
                 for item in detailCategory.categoryMeals {
                     self.mealCategory.append(item)
                 }
-                detailCategoryCompletion(true, "")
+                completion(true, "")
             }
         }
     }
@@ -42,9 +47,5 @@ class DetailCategoryViewModel {
         let item = mealCategory[indexPath.row]
         let model = DetailCategoryCellViewModel(meal: item)
         return model
-    }
-    
-    func heightForRowAt() -> CGFloat {
-        return 250
     }
 }

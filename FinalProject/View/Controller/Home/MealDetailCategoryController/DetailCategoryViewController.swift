@@ -14,7 +14,8 @@ final class DetailCategoryViewController: BaseViewController {
     // MARK: - Properties
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var collectionView: UICollectionView!
-    var viewModel: DetailCategoryViewModel?
+    var viewModel: DetailCategoryViewModel = DetailCategoryViewModel()
+    
     var isShowTableView: Bool = true
 
     // MARK: - Life Cycle
@@ -35,54 +36,54 @@ final class DetailCategoryViewController: BaseViewController {
 
     // MARK: - Private Functions
     private func configNavi() {
-        title = viewModel?.nameCategory
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_collectionView"), style: .plain, target: self, action: #selector(collectionViewButtonTouchUpInside))
+        title = viewModel.nameCategory
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: App.String.iconCollection), style: .plain, target: self, action: #selector(collectionViewButtonTouchUpInside))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: App.String.iconBack), style: .plain, target: self, action: #selector(backToView))
     }
 
     // MARK: - Action
     @objc private func collectionViewButtonTouchUpInside() {
         if isShowTableView == true {
             isShowTableView = false
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_tableView"), style: .plain, target: self, action: #selector(collectionViewButtonTouchUpInside))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: App.String.iconTable), style: .plain, target: self, action: #selector(collectionViewButtonTouchUpInside))
             collectionView.isHidden = false
             collectionView.reloadData()
         } else {
             isShowTableView = true
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_collectionView"), style: .plain, target: self, action: #selector(collectionViewButtonTouchUpInside))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: App.String.iconCollection), style: .plain, target: self, action: #selector(collectionViewButtonTouchUpInside))
             collectionView.isHidden = true
             tableView.reloadData()
         }
     }
+    
+    @objc private func backToView() {
+        self.navigationController?.popViewController(animated: true)
+    }
 
 
     private func registerTableCell() {
-        let nib = UINib(nibName: "DetailCategoryTableViewCell", bundle: .main)
-        tableView.register(nib, forCellReuseIdentifier: "cell")
+        tableView.register(nibWithCellClass: DetailCategoryTableViewCell.self)
         tableView.delegate = self
         tableView.dataSource = self
     }
 
     private func registerCollectionCell() {
-        let nib = UINib(nibName: "DetailCategoryCollectionViewCell", bundle: .main)
-        collectionView.register(nib, forCellWithReuseIdentifier: "cell")
+        collectionView.register(nibWithCellClass: DetailCategoryCollectionViewCell.self)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
 
     private func loadAPI() {
-        guard let viewModel = viewModel else {
-            return
-        }
-        SVProgressHUD.show()
-        viewModel.getAPIListCategory(detailCategoryCompletion: { (done, msg) in
-            SVProgressHUD.dismiss()
+        HUD.show()
+        viewModel.getAPIListCategory(completion: { (done, msg) in
+            HUD.dismiss()
             if done {
                 self.updateUI()
             } else {
                 self.showAlert(message: msg)
             }
         })
-        SVProgressHUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
+        HUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
     }
 
     private func updateUI() {
@@ -90,8 +91,8 @@ final class DetailCategoryViewController: BaseViewController {
     }
 
     private func showAlert(message: String) {
-        let alert = UIAlertController(title: "Connect API", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Connect", style: .default, handler: nil))
+        let alert = UIAlertController(title: App.String.connectAPI, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: App.String.alertAction, style: .default, handler: nil))
         self.present(alert, animated: true)
     }
 }
@@ -99,43 +100,25 @@ final class DetailCategoryViewController: BaseViewController {
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension DetailCategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let viewModel = viewModel else {
-            return 0
-        }
         return viewModel.numberOfRowsInSection()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let viewModel = viewModel else {
-            return UITableViewCell()
-        }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DetailCategoryTableViewCell
+        let cell = tableView.dequeueReusableCell(withClass: DetailCategoryTableViewCell.self, for: indexPath)
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
         return cell
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let viewModel = viewModel else {
-            return 0
-        }
-        return viewModel.heightForRowAt()
     }
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension DetailCategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let viewModel = viewModel else {
-            return 0
-        }
+
         return viewModel.numberOfRowsInSection()
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let viewModel = viewModel else {
-            return UICollectionViewCell()
-        }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! DetailCategoryCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withClass: DetailCategoryCollectionViewCell.self, for: indexPath)
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
         return cell
     }
