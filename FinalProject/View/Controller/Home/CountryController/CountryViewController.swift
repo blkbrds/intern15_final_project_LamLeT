@@ -12,55 +12,56 @@ import SVProgressHUD
 final class CountryViewController: BaseViewController {
 
     // MARK: - Properties
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     var viewModel = CountryViewModel()
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
-    
+
     override func setUpUI() {
         configNavi()
     }
-    
+
     override func setUpData() {
         registerColletionCell()
     }
 
     // MARK: Private Funtions
     private func loadAPI() {
-        SVProgressHUD.show()
-        viewModel.getAPIListArea { (done, msg) in
-            SVProgressHUD.dismiss()
+        HUD.show()
+        viewModel.getAPIListArea { [weak self] (done, msg) in
+            HUD.dismiss()
+            guard let self = self else {
+                return
+            }
             if done {
                 self.updateView()
             } else {
                 self.showAlert(message: msg)
             }
         }
-        SVProgressHUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
+        HUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
     }
-    
+
     private func configNavi() {
-        title = Configure.title
+        title = viewModel.title
     }
 
     private func registerColletionCell() {
-        let nib = UINib(nibName: Configure.nibName, bundle: .main)
-        collectionView.register(nib, forCellWithReuseIdentifier: Configure.defineCell)
+        collectionView.register(nibWithCellClass: CountryCollectionViewCell.self)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-    
+
     private func updateView() {
         collectionView.reloadData()
     }
-    
+
     private func showAlert(message: String) {
-        let alert = UIAlertController(title: Configure.titleAlert, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Configure.titleAlertAction, style: .default, handler: nil))
+        let alert = UIAlertController(title: App.String.connectAPI, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: App.String.alertAction, style: .default, handler: nil))
         self.present(alert, animated: true)
     }
 }
@@ -73,12 +74,4 @@ extension CountryViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return UICollectionViewCell()
     }
-}
-// MARK: - Define
-private struct Configure {
-    static let title: String = "Country"
-    static let defineCell: String = "cell"
-    static let nibName: String = "CountryCollectionViewCell"
-    static let titleAlert = "Connect API"
-    static let titleAlertAction = "Connect"
 }

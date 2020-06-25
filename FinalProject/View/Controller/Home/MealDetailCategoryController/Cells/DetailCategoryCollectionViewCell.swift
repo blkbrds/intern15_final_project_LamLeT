@@ -8,9 +8,13 @@
 
 import UIKit
 
+private struct Config {
+    static let radius: CGFloat = 10
+}
+
 final class DetailCategoryCollectionViewCell: UICollectionViewCell {
 
-    // MARK: - Properties
+    // MARK: - IBOutlets
     @IBOutlet private weak var nameMealLabel: UILabel!
     @IBOutlet private weak var nameMealView: UIView!
     @IBOutlet private weak var viewForCell: UIView!
@@ -26,10 +30,8 @@ final class DetailCategoryCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        viewForCell.layer.cornerRadius = 10
-        viewForCell.clipsToBounds = true
-        nameMealLabel.layer.cornerRadius = 10
-        nameMealLabel.clipsToBounds = true
+        viewForCell.cornerRadius = Config.radius
+        nameMealLabel.cornerRadius = Config.radius
     }
 
     // MARK: - Private functions
@@ -40,5 +42,4 @@ final class DetailCategoryCollectionViewCell: UICollectionViewCell {
         nameMealLabel.text = viewModel.nameMeal
         thumbnailMealImageView.sd_setImage(with: URL(string: viewModel.urlThumnailMeal))
     }
-
 }

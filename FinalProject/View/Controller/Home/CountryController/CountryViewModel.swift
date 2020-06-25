@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import MVVM
 
-class CountryViewModel {
+final class CountryViewModel {
 
     // MARK: - Properties
     var areas: [Meal] = []
+    var title: String = "Country"
 
     // MARK: - Public Function
     func getAPIListArea(listAreaCompletion: @escaping (Bool, String) -> Void) {
