@@ -38,6 +38,23 @@
 		F00DAA4D249B7990001A70BC /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F00DAA4B249B7990001A70BC /* FavoritesViewController.xib */; };
 		F01685BC249CB7E2006BE5C9 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01685BB249CB7E2006BE5C9 /* Meal.swift */; };
 		F01685BE249CC650006BE5C9 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01685BD249CC650006BE5C9 /* Networking.swift */; };
+		F06908F724A4668E006D9603 /* DetailMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06908F524A4668E006D9603 /* DetailMealViewController.swift */; };
+		F06908F824A4668E006D9603 /* DetailMealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F06908F624A4668E006D9603 /* DetailMealViewController.xib */; };
+		F06908FA24A466B6006D9603 /* DetailMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06908F924A466B6006D9603 /* DetailMealViewModel.swift */; };
+		F069090424A47C7A006D9603 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069090224A47C7A006D9603 /* InfoTableViewCell.swift */; };
+		F069090524A47C7A006D9603 /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069090324A47C7A006D9603 /* InfoTableViewCell.xib */; };
+		F069090824A47C89006D9603 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069090624A47C89006D9603 /* ImageTableViewCell.swift */; };
+		F069090924A47C89006D9603 /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069090724A47C89006D9603 /* ImageTableViewCell.xib */; };
+		F069090C24A47C95006D9603 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069090A24A47C95006D9603 /* VideoTableViewCell.swift */; };
+		F069090D24A47C95006D9603 /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069090B24A47C95006D9603 /* VideoTableViewCell.xib */; };
+		F069091024A47CA3006D9603 /* InstructionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069090E24A47CA3006D9603 /* InstructionsTableViewCell.swift */; };
+		F069091124A47CA3006D9603 /* InstructionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069090F24A47CA3006D9603 /* InstructionsTableViewCell.xib */; };
+		F069091424A47CB7006D9603 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069091224A47CB7006D9603 /* IngredientTableViewCell.swift */; };
+		F069091524A47CB7006D9603 /* IngredientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069091324A47CB7006D9603 /* IngredientTableViewCell.xib */; };
+		F069091824A47CC7006D9603 /* MeasureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069091624A47CC7006D9603 /* MeasureTableViewCell.swift */; };
+		F069091924A47CC7006D9603 /* MeasureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069091724A47CC7006D9603 /* MeasureTableViewCell.xib */; };
+		F069091C24A47CE1006D9603 /* SourceLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069091A24A47CE1006D9603 /* SourceLinkTableViewCell.swift */; };
+		F069091D24A47CE1006D9603 /* SourceLinkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069091B24A47CE1006D9603 /* SourceLinkTableViewCell.xib */; };
 		F0BE18DE249B613A004FA5AB /* NSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18DD249B613A004FA5AB /* NSURL.swift */; };
 		F0BE18E0249B6180004FA5AB /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18DF249B617F004FA5AB /* Api.swift */; };
 		F0BE18E2249B6264004FA5AB /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18E1249B6264004FA5AB /* StringExt.swift */; };
@@ -126,6 +143,23 @@
 		F00DAA4B249B7990001A70BC /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 		F01685BB249CB7E2006BE5C9 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		F01685BD249CC650006BE5C9 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		F06908F524A4668E006D9603 /* DetailMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealViewController.swift; sourceTree = "<group>"; };
+		F06908F624A4668E006D9603 /* DetailMealViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailMealViewController.xib; sourceTree = "<group>"; };
+		F06908F924A466B6006D9603 /* DetailMealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealViewModel.swift; sourceTree = "<group>"; };
+		F069090224A47C7A006D9603 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
+		F069090324A47C7A006D9603 /* InfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
+		F069090624A47C89006D9603 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		F069090724A47C89006D9603 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
+		F069090A24A47C95006D9603 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
+		F069090B24A47C95006D9603 /* VideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
+		F069090E24A47CA3006D9603 /* InstructionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsTableViewCell.swift; sourceTree = "<group>"; };
+		F069090F24A47CA3006D9603 /* InstructionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstructionsTableViewCell.xib; sourceTree = "<group>"; };
+		F069091224A47CB7006D9603 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
+		F069091324A47CB7006D9603 /* IngredientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientTableViewCell.xib; sourceTree = "<group>"; };
+		F069091624A47CC7006D9603 /* MeasureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureTableViewCell.swift; sourceTree = "<group>"; };
+		F069091724A47CC7006D9603 /* MeasureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeasureTableViewCell.xib; sourceTree = "<group>"; };
+		F069091A24A47CE1006D9603 /* SourceLinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLinkTableViewCell.swift; sourceTree = "<group>"; };
+		F069091B24A47CE1006D9603 /* SourceLinkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SourceLinkTableViewCell.xib; sourceTree = "<group>"; };
 		F0BE18DD249B613A004FA5AB /* NSURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURL.swift; sourceTree = "<group>"; };
 		F0BE18DF249B617F004FA5AB /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		F0BE18E1249B6264004FA5AB /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
@@ -427,10 +461,11 @@
 		F00DAA3A249B77D7001A70BC /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F0F4BDE024A2E6F5000A2CD0 /* MealDetailCountryController */,
-				F0F4BDCA24A1EB12000A2CD0 /* MealDetailCategoryController */,
-				F0F4BDBA24A1A850000A2CD0 /* CountryController */,
 				F0F746F0249C4CC5002BDE15 /* CategoryController */,
+				F0F4BDBA24A1A850000A2CD0 /* CountryController */,
+				F06908F324A465BD006D9603 /* DetailMealController */,
+				F0F4BDCA24A1EB12000A2CD0 /* MealDetailCategoryController */,
+				F0F4BDE024A2E6F5000A2CD0 /* MealDetailCountryController */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -460,6 +495,94 @@
 				F00DAA3F249B78BF001A70BC /* WelcomeViewController.xib */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		F06908F324A465BD006D9603 /* DetailMealController */ = {
+			isa = PBXGroup;
+			children = (
+				F06908F424A465FD006D9603 /* Cells */,
+				F06908F524A4668E006D9603 /* DetailMealViewController.swift */,
+				F06908F624A4668E006D9603 /* DetailMealViewController.xib */,
+				F06908F924A466B6006D9603 /* DetailMealViewModel.swift */,
+			);
+			path = DetailMealController;
+			sourceTree = "<group>";
+		};
+		F06908F424A465FD006D9603 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F069090124A4671A006D9603 /* SourceLink */,
+				F069090024A46714006D9603 /* Measure */,
+				F06908FF24A46710006D9603 /* Ingredient */,
+				F06908FE24A466D7006D9603 /* Instructions */,
+				F06908FD24A466D2006D9603 /* Video */,
+				F06908FB24A466B9006D9603 /* Image */,
+				F06908FC24A466BD006D9603 /* Info */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F06908FB24A466B9006D9603 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				F069090624A47C89006D9603 /* ImageTableViewCell.swift */,
+				F069090724A47C89006D9603 /* ImageTableViewCell.xib */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		F06908FC24A466BD006D9603 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				F069090224A47C7A006D9603 /* InfoTableViewCell.swift */,
+				F069090324A47C7A006D9603 /* InfoTableViewCell.xib */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		F06908FD24A466D2006D9603 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				F069090A24A47C95006D9603 /* VideoTableViewCell.swift */,
+				F069090B24A47C95006D9603 /* VideoTableViewCell.xib */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		F06908FE24A466D7006D9603 /* Instructions */ = {
+			isa = PBXGroup;
+			children = (
+				F069090E24A47CA3006D9603 /* InstructionsTableViewCell.swift */,
+				F069090F24A47CA3006D9603 /* InstructionsTableViewCell.xib */,
+			);
+			path = Instructions;
+			sourceTree = "<group>";
+		};
+		F06908FF24A46710006D9603 /* Ingredient */ = {
+			isa = PBXGroup;
+			children = (
+				F069091224A47CB7006D9603 /* IngredientTableViewCell.swift */,
+				F069091324A47CB7006D9603 /* IngredientTableViewCell.xib */,
+			);
+			path = Ingredient;
+			sourceTree = "<group>";
+		};
+		F069090024A46714006D9603 /* Measure */ = {
+			isa = PBXGroup;
+			children = (
+				F069091624A47CC7006D9603 /* MeasureTableViewCell.swift */,
+				F069091724A47CC7006D9603 /* MeasureTableViewCell.xib */,
+			);
+			path = Measure;
+			sourceTree = "<group>";
+		};
+		F069090124A4671A006D9603 /* SourceLink */ = {
+			isa = PBXGroup;
+			children = (
+				F069091A24A47CE1006D9603 /* SourceLinkTableViewCell.swift */,
+				F069091B24A47CE1006D9603 /* SourceLinkTableViewCell.xib */,
+			);
+			path = SourceLink;
 			sourceTree = "<group>";
 		};
 		F0F4BDBA24A1A850000A2CD0 /* CountryController */ = {
@@ -645,15 +768,23 @@
 			files = (
 				F0F4BDD824A1EB12000A2CD0 /* DetailCategoryTableViewCell.xib in Resources */,
 				F0F4BDD524A1EB12000A2CD0 /* DetailCategoryCollectionViewCell.xib in Resources */,
+				F069091924A47CC7006D9603 /* MeasureTableViewCell.xib in Resources */,
+				F069091124A47CA3006D9603 /* InstructionsTableViewCell.xib in Resources */,
 				F0F746F9249C4D1B002BDE15 /* HomeCategoryViewController.xib in Resources */,
 				D10B9095249B19FA003E0A85 /* Preview Assets.xcassets in Resources */,
+				F06908F824A4668E006D9603 /* DetailMealViewController.xib in Resources */,
 				F0F4BDC524A1B076000A2CD0 /* CountryCollectionViewCell.xib in Resources */,
+				F069091524A47CB7006D9603 /* IngredientTableViewCell.xib in Resources */,
 				D10B9092249B19FA003E0A85 /* Assets.xcassets in Resources */,
+				F069091D24A47CE1006D9603 /* SourceLinkTableViewCell.xib in Resources */,
+				F069090D24A47C95006D9603 /* VideoTableViewCell.xib in Resources */,
 				F00DAA41249B78BF001A70BC /* WelcomeViewController.xib in Resources */,
 				F0F4BDE424A2E74B000A2CD0 /* DetailMealCountryViewController.xib in Resources */,
 				F0F746FE249C4E31002BDE15 /* HomeCategoryCollectionViewCell.xib in Resources */,
+				F069090524A47C7A006D9603 /* InfoTableViewCell.xib in Resources */,
 				F0F4BDDB24A1EB12000A2CD0 /* DetailCategoryViewController.xib in Resources */,
 				F0F4BDBD24A1A851000A2CD0 /* CountryViewController.xib in Resources */,
+				F069090924A47C89006D9603 /* ImageTableViewCell.xib in Resources */,
 				F00DAA49249B7980001A70BC /* SearchViewController.xib in Resources */,
 				F00DAA4D249B7990001A70BC /* FavoritesViewController.xib in Resources */,
 			);
@@ -731,6 +862,7 @@
 				F0BE18E0249B6180004FA5AB /* Api.swift in Sources */,
 				F0F4BDD424A1EB12000A2CD0 /* DetailCategoryTableViewCell.swift in Sources */,
 				F0F4BDC024A1AFB9000A2CD0 /* CountryViewModel.swift in Sources */,
+				F069090824A47C89006D9603 /* ImageTableViewCell.swift in Sources */,
 				F00DAA40249B78BF001A70BC /* WelcomeViewController.swift in Sources */,
 				F0F4BDDA24A1EB12000A2CD0 /* DetailCategoryViewController.swift in Sources */,
 				F00DAA37249B76C6001A70BC /* BaseViewController.swift in Sources */,
@@ -739,17 +871,21 @@
 				F00DAA39249B7714001A70BC /* BaseTabBarViewController.swift in Sources */,
 				F0F4BDE724A2E79A000A2CD0 /* DetailMealCountryViewModel.swift in Sources */,
 				F0F4BDE324A2E74B000A2CD0 /* DetailMealCountryViewController.swift in Sources */,
+				F069091824A47CC7006D9603 /* MeasureTableViewCell.swift in Sources */,
 				F01685BC249CB7E2006BE5C9 /* Meal.swift in Sources */,
+				F069091C24A47CE1006D9603 /* SourceLinkTableViewCell.swift in Sources */,
 				D10B90DB249B1DD5003E0A85 /* Color.swift in Sources */,
 				D10B918A249B1FD8003E0A85 /* RequestSerializer.swift in Sources */,
 				F0BE18DE249B613A004FA5AB /* NSURL.swift in Sources */,
 				F0F746F8249C4D1B002BDE15 /* HomeCategoryViewController.swift in Sources */,
+				F069090C24A47C95006D9603 /* VideoTableViewCell.swift in Sources */,
 				D10B90C7249B1DBE003E0A85 /* Ratio.swift in Sources */,
 				D10B918C249B1FD8003E0A85 /* ApiManager.swift in Sources */,
 				F00DAA48249B7980001A70BC /* SearchViewController.swift in Sources */,
 				D10B90CA249B1DC8003E0A85 /* UIViewExt.swift in Sources */,
 				F0F4BDD924A1EB12000A2CD0 /* DetailCategoryViewModel.swift in Sources */,
 				F0F4BD8C24A04E19000A2CD0 /* HomeCellCategoryViewModel.swift in Sources */,
+				F06908FA24A466B6006D9603 /* DetailMealViewModel.swift in Sources */,
 				F0F4BD9224A05676000A2CD0 /* CategoryMeal.swift in Sources */,
 				F01685BE249CC650006BE5C9 /* Networking.swift in Sources */,
 				D10B90D7249B1DD5003E0A85 /* String.swift in Sources */,
@@ -757,12 +893,16 @@
 				D10B90DA249B1DD5003E0A85 /* Configuration.swift in Sources */,
 				F0F4BDD624A1EB12000A2CD0 /* DetailCategoryCollectionViewCell.swift in Sources */,
 				F0F4BD8E24A04FA8000A2CD0 /* HomeCategoryViewModel.swift in Sources */,
+				F069091024A47CA3006D9603 /* InstructionsTableViewCell.swift in Sources */,
+				F06908F724A4668E006D9603 /* DetailMealViewController.swift in Sources */,
+				F069090424A47C7A006D9603 /* InfoTableViewCell.swift in Sources */,
 				F0F4BDBE24A1A851000A2CD0 /* CountryViewController.swift in Sources */,
 				F0BE18E2249B6264004FA5AB /* StringExt.swift in Sources */,
 				D10B90D8249B1DD5003E0A85 /* App.swift in Sources */,
 				F0F4BDC424A1B076000A2CD0 /* CountryCollectionViewCell.swift in Sources */,
 				D10B918D249B1FD8003E0A85 /* ResponseSerializer.swift in Sources */,
 				F0F4BDC724A1B0AE000A2CD0 /* CountryCellViewModel.swift in Sources */,
+				F069091424A47CB7006D9603 /* IngredientTableViewCell.swift in Sources */,
 				D10B908E249B19F2003E0A85 /* SceneDelegate.swift in Sources */,
 				D10B918B249B1FD8003E0A85 /* Error.swift in Sources */,
 				D10B9090249B19F2003E0A85 /* ContentView.swift in Sources */,

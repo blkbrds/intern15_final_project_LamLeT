@@ -110,13 +110,19 @@ extension DetailMealCountryViewController: UITableViewDataSource, UITableViewDel
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: Configure.defineCell, for: indexPath) as! DetailCategoryTableViewCell
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
-        return cell }
+        return cell
+    }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let viewModel = viewModel else {
             return 0
         }
         return viewModel.heightForRowAt()
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DetailMealViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -136,6 +142,11 @@ extension DetailMealCountryViewController: UICollectionViewDataSource, UICollect
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Configure.defineCell, for: indexPath) as! DetailCategoryCollectionViewCell
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = DetailMealViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
