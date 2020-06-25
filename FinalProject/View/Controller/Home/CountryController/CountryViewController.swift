@@ -12,13 +12,12 @@ import SVProgressHUD
 final class CountryViewController: BaseViewController {
 
     // MARK: - Properties
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     var viewModel = CountryViewModel()
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     override func setUpUI() {
@@ -32,16 +31,19 @@ final class CountryViewController: BaseViewController {
 
     // MARK: Private Funtions
     private func loadAPI() {
-        SVProgressHUD.show()
-        viewModel.getAPIListArea { (done, msg) in
-            SVProgressHUD.dismiss()
+        HUD.show()
+        viewModel.getAPIListArea { [weak self] (done, msg) in
+            HUD.dismiss()
+            guard let self = self else {
+                return
+            }
             if done {
                 self.updateView()
             } else {
                 self.showAlert(message: msg)
             }
         }
-        SVProgressHUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
+        HUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
     }
 
     private func configNavi() {
@@ -49,8 +51,7 @@ final class CountryViewController: BaseViewController {
     }
 
     private func registerColletionCell() {
-        let nib = UINib(nibName: Configure.nibName, bundle: .main)
-        collectionView.register(nib, forCellWithReuseIdentifier: Configure.defineCell)
+        collectionView.register(nibWithCellClass: CountryCollectionViewCell.self)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -60,8 +61,8 @@ final class CountryViewController: BaseViewController {
     }
 
     private func showAlert(message: String) {
-        let alert = UIAlertController(title: Configure.titleAlert, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Configure.titleAlertAction, style: .default, handler: nil))
+        let alert = UIAlertController(title: App.String.connectAPI, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: App.String.alertAction, style: .default, handler: nil))
         self.present(alert, animated: true)
     }
 }
@@ -72,9 +73,7 @@ extension CountryViewController: UICollectionViewDataSource, UICollectionViewDel
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Configure.defineCell, for: indexPath) as? CountryCollectionViewCell else {
-            return UICollectionViewCell()
-        }
+        let cell = collectionView.dequeueReusableCell(withClass: CountryCollectionViewCell.self, for: indexPath)
         cell.viewModel = viewModel.getListArea(indexPath: indexPath)
         return cell
     }

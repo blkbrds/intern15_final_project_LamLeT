@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import MVVM
 
-class CountryViewModel {
+final class CountryViewModel {
 
     // MARK: - Properties
     var areas: [Meal] = []
