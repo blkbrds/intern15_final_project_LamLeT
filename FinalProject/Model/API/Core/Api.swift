@@ -17,6 +17,11 @@ final class Api {
         #else
             static let baseURL = "https://pro-asiantech.vn"
         #endif
+        static let apiListCategory = "https://www.themealdb.com/api/json/v1/1/categories.php"
+        
+        static let apiMealCategoryAndArea = "https://www.themealdb.com/api/json/v1/1/filter.php?"
+        
+        static let apiListArea = "https://www.themealdb.com/api/json/v1/1/list.php?a=list"
     }
 }
 

@@ -11,12 +11,13 @@ import UIKit
 import UIKit
 import SVProgressHUD
 
+typealias HUD = SVProgressHUD
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         SVProgressHUD.setDefaultStyle(.dark)
         SVProgressHUD.setDefaultMaskType(.custom)
         SVProgressHUD.setBackgroundLayerColor(.clear)
