@@ -113,7 +113,6 @@ extension DetailCategoryViewController: UITableViewDelegate, UITableViewDataSour
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension DetailCategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
         return viewModel.numberOfRowsInSection()
     }
 
