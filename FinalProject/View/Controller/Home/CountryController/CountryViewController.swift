@@ -50,8 +50,7 @@ final class CountryViewController: BaseViewController {
     }
 
     private func registerColletionCell() {
-        let nib = UINib(nibName: Configure.nibName, bundle: .main)
-        collectionView.register(nib, forCellWithReuseIdentifier: Configure.defineCell)
+        collectionView.register(nibWithCellClass: CountryCollectionViewCell.self)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -73,9 +72,7 @@ extension CountryViewController: UICollectionViewDataSource, UICollectionViewDel
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Configure.defineCell, for: indexPath) as? CountryCollectionViewCell else {
-            return UICollectionViewCell()
-        }
+        let cell = collectionView.dequeueReusableCell(withClass: CountryCollectionViewCell.self, for: indexPath)
         cell.viewModel = viewModel.getListArea(indexPath: indexPath)
         return cell
     }
@@ -102,7 +99,6 @@ extension CountryViewController: UICollectionViewDelegateFlowLayout {
 private struct Configure {
     static let title: String = "Country"
     static let defineCell: String = "cell"
-    static let nibName: String = "CountryCollectionViewCell"
     static let titleAlert = "Connect API"
     static let titleAlertAction = "Connect"
 }
