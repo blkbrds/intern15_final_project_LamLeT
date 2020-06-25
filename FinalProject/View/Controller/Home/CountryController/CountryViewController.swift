@@ -46,7 +46,7 @@ final class CountryViewController: BaseViewController {
     }
 
     private func configNavi() {
-        title = viewModel.title
+        title = App.String.titleCountry
     }
 
     private func registerColletionCell() {

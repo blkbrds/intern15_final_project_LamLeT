@@ -13,11 +13,13 @@ final class CountryViewModel {
 
     // MARK: - Properties
     var areas: [Meal] = []
-    var title: String = "Country"
 
     // MARK: - Public Function
     func getAPIListArea(listAreaCompletion: @escaping (Bool, String) -> Void) {
-        Networking.shared().getArea { (areaResult) in
+        Networking.shared().getArea { [weak self] (areaResult) in
+            guard let self = self else {
+                return
+            }
             switch areaResult {
             case .failure(let error):
                 listAreaCompletion(false, error)
