@@ -75,8 +75,11 @@ final class DetailCategoryViewController: BaseViewController {
 
     private func loadAPI() {
         HUD.show()
-        viewModel.getAPIListCategory(completion: { (done, msg) in
+        viewModel.getAPIListCategory(completion: { [weak self] (done, msg) in
             HUD.dismiss()
+            guard let self = self else {
+                return
+            }
             if done {
                 self.updateUI()
             } else {
@@ -113,7 +116,6 @@ extension DetailCategoryViewController: UITableViewDelegate, UITableViewDataSour
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension DetailCategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
         return viewModel.numberOfRowsInSection()
     }
 

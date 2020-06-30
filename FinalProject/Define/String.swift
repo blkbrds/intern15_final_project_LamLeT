@@ -24,5 +24,6 @@ extension App {
         static let iconTable = "icon_tableView"
         static let iconCollection = "icon_collectionView"
         static let iconBack = "icon_back"
+        static let titleCountry = "Country"
     }
 }
