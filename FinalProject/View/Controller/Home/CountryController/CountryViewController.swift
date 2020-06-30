@@ -47,7 +47,7 @@ final class CountryViewController: BaseViewController {
     }
 
     private func configNavi() {
-        title = Configure.title
+        title = App.String.titleCountry
     }
 
     private func registerColletionCell() {
@@ -93,8 +93,6 @@ extension CountryViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - Define
 private struct Configure {
     static let title: String = "Country"
-    static let defineCell: String = "cell"
-    static let nibName: String = "CountryCollectionViewCell"
     static let titleAlert = "Connect API"
     static let titleAlertAction = "Connect"
 }

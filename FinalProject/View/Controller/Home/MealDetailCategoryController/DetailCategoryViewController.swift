@@ -75,8 +75,11 @@ final class DetailCategoryViewController: BaseViewController {
 
     private func loadAPI() {
         HUD.show()
-        viewModel.getAPIListCategory(completion: { (done, msg) in
+        viewModel.getAPIListCategory(completion: { [weak self] (done, msg) in
             HUD.dismiss()
+            guard let self = self else {
+                return
+            }
             if done {
                 self.updateUI()
             } else {
