@@ -33,9 +33,7 @@ final class HomeCategoryViewController: BaseViewController {
 
     // MARK: - Private Functions
     private func registerCollectionView() {
-        let nib = UINib(nibName: Configure.nibName, bundle: .main)
-        listCategoryCollectionView.register(nib, forCellWithReuseIdentifier:
-                Configure.defineCell)
+        listCategoryCollectionView.register(nibWithCellClass: HomeCategoryCollectionViewCell.self)
         listCategoryCollectionView.dataSource = self
         listCategoryCollectionView.delegate = self
     }
@@ -72,11 +70,9 @@ extension HomeCategoryViewController: UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfItemsInSection()
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Configure.defineCell, for: indexPath) as? HomeCategoryCollectionViewCell else {
-            return UICollectionViewCell()
-        }
+        let cell = collectionView.dequeueReusableCell(withClass: HomeCategoryCollectionViewCell.self, for: indexPath)
         cell.viewModel = viewModel.getListCategory(indexPath: indexPath)
         return cell
     }
@@ -102,6 +98,4 @@ extension HomeCategoryViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - Define
 private struct Configure {
     static let title: String = "Category Meal"
-    static let defineCell: String = "cell"
-    static let nibName: String = "HomeCategoryCollectionViewCell"
 }
