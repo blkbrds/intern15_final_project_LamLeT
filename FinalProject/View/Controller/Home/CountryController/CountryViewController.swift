@@ -45,13 +45,12 @@ final class CountryViewController: BaseViewController {
     }
 
     private func configNavi() {
-        title = Configure.title
+        title = App.String.titleCountry
         navigationController?.navigationBar.tintColor = UIColor.black
     }
 
     private func registerColletionCell() {
-        let nib = UINib(nibName: Configure.nibName, bundle: .main)
-        collectionView.register(nib, forCellWithReuseIdentifier: Configure.defineCell)
+        collectionView.register(nibWithCellClass: CountryCollectionViewCell.self)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -61,8 +60,8 @@ final class CountryViewController: BaseViewController {
     }
 
     private func showAlert(message: String) {
-        let alert = UIAlertController(title: Configure.titleAlert, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Configure.titleAlertAction, style: .default, handler: nil))
+        let alert = UIAlertController(title: App.String.connectAPI, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: App.String.alertAction, style: .default, handler: nil))
         self.present(alert, animated: true)
     }
 }
@@ -73,9 +72,7 @@ extension CountryViewController: UICollectionViewDataSource, UICollectionViewDel
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Configure.defineCell, for: indexPath) as? CountryCollectionViewCell else {
-            return UICollectionViewCell()
-        }
+        let cell = collectionView.dequeueReusableCell(withClass: CountryCollectionViewCell.self, for: indexPath)
         cell.viewModel = viewModel.getListArea(indexPath: indexPath)
         return cell
     }
@@ -96,13 +93,4 @@ extension CountryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
     }
-}
-
-// MARK: - Define
-private struct Configure {
-    static let title: String = "Country"
-    static let defineCell: String = "cell"
-    static let nibName: String = "CountryCollectionViewCell"
-    static let titleAlert = "Connect API"
-    static let titleAlertAction = "Connect"
 }
