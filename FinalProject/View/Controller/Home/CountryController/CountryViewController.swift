@@ -19,7 +19,11 @@ final class CountryViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
+    override func setUpUI() {
+        configNavi()
+    }
+
     override func setUpData() {
         registerColletionCell()
     }
@@ -41,18 +45,20 @@ final class CountryViewController: BaseViewController {
         HUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
     }
 
+    private func configNavi() {
+        title = App.String.titleCountry
+    }
+
     private func registerColletionCell() {
-//        let nib = UINib(nibName: "CountryCollectionViewCell", bundle: .main)
-//        collectionView.register(nib, forCellWithReuseIdentifier: "cell")
         collectionView.register(nibWithCellClass: CountryCollectionViewCell.self)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-    
+
     private func updateView() {
         collectionView.reloadData()
     }
-    
+
     private func showAlert(message: String) {
         let alert = UIAlertController(title: App.String.connectAPI, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: App.String.alertAction, style: .default, handler: nil))

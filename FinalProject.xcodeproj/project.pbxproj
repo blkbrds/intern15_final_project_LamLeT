@@ -328,10 +328,10 @@
 		D10B90C2249B1CAF003E0A85 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F00DAA3D249B7803001A70BC /* WelcomeScreenController */,
-				F00DAA3C249B77EB001A70BC /* FavoritesController */,
-				F00DAA3B249B77E3001A70BC /* SearchController */,
-				F00DAA3A249B77D7001A70BC /* HomeController */,
+				F00DAA3C249B77EB001A70BC /* Favorites */,
+				F00DAA3A249B77D7001A70BC /* Home */,
+				F00DAA3B249B77E3001A70BC /* Search */,
+				F00DAA3D249B7803001A70BC /* Welcome */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -415,41 +415,41 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		F00DAA3A249B77D7001A70BC /* HomeController */ = {
+		F00DAA3A249B77D7001A70BC /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				F0F4BDCA24A1EB12000A2CD0 /* MealDetailCategoryController */,
 				F0F4BDBA24A1A850000A2CD0 /* CountryController */,
 				F0F746F0249C4CC5002BDE15 /* CategoryController */,
 			);
-			path = HomeController;
+			path = Home;
 			sourceTree = "<group>";
 		};
-		F00DAA3B249B77E3001A70BC /* SearchController */ = {
+		F00DAA3B249B77E3001A70BC /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				F00DAA46249B7980001A70BC /* SearchViewController.swift */,
 				F00DAA47249B7980001A70BC /* SearchViewController.xib */,
 			);
-			path = SearchController;
+			path = Search;
 			sourceTree = "<group>";
 		};
-		F00DAA3C249B77EB001A70BC /* FavoritesController */ = {
+		F00DAA3C249B77EB001A70BC /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
 				F00DAA4A249B7990001A70BC /* FavoritesViewController.swift */,
 				F00DAA4B249B7990001A70BC /* FavoritesViewController.xib */,
 			);
-			path = FavoritesController;
+			path = Favorites;
 			sourceTree = "<group>";
 		};
-		F00DAA3D249B7803001A70BC /* WelcomeScreenController */ = {
+		F00DAA3D249B7803001A70BC /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
 				F00DAA3E249B78BF001A70BC /* WelcomeViewController.swift */,
 				F00DAA3F249B78BF001A70BC /* WelcomeViewController.xib */,
 			);
-			path = WelcomeScreenController;
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 		F0F4BDBA24A1A850000A2CD0 /* CountryController */ = {
