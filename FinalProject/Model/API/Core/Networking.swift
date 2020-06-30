@@ -102,7 +102,7 @@ class Networking {
         }
         task.resume()
     }
-    
+
     func getArea(completion: @escaping APICompletion<CategoryAreaMealResult>) {
         guard let url = URL(string: Api.Path.apiListArea) else {
             completion(.failure(App.String.alertFailedAPI))
@@ -134,7 +134,7 @@ class Networking {
         }
         task.resume()
     }
-    
+
     func getMealDetailArea(areaName: String, completion: @escaping APICompletion<CategoryAreaMealResult>) {
         guard let url = URL(string: Api.Path.apiMealCategoryAndArea + "a=\(areaName)") else {
             completion(.failure(App.String.alertFailedAPI))
@@ -157,6 +157,42 @@ class Networking {
                             areaDetails.append(meals)
                         }
                         let result = CategoryAreaMealResult(categoryMeals: areaDetails)
+                        completion(.success(result))
+
+                    } else {
+                        completion(.failure(App.String.alertFailedToDataAPI))
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+
+    func getMealDetail(idMeal: String, completion: @escaping APICompletion<CategoryAreaMealResult>) {
+        guard let url = URL(string: Api.Path.apiDetailMeal + "i=\(idMeal)") else {
+            completion(.failure(App.String.alertFailedAPI))
+            return
+        }
+        let config = URLSessionConfiguration.ephemeral
+        config.waitsForConnectivity = true
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: url) { (data, respone, error) in
+            DispatchQueue.main.async {
+                if let _ = error {
+                    completion(.failure(App.String.alertFailedToConnectAPI))
+                } else {
+                    if let data = data {
+                        let json = data.toJSON()
+                        guard let meals = json["meals"] as? [JSON] else {
+                            return 
+                        }
+//                        let meals = json["meals"] as! [JSON]
+                        var detailMeals: [Meal] = []
+                        for item in meals {
+                            let meals = Meal(json: item)
+                            detailMeals.append(meals)
+                        }
+                        let result = CategoryAreaMealResult(categoryMeals: detailMeals)
                         completion(.success(result))
 
                     } else {

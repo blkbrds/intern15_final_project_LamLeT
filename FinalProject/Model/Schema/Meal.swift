@@ -58,7 +58,7 @@ class Meal {
         } else {
             self.tags = ""
         }
-        if let urlVideoMeal = json["urlVideoMeal"] as? String {
+        if let urlVideoMeal = json["strYoutube"] as? String {
             self.urlVideoMeal = urlVideoMeal
         } else {
             self.urlVideoMeal = ""

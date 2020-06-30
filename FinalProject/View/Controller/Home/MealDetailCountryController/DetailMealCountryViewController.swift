@@ -14,7 +14,7 @@ final class DetailMealCountryViewController: BaseViewController {
     // MARK: - Properties
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var collectionView: UICollectionView!
-    var viewModel: DetailMealCountryViewModel?
+    var viewModel: DetailMealCountryViewModel = DetailMealCountryViewModel()
     var isShowTableView: Bool = true
 
     // MARK: - Life Cycle
@@ -35,9 +35,6 @@ final class DetailMealCountryViewController: BaseViewController {
 
     // MARK: - Private Functions
     private func loadAPI() {
-        guard let viewModel = viewModel else {
-            return
-        }
         SVProgressHUD.show()
         viewModel.getAPIListArea(detailAreaCompletion: { (done, msg) in
             SVProgressHUD.dismiss()
@@ -51,7 +48,7 @@ final class DetailMealCountryViewController: BaseViewController {
     }
 
     private func configNavi() {
-        title = viewModel?.nameArea
+        title = viewModel.nameArea
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: Configure.nameIconCollection), style: .plain, target: self, action: #selector(collectionViewButtonTouchUpInside))
     }
 
@@ -98,30 +95,22 @@ final class DetailMealCountryViewController: BaseViewController {
 // MARK: - UITableViewDataSource, UITableViewDelegate
 extension DetailMealCountryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let viewModel = viewModel else {
-            return 0
-        }
         return viewModel.numberOfRowsInSection()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let viewModel = viewModel else {
-            return UITableViewCell()
-        }
         let cell = tableView.dequeueReusableCell(withIdentifier: Configure.defineCell, for: indexPath) as! DetailCategoryTableViewCell
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
         return cell
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let viewModel = viewModel else {
-            return 0
-        }
         return viewModel.heightForRowAt()
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailMealViewController()
+        vc.viewModel = viewModel.pushIdMeal(indexPath: indexPath)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -129,16 +118,10 @@ extension DetailMealCountryViewController: UITableViewDataSource, UITableViewDel
 // MARK: - UICollectionDataSource, UICollectionDataSource
 extension DetailMealCountryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let viewModel = viewModel else {
-            return 0
-        }
         return viewModel.numberOfRowsInSection()
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let viewModel = viewModel else {
-            return UICollectionViewCell()
-        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Configure.defineCell, for: indexPath) as! DetailCategoryCollectionViewCell
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
         return cell

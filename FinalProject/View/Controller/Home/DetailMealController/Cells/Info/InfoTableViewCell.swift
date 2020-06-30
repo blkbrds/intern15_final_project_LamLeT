@@ -10,9 +10,33 @@ import UIKit
 
 class InfoTableViewCell: UITableViewCell {
 
+    // MARK: - IBOutlet
+    @IBOutlet private weak var nameMeal: UILabel!
+    @IBOutlet private weak var nameArea: UILabel!
+    @IBOutlet private weak var nameCategory: UILabel!
+    @IBOutlet private weak var nameTags: UILabel!
+    
+    // MARK: - Properties
+    var viewModel: DetailMealTableViewCellViewModel? {
+        didSet {
+            updateView()
+        }
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+
+    // MARK: - Private Functions
+    private func updateView() {
+        guard let viewModel = viewModel else {
+            return
+        }
+        nameMeal.text = viewModel.mealName
+        nameArea.text = viewModel.area
+        nameCategory.text = viewModel.category
+        nameTags.text = viewModel.tags
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -20,5 +44,5 @@ class InfoTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }

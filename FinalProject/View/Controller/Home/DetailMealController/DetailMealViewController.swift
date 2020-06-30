@@ -27,12 +27,23 @@ class DetailMealViewController: BaseViewController {
     }
 
     override func setUpData() {
+        loadAPI()
         registerTableCell()
     }
 
     // MARK: - Private Functions
     private func configNavi() {
 
+    }
+    
+    private func loadAPI() {
+        viewModel.getAPIDetailMeal { (done, msg) in
+            if done {
+                self.updateView()
+            } else {
+                print("Failed")
+            }
+        }
     }
 
     private func registerTableCell() {
@@ -47,7 +58,10 @@ class DetailMealViewController: BaseViewController {
         tableView.dataSource = self
     }
 
-
+    private func updateView() {
+        tableView.reloadData()
+    }
+    
 }
 
 extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
@@ -62,12 +76,15 @@ extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withClass: ImageTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withClass: InfoTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         } else if indexPath.section == 2 {
             let cell = tableView.dequeueReusableCell(withClass: VideoTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         } else if indexPath.section == 3 {
             let cell = tableView.dequeueReusableCell(withClass: InstructionsTableViewCell.self, for: indexPath)

@@ -10,34 +10,56 @@ import Foundation
 
 class DetailMealViewModel {
     var idMeal: String = ""
+    var detailMeals: [Meal] = []
 
     init() { }
-    
-    init(meal: Meal) {
-        self.idMeal = meal.idMeal
+
+    init(idMeal: String) {
+        self.idMeal = idMeal
     }
-    
+
+    // MARK: Get API
+    func getAPIDetailMeal(completion: @escaping (Bool, String) -> Void) {
+        Networking.shared().getMealDetail(idMeal: idMeal) { (result) in
+            switch result {
+            case .failure(let error):
+                completion(false, error)
+            case .success(let detailMeal):
+                for item in detailMeal.categoryMeals {
+                    self.detailMeals.append(item)
+                }
+                completion(true, "Loading Success")
+            }
+        }
+    }
+
     // MARK: - Data Table
     func numberOfSections() -> Int {
         return 7
     }
-    
+
     func numberOfRowsInSection(section: Int) -> Int {
         if section == 0 {
-            return 1
+            return detailMeals.count
         } else if section == 1 {
-            return 1
+            return detailMeals.count
         } else if section == 2 {
-            return 1
+            return detailMeals.count
         } else if section == 3 {
-            return 1
+            return detailMeals.count
         } else if section == 4 {
-            return 1
+            return detailMeals.count
         } else if section == 5 {
-            return 1
+            return detailMeals.count
         } else if section == 6 {
-            return 1
+            return detailMeals.count
         }
         return 0
+    }
+
+    func cellForRowAt(indexPath: IndexPath) -> DetailMealTableViewCellViewModel {
+        let item = detailMeals[indexPath.row]
+        let model = DetailMealTableViewCellViewModel(meal: item)
+        return model
     }
 }

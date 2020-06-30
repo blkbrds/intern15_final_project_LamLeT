@@ -54,6 +54,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="nameArea" destination="v4o-vC-Bgm" id="y1v-4E-Gev"/>
+                <outlet property="nameCategory" destination="SNx-mN-XJ6" id="6rZ-Z1-atB"/>
+                <outlet property="nameMeal" destination="esI-rv-1v8" id="Kun-Yf-OWE"/>
+                <outlet property="nameTags" destination="3mm-be-VAm" id="rFJ-iG-Bdk"/>
+            </connections>
             <point key="canvasLocation" x="165.21739130434784" y="118.19196428571428"/>
         </tableViewCell>
     </objects>

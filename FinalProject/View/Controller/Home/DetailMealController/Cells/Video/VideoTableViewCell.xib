@@ -12,25 +12,33 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="96" id="KGk-i7-Jjw" customClass="VideoTableViewCell" customModule="FinalProject" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="331" height="96"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="331" height="96"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFD-L2-wOd">
-                        <rect key="frame" x="0.0" y="0.0" width="331" height="96"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8C-89-wUF">
+                        <rect key="frame" x="0.0" y="0.0" width="331" height="100"/>
+                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="VzU-Rd-4gZ"/>
+                        </constraints>
+                        <wkWebViewConfiguration key="configuration">
+                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                            <wkPreferences key="preferences"/>
+                        </wkWebViewConfiguration>
+                    </wkWebView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="mFD-L2-wOd" secondAttribute="bottom" id="9EI-LB-EgW"/>
-                    <constraint firstAttribute="trailing" secondItem="mFD-L2-wOd" secondAttribute="trailing" id="DAh-nt-nf4"/>
-                    <constraint firstItem="mFD-L2-wOd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="G0B-Q3-aYg"/>
-                    <constraint firstItem="mFD-L2-wOd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="N95-1J-Aee"/>
+                    <constraint firstAttribute="trailing" secondItem="S8C-89-wUF" secondAttribute="trailing" id="0gv-To-gyt"/>
+                    <constraint firstItem="S8C-89-wUF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9LR-x2-Q9R"/>
+                    <constraint firstItem="S8C-89-wUF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="NB4-6y-Cfs"/>
+                    <constraint firstAttribute="bottom" secondItem="S8C-89-wUF" secondAttribute="bottom" id="gqo-JL-gdD"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="webView" destination="S8C-89-wUF" id="v6B-QC-Bgp"/>
+            </connections>
             <point key="canvasLocation" x="139.85507246376812" y="113.16964285714285"/>
         </tableViewCell>
     </objects>
