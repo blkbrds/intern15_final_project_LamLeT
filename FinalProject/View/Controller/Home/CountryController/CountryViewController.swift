@@ -45,8 +45,8 @@ final class CountryViewController: BaseViewController {
     }
 
     private func configNavi() {
-        title = Configure.title
         navigationController?.navigationBar.tintColor = UIColor.black
+        title = App.String.titleCountry
     }
 
     private func registerColletionCell() {
@@ -60,8 +60,8 @@ final class CountryViewController: BaseViewController {
     }
 
     private func showAlert(message: String) {
-        let alert = UIAlertController(title: Configure.titleAlert, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Configure.titleAlertAction, style: .default, handler: nil))
+        let alert = UIAlertController(title: App.String.connectAPI, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: App.String.alertAction, style: .default, handler: nil))
         self.present(alert, animated: true)
     }
 }
@@ -93,12 +93,4 @@ extension CountryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
     }
-}
-
-// MARK: - Define
-private struct Configure {
-    static let title: String = "Country"
-    static let defineCell: String = "cell"
-    static let titleAlert = "Connect API"
-    static let titleAlertAction = "Connect"
 }
