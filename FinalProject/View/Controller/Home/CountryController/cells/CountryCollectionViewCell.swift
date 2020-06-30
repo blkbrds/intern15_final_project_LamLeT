@@ -8,22 +8,19 @@
 
 import UIKit
 
-class CountryCollectionViewCell: UICollectionViewCell {
+final class CountryCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Properties
     @IBOutlet private weak var areaNameLabel: UILabel!
-    @IBOutlet weak var flagCountryImageView: UIImageView!
+    @IBOutlet private weak var flagCountryImageView: UIImageView!
     
     var viewModel: CountryCellViewModel? {
         didSet {
             updateView()
         }
     }
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
     
+    // MARK: - Private Functions
     private func updateView() {
         guard let viewModel = viewModel else {
             return
