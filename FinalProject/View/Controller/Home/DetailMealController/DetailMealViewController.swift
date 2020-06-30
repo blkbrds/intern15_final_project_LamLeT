@@ -88,6 +88,7 @@ extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         } else if indexPath.section == 3 {
             let cell = tableView.dequeueReusableCell(withClass: InstructionsTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         } else if indexPath.section == 4 {
             let cell = tableView.dequeueReusableCell(withClass: IngredientTableViewCell.self, for: indexPath)

@@ -9,15 +9,17 @@
 import Foundation
 
 class DetailMealTableViewCellViewModel {
-    var mealName: String
-    var category: String
-    var area: String
-    var instructions: String
-    var urlMealThumbnail: String
-    var tags: String
-    var urlVideoMeal: String
-    var ingredient: String
-    var measure: String
+    var mealName: String = ""
+    var category: String = ""
+    var area: String = ""
+    var instructions: String = ""
+    var urlMealThumbnail: String = ""
+    var tags: String = ""
+    var urlVideoMeal: String = ""
+    var ingredient: String = ""
+    var measure: String = ""
+
+    init() { }
 
     init(meal: Meal) {
         self.urlMealThumbnail = meal.urlMealThumbnail
