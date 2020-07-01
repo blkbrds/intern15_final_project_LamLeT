@@ -24,7 +24,7 @@ final class CountryViewModel {
             case .failure(let error):
                 listAreaCompletion(false, error)
             case .success(let result):
-                for item in result.categoryMeals {
+                for item in result.meals {
                     self.areas.append(item)
                 }
                 listAreaCompletion(true, "Get List Area Success")
@@ -39,7 +39,7 @@ final class CountryViewModel {
 
     func getListArea(indexPath: IndexPath) -> CountryCellViewModel {
         let item = areas[indexPath.row]
-        let urlFlag = Arr.flag[indexPath.row]
+        let urlFlag = FlagArray.flag[indexPath.row]
         let model = CountryCellViewModel(meal: item, urlFlagCountry: urlFlag)
         return model
     }

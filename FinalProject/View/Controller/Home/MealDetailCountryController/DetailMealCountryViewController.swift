@@ -14,7 +14,7 @@ final class DetailMealCountryViewController: BaseViewController {
     // MARK: - Properties
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var collectionView: UICollectionView!
-    var viewModel: DetailMealCountryViewModel?
+    var viewModel: DetailMealCountryViewModel = DetailMealCountryViewModel()
     var isShowTableView: Bool = true
 
     // MARK: - Life Cycle
@@ -35,23 +35,20 @@ final class DetailMealCountryViewController: BaseViewController {
 
     // MARK: - Private Functions
     private func loadAPI() {
-        guard let viewModel = viewModel else {
-            return
-        }
-        SVProgressHUD.show()
+        HUD.show()
         viewModel.getAPIListArea(detailAreaCompletion: { (done, msg) in
-            SVProgressHUD.dismiss()
+            HUD.dismiss()
             if done {
                 self.updateUI()
             } else {
                 self.showAlert(message: msg)
             }
         })
-        SVProgressHUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
+        HUD.setOffsetFromCenter(Configure.uiOffSet)
     }
 
     private func configNavi() {
-        title = viewModel?.nameArea
+        title = viewModel.nameArea
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: Configure.nameIconCollection), style: .plain, target: self, action: #selector(collectionViewButtonTouchUpInside))
     }
 
@@ -71,15 +68,13 @@ final class DetailMealCountryViewController: BaseViewController {
     }
 
     private func registerTable() {
-        let nib = UINib(nibName: Configure.nibNameTable, bundle: .main)
-        tableView.register(nib, forCellReuseIdentifier: Configure.defineCell)
+        tableView.register(nibWithCellClass: DetailCategoryTableViewCell.self)
         tableView.delegate = self
         tableView.dataSource = self
     }
 
     private func registerCollection() {
-        let nib = UINib(nibName: Configure.nibNameCollection, bundle: .main)
-        collectionView.register(nib, forCellWithReuseIdentifier: Configure.defineCell)
+        collectionView.register(nibWithCellClass: DetailCategoryCollectionViewCell.self)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -87,35 +82,21 @@ final class DetailMealCountryViewController: BaseViewController {
     private func updateUI() {
         tableView.reloadData()
     }
-
-    private func showAlert(message: String) {
-        let alert = UIAlertController(title: "Connect API", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Connect", style: .default, handler: nil))
-        self.present(alert, animated: true)
-    }
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
 extension DetailMealCountryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let viewModel = viewModel else {
-            return 0
-        }
         return viewModel.numberOfRowsInSection()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let viewModel = viewModel else {
-            return UITableViewCell()
-        }
-        let cell = tableView.dequeueReusableCell(withIdentifier: Configure.defineCell, for: indexPath) as! DetailCategoryTableViewCell
+        let cell = tableView.dequeueReusableCell(withClass: DetailCategoryTableViewCell.self, for: indexPath)
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
-        return cell }
+        return cell
+    }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let viewModel = viewModel else {
-            return 0
-        }
         return viewModel.heightForRowAt()
     }
 }
@@ -123,17 +104,11 @@ extension DetailMealCountryViewController: UITableViewDataSource, UITableViewDel
 // MARK: - UICollectionDataSource, UICollectionDataSource
 extension DetailMealCountryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let viewModel = viewModel else {
-            return 0
-        }
         return viewModel.numberOfRowsInSection()
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let viewModel = viewModel else {
-            return UICollectionViewCell()
-        }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Configure.defineCell, for: indexPath) as! DetailCategoryCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withClass: DetailCategoryCollectionViewCell.self, for: indexPath)
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
         return cell
     }
@@ -142,20 +117,20 @@ extension DetailMealCountryViewController: UICollectionViewDataSource, UICollect
 // MARK: - UICollectionViewDelegateFlowLayout
 extension DetailMealCountryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+        return Configure.sizeForCollection
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+        return Configure.spaceForCell
     }
 }
 
 // MARK: - Define
 private struct Configure {
     static let title: String = "Area Meal"
-    static let defineCell: String = "cell"
-    static let nibNameTable: String = "DetailCategoryTableViewCell"
-    static let nibNameCollection: String = "DetailCategoryCollectionViewCell"
     static let nameIconTable: String = "icon_tableView"
     static let nameIconCollection: String = "icon_collectionView"
+    static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
+    static let sizeForCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
 }

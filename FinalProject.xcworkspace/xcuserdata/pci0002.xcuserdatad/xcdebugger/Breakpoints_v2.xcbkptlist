@@ -116,6 +116,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
 <<<<<<< HEAD
+<<<<<<< HEAD
             uuid = "FF1EBC5F-1BA6-4D2A-8313-C67B02D7173C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -128,22 +129,23 @@
             landmarkName = "updateView()"
 =======
             uuid = "2BCD61B7-C389-46B0-8649-AEE4AC3E3BBE"
+=======
+            uuid = "03B5BDA0-527F-4003-A8DA-0C17A8FCD4AC"
+>>>>>>> master
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FinalProject/View/Controller/Home/DetailMealController/DetailMealViewController.swift"
+            filePath = "FinalProject/View/Controller/Home/DetailMealController/Cells/Video/VideoTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
+            startingLineNumber = "33"
+            endingLineNumber = "33">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B4018A36-776B-4750-8671-004BCA0644FD"
+            uuid = "A05BEFC8-9BA9-4358-A248-044223B9BC44"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -156,6 +158,7 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+<<<<<<< HEAD
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
@@ -173,5 +176,7 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+=======
+>>>>>>> master
    </Breakpoints>
 </Bucket>
