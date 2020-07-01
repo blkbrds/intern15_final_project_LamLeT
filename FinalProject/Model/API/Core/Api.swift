@@ -24,6 +24,8 @@ final class Api {
         static let apiListArea = "https://www.themealdb.com/api/json/v1/1/list.php?a=list"
         
         static let apiDetailMeal = "https://www.themealdb.com/api/json/v1/1/lookup.php?"
+        
+        static let apiRandomMeal = "https://www.themealdb.com/api/json/v1/1/random.php"
     }
 }
 

@@ -18,7 +18,7 @@ class DetailMealTableViewCellViewModel {
     var urlVideoMeal: String = ""
     var ingredient: String = ""
     var measure: String = ""
-
+    var sourceLink: String = ""
     init() { }
 
     init(meal: Meal) {
@@ -31,5 +31,6 @@ class DetailMealTableViewCellViewModel {
         self.instructions = meal.instructions
         self.ingredient = meal.ingredient
         self.measure = meal.measure
+        self.sourceLink = meal.sourceLink
     }
 }

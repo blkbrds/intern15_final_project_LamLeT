@@ -35,16 +35,16 @@ final class DetailMealCountryViewController: BaseViewController {
 
     // MARK: - Private Functions
     private func loadAPI() {
-        SVProgressHUD.show()
+        HUD.show()
         viewModel.getAPIListArea(detailAreaCompletion: { (done, msg) in
-            SVProgressHUD.dismiss()
+            HUD.dismiss()
             if done {
                 self.updateUI()
             } else {
                 self.showAlert(message: msg)
             }
         })
-        SVProgressHUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
+        HUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
     }
 
     private func configNavi() {

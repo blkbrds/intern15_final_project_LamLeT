@@ -66,6 +66,7 @@ final class CountryViewController: BaseViewController {
     }
 }
 
+// MARK: - UICollectionDataSource, UICollectionViewDelegate
 extension CountryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfItemsInSection()

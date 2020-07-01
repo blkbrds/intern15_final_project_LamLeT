@@ -9,8 +9,11 @@
 import Foundation
 
 class DetailMealViewModel {
+
+    // MARK: - Properties
     var idMeal: String = ""
     var detailMeals: [Meal] = []
+    var randomMeals: [Meal] = []
 
     init() { }
 
@@ -25,13 +28,28 @@ class DetailMealViewModel {
             case .failure(let error):
                 completion(false, error)
             case .success(let detailMeal):
-                for item in detailMeal.categoryMeals {
+                for item in detailMeal.meals {
                     self.detailMeals.append(item)
                 }
                 completion(true, "Loading Success")
             }
         }
     }
+
+    func getAPIRandomMeal(completion: @escaping (Bool, String) -> Void) {
+        Networking.shared().getMealRandom { (result) in
+            switch result {
+            case .failure(let error):
+                completion(false, error)
+            case .success(let randomMeal):
+                for item in randomMeal.meals {
+                    self.randomMeals.append(item)
+                }
+                completion(true, "Loading Success")
+            }
+        }
+    }
+
 
     // MARK: - Data Table
     func numberOfSections() -> Int {
@@ -52,7 +70,7 @@ class DetailMealViewModel {
         } else if section == 5 {
             return detailMeals.count
         } else if section == 6 {
-            return detailMeals.count
+            return randomMeals.count
         }
         return 0
     }
@@ -60,6 +78,12 @@ class DetailMealViewModel {
     func cellForRowAt(indexPath: IndexPath) -> DetailMealTableViewCellViewModel {
         let item = detailMeals[indexPath.row]
         let model = DetailMealTableViewCellViewModel(meal: item)
+        return model
+    }
+    
+    func cellForRowRandomMeal(indexPath: IndexPath) -> OrtherFoodCellViewModel {
+        let item = randomMeals[indexPath.row]
+        let model = OrtherFoodCellViewModel(meal: item)
         return model
     }
 }

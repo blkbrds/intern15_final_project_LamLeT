@@ -24,7 +24,7 @@ final class CountryViewModel {
             case .failure(let error):
                 listAreaCompletion(false, error)
             case .success(let result):
-                for item in result.categoryMeals {
+                for item in result.meals {
                     self.areas.append(item)
                 }
                 listAreaCompletion(true, "Get List Area Success")

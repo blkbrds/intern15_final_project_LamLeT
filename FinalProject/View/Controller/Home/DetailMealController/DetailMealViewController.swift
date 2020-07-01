@@ -27,7 +27,8 @@ class DetailMealViewController: BaseViewController {
     }
 
     override func setUpData() {
-        loadAPI()
+        loadAPIDetail()
+        loadAPIRandomMeal()
         registerTableCell()
     }
 
@@ -35,9 +36,19 @@ class DetailMealViewController: BaseViewController {
     private func configNavi() {
 
     }
-    
-    private func loadAPI() {
+
+    private func loadAPIDetail() {
         viewModel.getAPIDetailMeal { (done, msg) in
+            if done {
+                self.updateView()
+            } else {
+                print("Failed")
+            }
+        }
+    }
+    
+    private func loadAPIRandomMeal() {
+        viewModel.getAPIRandomMeal { (done, msg) in
             if done {
                 self.updateView()
             } else {
@@ -51,9 +62,9 @@ class DetailMealViewController: BaseViewController {
         tableView.register(nibWithCellClass: InfoTableViewCell.self)
         tableView.register(nibWithCellClass: VideoTableViewCell.self)
         tableView.register(nibWithCellClass: InstructionsTableViewCell.self)
-        tableView.register(nibWithCellClass: IngredientTableViewCell.self)
-        tableView.register(nibWithCellClass: MeasureTableViewCell.self)
+        tableView.register(nibWithCellClass: IngredientMeasureTableViewCell.self)
         tableView.register(nibWithCellClass: SourceLinkTableViewCell.self)
+        tableView.register(nibWithCellClass: OrtherFoodTableViewCell.self)
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -61,7 +72,7 @@ class DetailMealViewController: BaseViewController {
     private func updateView() {
         tableView.reloadData()
     }
-    
+
 }
 
 extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
@@ -91,13 +102,16 @@ extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
             cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         } else if indexPath.section == 4 {
-            let cell = tableView.dequeueReusableCell(withClass: IngredientTableViewCell.self, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withClass: IngredientMeasureTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         } else if indexPath.section == 5 {
-            let cell = tableView.dequeueReusableCell(withClass: MeasureTableViewCell.self, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withClass: SourceLinkTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         } else if indexPath.section == 6 {
-            let cell = tableView.dequeueReusableCell(withClass: MeasureTableViewCell.self, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withClass: OrtherFoodTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowRandomMeal(indexPath: indexPath)
             return cell
         }
         return UITableViewCell()

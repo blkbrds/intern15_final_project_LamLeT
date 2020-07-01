@@ -68,7 +68,7 @@
                 <outlet property="areaNameLabel" destination="k3w-Qp-7JE" id="RUY-WS-1Av"/>
                 <outlet property="flagCountryImageView" destination="0M1-sY-hJT" id="xMH-SO-DFD"/>
             </connections>
-            <point key="canvasLocation" x="-49" y="-4"/>
+            <point key="canvasLocation" x="-50.000000000000007" y="-4.3526785714285712"/>
         </collectionViewCell>
     </objects>
 </document>

@@ -28,7 +28,7 @@ class DetailMealCountryViewModel {
             case .failure(let error):
                 detailAreaCompletion(false, error)
             case .success(let detailMealArea):
-                for item in detailMealArea.categoryMeals {
+                for item in detailMealArea.meals {
                     self.mealAreas.append(item)
                 }
                 detailAreaCompletion(true, "Loading Success")
