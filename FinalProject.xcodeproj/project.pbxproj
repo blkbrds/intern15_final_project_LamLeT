@@ -55,6 +55,7 @@
 		F069091924A47CC7006D9603 /* MeasureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069091724A47CC7006D9603 /* MeasureTableViewCell.xib */; };
 		F069091C24A47CE1006D9603 /* SourceLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069091A24A47CE1006D9603 /* SourceLinkTableViewCell.swift */; };
 		F069091D24A47CE1006D9603 /* SourceLinkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069091B24A47CE1006D9603 /* SourceLinkTableViewCell.xib */; };
+		F069092324AAED96006D9603 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069092224AAED95006D9603 /* UIViewControllerExt.swift */; };
 		F0BE18DE249B613A004FA5AB /* NSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18DD249B613A004FA5AB /* NSURL.swift */; };
 		F0BE18E0249B6180004FA5AB /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18DF249B617F004FA5AB /* Api.swift */; };
 		F0BE18E2249B6264004FA5AB /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18E1249B6264004FA5AB /* StringExt.swift */; };
@@ -160,6 +161,7 @@
 		F069091724A47CC7006D9603 /* MeasureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeasureTableViewCell.xib; sourceTree = "<group>"; };
 		F069091A24A47CE1006D9603 /* SourceLinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLinkTableViewCell.swift; sourceTree = "<group>"; };
 		F069091B24A47CE1006D9603 /* SourceLinkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SourceLinkTableViewCell.xib; sourceTree = "<group>"; };
+		F069092224AAED95006D9603 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		F0BE18DD249B613A004FA5AB /* NSURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURL.swift; sourceTree = "<group>"; };
 		F0BE18DF249B617F004FA5AB /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		F0BE18E1249B6264004FA5AB /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 				D10B90E1249B1EFC003E0A85 /* UITableViewExt.swift */,
 				F0BE18E1249B6264004FA5AB /* StringExt.swift */,
 				F0BE18E3249B65E6004FA5AB /* DataExt.swift */,
+				F069092224AAED95006D9603 /* UIViewControllerExt.swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -880,6 +883,7 @@
 				F0F746F8249C4D1B002BDE15 /* HomeCategoryViewController.swift in Sources */,
 				F069090C24A47C95006D9603 /* VideoTableViewCell.swift in Sources */,
 				D10B90C7249B1DBE003E0A85 /* Ratio.swift in Sources */,
+				F069092324AAED96006D9603 /* UIViewControllerExt.swift in Sources */,
 				D10B918C249B1FD8003E0A85 /* ApiManager.swift in Sources */,
 				F00DAA48249B7980001A70BC /* SearchViewController.swift in Sources */,
 				D10B90CA249B1DC8003E0A85 /* UIViewExt.swift in Sources */,

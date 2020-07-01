@@ -69,8 +69,7 @@ class Networking {
         }
         task.resume()
     }
-
-
+    
     func getMealForCategory(categoryName: String, completion: @escaping APICompletion<CategoryAreaMealResult>) {
         guard let url = URL(string: Api.Path.apiMealCategoryAndArea + "c=\(categoryName)") else {
             completion(.failure(App.String.alertFailedAPI))
@@ -102,7 +101,7 @@ class Networking {
         }
         task.resume()
     }
-    
+
     func getArea(completion: @escaping APICompletion<CategoryAreaMealResult>) {
         guard let url = URL(string: Api.Path.apiListArea) else {
             completion(.failure(App.String.alertFailedAPI))
