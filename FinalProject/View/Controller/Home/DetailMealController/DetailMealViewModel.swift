@@ -14,6 +14,7 @@ class DetailMealViewModel {
     var idMeal: String = ""
     var detailMeals: [Meal] = []
     var randomMeals: [Meal] = []
+    var headerTitler: [String] = ["Image", "Infomation", "Video", "Instruction", "Ingredient And Measure", "Link Source", "Orther Food"]
 
     init() { }
 
@@ -80,10 +81,10 @@ class DetailMealViewModel {
         let model = DetailMealTableViewCellViewModel(meal: item)
         return model
     }
-    
-    func cellForRowRandomMeal(indexPath: IndexPath) -> OrtherFoodCellViewModel {
+
+    func cellForRowRandomMeal(indexPath: IndexPath) -> OtherFoodCellViewModel {
         let item = randomMeals[indexPath.row]
-        let model = OrtherFoodCellViewModel(meal: item)
+        let model = OtherFoodCellViewModel(meal: item)
         return model
     }
 }

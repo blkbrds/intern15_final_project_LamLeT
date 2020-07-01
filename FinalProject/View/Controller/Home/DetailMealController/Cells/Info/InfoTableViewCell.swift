@@ -15,7 +15,7 @@ class InfoTableViewCell: UITableViewCell {
     @IBOutlet private weak var nameArea: UILabel!
     @IBOutlet private weak var nameCategory: UILabel!
     @IBOutlet private weak var nameTags: UILabel!
-    
+
     // MARK: - Properties
     var viewModel: DetailMealTableViewCellViewModel? {
         didSet {
@@ -33,10 +33,10 @@ class InfoTableViewCell: UITableViewCell {
         guard let viewModel = viewModel else {
             return
         }
-        nameMeal.text = viewModel.mealName
-        nameArea.text = viewModel.area
-        nameCategory.text = viewModel.category
-        nameTags.text = viewModel.tags
+        nameMeal.text = "Name: " + viewModel.mealName
+        nameArea.text = "Area: " + viewModel.area
+        nameCategory.text = "Category: " + viewModel.category
+        nameTags.text = "Tags: " + viewModel.tags
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

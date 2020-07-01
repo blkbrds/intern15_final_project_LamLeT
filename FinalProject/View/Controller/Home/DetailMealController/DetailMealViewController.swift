@@ -64,7 +64,7 @@ class DetailMealViewController: BaseViewController {
         tableView.register(nibWithCellClass: InstructionsTableViewCell.self)
         tableView.register(nibWithCellClass: IngredientMeasureTableViewCell.self)
         tableView.register(nibWithCellClass: SourceLinkTableViewCell.self)
-        tableView.register(nibWithCellClass: OrtherFoodTableViewCell.self)
+        tableView.register(nibWithCellClass: OtherFoodTableViewCell.self)
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -110,10 +110,14 @@ extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
             cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         } else if indexPath.section == 6 {
-            let cell = tableView.dequeueReusableCell(withClass: OrtherFoodTableViewCell.self, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withClass: OtherFoodTableViewCell.self, for: indexPath)
             cell.viewModel = viewModel.cellForRowRandomMeal(indexPath: indexPath)
             return cell
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel.headerTitler[section]
     }
 }

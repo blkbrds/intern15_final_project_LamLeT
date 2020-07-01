@@ -12,7 +12,8 @@ import SDWebImage
 class ImageTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlet
-    @IBOutlet weak var thumnailMealImageView: UIImageView!
+    @IBOutlet private weak var thumnailMealImageView: UIImageView!
+    @IBOutlet private weak var thumbmailView: UIView!
     
     // MARK: - Properties
     var viewModel: DetailMealTableViewCellViewModel? {
@@ -24,6 +25,8 @@ class ImageTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        thumnailMealImageView.layer.cornerRadius = 10
+        thumnailMealImageView.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

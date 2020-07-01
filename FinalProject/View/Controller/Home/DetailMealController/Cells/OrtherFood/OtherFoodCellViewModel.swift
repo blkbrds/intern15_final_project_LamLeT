@@ -8,14 +8,14 @@
 
 import Foundation
 
-class OrtherFoodCellViewModel {
-    var ortherMealName: String = ""
-    var urlOrtherMealImage: String = ""
+class OtherFoodCellViewModel {
+    var otherMealName: String = ""
+    var urlOtherMealImage: String = ""
 
     init() { }
     
     init(meal: Meal) {
-        self.ortherMealName = meal.mealName
-        self.urlOrtherMealImage = meal.urlMealThumbnail
+        self.otherMealName = meal.mealName
+        self.urlOtherMealImage = meal.urlMealThumbnail
     }
 }
