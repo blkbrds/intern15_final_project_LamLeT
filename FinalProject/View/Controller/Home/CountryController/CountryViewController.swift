@@ -43,7 +43,7 @@ final class CountryViewController: BaseViewController {
                 self.showAlert(message: msg)
             }
         }
-        HUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
+        HUD.setOffsetFromCenter(Configure.uiOffSet)
     }
 
     private func configNavi() {
@@ -59,14 +59,9 @@ final class CountryViewController: BaseViewController {
     private func updateView() {
         collectionView.reloadData()
     }
-
-    private func showAlert(message: String) {
-        let alert = UIAlertController(title: App.String.connectAPI, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: App.String.alertAction, style: .default, handler: nil))
-        self.present(alert, animated: true)
-    }
 }
 
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension CountryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfItemsInSection()
@@ -82,18 +77,17 @@ extension CountryViewController: UICollectionViewDataSource, UICollectionViewDel
 // MARK: - UICollectionViewDelegateFlowLayout
 extension CountryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+        return Configure.sizeForCollection
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+        return Configure.spaceForCell
     }
 }
 
 // MARK: - Define
 private struct Configure {
-    static let title: String = "Country"
-    static let titleAlert = "Connect API"
-    static let titleAlertAction = "Connect"
+    static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
+    static let sizeForCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
 }
-
