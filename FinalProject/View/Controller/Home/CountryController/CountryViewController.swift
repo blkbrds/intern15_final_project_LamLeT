@@ -26,6 +26,7 @@ final class CountryViewController: BaseViewController {
 
     override func setUpData() {
         registerColletionCell()
+        loadAPI()
     }
 
     // MARK: Private Funtions
@@ -42,7 +43,7 @@ final class CountryViewController: BaseViewController {
                 self.showAlert(message: msg)
             }
         }
-        HUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
+        HUD.setOffsetFromCenter(Configure.uiOffSet)
     }
 
     private func configNavi() {
@@ -58,20 +59,35 @@ final class CountryViewController: BaseViewController {
     private func updateView() {
         collectionView.reloadData()
     }
-
-    private func showAlert(message: String) {
-        let alert = UIAlertController(title: App.String.connectAPI, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: App.String.alertAction, style: .default, handler: nil))
-        self.present(alert, animated: true)
-    }
 }
 
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension CountryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfItemsInSection()
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withClass: CountryCollectionViewCell.self, for: indexPath)
+        cell.viewModel = viewModel.getListArea(indexPath: indexPath)
+        return cell
     }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension CountryViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return Configure.sizeForCollection
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return Configure.spaceForCell
+    }
+}
+
+// MARK: - Define
+private struct Configure {
+    static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
+    static let sizeForCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
 }

@@ -38,6 +38,7 @@
 		F00DAA4D249B7990001A70BC /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F00DAA4B249B7990001A70BC /* FavoritesViewController.xib */; };
 		F01685BC249CB7E2006BE5C9 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01685BB249CB7E2006BE5C9 /* Meal.swift */; };
 		F01685BE249CC650006BE5C9 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01685BD249CC650006BE5C9 /* Networking.swift */; };
+		F069092324AAED96006D9603 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069092224AAED95006D9603 /* UIViewControllerExt.swift */; };
 		F0BE18DE249B613A004FA5AB /* NSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18DD249B613A004FA5AB /* NSURL.swift */; };
 		F0BE18E0249B6180004FA5AB /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18DF249B617F004FA5AB /* Api.swift */; };
 		F0BE18E2249B6264004FA5AB /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18E1249B6264004FA5AB /* StringExt.swift */; };
@@ -59,6 +60,7 @@
 		F0F4BDD924A1EB12000A2CD0 /* DetailCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4BDD124A1EB12000A2CD0 /* DetailCategoryViewModel.swift */; };
 		F0F4BDDA24A1EB12000A2CD0 /* DetailCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4BDD224A1EB12000A2CD0 /* DetailCategoryViewController.swift */; };
 		F0F4BDDB24A1EB12000A2CD0 /* DetailCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0F4BDD324A1EB12000A2CD0 /* DetailCategoryViewController.xib */; };
+		F0F4BDDF24A2168F000A2CD0 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4BDDE24A2168F000A2CD0 /* Flag.swift */; };
 		F0F746F8249C4D1B002BDE15 /* HomeCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F746F6249C4D1B002BDE15 /* HomeCategoryViewController.swift */; };
 		F0F746F9249C4D1B002BDE15 /* HomeCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0F746F7249C4D1B002BDE15 /* HomeCategoryViewController.xib */; };
 		F0F746FD249C4E31002BDE15 /* HomeCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F746FB249C4E31002BDE15 /* HomeCategoryCollectionViewCell.swift */; };
@@ -122,6 +124,7 @@
 		F00DAA4B249B7990001A70BC /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 		F01685BB249CB7E2006BE5C9 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		F01685BD249CC650006BE5C9 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		F069092224AAED95006D9603 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		F0BE18DD249B613A004FA5AB /* NSURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURL.swift; sourceTree = "<group>"; };
 		F0BE18DF249B617F004FA5AB /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		F0BE18E1249B6264004FA5AB /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
@@ -143,6 +146,7 @@
 		F0F4BDD124A1EB12000A2CD0 /* DetailCategoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCategoryViewModel.swift; sourceTree = "<group>"; };
 		F0F4BDD224A1EB12000A2CD0 /* DetailCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCategoryViewController.swift; sourceTree = "<group>"; };
 		F0F4BDD324A1EB12000A2CD0 /* DetailCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCategoryViewController.xib; sourceTree = "<group>"; };
+		F0F4BDDE24A2168F000A2CD0 /* Flag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
 		F0F746F6249C4D1B002BDE15 /* HomeCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryViewController.swift; sourceTree = "<group>"; };
 		F0F746F7249C4D1B002BDE15 /* HomeCategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCategoryViewController.xib; sourceTree = "<group>"; };
 		F0F746FB249C4E31002BDE15 /* HomeCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -263,6 +267,7 @@
 				D10B90D4249B1DD5003E0A85 /* Font.swift */,
 				D10B90D2249B1DD5003E0A85 /* Measurement.swift */,
 				D10B90CC249B1DD5003E0A85 /* String.swift */,
+				F0F4BDDE24A2168F000A2CD0 /* Flag.swift */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -351,6 +356,7 @@
 				D10B90E1249B1EFC003E0A85 /* UITableViewExt.swift */,
 				F0BE18E1249B6264004FA5AB /* StringExt.swift */,
 				F0BE18E3249B65E6004FA5AB /* DataExt.swift */,
+				F069092224AAED95006D9603 /* UIViewControllerExt.swift */,
 			);
 			path = Ext;
 			sourceTree = "<group>";
@@ -702,6 +708,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F00DAA4C249B7990001A70BC /* FavoritesViewController.swift in Sources */,
+				F0F4BDDF24A2168F000A2CD0 /* Flag.swift in Sources */,
 				D10B908C249B19F2003E0A85 /* AppDelegate.swift in Sources */,
 				D10B90E2249B1EFC003E0A85 /* UITableViewExt.swift in Sources */,
 				D10B90DE249B1DD5003E0A85 /* Font.swift in Sources */,
@@ -721,6 +728,7 @@
 				F0BE18DE249B613A004FA5AB /* NSURL.swift in Sources */,
 				F0F746F8249C4D1B002BDE15 /* HomeCategoryViewController.swift in Sources */,
 				D10B90C7249B1DBE003E0A85 /* Ratio.swift in Sources */,
+				F069092324AAED96006D9603 /* UIViewControllerExt.swift in Sources */,
 				D10B918C249B1FD8003E0A85 /* ApiManager.swift in Sources */,
 				F00DAA48249B7980001A70BC /* SearchViewController.swift in Sources */,
 				D10B90CA249B1DC8003E0A85 /* UIViewExt.swift in Sources */,
