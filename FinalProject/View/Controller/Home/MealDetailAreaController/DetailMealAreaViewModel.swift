@@ -14,5 +14,4 @@ class DetailMealAreaViewModel {
     // MARK: - Properties
     var meals: [Meal] = []
     var nameArea: String = ""
- 
 }

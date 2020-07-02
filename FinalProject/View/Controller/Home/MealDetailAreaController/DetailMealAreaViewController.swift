@@ -53,15 +53,13 @@ final class DetailMealAreaViewController: BaseViewController {
     }
 
     private func registerTable() {
-        let nib = UINib(nibName: Configure.nibNameTable, bundle: .main)
-        tableView.register(nib, forCellReuseIdentifier: Configure.defineCell)
+        tableView.register(nibWithCellClass: DetailCategoryTableViewCell.self)
         tableView.delegate = self
         tableView.dataSource = self
     }
 
     private func registerCollection() {
-        let nib = UINib(nibName: Configure.nibNameCollection, bundle: .main)
-        collectionView.register(nib, forCellWithReuseIdentifier: Configure.defineCell)
+        collectionView.register(nibWithCellClass: DetailCategoryCollectionViewCell.self)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -70,7 +68,7 @@ final class DetailMealAreaViewController: BaseViewController {
 // MARK: - UITableViewDataSource, UITableViewDelegate
 extension DetailMealAreaViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return Configure.numberOfRowsInSection
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -81,7 +79,7 @@ extension DetailMealAreaViewController: UITableViewDataSource, UITableViewDelega
 // MARK: - UICollectionDataSource, UICollectionDataSource
 extension DetailMealAreaViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return Configure.numberOfRowsInSection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -92,9 +90,7 @@ extension DetailMealAreaViewController: UICollectionViewDataSource, UICollection
 // MARK: - Define
 private struct Configure {
     static let title: String = "Area Meal"
-    static let defineCell: String = "cell"
-    static let nibNameTable: String = "DetailCategoryTableViewCell"
-    static let nibNameCollection: String = "DetailCategoryCollectionViewCell"
+    static let numberOfRowsInSection: Int = 5
     static let nameIconTable: String = "icon_tableView"
     static let nameIconCollection: String = "icon_collectionView"
 }

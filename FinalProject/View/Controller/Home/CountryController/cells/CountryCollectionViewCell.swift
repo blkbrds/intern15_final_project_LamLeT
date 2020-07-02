@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CountryCollectionViewCell: UICollectionViewCell {
+final class CountryCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Properties
     @IBOutlet private weak var areaNameLabel: UILabel!

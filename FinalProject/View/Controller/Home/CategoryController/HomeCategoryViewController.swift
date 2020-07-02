@@ -51,7 +51,7 @@ final class HomeCategoryViewController: BaseViewController {
                 self.showAlert(message: msg)
             }
         }
-        HUD.setOffsetFromCenter(Configure.uiOffSet)
+        HUD.setOffsetFromCenter(Configure.offSet)
     }
 
     private func updateView() {
@@ -75,7 +75,7 @@ extension HomeCategoryViewController: UICollectionViewDataSource, UICollectionVi
 // MARK: - UICollectionViewDelegateFlowLayout
 extension HomeCategoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return Configure.sizeForCollection
+        return Configure.sizeForItem
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -92,7 +92,7 @@ extension HomeCategoryViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - Define
 private struct Configure {
     static let title: String = "Category Meal"
-    static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
-    static let sizeForCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+    static let offSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
+    static let sizeForItem: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
     static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
 }
