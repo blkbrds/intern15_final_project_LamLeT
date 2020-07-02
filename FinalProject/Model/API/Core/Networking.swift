@@ -70,7 +70,6 @@ class Networking {
         task.resume()
     }
 
-
     func getMealForCategory(categoryName: String, completion: @escaping APICompletion<CategoryAreaMealResult>) {
         guard let url = URL(string: Api.Path.apiMealCategoryAndArea + "c=\(categoryName)") else {
             completion(.failure(App.String.alertFailedAPI))
