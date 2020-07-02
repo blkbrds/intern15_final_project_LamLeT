@@ -84,12 +84,6 @@ final class DetailMealCountryViewController: BaseViewController {
     private func updateUI() {
         tableView.reloadData()
     }
-
-    private func showAlert(message: String) {
-        let alert = UIAlertController(title: "Connect API", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Connect", style: .default, handler: nil))
-        self.present(alert, animated: true)
-    }
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate

@@ -19,7 +19,6 @@ final class BaseTabBarViewController: UITabBarController {
 
     // MARK: - Private Function
     private func setupUI() {
-//        let homeVC = HomeCategoryViewController()
         let homeVC = CountryViewController()
         let homeNavi = UINavigationController(rootViewController: homeVC)
         homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "ic_tabbar_home"), tag: 0)

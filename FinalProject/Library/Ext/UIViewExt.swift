@@ -164,11 +164,11 @@ extension UIView {
         }
     }
     func anchor(top: NSLayoutYAxisAnchor? = nil,
-                leading: NSLayoutXAxisAnchor? = nil,
-                bottom: NSLayoutYAxisAnchor? = nil,
-                trailing: NSLayoutXAxisAnchor? = nil,
-                padding: UIEdgeInsets = .zero,
-                size: CGSize = .zero) {
+        leading: NSLayoutXAxisAnchor? = nil,
+        bottom: NSLayoutYAxisAnchor? = nil,
+        trailing: NSLayoutXAxisAnchor? = nil,
+        padding: UIEdgeInsets = .zero,
+        size: CGSize = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
         if let top = top {
             topAnchor.constraint(equalTo: top, constant: padding.top).isActive = true
@@ -193,43 +193,43 @@ extension UIView {
         guard let superview = superview else { return }
         translatesAutoresizingMaskIntoConstraints = false
         leadingAnchor.constraint(equalTo: superview.leadingAnchor,
-                                 constant: constant).isActive = true
+            constant: constant).isActive = true
     }
     func anchorToSuperViewTrailing(with constant: CGFloat = 0) {
         guard let superview = superview else { return }
         translatesAutoresizingMaskIntoConstraints = false
         trailingAnchor.constraint(equalTo: superview.trailingAnchor,
-                                  constant: constant).isActive = true
+            constant: constant).isActive = true
     }
     func anchorToSuperViewTrailing(lessThanOrEqual constant: CGFloat) {
         guard let superview = superview else { return }
         translatesAutoresizingMaskIntoConstraints = false
         trailingAnchor.constraint(lessThanOrEqualTo: superview.trailingAnchor,
-                                  constant: constant).isActive = true
+            constant: constant).isActive = true
     }
     func anchorToSuperViewTop(with constant: CGFloat = 0) {
         guard let superview = superview else { return }
         translatesAutoresizingMaskIntoConstraints = false
         topAnchor.constraint(equalTo: superview.topAnchor,
-                             constant: constant).isActive = true
+            constant: constant).isActive = true
     }
     func anchorToSuperViewTop(greaterThanOrEqual constant: CGFloat) {
         guard let superview = superview else { return }
         translatesAutoresizingMaskIntoConstraints = false
         topAnchor.constraint(greaterThanOrEqualTo: superview.topAnchor,
-                             constant: constant).isActive = true
+            constant: constant).isActive = true
     }
     func anchorToSuperViewBottom(with constant: CGFloat = 0) {
         guard let superview = superview else { return }
         translatesAutoresizingMaskIntoConstraints = false
         bottomAnchor.constraint(equalTo: superview.bottomAnchor,
-                                constant: constant).isActive = true
+            constant: constant).isActive = true
     }
     func anchorToSuperViewBottom(lessThanOrEqual constant: CGFloat) {
         guard let superview = superview else { return }
         translatesAutoresizingMaskIntoConstraints = false
         bottomAnchor.constraint(lessThanOrEqualTo: superview.topAnchor,
-                                constant: constant).isActive = true
+            constant: constant).isActive = true
     }
     func heightAnchor(_ constant: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
