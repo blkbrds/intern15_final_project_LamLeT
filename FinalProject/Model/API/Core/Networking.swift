@@ -185,7 +185,6 @@ class Networking {
                         guard let meals = json["meals"] as? [JSON] else {
                             return 
                         }
-//                        let meals = json["meals"] as! [JSON]
                         var detailMeals: [Meal] = []
                         for item in meals {
                             let meals = Meal(json: item)
