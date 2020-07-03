@@ -50,7 +50,6 @@ final class DetailMealCountryViewController: BaseViewController {
     private func configNavi() {
         title = viewModel.nameArea
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: Configure.nameIconCollection), style: .plain, target: self, action: #selector(collectionViewButtonTouchUpInside))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: App.String.iconBack), style: .plain, target: self, action: #selector(backToView))
     }
 
     // MARK: - Action
@@ -66,10 +65,6 @@ final class DetailMealCountryViewController: BaseViewController {
             collectionView.isHidden = true
             tableView.reloadData()
         }
-    }
-
-    @objc private func backToView() {
-        self.navigationController?.popViewController(animated: true)
     }
 
     private func registerTable() {
@@ -92,7 +87,11 @@ final class DetailMealCountryViewController: BaseViewController {
 // MARK: - UITableViewDataSource, UITableViewDelegate
 extension DetailMealCountryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+<<<<<<< HEAD:FinalProject/View/Controller/Home/MealDetailCountryController/DetailMealCountryViewController.swift
         return viewModel.numberOfRowsInSection()
+=======
+        return Configure.numberOfRowsInSection
+>>>>>>> master:FinalProject/View/Controller/Home/MealDetailAreaController/DetailMealAreaViewController.swift
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -109,7 +108,11 @@ extension DetailMealCountryViewController: UITableViewDataSource, UITableViewDel
 // MARK: - UICollectionDataSource, UICollectionDataSource
 extension DetailMealCountryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+<<<<<<< HEAD:FinalProject/View/Controller/Home/MealDetailCountryController/DetailMealCountryViewController.swift
         return viewModel.numberOfRowsInSection()
+=======
+        return Configure.numberOfRowsInSection
+>>>>>>> master:FinalProject/View/Controller/Home/MealDetailAreaController/DetailMealAreaViewController.swift
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -133,6 +136,10 @@ extension DetailMealCountryViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - Define
 private struct Configure {
     static let title: String = "Area Meal"
+<<<<<<< HEAD:FinalProject/View/Controller/Home/MealDetailCountryController/DetailMealCountryViewController.swift
+=======
+    static let numberOfRowsInSection: Int = 5
+>>>>>>> master:FinalProject/View/Controller/Home/MealDetailAreaController/DetailMealAreaViewController.swift
     static let nameIconTable: String = "icon_tableView"
     static let nameIconCollection: String = "icon_collectionView"
     static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
