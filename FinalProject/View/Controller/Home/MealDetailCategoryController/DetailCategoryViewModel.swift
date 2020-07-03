@@ -23,6 +23,7 @@ class DetailCategoryViewModel {
     }
 
     // MARK: - Get API
+
     func getAPIListCategory(completion: @escaping (Bool, String) -> Void) {
         Networking.shared().getMealForCategory(categoryName: nameCategory) { [weak self] (result) in
             guard let self = self else {

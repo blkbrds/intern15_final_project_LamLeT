@@ -61,6 +61,9 @@
 		F0F4BDDA24A1EB12000A2CD0 /* DetailCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4BDD224A1EB12000A2CD0 /* DetailCategoryViewController.swift */; };
 		F0F4BDDB24A1EB12000A2CD0 /* DetailCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0F4BDD324A1EB12000A2CD0 /* DetailCategoryViewController.xib */; };
 		F0F4BDDF24A2168F000A2CD0 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4BDDE24A2168F000A2CD0 /* Flag.swift */; };
+		F0F4BDE324A2E74B000A2CD0 /* DetailMealAreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4BDE124A2E74B000A2CD0 /* DetailMealAreaViewController.swift */; };
+		F0F4BDE424A2E74B000A2CD0 /* DetailMealAreaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0F4BDE224A2E74B000A2CD0 /* DetailMealAreaViewController.xib */; };
+		F0F4BDE724A2E79A000A2CD0 /* DetailMealAreaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4BDE624A2E79A000A2CD0 /* DetailMealAreaViewModel.swift */; };
 		F0F746F8249C4D1B002BDE15 /* HomeCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F746F6249C4D1B002BDE15 /* HomeCategoryViewController.swift */; };
 		F0F746F9249C4D1B002BDE15 /* HomeCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0F746F7249C4D1B002BDE15 /* HomeCategoryViewController.xib */; };
 		F0F746FD249C4E31002BDE15 /* HomeCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F746FB249C4E31002BDE15 /* HomeCategoryCollectionViewCell.swift */; };
@@ -147,6 +150,9 @@
 		F0F4BDD224A1EB12000A2CD0 /* DetailCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCategoryViewController.swift; sourceTree = "<group>"; };
 		F0F4BDD324A1EB12000A2CD0 /* DetailCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCategoryViewController.xib; sourceTree = "<group>"; };
 		F0F4BDDE24A2168F000A2CD0 /* Flag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
+		F0F4BDE124A2E74B000A2CD0 /* DetailMealAreaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealAreaViewController.swift; sourceTree = "<group>"; };
+		F0F4BDE224A2E74B000A2CD0 /* DetailMealAreaViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailMealAreaViewController.xib; sourceTree = "<group>"; };
+		F0F4BDE624A2E79A000A2CD0 /* DetailMealAreaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealAreaViewModel.swift; sourceTree = "<group>"; };
 		F0F746F6249C4D1B002BDE15 /* HomeCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryViewController.swift; sourceTree = "<group>"; };
 		F0F746F7249C4D1B002BDE15 /* HomeCategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCategoryViewController.xib; sourceTree = "<group>"; };
 		F0F746FB249C4E31002BDE15 /* HomeCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -424,6 +430,7 @@
 		F00DAA3A249B77D7001A70BC /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F0F4BDE024A2E6F5000A2CD0 /* MealDetailAreaController */,
 				F0F4BDCA24A1EB12000A2CD0 /* MealDetailCategoryController */,
 				F0F4BDBA24A1A850000A2CD0 /* CountryController */,
 				F0F746F0249C4CC5002BDE15 /* CategoryController */,
@@ -500,6 +507,16 @@
 				F0F4BDD024A1EB12000A2CD0 /* DetailCategoryTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		F0F4BDE024A2E6F5000A2CD0 /* MealDetailAreaController */ = {
+			isa = PBXGroup;
+			children = (
+				F0F4BDE124A2E74B000A2CD0 /* DetailMealAreaViewController.swift */,
+				F0F4BDE224A2E74B000A2CD0 /* DetailMealAreaViewController.xib */,
+				F0F4BDE624A2E79A000A2CD0 /* DetailMealAreaViewModel.swift */,
+			);
+			path = MealDetailAreaController;
 			sourceTree = "<group>";
 		};
 		F0F746F0249C4CC5002BDE15 /* CategoryController */ = {
@@ -636,6 +653,7 @@
 				F0F4BDC524A1B076000A2CD0 /* CountryCollectionViewCell.xib in Resources */,
 				D10B9092249B19FA003E0A85 /* Assets.xcassets in Resources */,
 				F00DAA41249B78BF001A70BC /* WelcomeViewController.xib in Resources */,
+				F0F4BDE424A2E74B000A2CD0 /* DetailMealAreaViewController.xib in Resources */,
 				F0F746FE249C4E31002BDE15 /* HomeCategoryCollectionViewCell.xib in Resources */,
 				F0F4BDDB24A1EB12000A2CD0 /* DetailCategoryViewController.xib in Resources */,
 				F0F4BDBD24A1A851000A2CD0 /* CountryViewController.xib in Resources */,
@@ -722,6 +740,8 @@
 				D10B90DC249B1DD5003E0A85 /* Measurement.swift in Sources */,
 				F0F746FD249C4E31002BDE15 /* HomeCategoryCollectionViewCell.swift in Sources */,
 				F00DAA39249B7714001A70BC /* BaseTabBarViewController.swift in Sources */,
+				F0F4BDE724A2E79A000A2CD0 /* DetailMealAreaViewModel.swift in Sources */,
+				F0F4BDE324A2E74B000A2CD0 /* DetailMealAreaViewController.swift in Sources */,
 				F01685BC249CB7E2006BE5C9 /* Meal.swift in Sources */,
 				D10B90DB249B1DD5003E0A85 /* Color.swift in Sources */,
 				D10B918A249B1FD8003E0A85 /* RequestSerializer.swift in Sources */,
