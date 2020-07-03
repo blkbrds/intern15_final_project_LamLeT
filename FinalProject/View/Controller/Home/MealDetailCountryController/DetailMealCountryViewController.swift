@@ -71,15 +71,13 @@ final class DetailMealCountryViewController: BaseViewController {
     }
 
     private func registerTable() {
-        let nib = UINib(nibName: Configure.nibNameTable, bundle: .main)
-        tableView.register(nib, forCellReuseIdentifier: Configure.defineCell)
+        tableView.register(nibWithCellClass: DetailCategoryTableViewCell.self)
         tableView.delegate = self
         tableView.dataSource = self
     }
 
     private func registerCollection() {
-        let nib = UINib(nibName: Configure.nibNameCollection, bundle: .main)
-        collectionView.register(nib, forCellWithReuseIdentifier: Configure.defineCell)
+        collectionView.register(nibWithCellClass: DetailCategoryCollectionViewCell.self)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -102,7 +100,7 @@ extension DetailMealCountryViewController: UITableViewDataSource, UITableViewDel
         guard let viewModel = viewModel else {
             return UITableViewCell()
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: Configure.defineCell, for: indexPath) as! DetailCategoryTableViewCell
+        let cell = tableView.dequeueReusableCell(withClass: DetailCategoryTableViewCell.self, for: indexPath)
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
         return cell
     }
@@ -133,7 +131,7 @@ extension DetailMealCountryViewController: UICollectionViewDataSource, UICollect
         guard let viewModel = viewModel else {
             return UICollectionViewCell()
         }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Configure.defineCell, for: indexPath) as! DetailCategoryCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withClass: DetailCategoryCollectionViewCell.self, for: indexPath)
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
         return cell
     }
@@ -158,9 +156,6 @@ extension DetailMealCountryViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - Define
 private struct Configure {
     static let title: String = "Area Meal"
-    static let defineCell: String = "cell"
-    static let nibNameTable: String = "DetailCategoryTableViewCell"
-    static let nibNameCollection: String = "DetailCategoryCollectionViewCell"
     static let nameIconTable: String = "icon_tableView"
     static let nameIconCollection: String = "icon_collectionView"
 }
