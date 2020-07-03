@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import SVProgressHUD
 
 final class CountryViewController: BaseViewController {
 
     // MARK: - Properties
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     var viewModel = CountryViewModel()
 
     // MARK: - Life Cycle
@@ -32,9 +31,10 @@ final class CountryViewController: BaseViewController {
 
     // MARK: Private Funtions
     private func loadAPI() {
-        SVProgressHUD.show()
-        viewModel.getAPIListArea { (done, msg) in
-            SVProgressHUD.dismiss()
+        HUD.show()
+        viewModel.getAPIListArea { [weak self] (done, msg) in
+            guard let self = self else { return }
+            HUD.dismiss()
             if done {
                 self.updateView()
             } else {
@@ -45,6 +45,7 @@ final class CountryViewController: BaseViewController {
     }
 
     private func configNavi() {
+        navigationController?.navigationBar.tintColor = UIColor.black
         title = App.String.titleCountry
         navigationController?.navigationBar.tintColor = UIColor.black
     }
@@ -56,6 +57,7 @@ final class CountryViewController: BaseViewController {
     }
 
     private func updateView() {
+        guard isViewLoaded else { return }
         collectionView.reloadData()
     }
 }
@@ -75,7 +77,7 @@ extension CountryViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = DetailMealCountryViewController()
         vc.viewModel = viewModel.getNameArea(indexPath: indexPath)
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

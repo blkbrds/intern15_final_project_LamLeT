@@ -15,7 +15,7 @@ final class DetailCategoryTableViewCell: UITableViewCell {
     @IBOutlet weak var viewContent: UIView!
     @IBOutlet weak var favoritesButton: UIButton!
     @IBOutlet weak var nameMealLabel: UILabel!
-    
+
     var viewModel: DetailCategoryCellViewModel? {
         didSet {
             updateView()

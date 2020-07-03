@@ -14,7 +14,9 @@ class DetailMealCountryViewModel {
     // MARK: - Properties
     var mealAreas: [Meal] = []
     var nameArea: String = ""
-    
+
+    init() { }
+
     init(nameArea: String) {
         self.nameArea = nameArea
     }
@@ -26,14 +28,14 @@ class DetailMealCountryViewModel {
             case .failure(let error):
                 detailAreaCompletion(false, error)
             case .success(let detailMealArea):
-                for item in detailMealArea.categoryMeals {
+                for item in detailMealArea.meals {
                     self.mealAreas.append(item)
                 }
-                detailAreaCompletion(true, "Loading Success")
+                detailAreaCompletion(true, App.String.loadSuccess)
             }
         }
     }
-    
+
     // MARK: - TableView Data
     func numberOfRowsInSection() -> Int {
         return mealAreas.count
@@ -44,7 +46,7 @@ class DetailMealCountryViewModel {
         let model = DetailCategoryCellViewModel(meal: item)
         return model
     }
-    
+
     func heightForRowAt() -> CGFloat {
         return 250
     }
