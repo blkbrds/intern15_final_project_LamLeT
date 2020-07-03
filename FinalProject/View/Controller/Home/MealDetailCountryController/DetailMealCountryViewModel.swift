@@ -11,6 +11,13 @@ import UIKit
 
 class DetailMealCountryViewModel {
 
+    // MARK: - Define
+    struct Configure {
+        static let title: String = "Area Meal"
+        static let nameIconTable: String = "icon_tableView"
+        static let nameIconCollection: String = "icon_collectionView"
+    }
+
     // MARK: - Properties
     var mealAreas: [Meal] = []
     var nameArea: String = ""

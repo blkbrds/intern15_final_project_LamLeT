@@ -8,12 +8,16 @@
 
 import UIKit
 import SVProgressHUD
+import SideMenu
 
 final class CountryViewController: BaseViewController {
 
-    // MARK: - Properties
+    // MARK: - IBOutlet
     @IBOutlet weak var collectionView: UICollectionView!
+
+    // MARK: - Properties
     var viewModel = CountryViewModel()
+    var menu: SideMenuNavigationController?
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -21,8 +25,14 @@ final class CountryViewController: BaseViewController {
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        configNavi()
+        sideMenu()
+    }
+
     override func setUpUI() {
         configNavi()
+        sideMenu()
     }
 
     override func setUpData() {
@@ -41,12 +51,18 @@ final class CountryViewController: BaseViewController {
                 self.showAlert(message: msg)
             }
         }
-        HUD.setOffsetFromCenter(Configure.uiOffSet)
+        HUD.setOffsetFromCenter(CountryViewModel.Configure.uiOffSet)
     }
 
     private func configNavi() {
         title = App.String.titleCountry
         navigationController?.navigationBar.tintColor = UIColor.black
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_menu"), style: .plain, target: self, action: #selector(leftBarButtonTouchUpInside))
+    }
+
+    @objc func leftBarButtonTouchUpInside() {
+        guard let menu = menu else { return }
+        present(menu, animated: true, completion: nil)
     }
 
     private func registerColletionCell() {
@@ -57,6 +73,17 @@ final class CountryViewController: BaseViewController {
 
     private func updateView() {
         collectionView.reloadData()
+    }
+
+    private func sideMenu() {
+        let vc = SideMenuTableViewController()
+        vc.delegate = self
+        menu = SideMenuNavigationController(rootViewController: vc)
+        guard let menu = menu else { return }
+        menu.leftSide = true
+        SideMenuManager.default.leftMenuNavigationController = menu
+        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
+        menu.setNavigationBarHidden(true, animated: true)
     }
 }
 
@@ -82,17 +109,19 @@ extension CountryViewController: UICollectionViewDataSource, UICollectionViewDel
 // MARK: - UICollectionViewDelegateFlowLayout
 extension CountryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return Configure.sizeForCollection
+        return CountryViewModel.Configure.sizeForCollection
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return Configure.spaceForCell
+        return CountryViewModel.Configure.spaceForCell
     }
 }
 
-// MARK: - Define
-private struct Configure {
-    static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
-    static let sizeForCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
-    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+
+extension CountryViewController: SideMenuTableViewDelegate {
+    func pushToLocationMenu(vc: UIViewController) {
+        self.navigationController?.pushViewController(vc, animated: true)
+        guard let menu = menu else { return }
+        menu.dismiss(animated: true, completion: nil)
+    }
 }

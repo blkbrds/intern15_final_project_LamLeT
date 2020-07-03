@@ -8,7 +8,7 @@
 
 import UIKit
 
-private struct Configure {
+struct Configure {
     static let title: String = "Cooking"
 }
 
