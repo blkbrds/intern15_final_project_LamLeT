@@ -25,18 +25,19 @@ final class DetailMealCountryViewController: BaseViewController {
 
     override func setUpUI() {
         configNavi()
+        registerTable()
+        registerCollection()
     }
 
     override func setUpData() {
-        registerTable()
-        registerCollection()
         loadAPI()
     }
 
     // MARK: - Private Functions
     private func loadAPI() {
         HUD.show()
-        viewModel.getAPIListArea(detailAreaCompletion: { (done, msg) in
+        viewModel.getAPIListArea(detailAreaCompletion: { [weak self] (done, msg) in
+            guard let self = self else { return }
             HUD.dismiss()
             if done {
                 self.updateUI()
@@ -85,6 +86,7 @@ final class DetailMealCountryViewController: BaseViewController {
     }
 
     private func updateUI() {
+        guard isViewLoaded else { return }
         tableView.reloadData()
     }
 }

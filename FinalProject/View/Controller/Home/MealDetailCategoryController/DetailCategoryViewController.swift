@@ -11,11 +11,13 @@ import SVProgressHUD
 
 final class DetailCategoryViewController: BaseViewController {
 
-    // MARK: - Properties
+    // MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var collectionView: UICollectionView!
+
+    // MARK: - Properties
     var viewModel: DetailCategoryViewModel = DetailCategoryViewModel()
-    
+
     var isShowTableView: Bool = true
 
     // MARK: - Life Cycle
@@ -55,7 +57,7 @@ final class DetailCategoryViewController: BaseViewController {
             tableView.reloadData()
         }
     }
-    
+
     @objc private func backToView() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -90,6 +92,7 @@ final class DetailCategoryViewController: BaseViewController {
     }
 
     private func updateUI() {
+        guard isViewLoaded else { return }
         tableView.reloadData()
     }
 }

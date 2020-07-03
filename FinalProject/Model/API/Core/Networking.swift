@@ -157,7 +157,6 @@ class Networking {
                         }
                         let result = MealResult(meals: areaDetails)
                         completion(.success(result))
-
                     } else {
                         completion(.failure(App.String.alertFailedToDataAPI))
                     }
