@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InstructionsTableViewCell: UITableViewCell {
+final class InstructionsTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
