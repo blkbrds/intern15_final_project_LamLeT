@@ -79,9 +79,11 @@ final class HomeCategoryViewController: BaseViewController {
             }
         }
         HUD.setOffsetFromCenter(HomeCategoryViewModel.Configure.uiOffSet)
+
     }
 
     private func updateView() {
+        guard isViewLoaded else { return }
         listCategoryCollectionView.reloadData()
     }
 }

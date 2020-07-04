@@ -12,7 +12,7 @@ struct CategoryResult {
     var categories: [CategoryMeal]
 }
 
-struct mealResult {
+struct MealResult {
     var meals: [Meal]
 }
 
@@ -70,7 +70,7 @@ class Networking {
         task.resume()
     }
 
-    func getMealForCategory(categoryName: String, completion: @escaping APICompletion<mealResult>) {
+    func getMealForCategory(categoryName: String, completion: @escaping APICompletion<MealResult>) {
         guard let url = URL(string: Api.Path.apiMealCategoryAndArea + "c=\(categoryName)") else {
             completion(.failure(App.String.alertFailedAPI))
             return
@@ -91,7 +91,7 @@ class Networking {
                             let meals = Meal(json: item)
                             categoryDetails.append(meals)
                         }
-                        let result = mealResult(meals: categoryDetails)
+                        let result = MealResult(meals: categoryDetails)
                         completion(.success(result))
                     } else {
                         completion(.failure(App.String.alertFailedToDataAPI))
@@ -101,8 +101,8 @@ class Networking {
         }
         task.resume()
     }
-
-    func getArea(completion: @escaping APICompletion<mealResult>) {
+    
+    func getArea(completion: @escaping APICompletion<MealResult>) {
         guard let url = URL(string: Api.Path.apiListArea) else {
             completion(.failure(App.String.alertFailedAPI))
             return
@@ -123,7 +123,7 @@ class Networking {
                             let area = Meal(json: item)
                             areas.append(area)
                         }
-                        let result = mealResult(meals: areas)
+                        let result = MealResult(meals: areas)
                         completion(.success(result))
                     } else {
                         completion(.failure(App.String.alertFailedToDataAPI))
@@ -133,8 +133,8 @@ class Networking {
         }
         task.resume()
     }
-
-    func getMealDetailArea(areaName: String, completion: @escaping APICompletion<mealResult>) {
+    
+    func getMealDetailArea(areaName: String, completion: @escaping APICompletion<MealResult>) {
         guard let url = URL(string: Api.Path.apiMealCategoryAndArea + "a=\(areaName)") else {
             completion(.failure(App.String.alertFailedAPI))
             return
@@ -155,7 +155,7 @@ class Networking {
                             let meals = Meal(json: item)
                             areaDetails.append(meals)
                         }
-                        let result = mealResult(meals: areaDetails)
+                        let result = MealResult(meals: areaDetails)
                         completion(.success(result))
 
                     } else {
@@ -167,7 +167,7 @@ class Networking {
         task.resume()
     }
 
-    func getMealDetail(idMeal: String, completion: @escaping APICompletion<mealResult>) {
+    func getMealDetail(idMeal: String, completion: @escaping APICompletion<MealResult>) {
         guard let url = URL(string: Api.Path.apiDetailMeal + "i=\(idMeal)") else {
             completion(.failure(App.String.alertFailedAPI))
             return
@@ -190,7 +190,7 @@ class Networking {
                             let meals = Meal(json: item)
                             detailMeals.append(meals)
                         }
-                        let result = mealResult(meals: detailMeals)
+                        let result = MealResult(meals: detailMeals)
                         completion(.success(result))
                     } else {
                         completion(.failure(App.String.alertFailedToDataAPI))
@@ -201,7 +201,7 @@ class Networking {
         task.resume()
     }
 
-    func getMealRandom(completion: @escaping APICompletion<mealResult>) {
+    func getMealRandom(completion: @escaping APICompletion<MealResult>) {
         guard let url = URL(string: Api.Path.apiRandomMeal) else {
             completion(.failure(App.String.alertFailedAPI))
             return
@@ -224,7 +224,7 @@ class Networking {
                             let meals = Meal(json: item)
                             randomMeals.append(meals)
                         }
-                        let result = mealResult(meals: randomMeals)
+                        let result = MealResult(meals: randomMeals)
                         completion(.success(result))
                     } else {
                         completion(.failure(App.String.alertFailedToDataAPI))
