@@ -11,11 +11,13 @@ import SVProgressHUD
 
 final class DetailCategoryViewController: BaseViewController {
 
-    // MARK: - Properties
+    // MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var collectionView: UICollectionView!
+
+    // MARK: - Properties
     var viewModel: DetailCategoryViewModel = DetailCategoryViewModel()
-    
+
     var isShowTableView: Bool = true
 
     // MARK: - Life Cycle
@@ -55,7 +57,7 @@ final class DetailCategoryViewController: BaseViewController {
             tableView.reloadData()
         }
     }
-    
+
     @objc private func backToView() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -86,10 +88,11 @@ final class DetailCategoryViewController: BaseViewController {
                 self.showAlert(message: msg)
             }
         })
-        HUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
+        HUD.setOffsetFromCenter(Configure.uiOffSet)
     }
 
     private func updateUI() {
+        guard isViewLoaded else { return }
         tableView.reloadData()
     }
 }
@@ -123,10 +126,17 @@ extension DetailCategoryViewController: UICollectionViewDelegate, UICollectionVi
 // MARK: - UICollectionViewDelegateFlowLayout
 extension DetailCategoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+        return Configure.sizeForCellCollection
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+        return Configure.spaceForCell
     }
+}
+
+// MARK: - Define
+private struct Configure {
+    static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
+    static let sizeForCellCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
 }

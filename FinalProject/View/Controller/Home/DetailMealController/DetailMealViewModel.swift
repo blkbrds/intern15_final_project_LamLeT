@@ -25,7 +25,7 @@ class DetailMealViewModel {
             case .failure(let error):
                 completion(false, error)
             case .success(let detailMeal):
-                for item in detailMeal.categoryMeals {
+                for item in detailMeal.meals {
                     self.detailMeals.append(item)
                 }
                 completion(true, "Loading Success")

@@ -25,5 +25,6 @@ extension App {
         static let iconCollection = "icon_collectionView"
         static let iconBack = "icon_back"
         static let titleCountry = "Country"
+        static let loadSuccess = "Loading Success"
     }
 }

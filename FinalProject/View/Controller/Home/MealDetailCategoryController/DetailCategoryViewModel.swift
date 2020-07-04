@@ -32,7 +32,7 @@ class DetailCategoryViewModel {
             case .failure(let error):
                 completion(false, error)
             case .success(let detailCategory):
-                for item in detailCategory.categoryMeals {
+                for item in detailCategory.meals {
                     self.mealCategory.append(item)
                 }
                 completion(true, "")
