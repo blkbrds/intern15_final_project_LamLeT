@@ -7,15 +7,12 @@
 //
 
 import UIKit
-import SVProgressHUD
 import SideMenu
 
 final class CountryViewController: BaseViewController {
 
-    // MARK: - IBOutlet
-    @IBOutlet weak var collectionView: UICollectionView!
-
     // MARK: - Properties
+    @IBOutlet private weak var collectionView: UICollectionView!
     var viewModel = CountryViewModel()
     var menu: SideMenuNavigationController?
 
@@ -39,11 +36,16 @@ final class CountryViewController: BaseViewController {
         registerColletionCell()
         loadAPI()
     }
+    
+    override var prefersStatusBarHidden: Bool {
+           return true
+       }
 
     // MARK: Private Funtions
     private func loadAPI() {
         HUD.show()
-        viewModel.getAPIListArea { (done, msg) in
+        viewModel.getAPIListArea { [weak self] (done, msg) in
+            guard let self = self else { return }
             HUD.dismiss()
             if done {
                 self.updateView()
@@ -72,6 +74,7 @@ final class CountryViewController: BaseViewController {
     }
 
     private func updateView() {
+        guard isViewLoaded else { return }
         collectionView.reloadData()
     }
 
@@ -102,7 +105,7 @@ extension CountryViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = DetailMealCountryViewController()
         vc.viewModel = viewModel.getNameArea(indexPath: indexPath)
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -117,7 +120,7 @@ extension CountryViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-
+// MARK: - SideMenuTableViewDelegate
 extension CountryViewController: SideMenuTableViewDelegate {
     func pushToLocationMenu(vc: UIViewController) {
         self.navigationController?.pushViewController(vc, animated: true)
