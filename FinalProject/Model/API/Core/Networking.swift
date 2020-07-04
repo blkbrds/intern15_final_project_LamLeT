@@ -12,8 +12,8 @@ struct CategoryResult {
     var categories: [CategoryMeal]
 }
 
-struct CategoryAreaMealResult {
-    var categoryMeals: [Meal]
+struct MealResult {
+    var meals: [Meal]
 }
 
 //MARK: Enum
@@ -70,7 +70,7 @@ class Networking {
         task.resume()
     }
 
-    func getMealForCategory(categoryName: String, completion: @escaping APICompletion<CategoryAreaMealResult>) {
+    func getMealForCategory(categoryName: String, completion: @escaping APICompletion<MealResult>) {
         guard let url = URL(string: Api.Path.apiMealCategoryAndArea + "c=\(categoryName)") else {
             completion(.failure(App.String.alertFailedAPI))
             return
@@ -91,7 +91,7 @@ class Networking {
                             let meals = Meal(json: item)
                             categoryDetails.append(meals)
                         }
-                        let result = CategoryAreaMealResult(categoryMeals: categoryDetails)
+                        let result = MealResult(meals: categoryDetails)
                         completion(.success(result))
                     } else {
                         completion(.failure(App.String.alertFailedToDataAPI))
@@ -101,8 +101,8 @@ class Networking {
         }
         task.resume()
     }
-
-    func getArea(completion: @escaping APICompletion<CategoryAreaMealResult>) {
+    
+    func getArea(completion: @escaping APICompletion<MealResult>) {
         guard let url = URL(string: Api.Path.apiListArea) else {
             completion(.failure(App.String.alertFailedAPI))
             return
@@ -123,7 +123,7 @@ class Networking {
                             let area = Meal(json: item)
                             areas.append(area)
                         }
-                        let result = CategoryAreaMealResult(categoryMeals: areas)
+                        let result = MealResult(meals: areas)
                         completion(.success(result))
                     } else {
                         completion(.failure(App.String.alertFailedToDataAPI))
@@ -133,8 +133,9 @@ class Networking {
         }
         task.resume()
     }
+    
+    func getMealDetailArea(areaName: String, completion: @escaping APICompletion<MealResult>) {
 
-    func getMealDetailArea(areaName: String, completion: @escaping APICompletion<CategoryAreaMealResult>) {
         guard let url = URL(string: Api.Path.apiMealCategoryAndArea + "a=\(areaName)") else {
             completion(.failure(App.String.alertFailedAPI))
             return
@@ -155,9 +156,8 @@ class Networking {
                             let meals = Meal(json: item)
                             areaDetails.append(meals)
                         }
-                        let result = CategoryAreaMealResult(categoryMeals: areaDetails)
+                        let result = MealResult(meals: areaDetails)
                         completion(.success(result))
-
                     } else {
                         completion(.failure(App.String.alertFailedToDataAPI))
                     }
@@ -167,7 +167,7 @@ class Networking {
         task.resume()
     }
 
-    func getMealDetail(idMeal: String, completion: @escaping APICompletion<CategoryAreaMealResult>) {
+    func getMealDetail(idMeal: String, completion: @escaping APICompletion<MealResult>) {
         guard let url = URL(string: Api.Path.apiDetailMeal + "i=\(idMeal)") else {
             completion(.failure(App.String.alertFailedAPI))
             return
@@ -190,7 +190,7 @@ class Networking {
                             let meals = Meal(json: item)
                             detailMeals.append(meals)
                         }
-                        let result = CategoryAreaMealResult(categoryMeals: detailMeals)
+                        let result = MealResult(meals: detailMeals)
                         completion(.success(result))
 
                     } else {
