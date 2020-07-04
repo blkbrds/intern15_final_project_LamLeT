@@ -82,6 +82,7 @@ final class HomeCategoryViewController: BaseViewController {
     }
 
     private func updateView() {
+        guard isViewLoaded else { return }
         listCategoryCollectionView.reloadData()
     }
 }

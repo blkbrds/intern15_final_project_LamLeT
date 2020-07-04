@@ -632,8 +632,8 @@
 			isa = PBXGroup;
 			children = (
 				F0F4BDC124A1B00C000A2CD0 /* cells */,
-				F0F4BDBB24A1A850000A2CD0 /* CountryViewController.xib */,
 				F0F4BDBC24A1A850000A2CD0 /* CountryViewController.swift */,
+				F0F4BDBB24A1A850000A2CD0 /* CountryViewController.xib */,
 				F0F4BDBF24A1AFB8000A2CD0 /* CountryViewModel.swift */,
 			);
 			path = CountryController;
