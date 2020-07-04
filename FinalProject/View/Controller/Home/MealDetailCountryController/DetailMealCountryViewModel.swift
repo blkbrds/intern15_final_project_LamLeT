@@ -31,7 +31,7 @@ class DetailMealCountryViewModel {
                 for item in detailMealArea.meals {
                     self.mealAreas.append(item)
                 }
-                detailAreaCompletion(true, "Loading Success")
+                detailAreaCompletion(true, App.String.loadSuccess)
             }
         }
     }
