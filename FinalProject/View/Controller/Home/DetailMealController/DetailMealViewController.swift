@@ -84,7 +84,7 @@ class DetailMealViewController: BaseViewController {
             if done {
                 self.updateView()
             } else {
-                showAlert(message: msg)
+                self.showAlert(message: msg)
             }
         }
     }
