@@ -23,7 +23,7 @@ class DetailMealViewModel {
     }
 
     var idMeal: String = ""
-
+    private var sections: [Section] = [.image, .video, .instruction, .ingrentMeasure, .linkSource, .otherFood]
     init() { }
 
     init(meal: Meal) {
@@ -32,7 +32,7 @@ class DetailMealViewModel {
 
 // MARK: - Data Table
     func numberOfSections() -> Int {
-        return 7
+        return sections.count
     }
 
     func numberOfRowsInSection(section: Section) -> Int {
