@@ -30,7 +30,7 @@ class DetailMealViewModel {
         self.idMeal = meal.idMeal
     }
 
-// MARK: - Data Table
+    // MARK: - Data Table
     func numberOfSections() -> Int {
         return sections.count
     }
