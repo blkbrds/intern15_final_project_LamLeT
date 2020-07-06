@@ -14,12 +14,12 @@ class DetailMealViewModel {
     // MARK: - Properties
     enum Section: Int {
         case image = 0
-        case information = 1
-        case video = 2
-        case instruction = 3
-        case ingrentMeasure = 4
-        case linkSource = 5
-        case otherFood = 6
+        case information
+        case video
+        case instruction
+        case ingrentMeasure
+        case linkSource
+        case otherFood
     }
 
     var idMeal: String = ""
@@ -37,19 +37,7 @@ class DetailMealViewModel {
 
     func numberOfRowsInSection(section: Section) -> Int {
         switch section {
-        case .image:
-            return 1
-        case .information:
-            return 1
-        case .video:
-            return 1
-        case .instruction:
-            return 1
-        case .ingrentMeasure:
-            return 1
-        case .linkSource:
-            return 1
-        case .otherFood:
+        case .image, .information, .video, .instruction, .ingrentMeasure, .linkSource, .otherFood:
             return 1
         }
     }
