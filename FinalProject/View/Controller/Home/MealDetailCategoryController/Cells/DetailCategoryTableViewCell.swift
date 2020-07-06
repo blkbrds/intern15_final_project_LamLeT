@@ -8,6 +8,10 @@
 
 import UIKit
 
+private struct Config {
+    static let radius: CGFloat = 10
+}
+
 final class DetailCategoryTableViewCell: UITableViewCell {
 
     // MARK: - Properties
@@ -25,10 +29,8 @@ final class DetailCategoryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        viewContent.layer.cornerRadius = 10
-        viewContent.clipsToBounds = true
-        nameMealLabel.layer.cornerRadius = 10
-        nameMealLabel.clipsToBounds = true
+        viewContent.cornerRadius = Config.radius
+        nameMealLabel.cornerRadius = Config.radius
     }
 
     private func updateView() {

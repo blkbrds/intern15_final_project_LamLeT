@@ -17,7 +17,6 @@ final class DetailCategoryViewController: BaseViewController {
 
     // MARK: - Properties
     var viewModel: DetailCategoryViewModel = DetailCategoryViewModel()
-
     var isShowTableView: Bool = true
 
     // MARK: - Life Cycle
