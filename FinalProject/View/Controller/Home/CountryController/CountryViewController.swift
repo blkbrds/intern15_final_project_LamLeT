@@ -37,10 +37,6 @@ final class CountryViewController: BaseViewController {
         loadAPI()
     }
     
-    override var prefersStatusBarHidden: Bool {
-           return true
-       }
-
     // MARK: Private Funtions
     private func loadAPI() {
         HUD.show()

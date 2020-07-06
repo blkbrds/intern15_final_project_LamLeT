@@ -38,6 +38,10 @@
 		F00DAA4D249B7990001A70BC /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F00DAA4B249B7990001A70BC /* FavoritesViewController.xib */; };
 		F01685BC249CB7E2006BE5C9 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01685BB249CB7E2006BE5C9 /* Meal.swift */; };
 		F01685BE249CC650006BE5C9 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01685BD249CC650006BE5C9 /* Networking.swift */; };
+		F01FA20E24B02E2300A2D6FF /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01FA20C24B02E2300A2D6FF /* FavoritesTableViewCell.swift */; };
+		F01FA20F24B02E2300A2D6FF /* FavoritesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F01FA20D24B02E2300A2D6FF /* FavoritesTableViewCell.xib */; };
+		F01FA21124B068D900A2D6FF /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01FA21024B068D900A2D6FF /* FavoritesViewModel.swift */; };
+		F01FA21324B068ED00A2D6FF /* FavoritesTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01FA21224B068ED00A2D6FF /* FavoritesTableViewModel.swift */; };
 		F02FE51024AD78D500B03D21 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02FE50E24AD78D500B03D21 /* SideMenuTableViewController.swift */; };
 		F02FE51124AD78D500B03D21 /* SideMenuTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02FE50F24AD78D500B03D21 /* SideMenuTableViewController.xib */; };
 		F02FE51424AD78E700B03D21 /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02FE51224AD78E700B03D21 /* SideMenuTableViewCell.swift */; };
@@ -153,6 +157,10 @@
 		F00DAA4B249B7990001A70BC /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 		F01685BB249CB7E2006BE5C9 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		F01685BD249CC650006BE5C9 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		F01FA20C24B02E2300A2D6FF /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
+		F01FA20D24B02E2300A2D6FF /* FavoritesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesTableViewCell.xib; sourceTree = "<group>"; };
+		F01FA21024B068D900A2D6FF /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		F01FA21224B068ED00A2D6FF /* FavoritesTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewModel.swift; sourceTree = "<group>"; };
 		F02FE50E24AD78D500B03D21 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		F02FE50F24AD78D500B03D21 /* SideMenuTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuTableViewController.xib; sourceTree = "<group>"; };
 		F02FE51224AD78E700B03D21 /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -505,8 +513,10 @@
 		F00DAA3C249B77EB001A70BC /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				F01FA20B24B02D9500A2D6FF /* Cells */,
 				F00DAA4A249B7990001A70BC /* FavoritesViewController.swift */,
 				F00DAA4B249B7990001A70BC /* FavoritesViewController.xib */,
+				F01FA21024B068D900A2D6FF /* FavoritesViewModel.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -518,6 +528,16 @@
 				F00DAA3F249B78BF001A70BC /* WelcomeViewController.xib */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		F01FA20B24B02D9500A2D6FF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F01FA20C24B02E2300A2D6FF /* FavoritesTableViewCell.swift */,
+				F01FA20D24B02E2300A2D6FF /* FavoritesTableViewCell.xib */,
+				F01FA21224B068ED00A2D6FF /* FavoritesTableViewModel.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		F02FE50824AD774000B03D21 /* SideMenuController */ = {
@@ -835,6 +855,7 @@
 				F0F4BDBD24A1A851000A2CD0 /* CountryViewController.xib in Resources */,
 				F069090924A47C89006D9603 /* ImageTableViewCell.xib in Resources */,
 				F00DAA49249B7980001A70BC /* SearchViewController.xib in Resources */,
+				F01FA20F24B02E2300A2D6FF /* FavoritesTableViewCell.xib in Resources */,
 				F00DAA4D249B7990001A70BC /* FavoritesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -918,6 +939,7 @@
 				F00DAA37249B76C6001A70BC /* BaseViewController.swift in Sources */,
 				D10B90DC249B1DD5003E0A85 /* Measurement.swift in Sources */,
 				F0F746FD249C4E31002BDE15 /* HomeCategoryCollectionViewCell.swift in Sources */,
+				F01FA21124B068D900A2D6FF /* FavoritesViewModel.swift in Sources */,
 				F02FE51024AD78D500B03D21 /* SideMenuTableViewController.swift in Sources */,
 				F00DAA39249B7714001A70BC /* BaseTabBarViewController.swift in Sources */,
 				F069093724AB2C4E006D9603 /* SourceLinkTableViewCell.swift in Sources */,
@@ -944,6 +966,7 @@
 				D10B90D7249B1DD5003E0A85 /* String.swift in Sources */,
 				F0F4BDD724A1EB12000A2CD0 /* DetailCategoryCellViewModel.swift in Sources */,
 				F02FE51424AD78E700B03D21 /* SideMenuTableViewCell.swift in Sources */,
+				F01FA20E24B02E2300A2D6FF /* FavoritesTableViewCell.swift in Sources */,
 				D10B90DA249B1DD5003E0A85 /* Configuration.swift in Sources */,
 				F0F4BDD624A1EB12000A2CD0 /* DetailCategoryCollectionViewCell.swift in Sources */,
 				F0F4BD8E24A04FA8000A2CD0 /* HomeCategoryViewModel.swift in Sources */,
@@ -957,6 +980,7 @@
 				D10B918D249B1FD8003E0A85 /* ResponseSerializer.swift in Sources */,
 				F0F4BDC724A1B0AE000A2CD0 /* CountryCellViewModel.swift in Sources */,
 				D10B908E249B19F2003E0A85 /* SceneDelegate.swift in Sources */,
+				F01FA21324B068ED00A2D6FF /* FavoritesTableViewModel.swift in Sources */,
 				F02FE51C24ADDDF900B03D21 /* LogoMenuTableViewCell.swift in Sources */,
 				D10B918B249B1FD8003E0A85 /* Error.swift in Sources */,
 				D10B9090249B19F2003E0A85 /* ContentView.swift in Sources */,

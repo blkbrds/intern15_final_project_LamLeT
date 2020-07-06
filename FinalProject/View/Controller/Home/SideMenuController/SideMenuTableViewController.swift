@@ -35,7 +35,7 @@ class SideMenuTableViewController: UITableViewController {
         }
         return 0
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return ConfigureForTable.heightSection1
@@ -61,13 +61,17 @@ class SideMenuTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            
+
         } else if indexPath.section == 1 {
             let vc: [UIViewController] = [HomeCategoryViewController(), CountryViewController()]
             if let delegate = delegate {
                 delegate.pushToLocationMenu(vc: vc[indexPath.row])
             }
         }
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 }
 

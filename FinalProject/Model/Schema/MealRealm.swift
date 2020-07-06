@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 class MealRealm: Object {
-    @objc dynamic var idMeal = 0
+    @objc dynamic var idMeal = ""
     @objc dynamic var nameMeal = ""
     @objc dynamic var imageURLMeal = ""
     @objc dynamic var isFavoties = false

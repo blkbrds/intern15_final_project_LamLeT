@@ -59,10 +59,6 @@ final class HomeCategoryViewController: BaseViewController {
         menu.setNavigationBarHidden(true, animated: false)
     }
 
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-
     private func registerCollectionView() {
         listCategoryCollectionView.register(nibWithCellClass: HomeCategoryCollectionViewCell.self)
         listCategoryCollectionView.dataSource = self

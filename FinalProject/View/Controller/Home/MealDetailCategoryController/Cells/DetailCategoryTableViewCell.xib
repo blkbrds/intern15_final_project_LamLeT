@@ -23,10 +23,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="276" height="250"/>
                             </imageView>
                             <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asg-qA-c26">
-                                <rect key="frame" x="0.0" y="204" width="276" height="46"/>
+                                <rect key="frame" x="0.0" y="200" width="276" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffp-sg-wW1">
-                                        <rect key="frame" x="0.0" y="0.0" width="276" height="46"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="276" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -74,7 +74,7 @@
                             <constraint firstAttribute="height" constant="250" id="WtA-qI-hZY"/>
                             <constraint firstItem="JjN-DU-6AV" firstAttribute="top" secondItem="uyb-B7-SLv" secondAttribute="top" id="aib-zt-BAe"/>
                             <constraint firstItem="JjN-DU-6AV" firstAttribute="leading" secondItem="uyb-B7-SLv" secondAttribute="leading" id="axT-4h-J7h"/>
-                            <constraint firstItem="asg-qA-c26" firstAttribute="height" secondItem="JjN-DU-6AV" secondAttribute="height" multiplier="0.183267" id="bci-op-ihn"/>
+                            <constraint firstItem="asg-qA-c26" firstAttribute="height" secondItem="JjN-DU-6AV" secondAttribute="height" multiplier="0.2" id="bci-op-ihn"/>
                             <constraint firstAttribute="trailing" secondItem="asg-qA-c26" secondAttribute="trailing" id="eOC-NF-PVa"/>
                             <constraint firstAttribute="trailing" secondItem="fxy-MV-XF0" secondAttribute="trailing" id="uQl-8K-Uqc"/>
                             <constraint firstItem="fxy-MV-XF0" firstAttribute="top" secondItem="uyb-B7-SLv" secondAttribute="top" id="wWQ-7H-huN"/>

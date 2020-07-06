@@ -22,6 +22,10 @@ class DetailMealViewController: BaseViewController {
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        configNavi()
+    }
+
     override func setUpUI() {
         configNavi()
     }
@@ -34,7 +38,45 @@ class DetailMealViewController: BaseViewController {
 
     // MARK: - Private Functions
     private func configNavi() {
+        viewModel.checkFavorites { (done, msg) in
+            if done {
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+            } else {
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+//                self.navigationItem.rightBarButtonItem?.tintColor = .yellow
+            }
+        }
+    }
 
+    @objc private func rightBarButtonTouchUpInside() {
+        if viewModel.isFavoties == false {
+            addToFavorites()
+        } else {
+            deteleToFavorties()
+        }
+    }
+
+    func addToFavorites() {
+        viewModel.addFavorites(addCompletion: { (done, msg) in
+            if done {
+                let image = UIImage(systemName: "heart.fill")
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+                print(msg)
+            } else {
+                self.showAlert(message: msg)
+            }
+        })
+    }
+
+    func deteleToFavorties() {
+        viewModel.deleteFavorites(deleteCompletion: { (done, msg) in
+            if done {
+                let image = UIImage(systemName: "heart")
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+            } else {
+                self.showAlert(message: msg)
+            }
+        })
     }
 
     private func loadAPIDetail() {
@@ -46,13 +88,13 @@ class DetailMealViewController: BaseViewController {
             }
         }
     }
-    
+
     private func loadAPIRandomMeal() {
         viewModel.getAPIRandomMeal { (done, msg) in
             if done {
                 self.updateView()
             } else {
-                print("Failed")
+                self.showAlert(message: msg)
             }
         }
     }
@@ -116,8 +158,12 @@ extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
         }
         return UITableViewCell()
     }
-    
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return viewModel.headerTitler[section]
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return DetailMealViewModel.Configure.spaceForSection
     }
 }
