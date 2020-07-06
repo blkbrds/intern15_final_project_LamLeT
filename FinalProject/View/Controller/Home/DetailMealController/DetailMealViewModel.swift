@@ -14,6 +14,8 @@ class DetailMealViewModel {
     // MARK: - Define
     struct Configure {
         static let spaceForSection: CGFloat = 10
+        static let iconAddFavorites: String = "heart"
+        static let iconRemoveFavorites: String = "heart.fill"
     }
 
     // MARK: - Properties

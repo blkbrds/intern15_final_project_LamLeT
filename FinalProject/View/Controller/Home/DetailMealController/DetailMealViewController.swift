@@ -40,9 +40,9 @@ class DetailMealViewController: BaseViewController {
     private func configNavi() {
         viewModel.checkFavorites { (done, msg) in
             if done {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: DetailMealViewModel.Configure.iconRemoveFavorites), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
             } else {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: DetailMealViewModel.Configure.iconAddFavorites), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
 //                self.navigationItem.rightBarButtonItem?.tintColor = .yellow
             }
         }
@@ -59,7 +59,7 @@ class DetailMealViewController: BaseViewController {
     func addToFavorites() {
         viewModel.addFavorites(addCompletion: { (done, msg) in
             if done {
-                let image = UIImage(systemName: "heart.fill")
+                let image = UIImage(systemName: DetailMealViewModel.Configure.iconRemoveFavorites)
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
                 print(msg)
             } else {
@@ -71,7 +71,7 @@ class DetailMealViewController: BaseViewController {
     func deteleToFavorties() {
         viewModel.deleteFavorites(deleteCompletion: { (done, msg) in
             if done {
-                let image = UIImage(systemName: "heart")
+                let image = UIImage(systemName: DetailMealViewModel.Configure.iconAddFavorites)
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
             } else {
                 self.showAlert(message: msg)
@@ -84,7 +84,7 @@ class DetailMealViewController: BaseViewController {
             if done {
                 self.updateView()
             } else {
-                print("Failed")
+                showAlert(message: msg)
             }
         }
     }
