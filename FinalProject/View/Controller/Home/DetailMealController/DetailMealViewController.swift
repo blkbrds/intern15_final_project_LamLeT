@@ -55,7 +55,10 @@ extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsInSection(section: section)
+        guard let numberSection = DetailMealViewModel.Section(rawValue: section) else {
+            return 0
+        }
+        return viewModel.numberOfRowsInSection(section: numberSection)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
