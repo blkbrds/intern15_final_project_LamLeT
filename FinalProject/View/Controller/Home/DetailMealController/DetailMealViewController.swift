@@ -40,10 +40,9 @@ class DetailMealViewController: BaseViewController {
     private func configNavi() {
         viewModel.checkFavorites { (done, msg) in
             if done {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: DetailMealViewModel.Configure.iconRemoveFavorites), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
-            } else {
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: DetailMealViewModel.Configure.iconAddFavorites), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
-//                self.navigationItem.rightBarButtonItem?.tintColor = .yellow
+            } else {
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: DetailMealViewModel.Configure.iconRemoveFavorites), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
             }
         }
     }

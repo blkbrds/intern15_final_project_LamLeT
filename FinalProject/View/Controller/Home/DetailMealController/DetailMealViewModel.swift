@@ -16,6 +16,12 @@ class DetailMealViewModel {
         static let spaceForSection: CGFloat = 10
         static let iconAddFavorites: String = "heart"
         static let iconRemoveFavorites: String = "heart.fill"
+        static let haveItem: String = "Item is Favorites"
+        static let notHaveItem: String = "Item not is Favorites"
+        static let addObjectSuccess: String = "Success To Add Object"
+        static let addObjectFailed: String = "Failed To Add Object"
+        static let deleteObjectSuccess: String = "Success To Delete Object"
+        static let deleteObjectFailed: String = "Failed To Delete Object"
     }
 
     // MARK: - Properties
@@ -49,7 +55,7 @@ class DetailMealViewModel {
                 for item in detailMeal.meals {
                     self.detailMeals.append(item)
                 }
-                completion(true, "Loading Success")
+                completion(true, App.String.loadSuccess)
             }
         }
     }
@@ -63,7 +69,7 @@ class DetailMealViewModel {
                 for item in randomMeal.meals {
                     self.randomMeals.append(item)
                 }
-                completion(true, "Loading Success")
+                completion(true, App.String.loadSuccess)
             }
         }
     }
@@ -112,10 +118,10 @@ class DetailMealViewModel {
             let meal = realm.objects(MealRealm.self).filter("idMeal = '\(idMeal)' AND isFavoties = true ")
             if meal.count == 0 {
                 isFavoties = false
-                checkCompletion(true, "Item not is Favorites")
+                checkCompletion(true, Configure.notHaveItem)
             } else {
                 isFavoties = true
-                checkCompletion(false, "Item is Favorites")
+                checkCompletion(false, Configure.haveItem)
             }
         } catch { }
     }
@@ -132,10 +138,10 @@ class DetailMealViewModel {
             try realm.write {
                 realm.add(meal)
                 isFavoties = true
-                addCompletion(true, "Success To Add Object")
+                addCompletion(true, Configure.addObjectSuccess)
             }
         } catch {
-            addCompletion(false, "Failed To Add Object")
+            addCompletion(false, Configure.addObjectFailed)
         }
     }
 
@@ -148,10 +154,10 @@ class DetailMealViewModel {
             try realm.write {
                 realm.delete(meal)
                 isFavoties = false
-                deleteCompletion(true, "Success To Delete Object")
+                deleteCompletion(true, Configure.deleteObjectSuccess)
             }
         } catch {
-            deleteCompletion(false, "Failed To Delete Object")
+            deleteCompletion(false, Configure.deleteObjectFailed)
         }
     }
 }
