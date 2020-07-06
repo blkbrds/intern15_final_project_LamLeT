@@ -7,18 +7,19 @@
 //
 
 import Foundation
+import UIKit
 
 class DetailMealViewModel {
 
     // MARK: - Properties
     enum Section: Int {
-        case section0 = 0
-        case section1 = 1
-        case section2 = 2
-        case section3 = 3
-        case section4 = 4
-        case section5 = 5
-        case section6 = 6
+        case image = 0
+        case information = 1
+        case video = 2
+        case instruction = 3
+        case ingrentMeasure = 4
+        case linkSource = 5
+        case otherFood = 6
     }
 
     var idMeal: String = ""
@@ -36,19 +37,19 @@ class DetailMealViewModel {
 
     func numberOfRowsInSection(section: Section) -> Int {
         switch section {
-        case .section0:
+        case .image:
             return 1
-        case .section1:
+        case .information:
             return 1
-        case .section2:
+        case .video:
             return 1
-        case .section3:
+        case .instruction:
             return 1
-        case .section4:
+        case .ingrentMeasure:
             return 1
-        case .section5:
+        case .linkSource:
             return 1
-        case .section6:
+        case .otherFood:
             return 1
         }
     }
