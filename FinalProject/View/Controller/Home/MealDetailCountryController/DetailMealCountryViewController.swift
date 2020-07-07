@@ -11,9 +11,11 @@ import SVProgressHUD
 
 final class DetailMealCountryViewController: BaseViewController {
 
-    // MARK: - Properties
+    // MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var collectionView: UICollectionView!
+    
+    // MARK: - Properties
     var viewModel: DetailMealCountryViewModel = DetailMealCountryViewModel()
     var isShowTableView: Bool = true
 
@@ -106,6 +108,11 @@ extension DetailMealCountryViewController: UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return viewModel.heightForRowAt()
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DetailMealViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - UICollectionDataSource, UICollectionDataSource
@@ -118,6 +125,11 @@ extension DetailMealCountryViewController: UICollectionViewDataSource, UICollect
         let cell = collectionView.dequeueReusableCell(withClass: DetailCategoryCollectionViewCell.self, for: indexPath)
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = DetailMealViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
