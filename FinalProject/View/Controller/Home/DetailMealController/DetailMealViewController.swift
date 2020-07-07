@@ -24,11 +24,10 @@ final class DetailMealViewController: BaseViewController {
 
     override func setUpUI() {
         configNavi()
-    }
-
-    override func setUpData() {
         registerTableCell()
     }
+
+    override func setUpData() { }
 
     // MARK: - Private Functions
     private func configNavi() {

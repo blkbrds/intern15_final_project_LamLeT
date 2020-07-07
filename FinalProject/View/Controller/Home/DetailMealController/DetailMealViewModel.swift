@@ -11,7 +11,7 @@ import UIKit
 
 class DetailMealViewModel {
 
-    // MARK: - Properties
+    // MARK: - Enum
     enum Section: Int {
         case image = 0
         case information
@@ -21,9 +21,12 @@ class DetailMealViewModel {
         case linkSource
         case otherFood
     }
-
+    
+    // MARK: Properties
     var idMeal: String = ""
     private var sections: [Section] = [.image, .video, .instruction, .ingrentMeasure, .linkSource, .otherFood]
+    
+    // MARK: - Life Cycle
     init() { }
 
     init(meal: Meal) {

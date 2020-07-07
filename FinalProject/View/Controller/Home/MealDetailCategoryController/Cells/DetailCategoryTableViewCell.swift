@@ -14,11 +14,11 @@ private struct Config {
 
 final class DetailCategoryTableViewCell: UITableViewCell {
 
-    // MARK: - Properties
-    @IBOutlet weak var thumbnailMealImageView: UIImageView!
-    @IBOutlet weak var viewContent: UIView!
-    @IBOutlet weak var favoritesButton: UIButton!
-    @IBOutlet weak var nameMealLabel: UILabel!
+    // MARK: - IBOulet
+    @IBOutlet private weak var thumbnailMealImageView: UIImageView!
+    @IBOutlet private weak var viewContent: UIView!
+    @IBOutlet private weak var favoritesButton: UIButton!
+    @IBOutlet private weak var nameMealLabel: UILabel!
 
     var viewModel: DetailCategoryCellViewModel? {
         didSet {
