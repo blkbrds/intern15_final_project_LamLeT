@@ -10,11 +10,11 @@ import UIKit
 
 class CountryCollectionViewCell: UICollectionViewCell {
 
-    // MARK: - IBOulet
+    // MARK: - IBOutlet
     @IBOutlet private weak var areaNameLabel: UILabel!
     @IBOutlet private weak var flagCountryImageView: UIImageView!
     
-    // MARK: - IBOutlet
+    // MARK: - Properties
     var viewModel: CountryCellViewModel? {
         didSet {
             updateView()

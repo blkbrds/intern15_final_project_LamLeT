@@ -10,7 +10,7 @@ import UIKit
 
 final class DetailMealViewController: BaseViewController {
 
-    // MARK: - IBOulet
+    // MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView!
 
     // MARK: - Properties
@@ -47,8 +47,8 @@ final class DetailMealViewController: BaseViewController {
     }
 }
 
-// MARK: - UITableViewDataSource, UITableViewDelegate
-extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
+// MARK: - UITableViewDataSource
+extension DetailMealViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
     }

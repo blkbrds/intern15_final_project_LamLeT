@@ -8,18 +8,20 @@
 
 import UIKit
 
+// MARK: - Define
 private struct Config {
     static let radius: CGFloat = 10
 }
 
 final class DetailCategoryTableViewCell: UITableViewCell {
 
-    // MARK: - IBOulet
+    // MARK: - IBOutlet
     @IBOutlet private weak var thumbnailMealImageView: UIImageView!
     @IBOutlet private weak var viewContent: UIView!
     @IBOutlet private weak var favoritesButton: UIButton!
     @IBOutlet private weak var nameMealLabel: UILabel!
 
+    // MARK: - Properties
     var viewModel: DetailCategoryCellViewModel? {
         didSet {
             updateView()

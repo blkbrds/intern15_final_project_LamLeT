@@ -11,7 +11,7 @@ import SVProgressHUD
 
 final class DetailMealCountryViewController: BaseViewController {
 
-    // MARK: - IBOulet
+    // MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var collectionView: UICollectionView!
     
