@@ -8,10 +8,10 @@
 
 import UIKit
 
-class DetailMealViewController: BaseViewController {
+final class DetailMealViewController: BaseViewController {
 
-    // MARK: - IBOulet
-    @IBOutlet weak var tableView: UITableView!
+    // MARK: - IBOutlet
+    @IBOutlet private weak var tableView: UITableView!
 
     // MARK: - Properties
     var viewModel: DetailMealViewModel = DetailMealViewModel()
@@ -24,11 +24,11 @@ class DetailMealViewController: BaseViewController {
 
     override func setUpUI() {
         configNavi()
+        registerTableCell()
     }
 
     override func setUpData() {
         loadAPI()
-        registerTableCell()
     }
 
     // MARK: - Private Functions
@@ -54,51 +54,56 @@ class DetailMealViewController: BaseViewController {
         tableView.register(nibWithCellClass: IngredientTableViewCell.self)
         tableView.register(nibWithCellClass: MeasureTableViewCell.self)
         tableView.register(nibWithCellClass: SourceLinkTableViewCell.self)
-        tableView.delegate = self
         tableView.dataSource = self
     }
 
     private func updateView() {
         tableView.reloadData()
     }
-    
 }
 
-extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
+// MARK: - UITableViewDataSource
+extension DetailMealViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsInSection(section: section)
+        guard let numberSection = DetailMealViewModel.Section(rawValue: section) else {
+            return 0
+        }
+        return viewModel.numberOfRowsInSection(section: numberSection)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
+        guard let section = DetailMealViewModel.Section(rawValue: indexPath.section) else {
+            return UITableViewCell()
+        }
+        switch section {
+        case .image:
             let cell = tableView.dequeueReusableCell(withClass: ImageTableViewCell.self, for: indexPath)
             cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
-        } else if indexPath.section == 1 {
+        case .information:
             let cell = tableView.dequeueReusableCell(withClass: InfoTableViewCell.self, for: indexPath)
             cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
-        } else if indexPath.section == 2 {
+        case .video:
             let cell = tableView.dequeueReusableCell(withClass: VideoTableViewCell.self, for: indexPath)
             cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
-        } else if indexPath.section == 3 {
+        case .instruction:
             let cell = tableView.dequeueReusableCell(withClass: InstructionsTableViewCell.self, for: indexPath)
             return cell
-        } else if indexPath.section == 4 {
+        case .ingrentMeasure:
             let cell = tableView.dequeueReusableCell(withClass: IngredientTableViewCell.self, for: indexPath)
             return cell
-        } else if indexPath.section == 5 {
+        case .linkSource:
             let cell = tableView.dequeueReusableCell(withClass: MeasureTableViewCell.self, for: indexPath)
             return cell
-        } else if indexPath.section == 6 {
+        case .otherFood:
             let cell = tableView.dequeueReusableCell(withClass: MeasureTableViewCell.self, for: indexPath)
             return cell
         }
-        return UITableViewCell()
     }
 }

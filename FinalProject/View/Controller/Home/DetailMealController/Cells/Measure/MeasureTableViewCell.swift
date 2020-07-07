@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeasureTableViewCell: UITableViewCell {
+final class MeasureTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

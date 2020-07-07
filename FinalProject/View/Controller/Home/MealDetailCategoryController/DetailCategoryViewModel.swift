@@ -11,7 +11,7 @@ import UIKit
 import MVVM
 
 class DetailCategoryViewModel {
-    
+
     // MARK: - Properties
     var nameCategory: String = ""
     var mealCategory: [Meal] = []

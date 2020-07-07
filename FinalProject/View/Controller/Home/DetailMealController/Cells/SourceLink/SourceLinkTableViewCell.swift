@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SourceLinkTableViewCell: UITableViewCell {
+final class SourceLinkTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

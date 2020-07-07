@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class ImageTableViewCell: UITableViewCell {
+final class ImageTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlet
     @IBOutlet weak var thumnailMealImageView: UIImageView!
