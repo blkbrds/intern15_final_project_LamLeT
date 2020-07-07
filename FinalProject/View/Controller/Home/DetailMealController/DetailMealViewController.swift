@@ -48,7 +48,7 @@ class DetailMealViewController: BaseViewController {
     }
 
     @objc private func rightBarButtonTouchUpInside() {
-        if viewModel.isFavoties == false {
+        if viewModel.isFavorites == false {
             addToFavorites()
         } else {
             deteleToFavorties()

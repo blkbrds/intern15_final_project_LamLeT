@@ -33,7 +33,7 @@ class DetailMealViewModel {
     //MARK: Realm
     var nameMeal: String = ""
     var imageMealURL: String = ""
-    var isFavoties: Bool = false
+    var isFavorites: Bool = false
 
     init() { }
 
@@ -115,12 +115,12 @@ class DetailMealViewModel {
     func checkFavorites(checkCompletion: @escaping (Bool, String) -> Void) {
         do {
             let realm = try Realm()
-            let meal = realm.objects(MealRealm.self).filter("idMeal = '\(idMeal)' AND isFavoties = true ")
+            let meal = realm.objects(MealRealm.self).filter("idMeal = '\(idMeal)' AND isFavorites = true ")
             if meal.count == 0 {
-                isFavoties = false
+                isFavorites = false
                 checkCompletion(true, Configure.notHaveItem)
             } else {
-                isFavoties = true
+                isFavorites = true
                 checkCompletion(false, Configure.haveItem)
             }
         } catch { }
@@ -134,10 +134,10 @@ class DetailMealViewModel {
             meal.idMeal = idMeal
             meal.nameMeal = nameMeal
             meal.imageURLMeal = imageMealURL
-            meal.isFavoties = true
+            meal.isFavorites = true
             try realm.write {
                 realm.add(meal)
-                isFavoties = true
+                isFavorites = true
                 addCompletion(true, Configure.addObjectSuccess)
             }
         } catch {
@@ -153,7 +153,7 @@ class DetailMealViewModel {
 
             try realm.write {
                 realm.delete(meal)
-                isFavoties = false
+                isFavorites = false
                 deleteCompletion(true, Configure.deleteObjectSuccess)
             }
         } catch {
