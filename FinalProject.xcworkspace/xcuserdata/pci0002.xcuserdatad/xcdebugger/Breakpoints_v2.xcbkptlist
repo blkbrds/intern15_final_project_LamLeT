@@ -3,9 +3,6 @@
    uuid = "755910F4-053C-47E0-BD00-6FFE4CC88069"
    type = "0"
    version = "2.0">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
@@ -26,7 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-<<<<<<< HEAD
             uuid = "B4C18BBF-0CFA-4715-99AC-9CFAC04B6C6D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -100,7 +96,6 @@
                   offsetFromSymbolStart = "301">
                </Location>
             </Locations>
-=======
             uuid = "58D52FD5-8585-4DD3-83F2-6ACD22EC213D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -112,14 +107,11 @@
             endingLineNumber = "40"
             landmarkName = "updateView()"
             landmarkType = "7">
->>>>>>> master
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-<<<<<<< HEAD
-<<<<<<< HEAD
             uuid = "FF1EBC5F-1BA6-4D2A-8313-C67B02D7173C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -130,11 +122,10 @@
             startingLineNumber = "27"
             endingLineNumber = "27"
             landmarkName = "updateView()"
-=======
+
             uuid = "2BCD61B7-C389-46B0-8649-AEE4AC3E3BBE"
-=======
+
             uuid = "03B5BDA0-527F-4003-A8DA-0C17A8FCD4AC"
->>>>>>> master
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -161,7 +152,6 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-<<<<<<< HEAD
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
@@ -175,14 +165,8 @@
             startingLineNumber = "19"
             endingLineNumber = "19"
             landmarkName = "init(idMeal:)"
->>>>>>> master
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-=======
->>>>>>> master
    </Breakpoints>
->>>>>>> master
-=======
->>>>>>> master
 </Bucket>
