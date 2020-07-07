@@ -61,7 +61,6 @@ final class DetailCategoryViewController: BaseViewController {
         self.navigationController?.popViewController(animated: true)
     }
 
-
     private func registerTableCell() {
         tableView.register(nibWithCellClass: DetailCategoryTableViewCell.self)
         tableView.delegate = self
