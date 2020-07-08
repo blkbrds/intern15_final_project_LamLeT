@@ -9,25 +9,15 @@
 import Foundation
 
 class DetailMealTableViewCellViewModel {
-    var mealName: String
-    var category: String
-    var area: String
-    var instructions: String
-    var urlMealThumbnail: String
-    var tags: String
-    var urlVideoMeal: String
-    var ingredient: String
-    var measure: String
+    
+    // MARK: - Define
+    struct Configure {
+        static let urlVideo = "https://www.youtube.com/embed/"
+    }
+    
+    var meal: Meal
 
     init(meal: Meal) {
-        self.urlMealThumbnail = meal.urlMealThumbnail
-        self.mealName = meal.mealName
-        self.category = meal.category
-        self.area = meal.area
-        self.tags = meal.tags
-        self.urlVideoMeal = meal.urlVideoMeal
-        self.instructions = meal.instructions
-        self.ingredient = meal.ingredient
-        self.measure = meal.measure
+        self.meal = meal
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class DetailMealViewModel {
+final class DetailMealViewModel {
     
     // MARK: Properties
     var sections: [Section] = [.image, .video, .instruction, .ingrentMeasure, .linkSource, .otherFood]

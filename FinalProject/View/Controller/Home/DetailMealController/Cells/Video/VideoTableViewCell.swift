@@ -32,20 +32,18 @@ final class VideoTableViewCell: UITableViewCell {
             return
         }
         var idVideo: String = ""
-        if viewModel.urlVideoMeal == "" {
+        if viewModel.meal.urlVideoMeal == "" {
             videoAlertLabel.isHidden = false
             videoAlertLabel.text = "No Has Video Tutorial" 
         } else {
-            let arrayURLVideo = Array(viewModel.urlVideoMeal)
-            print(arrayURLVideo.count)
+            let arrayURLVideo = Array(viewModel.meal.urlVideoMeal)
             for i in 0...arrayURLVideo.count - 1 {
                 if arrayURLVideo[i] == "=" {
                     let idVideoArray = arrayURLVideo[i + 1 ..< arrayURLVideo.endIndex]
                     idVideo = String(idVideoArray)
                 }
             }
-            print(idVideo)
-            guard let youtubeURL = URL(string: "https://www.youtube.com/embed/\(idVideo)") else {
+            guard let youtubeURL = URL(string: "\(DetailMealTableViewCellViewModel.Configure.urlVideo)\(idVideo)") else {
                 return
             }
             webView.load(URLRequest(url: youtubeURL))

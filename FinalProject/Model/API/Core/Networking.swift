@@ -192,7 +192,6 @@ class Networking {
                         }
                         let result = MealResult(meals: detailMeals)
                         completion(.success(result))
-
                     } else {
                         completion(.failure(App.String.alertFailedToDataAPI))
                     }
