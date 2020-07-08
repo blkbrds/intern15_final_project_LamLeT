@@ -23,7 +23,7 @@ class Meal {
     var sourceLink: String
     var thumbnail: UIImage?
 
-    var ingredientMeasure: [String:String] = [:]
+    var ingredientMeasure: [String: String] = [:]
 
     init(json: JSON) {
         if let idMeal = json["idMeal"] as? String {
@@ -71,6 +71,7 @@ class Meal {
             if let ingredient = json["strIngredient\(i)"] as? String {
                 if ingredient != "" {
                     strIngredient += "\(i). " + ingredient + ":\n"
+                    ingredientMeasure["ingredient"] = ingredient
                 } else {
                     strIngredient += ""
                 }
@@ -84,6 +85,7 @@ class Meal {
             if let measure = json["strMeasure\(i)"] as? String {
                 if measure != "" {
                     strMeasure += measure + "\n"
+                    ingredientMeasure["measure"] = measure
                 } else {
                     strMeasure += ""
                 }
@@ -97,5 +99,7 @@ class Meal {
         } else {
             self.sourceLink = ""
         }
+
+        self.ingredientMeasure = [ingredient: measure]
     }
 }

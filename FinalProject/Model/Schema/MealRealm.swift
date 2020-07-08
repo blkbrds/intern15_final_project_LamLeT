@@ -13,7 +13,7 @@ class MealRealm: Object {
     @objc dynamic var idMeal = ""
     @objc dynamic var nameMeal = ""
     @objc dynamic var imageURLMeal = ""
-    @objc dynamic var isFavoties = false
+    @objc dynamic var isFavorites = false
     
     override static func primaryKey() -> String? {
         return "idMeal"

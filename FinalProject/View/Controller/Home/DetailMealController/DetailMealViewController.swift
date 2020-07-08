@@ -48,7 +48,7 @@ class DetailMealViewController: BaseViewController {
     }
 
     @objc private func rightBarButtonTouchUpInside() {
-        if viewModel.isFavoties == false {
+        if viewModel.isFavorites == false {
             addToFavorites()
         } else {
             deteleToFavorties()
@@ -158,10 +158,18 @@ extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
         return UITableViewCell()
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 6 {
+            let vc = DetailMealViewController()
+            vc.viewModel = viewModel.pushIdMeal(indexPath: indexPath)
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return viewModel.headerTitler[section]
     }
-    
+
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return DetailMealViewModel.Configure.spaceForSection
     }

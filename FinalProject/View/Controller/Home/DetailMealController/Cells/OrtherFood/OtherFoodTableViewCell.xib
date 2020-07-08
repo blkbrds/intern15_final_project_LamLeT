@@ -40,13 +40,24 @@
                                     <constraint firstItem="fVe-jE-EtS" firstAttribute="leading" secondItem="tAn-mE-36B" secondAttribute="leading" id="ole-Od-57S"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHa-Ze-wLd">
+                                <rect key="frame" x="220" y="1.5" width="40" height="37.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="0rb-6i-J3c"/>
+                                    <constraint firstAttribute="height" constant="40" id="3Jz-4w-WhA"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" backgroundImage="heart" catalog="system"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="BpD-8L-5b7" secondAttribute="trailing" id="89U-rI-Icz"/>
                             <constraint firstItem="tAn-mE-36B" firstAttribute="leading" secondItem="aNC-hT-d7x" secondAttribute="leading" id="F6a-mz-TeP"/>
                             <constraint firstAttribute="height" constant="150" id="Lw6-VL-b5H"/>
+                            <constraint firstItem="iHa-Ze-wLd" firstAttribute="top" secondItem="aNC-hT-d7x" secondAttribute="top" id="PRw-6J-JZk"/>
                             <constraint firstAttribute="trailing" secondItem="tAn-mE-36B" secondAttribute="trailing" id="chY-W1-u4Z"/>
+                            <constraint firstAttribute="trailing" secondItem="iHa-Ze-wLd" secondAttribute="trailing" id="cz3-6I-JWt"/>
                             <constraint firstItem="BpD-8L-5b7" firstAttribute="leading" secondItem="aNC-hT-d7x" secondAttribute="leading" id="f9u-YT-bwe"/>
                             <constraint firstAttribute="bottom" secondItem="tAn-mE-36B" secondAttribute="bottom" id="gZi-wh-YhX"/>
                             <constraint firstItem="tAn-mE-36B" firstAttribute="height" secondItem="BpD-8L-5b7" secondAttribute="height" multiplier="0.205128" id="oaN-lh-xRP"/>
@@ -72,4 +83,7 @@
             <point key="canvasLocation" x="-507" y="-38"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="heart" catalog="system" width="64" height="54"/>
+    </resources>
 </document>

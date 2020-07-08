@@ -35,6 +35,12 @@ final class DetailCategoryViewController: BaseViewController {
         registerCollectionCell()
         loadAPI()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+        collectionView.reloadData()
+    }
 
     // MARK: - Private Functions
     private func configNavi() {
@@ -145,5 +151,3 @@ extension DetailCategoryViewController: UICollectionViewDelegateFlowLayout {
         return DetailCategoryViewModel.Configure.spaceForCell
     }
 }
-
-

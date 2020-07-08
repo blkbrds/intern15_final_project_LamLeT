@@ -47,6 +47,9 @@
                                         <rect key="frame" x="5" y="6.5" width="30" height="27.5"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" backgroundImage="heart" catalog="system"/>
+                                        <connections>
+                                            <action selector="favoritesButtonTouchUpInside:" destination="gTV-IL-0wX" eventType="touchUpInside" id="dhO-jS-BtJ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -90,6 +93,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="251" height="183"/>
             <connections>
+                <outlet property="favoritesButton" destination="C4E-g7-b9w" id="ALR-wt-OhO"/>
                 <outlet property="nameMealLabel" destination="1jW-lO-EXF" id="8BS-fd-FKZ"/>
                 <outlet property="nameMealView" destination="Soo-Fe-1Kd" id="n3y-wi-qCf"/>
                 <outlet property="thumbnailMealImageView" destination="goO-dC-Mou" id="lnU-yW-uPZ"/>

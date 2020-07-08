@@ -29,11 +29,12 @@ class DetailMealViewModel {
     var detailMeals: [Meal] = []
     var randomMeals: [Meal] = []
     var headerTitler: [String] = ["Image", "Infomation", "Video", "Instruction", "Ingredient And Measure", "Link Source", "Orther Food"]
+    var ingredientMeasure: [String: String] = [:]
 
     //MARK: Realm
     var nameMeal: String = ""
     var imageMealURL: String = ""
-    var isFavoties: Bool = false
+    var isFavorites: Bool = false
 
     init() { }
 
@@ -43,6 +44,7 @@ class DetailMealViewModel {
         //MARK: Realm
         self.nameMeal = meal.mealName
         self.imageMealURL = meal.urlMealThumbnail
+        self.ingredientMeasure = meal.ingredientMeasure
     }
 
     // MARK: Get API
@@ -111,17 +113,23 @@ class DetailMealViewModel {
         return model
     }
 
+    func pushIdMeal(indexPath: IndexPath) -> DetailMealViewModel {
+        let item = randomMeals[indexPath.row]
+        let model = DetailMealViewModel(meal: item)
+        return model
+    }
+
     //MARK: Realm
     func checkFavorites(checkCompletion: @escaping (Bool, String) -> Void) {
         do {
             let realm = try Realm()
-            let meal = realm.objects(MealRealm.self).filter("idMeal = '\(idMeal)' AND isFavoties = true ")
+            let meal = realm.objects(MealRealm.self).filter("idMeal = '\(idMeal)' AND isFavorites = true ")
             if meal.count == 0 {
-                isFavoties = false
-                checkCompletion(true, Configure.notHaveItem)
+                isFavorites = false
+                checkCompletion(true, App.String.notHaveItem)
             } else {
-                isFavoties = true
-                checkCompletion(false, Configure.haveItem)
+                isFavorites = true
+                checkCompletion(false, App.String.haveItem)
             }
         } catch { }
     }
@@ -134,14 +142,14 @@ class DetailMealViewModel {
             meal.idMeal = idMeal
             meal.nameMeal = nameMeal
             meal.imageURLMeal = imageMealURL
-            meal.isFavoties = true
+            meal.isFavorites = true
             try realm.write {
                 realm.add(meal)
-                isFavoties = true
-                addCompletion(true, Configure.addObjectSuccess)
+                isFavorites = true
+                addCompletion(true, App.String.addObjectSuccess)
             }
         } catch {
-            addCompletion(false, Configure.addObjectFailed)
+            addCompletion(false, App.String.addObjectFailed)
         }
     }
 
@@ -153,11 +161,11 @@ class DetailMealViewModel {
 
             try realm.write {
                 realm.delete(meal)
-                isFavoties = false
-                deleteCompletion(true, Configure.deleteObjectSuccess)
+                isFavorites = false
+                deleteCompletion(true, App.String.deleteObjectSuccess)
             }
         } catch {
-            deleteCompletion(false, Configure.deleteObjectFailed)
+            deleteCompletion(false, App.String.deleteObjectFailed)
         }
     }
 }
