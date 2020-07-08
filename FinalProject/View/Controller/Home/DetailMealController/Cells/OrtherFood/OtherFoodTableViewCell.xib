@@ -41,13 +41,16 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHa-Ze-wLd">
-                                <rect key="frame" x="220" y="1.5" width="40" height="37.5"/>
+                                <rect key="frame" x="230" y="1.5" width="30" height="27.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="0rb-6i-J3c"/>
-                                    <constraint firstAttribute="height" constant="40" id="3Jz-4w-WhA"/>
+                                    <constraint firstAttribute="width" constant="30" id="0rb-6i-J3c"/>
+                                    <constraint firstAttribute="height" constant="30" id="3Jz-4w-WhA"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" backgroundImage="heart" catalog="system"/>
+                                <connections>
+                                    <action selector="favoritesButtonTouchUpInside:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="j58-Ns-wcA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,12 +78,13 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="favoritesButton" destination="iHa-Ze-wLd" id="i60-RL-TOH"/>
                 <outlet property="nameOtherFoodLabel" destination="fVe-jE-EtS" id="dd8-uz-FNx"/>
                 <outlet property="nameOtherFoodView" destination="tAn-mE-36B" id="eX5-yF-Uya"/>
                 <outlet property="otherFoodImageView" destination="BpD-8L-5b7" id="aOY-Nd-bEK"/>
                 <outlet property="otherFoodView" destination="aNC-hT-d7x" id="wrT-1Q-tQF"/>
             </connections>
-            <point key="canvasLocation" x="-507" y="-38"/>
+            <point key="canvasLocation" x="-278" y="-39"/>
         </tableViewCell>
     </objects>
     <resources>

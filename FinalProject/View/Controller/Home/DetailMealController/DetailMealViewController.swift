@@ -24,6 +24,7 @@ class DetailMealViewController: BaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         configNavi()
+        updateView()
     }
 
     override func setUpUI() {
