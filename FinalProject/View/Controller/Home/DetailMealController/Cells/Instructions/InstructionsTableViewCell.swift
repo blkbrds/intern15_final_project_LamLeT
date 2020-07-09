@@ -8,13 +8,13 @@
 
 import UIKit
 
-class InstructionsTableViewCell: UITableViewCell {
+final class InstructionsTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlet
     @IBOutlet weak var instructionLabel: UILabel!
     
     // MARK: - Properties
-    var viewModel: DetailMealTableViewCellViewModel = DetailMealTableViewCellViewModel() {
+    var viewModel: DetailMealTableViewCellViewModel? {
         didSet {
             updateView()
         }
@@ -26,7 +26,10 @@ class InstructionsTableViewCell: UITableViewCell {
     }
     
     private func updateView() {
-        instructionLabel.text = viewModel.instructions
+        guard let viewModel = viewModel else {
+            return
+        }
+        instructionLabel.text = viewModel.meal.instructions
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

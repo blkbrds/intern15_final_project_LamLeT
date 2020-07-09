@@ -13,7 +13,7 @@ final class SourceLinkTableViewCell: UITableViewCell {
     // MARK: - IBOutlet
     @IBOutlet private weak var sourceLinkTextView: UITextView!
     // MARK: - Properties
-    var viewModel: DetailMealTableViewCellViewModel = DetailMealTableViewCellViewModel() {
+    var viewModel: DetailMealTableViewCellViewModel? {
         didSet {
             updateView()
         }
@@ -24,15 +24,16 @@ final class SourceLinkTableViewCell: UITableViewCell {
     }
 
     private func updateView() {
-        if viewModel.sourceLink == "" {
+        guard let viewModel = viewModel else { return }
+        if viewModel.meal.sourceLink == "" {
             let text = "No Has Source"
             let attributedString = NSMutableAttributedString(string: text)
-            attributedString.addAttribute(.link, value: viewModel.sourceLink, range: NSRange(location: 0, length: text.count))
+            attributedString.addAttribute(.link, value: viewModel.meal.sourceLink, range: NSRange(location: 0, length: text.count))
             sourceLinkTextView.attributedText = attributedString
         } else {
-            let text = viewModel.sourceLink
+            let text = viewModel.meal.sourceLink
             let attributedString = NSMutableAttributedString(string: text)
-            attributedString.addAttribute(.link, value: viewModel.sourceLink, range: NSRange(location: 0, length: text.count))
+            attributedString.addAttribute(.link, value: viewModel.meal.sourceLink, range: NSRange(location: 0, length: text.count))
             sourceLinkTextView.attributedText = attributedString
         }
     }

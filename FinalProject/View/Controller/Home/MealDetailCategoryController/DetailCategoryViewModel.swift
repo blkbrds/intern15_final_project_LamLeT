@@ -42,7 +42,7 @@ class DetailCategoryViewModel {
                 for item in detailCategory.meals {
                     self.mealCategory.append(item)
                 }
-                completion(true, "")
+                completion(true, App.String.loadSuccess)
             }
         }
     }

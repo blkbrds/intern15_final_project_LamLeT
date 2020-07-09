@@ -12,8 +12,10 @@ import SideMenu
 
 final class HomeCategoryViewController: BaseViewController {
 
-    // MARK: - Properties
+    // MARK: - IBOutlet
     @IBOutlet private weak var listCategoryCollectionView: UICollectionView!
+    
+    // MARK: - Properties
     private var viewModel = HomeCategoryViewModel()
     var menu: SideMenuNavigationController?
 

@@ -11,8 +11,10 @@ import SideMenu
 
 final class CountryViewController: BaseViewController {
 
-    // MARK: - Properties
+    // MARK: - IBOutlet
     @IBOutlet private weak var collectionView: UICollectionView!
+
+    // MARK: - Properties
     var viewModel = CountryViewModel()
     var menu: SideMenuNavigationController?
 

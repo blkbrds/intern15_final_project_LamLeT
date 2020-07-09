@@ -17,7 +17,6 @@ final class DetailCategoryViewController: BaseViewController {
 
     // MARK: - Properties
     var viewModel: DetailCategoryViewModel = DetailCategoryViewModel()
-
     var isShowTableView: Bool = true
 
     // MARK: - Life Cycle
@@ -61,7 +60,6 @@ final class DetailCategoryViewController: BaseViewController {
     @objc private func backToView() {
         self.navigationController?.popViewController(animated: true)
     }
-
 
     private func registerTableCell() {
         tableView.register(nibWithCellClass: DetailCategoryTableViewCell.self)
