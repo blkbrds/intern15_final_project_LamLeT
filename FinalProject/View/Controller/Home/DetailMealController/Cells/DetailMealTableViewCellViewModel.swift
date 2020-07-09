@@ -8,29 +8,31 @@
 
 import Foundation
 
-class DetailMealTableViewCellViewModel {
-    var mealName: String = ""
-    var category: String = ""
-    var area: String = ""
-    var instructions: String = ""
-    var urlMealThumbnail: String = ""
-    var tags: String = ""
-    var urlVideoMeal: String = ""
-    var ingredient: String = ""
-    var measure: String = ""
-    var sourceLink: String = ""
-    init() { }
+
+final class DetailMealTableViewCellViewModel {
+
+    // MARK: - Define
+    struct Configure {
+        static let urlVideo = "https://www.youtube.com/embed/"
+    }
+
+    // MARK: - Properties
+    var meal: Meal
 
     init(meal: Meal) {
-        self.urlMealThumbnail = meal.urlMealThumbnail
-        self.mealName = meal.mealName
-        self.category = meal.category
-        self.area = meal.area
-        self.tags = meal.tags
-        self.urlVideoMeal = meal.urlVideoMeal
-        self.instructions = meal.instructions
-        self.ingredient = meal.ingredient
-        self.measure = meal.measure
-        self.sourceLink = meal.sourceLink
+        self.meal = meal
+    }
+
+    // MARK: - Functions
+    func getLinkVideo() -> String {
+        var idVideo: String = ""
+        if meal.urlVideoMeal.isEmpty {
+            return "No Has Video Tutorial"
+        } else {
+            if let range = meal.urlVideoMeal.range(of: "=") {
+                idVideo = String(meal.urlVideoMeal[range.upperBound...])
+            }
+        }
+        return idVideo
     }
 }

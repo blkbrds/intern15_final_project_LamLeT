@@ -19,8 +19,8 @@
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qnS-Ri-2a1">
                         <rect key="frame" x="10" y="10" width="373" height="90"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esI-rv-1v8">
-                                <rect key="frame" x="0.0" y="0.0" width="78.5" height="90"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="esI-rv-1v8">
+                                <rect key="frame" x="0.0" y="0.0" width="76.5" height="90"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -58,10 +58,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="nameArea" destination="v4o-vC-Bgm" id="y1v-4E-Gev"/>
-                <outlet property="nameCategory" destination="SNx-mN-XJ6" id="6rZ-Z1-atB"/>
-                <outlet property="nameMeal" destination="esI-rv-1v8" id="Kun-Yf-OWE"/>
-                <outlet property="nameTags" destination="3mm-be-VAm" id="rFJ-iG-Bdk"/>
+                <outlet property="areaLabel" destination="v4o-vC-Bgm" id="9Ff-ow-Ibf"/>
+                <outlet property="categoryLabel" destination="SNx-mN-XJ6" id="GdW-PY-RmU"/>
+                <outlet property="mealLabel" destination="esI-rv-1v8" id="CRL-O3-KYM"/>
+                <outlet property="tagLabel" destination="3mm-be-VAm" id="x2N-7P-Hp7"/>
             </connections>
             <point key="canvasLocation" x="145.6521739130435" y="128.23660714285714"/>
         </tableViewCell>

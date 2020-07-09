@@ -17,15 +17,18 @@ final class Api {
         #else
             static let baseURL = "https://pro-asiantech.vn"
         #endif
-        static let apiListCategory = "https://www.themealdb.com/api/json/v1/1/categories.php"
-        
-        static let apiMealCategoryAndArea = "https://www.themealdb.com/api/json/v1/1/filter.php?"
-        
-        static let apiListArea = "https://www.themealdb.com/api/json/v1/1/list.php?a=list"
-        
-        static let apiDetailMeal = "https://www.themealdb.com/api/json/v1/1/lookup.php?"
-        
-        static let apiRandomMeal = "https://www.themealdb.com/api/json/v1/1/random.php"
+        static let pathURL = "https://www.themealdb.com/api/json/v1/1/"
+
+        static let apiListCategory = "\(pathURL)categories.php"
+
+        static let apiMealCategoryAndArea = "\(pathURL)filter.php?"
+
+        static let apiListArea = "\(pathURL)list.php?a=list"
+
+        static let apiDetailMeal = "\(pathURL)lookup.php?"
+
+        static let apiRandomMeal = "\(pathURL)random.php"
+
     }
 }
 

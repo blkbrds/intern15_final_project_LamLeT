@@ -72,6 +72,17 @@
 		F069094124AC2157006D9603 /* OtherFoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069093F24AC2157006D9603 /* OtherFoodTableViewCell.swift */; };
 		F069094224AC2157006D9603 /* OtherFoodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069094024AC2157006D9603 /* OtherFoodTableViewCell.xib */; };
 		F069094424AC2B6F006D9603 /* OtherFoodCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069094324AC2B6F006D9603 /* OtherFoodCellViewModel.swift */; };
+		F069090C24A47C95006D9603 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069090A24A47C95006D9603 /* VideoTableViewCell.swift */; };
+		F069090D24A47C95006D9603 /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069090B24A47C95006D9603 /* VideoTableViewCell.xib */; };
+		F069091024A47CA3006D9603 /* InstructionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069090E24A47CA3006D9603 /* InstructionsTableViewCell.swift */; };
+		F069091124A47CA3006D9603 /* InstructionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069090F24A47CA3006D9603 /* InstructionsTableViewCell.xib */; };
+		F069091424A47CB7006D9603 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069091224A47CB7006D9603 /* IngredientTableViewCell.swift */; };
+		F069091524A47CB7006D9603 /* IngredientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069091324A47CB7006D9603 /* IngredientTableViewCell.xib */; };
+		F069091824A47CC7006D9603 /* MeasureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069091624A47CC7006D9603 /* MeasureTableViewCell.swift */; };
+		F069091924A47CC7006D9603 /* MeasureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069091724A47CC7006D9603 /* MeasureTableViewCell.xib */; };
+		F069091C24A47CE1006D9603 /* SourceLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069091A24A47CE1006D9603 /* SourceLinkTableViewCell.swift */; };
+		F069091D24A47CE1006D9603 /* SourceLinkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069091B24A47CE1006D9603 /* SourceLinkTableViewCell.xib */; };
+		F069092324AAED96006D9603 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069092224AAED95006D9603 /* UIViewControllerExt.swift */; };
 		F0BE18DE249B613A004FA5AB /* NSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18DD249B613A004FA5AB /* NSURL.swift */; };
 		F0BE18E0249B6180004FA5AB /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18DF249B617F004FA5AB /* Api.swift */; };
 		F0BE18E2249B6264004FA5AB /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18E1249B6264004FA5AB /* StringExt.swift */; };
@@ -191,6 +202,19 @@
 		F069093F24AC2157006D9603 /* OtherFoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherFoodTableViewCell.swift; sourceTree = "<group>"; };
 		F069094024AC2157006D9603 /* OtherFoodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherFoodTableViewCell.xib; sourceTree = "<group>"; };
 		F069094324AC2B6F006D9603 /* OtherFoodCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherFoodCellViewModel.swift; sourceTree = "<group>"; };
+
+		F069090A24A47C95006D9603 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
+		F069090B24A47C95006D9603 /* VideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
+		F069090E24A47CA3006D9603 /* InstructionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsTableViewCell.swift; sourceTree = "<group>"; };
+		F069090F24A47CA3006D9603 /* InstructionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstructionsTableViewCell.xib; sourceTree = "<group>"; };
+		F069091224A47CB7006D9603 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
+		F069091324A47CB7006D9603 /* IngredientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientTableViewCell.xib; sourceTree = "<group>"; };
+		F069091624A47CC7006D9603 /* MeasureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureTableViewCell.swift; sourceTree = "<group>"; };
+		F069091724A47CC7006D9603 /* MeasureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeasureTableViewCell.xib; sourceTree = "<group>"; };
+		F069091A24A47CE1006D9603 /* SourceLinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLinkTableViewCell.swift; sourceTree = "<group>"; };
+		F069091B24A47CE1006D9603 /* SourceLinkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SourceLinkTableViewCell.xib; sourceTree = "<group>"; };
+		F069092224AAED95006D9603 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
+
 		F0BE18DD249B613A004FA5AB /* NSURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURL.swift; sourceTree = "<group>"; };
 		F0BE18DF249B617F004FA5AB /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		F0BE18E1249B6264004FA5AB /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
@@ -655,8 +679,8 @@
 			isa = PBXGroup;
 			children = (
 				F0F4BDC124A1B00C000A2CD0 /* cells */,
-				F0F4BDBB24A1A850000A2CD0 /* CountryViewController.xib */,
 				F0F4BDBC24A1A850000A2CD0 /* CountryViewController.swift */,
+				F0F4BDBB24A1A850000A2CD0 /* CountryViewController.xib */,
 				F0F4BDBF24A1AFB8000A2CD0 /* CountryViewModel.swift */,
 			);
 			path = CountryController;

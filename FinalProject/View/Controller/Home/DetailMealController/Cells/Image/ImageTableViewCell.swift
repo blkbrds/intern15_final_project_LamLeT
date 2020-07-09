@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class ImageTableViewCell: UITableViewCell {
+final class ImageTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var thumnailMealImageView: UIImageView!
@@ -39,6 +39,6 @@ class ImageTableViewCell: UITableViewCell {
         guard let viewModel = viewModel else {
             return
         }
-        thumnailMealImageView.sd_setImage(with: URL(string: viewModel.urlMealThumbnail))
+        thumnailMealImageView.sd_setImage(with: URL(string: viewModel.meal.urlMealThumbnail))
     }
 }
