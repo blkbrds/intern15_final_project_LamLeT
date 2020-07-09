@@ -50,6 +50,10 @@
 		F02FE51C24ADDDF900B03D21 /* LogoMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02FE51A24ADDDF900B03D21 /* LogoMenuTableViewCell.swift */; };
 		F02FE51D24ADDDF900B03D21 /* LogoMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02FE51B24ADDDF900B03D21 /* LogoMenuTableViewCell.xib */; };
 		F02FE51F24AEDFC300B03D21 /* MealRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02FE51E24AEDFC300B03D21 /* MealRealm.swift */; };
+		F052C60024B703910074490E /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052C5FF24B703910074490E /* SearchViewModel.swift */; };
+		F052C60324B7039F0074490E /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052C60124B7039F0074490E /* SearchTableViewCell.swift */; };
+		F052C60424B7039F0074490E /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F052C60224B7039F0074490E /* SearchTableViewCell.xib */; };
+		F052C60624B703BD0074490E /* SearchTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052C60524B703BD0074490E /* SearchTableCellViewModel.swift */; };
 		F06908F724A4668E006D9603 /* DetailMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06908F524A4668E006D9603 /* DetailMealViewController.swift */; };
 		F06908F824A4668E006D9603 /* DetailMealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F06908F624A4668E006D9603 /* DetailMealViewController.xib */; };
 		F06908FA24A466B6006D9603 /* DetailMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06908F924A466B6006D9603 /* DetailMealViewModel.swift */; };
@@ -73,17 +77,6 @@
 		F069094124AC2157006D9603 /* OtherFoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069093F24AC2157006D9603 /* OtherFoodTableViewCell.swift */; };
 		F069094224AC2157006D9603 /* OtherFoodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069094024AC2157006D9603 /* OtherFoodTableViewCell.xib */; };
 		F069094424AC2B6F006D9603 /* OtherFoodCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069094324AC2B6F006D9603 /* OtherFoodCellViewModel.swift */; };
-		F069090C24A47C95006D9603 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069090A24A47C95006D9603 /* VideoTableViewCell.swift */; };
-		F069090D24A47C95006D9603 /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069090B24A47C95006D9603 /* VideoTableViewCell.xib */; };
-		F069091024A47CA3006D9603 /* InstructionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069090E24A47CA3006D9603 /* InstructionsTableViewCell.swift */; };
-		F069091124A47CA3006D9603 /* InstructionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069090F24A47CA3006D9603 /* InstructionsTableViewCell.xib */; };
-		F069091424A47CB7006D9603 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069091224A47CB7006D9603 /* IngredientTableViewCell.swift */; };
-		F069091524A47CB7006D9603 /* IngredientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069091324A47CB7006D9603 /* IngredientTableViewCell.xib */; };
-		F069091824A47CC7006D9603 /* MeasureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069091624A47CC7006D9603 /* MeasureTableViewCell.swift */; };
-		F069091924A47CC7006D9603 /* MeasureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069091724A47CC7006D9603 /* MeasureTableViewCell.xib */; };
-		F069091C24A47CE1006D9603 /* SourceLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069091A24A47CE1006D9603 /* SourceLinkTableViewCell.swift */; };
-		F069091D24A47CE1006D9603 /* SourceLinkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069091B24A47CE1006D9603 /* SourceLinkTableViewCell.xib */; };
-		F069092324AAED96006D9603 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069092224AAED95006D9603 /* UIViewControllerExt.swift */; };
 		F0BE18DE249B613A004FA5AB /* NSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18DD249B613A004FA5AB /* NSURL.swift */; };
 		F0BE18E0249B6180004FA5AB /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18DF249B617F004FA5AB /* Api.swift */; };
 		F0BE18E2249B6264004FA5AB /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18E1249B6264004FA5AB /* StringExt.swift */; };
@@ -181,6 +174,10 @@
 		F02FE51A24ADDDF900B03D21 /* LogoMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoMenuTableViewCell.swift; sourceTree = "<group>"; };
 		F02FE51B24ADDDF900B03D21 /* LogoMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoMenuTableViewCell.xib; sourceTree = "<group>"; };
 		F02FE51E24AEDFC300B03D21 /* MealRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRealm.swift; sourceTree = "<group>"; };
+		F052C5FF24B703910074490E /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		F052C60124B7039F0074490E /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		F052C60224B7039F0074490E /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
+		F052C60524B703BD0074490E /* SearchTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableCellViewModel.swift; sourceTree = "<group>"; };
 		F06908F524A4668E006D9603 /* DetailMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealViewController.swift; sourceTree = "<group>"; };
 		F06908F624A4668E006D9603 /* DetailMealViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailMealViewController.xib; sourceTree = "<group>"; };
 		F06908F924A466B6006D9603 /* DetailMealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealViewModel.swift; sourceTree = "<group>"; };
@@ -204,19 +201,6 @@
 		F069093F24AC2157006D9603 /* OtherFoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherFoodTableViewCell.swift; sourceTree = "<group>"; };
 		F069094024AC2157006D9603 /* OtherFoodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherFoodTableViewCell.xib; sourceTree = "<group>"; };
 		F069094324AC2B6F006D9603 /* OtherFoodCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherFoodCellViewModel.swift; sourceTree = "<group>"; };
-
-		F069090A24A47C95006D9603 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
-		F069090B24A47C95006D9603 /* VideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
-		F069090E24A47CA3006D9603 /* InstructionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsTableViewCell.swift; sourceTree = "<group>"; };
-		F069090F24A47CA3006D9603 /* InstructionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstructionsTableViewCell.xib; sourceTree = "<group>"; };
-		F069091224A47CB7006D9603 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
-		F069091324A47CB7006D9603 /* IngredientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientTableViewCell.xib; sourceTree = "<group>"; };
-		F069091624A47CC7006D9603 /* MeasureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureTableViewCell.swift; sourceTree = "<group>"; };
-		F069091724A47CC7006D9603 /* MeasureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeasureTableViewCell.xib; sourceTree = "<group>"; };
-		F069091A24A47CE1006D9603 /* SourceLinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLinkTableViewCell.swift; sourceTree = "<group>"; };
-		F069091B24A47CE1006D9603 /* SourceLinkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SourceLinkTableViewCell.xib; sourceTree = "<group>"; };
-		F069092224AAED95006D9603 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
-
 		F0BE18DD249B613A004FA5AB /* NSURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURL.swift; sourceTree = "<group>"; };
 		F0BE18DF249B617F004FA5AB /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		F0BE18E1249B6264004FA5AB /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
@@ -531,8 +515,10 @@
 		F00DAA3B249B77E3001A70BC /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				F052C5FE24B7037C0074490E /* Cells */,
 				F00DAA46249B7980001A70BC /* SearchViewController.swift */,
 				F00DAA47249B7980001A70BC /* SearchViewController.xib */,
+				F052C5FF24B703910074490E /* SearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -586,6 +572,16 @@
 				F02FE51B24ADDDF900B03D21 /* LogoMenuTableViewCell.xib */,
 			);
 			path = cells;
+			sourceTree = "<group>";
+		};
+		F052C5FE24B7037C0074490E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F052C60124B7039F0074490E /* SearchTableViewCell.swift */,
+				F052C60224B7039F0074490E /* SearchTableViewCell.xib */,
+				F052C60524B703BD0074490E /* SearchTableCellViewModel.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		F06908F324A465BD006D9603 /* DetailMealController */ = {
@@ -884,6 +880,7 @@
 				F00DAA49249B7980001A70BC /* SearchViewController.xib in Resources */,
 				F01FA20F24B02E2300A2D6FF /* FavoritesTableViewCell.xib in Resources */,
 				F00DAA4D249B7990001A70BC /* FavoritesViewController.xib in Resources */,
+				F052C60424B7039F0074490E /* SearchTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -965,6 +962,7 @@
 				F0F4BDDA24A1EB12000A2CD0 /* DetailCategoryViewController.swift in Sources */,
 				F00DAA37249B76C6001A70BC /* BaseViewController.swift in Sources */,
 				D10B90DC249B1DD5003E0A85 /* Measurement.swift in Sources */,
+				F052C60324B7039F0074490E /* SearchTableViewCell.swift in Sources */,
 				F0F746FD249C4E31002BDE15 /* HomeCategoryCollectionViewCell.swift in Sources */,
 				F01FA21124B068D900A2D6FF /* FavoritesViewModel.swift in Sources */,
 				F02FE51024AD78D500B03D21 /* SideMenuTableViewController.swift in Sources */,
@@ -981,6 +979,7 @@
 				F069092F24AB2C2C006D9603 /* IngredientMeasureTableViewCell.swift in Sources */,
 				D10B90C7249B1DBE003E0A85 /* Ratio.swift in Sources */,
 				F069092324AAED96006D9603 /* UIViewControllerExt.swift in Sources */,
+				F052C60024B703910074490E /* SearchViewModel.swift in Sources */,
 				D10B918C249B1FD8003E0A85 /* ApiManager.swift in Sources */,
 				F00DAA48249B7980001A70BC /* SearchViewController.swift in Sources */,
 				D10B90CA249B1DC8003E0A85 /* UIViewExt.swift in Sources */,
@@ -1000,6 +999,7 @@
 				F0F4BD8E24A04FA8000A2CD0 /* HomeCategoryViewModel.swift in Sources */,
 				F06908F724A4668E006D9603 /* DetailMealViewController.swift in Sources */,
 				F069090424A47C7A006D9603 /* InfoTableViewCell.swift in Sources */,
+				F052C60624B703BD0074490E /* SearchTableCellViewModel.swift in Sources */,
 				F0F4BDBE24A1A851000A2CD0 /* CountryViewController.swift in Sources */,
 				F069092124A49032006D9603 /* DetailMealTableViewCellViewModel.swift in Sources */,
 				F0BE18E2249B6264004FA5AB /* StringExt.swift in Sources */,
