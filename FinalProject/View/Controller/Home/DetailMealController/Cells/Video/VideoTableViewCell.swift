@@ -26,24 +26,16 @@ final class VideoTableViewCell: UITableViewCell {
         super.awakeFromNib()
         videoAlertLabel.isHidden = true
     }
-
+    
     private func updateView() {
         guard let viewModel = viewModel else {
             return
         }
-        var idVideo: String = ""
         if viewModel.meal.urlVideoMeal == "" {
             videoAlertLabel.isHidden = false
-            videoAlertLabel.text = "No Has Video Tutorial" 
+            videoAlertLabel.text = viewModel.getLinkVideo()
         } else {
-            let arrayURLVideo = Array(viewModel.meal.urlVideoMeal)
-            for i in 0...arrayURLVideo.count - 1 {
-                if arrayURLVideo[i] == "=" {
-                    let idVideoArray = arrayURLVideo[i + 1 ..< arrayURLVideo.endIndex]
-                    idVideo = String(idVideoArray)
-                }
-            }
-            guard let youtubeURL = URL(string: "\(DetailMealTableViewCellViewModel.Configure.urlVideo)\(idVideo)") else {
+            guard let youtubeURL = URL(string: "\(DetailMealTableViewCellViewModel.Configure.urlVideo)\(viewModel.getLinkVideo())") else {
                 return
             }
             webView.load(URLRequest(url: youtubeURL))

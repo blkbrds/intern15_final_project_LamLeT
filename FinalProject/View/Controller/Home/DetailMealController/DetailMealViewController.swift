@@ -35,15 +35,21 @@ final class DetailMealViewController: BaseViewController {
     private func configNavi() {
 
     }
-    
+
     private func loadAPI() {
-        viewModel.getAPIDetailMeal { (done, msg) in
+        HUD.show()
+        viewModel.getAPIDetailMeal { [weak self] (done, msg) in
+            guard let self = self else {
+                return
+            }
+            HUD.dismiss()   
             if done {
                 self.updateView()
             } else {
-                print("Failed")
+                self.showAlert(message: msg)
             }
         }
+        HUD.setOffsetFromCenter(DetailMealViewModel.Configure.uiOffSet)
     }
 
     private func registerTableCell() {
@@ -58,6 +64,7 @@ final class DetailMealViewController: BaseViewController {
     }
 
     private func updateView() {
+        guard isViewLoaded else { return }
         tableView.reloadData()
     }
 }
