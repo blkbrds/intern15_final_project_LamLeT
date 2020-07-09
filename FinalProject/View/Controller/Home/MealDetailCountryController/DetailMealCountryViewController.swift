@@ -11,9 +11,11 @@ import SVProgressHUD
 
 final class DetailMealCountryViewController: BaseViewController {
 
-    // MARK: - Properties
+    // MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var collectionView: UICollectionView!
+    
+    // MARK: - Properties
     var viewModel: DetailMealCountryViewModel = DetailMealCountryViewModel()
     var isShowTableView: Bool = true
 

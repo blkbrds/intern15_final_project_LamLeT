@@ -52,8 +52,7 @@ class Networking {
                 if let _ = error {
                     completion(.failure(App.String.alertFailedToConnectAPI))
                 } else {
-                    if let data = data {
-                        let json = data.toJSON()
+                    if let data = data, let json = data.toJSON() {
                         let categories = json["categories"] as! [JSON]
                         var categoryMeals: [CategoryMeal] = []
                         for item in categories {
@@ -84,9 +83,10 @@ class Networking {
                 if let _ = error {
                     completion(.failure(App.String.alertFailedToConnectAPI))
                 } else {
-                    if let data = data {
-                        let json = data.toJSON()
-                        let meals = json["meals"] as! [JSON]
+                    if let data = data, let json = data.toJSON() {
+                        guard let meals = json["meals"] as? [JSON] else {
+                            return
+                        }
                         var categoryDetails: [Meal] = []
                         for item in meals {
                             let meals = Meal(json: item)
@@ -102,7 +102,7 @@ class Networking {
         }
         task.resume()
     }
-    
+
     func getArea(completion: @escaping APICompletion<MealResult>) {
         guard let url = URL(string: Api.Path.apiListArea) else {
             completion(.failure(App.String.alertFailedAPI))
@@ -116,9 +116,10 @@ class Networking {
                 if let _ = error {
                     completion(.failure(App.String.alertFailedToConnectAPI))
                 } else {
-                    if let data = data {
-                        let json = data.toJSON()
-                        let meals = json["meals"] as! [JSON]
+                    if let data = data, let json = data.toJSON() {
+                        guard let meals = json["meals"] as? [JSON] else {
+                            return
+                        }
                         var areas: [Meal] = []
                         for item in meals {
                             let area = Meal(json: item)
@@ -135,7 +136,6 @@ class Networking {
         task.resume()
     }
 
-    
     func getMealDetailArea(areaName: String, completion: @escaping APICompletion<MealResult>) {
         guard let url = URL(string: Api.Path.apiMealCategoryAndArea + "a=\(areaName)") else {
             completion(.failure(App.String.alertFailedAPI))
@@ -149,9 +149,10 @@ class Networking {
                 if let _ = error {
                     completion(.failure(App.String.alertFailedToConnectAPI))
                 } else {
-                    if let data = data {
-                        let json = data.toJSON()
-                        let meals = json["meals"] as! [JSON]
+                    if let data = data, let json = data.toJSON() {
+                        guard let meals = json["meals"] as? [JSON] else {
+                            return
+                        }
                         var areaDetails: [Meal] = []
                         for item in meals {
                             let meals = Meal(json: item)
@@ -182,8 +183,7 @@ class Networking {
                 if let _ = error {
                     completion(.failure(App.String.alertFailedToConnectAPI))
                 } else {
-                    if let data = data {
-                        let json = data.toJSON()
+                    if let data = data, let json = data.toJSON() {
                         guard let meals = json["meals"] as? [JSON] else {
                             return
                         }
@@ -216,8 +216,7 @@ class Networking {
                 if let _ = error {
                     completion(.failure(App.String.alertFailedToConnectAPI))
                 } else {
-                    if let data = data {
-                        let json = data.toJSON()
+                    if let data = data, let json = data.toJSON() {
                         guard let meals = json["meals"] as? [JSON] else {
                             return
                         }

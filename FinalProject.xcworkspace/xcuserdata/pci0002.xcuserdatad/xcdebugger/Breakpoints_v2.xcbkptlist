@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "4F54454A-71BB-4830-A91D-D22953F08EAE"
+   uuid = "E8E851A5-87C9-47DD-A12A-CE3FE55A2A43"
    type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5508DEE8-719F-4FEE-9F9C-C707FF0AA9E7"
+            uuid = "9D699515-B77A-491C-9873-DAB91FC095E0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FinalProject/View/Controller/Home/CountryController/cells/CountryCellViewModel.swift"
+            filePath = "FinalProject/View/Controller/Home/DetailMealController/Cells/IngredientAndMeasure/IngredientMeasureCellViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
@@ -20,12 +20,9 @@
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
-<<<<<<< HEAD
-=======
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-<<<<<<< HEAD
             uuid = "B4C18BBF-0CFA-4715-99AC-9CFAC04B6C6D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -99,7 +96,6 @@
                   offsetFromSymbolStart = "301">
                </Location>
             </Locations>
-=======
             uuid = "58D52FD5-8585-4DD3-83F2-6ACD22EC213D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -111,14 +107,11 @@
             endingLineNumber = "40"
             landmarkName = "updateView()"
             landmarkType = "7">
->>>>>>> master
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-<<<<<<< HEAD
-<<<<<<< HEAD
             uuid = "FF1EBC5F-1BA6-4D2A-8313-C67B02D7173C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -129,11 +122,7 @@
             startingLineNumber = "27"
             endingLineNumber = "27"
             landmarkName = "updateView()"
-=======
-            uuid = "2BCD61B7-C389-46B0-8649-AEE4AC3E3BBE"
-=======
             uuid = "03B5BDA0-527F-4003-A8DA-0C17A8FCD4AC"
->>>>>>> master
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -160,9 +149,6 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
@@ -176,12 +162,11 @@
             startingLineNumber = "19"
             endingLineNumber = "19"
             landmarkName = "init(idMeal:)"
->>>>>>> master
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "init(ingredient:measure:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-=======
->>>>>>> master
->>>>>>> master
    </Breakpoints>
 </Bucket>
