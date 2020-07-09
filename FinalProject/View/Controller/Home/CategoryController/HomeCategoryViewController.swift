@@ -12,8 +12,10 @@ import SideMenu
 
 final class HomeCategoryViewController: BaseViewController {
 
-    // MARK: - Properties
+    // MARK: - IBOutlet
     @IBOutlet private weak var listCategoryCollectionView: UICollectionView!
+    
+    // MARK: - Properties
     private var viewModel = HomeCategoryViewModel()
     var menu: SideMenuNavigationController?
 
@@ -57,10 +59,6 @@ final class HomeCategoryViewController: BaseViewController {
         menu.menuWidth = UIScreen.main.bounds.width * 2 / 3
         menu.leftSide = true
         menu.setNavigationBarHidden(true, animated: false)
-    }
-
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
 
     private func registerCollectionView() {

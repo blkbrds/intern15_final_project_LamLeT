@@ -10,7 +10,12 @@ import Foundation
 import UIKit
 import MVVM
 
-class DetailCategoryViewModel {
+
+final class DetailCategoryViewModel {
+
+    // MARK: - Properties
+    var nameCategory: String = ""
+    var mealCategory: [Meal] = []
 
     // MARK: - Define
     struct Configure {
@@ -18,10 +23,6 @@ class DetailCategoryViewModel {
         static let sizeForCellCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
         static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
     }
-
-    // MARK: - Properties
-    var nameCategory: String = ""
-    var mealCategory: [Meal] = []
 
     init() { }
 
@@ -42,7 +43,7 @@ class DetailCategoryViewModel {
                 for item in detailCategory.meals {
                     self.mealCategory.append(item)
                 }
-                completion(true, "")
+                completion(true, App.String.loadSuccess)
             }
         }
     }

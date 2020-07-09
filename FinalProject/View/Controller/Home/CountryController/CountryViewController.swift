@@ -9,10 +9,13 @@
 import UIKit
 import SideMenu
 
+
 final class CountryViewController: BaseViewController {
 
-    // MARK: - Properties
+    // MARK: - IBOutlet
     @IBOutlet private weak var collectionView: UICollectionView!
+
+    // MARK: - Properties
     var viewModel = CountryViewModel()
     var menu: SideMenuNavigationController?
 
@@ -36,10 +39,6 @@ final class CountryViewController: BaseViewController {
         registerColletionCell()
         loadAPI()
     }
-    
-    override var prefersStatusBarHidden: Bool {
-           return true
-       }
 
     // MARK: Private Funtions
     private func loadAPI() {
