@@ -7,15 +7,24 @@
 //
 
 import Foundation
+import UIKit
 
-class DetailMealViewModel {
 
-    // MARK: - Properties
+final class DetailMealViewModel {
+
+    // MARK: - Define
+    struct Configure {
+        static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
+    }
+
+    // MARK: Properties
+    var sections: [Section] = [.image, .information, .video, .instruction, .ingrentMeasure, .linkSource, .otherFood]
     var idMeal: String = ""
     var detailMeals: [Meal] = []
     var randomMeals: [Meal] = []
     var headerTitler: [String] = ["Image", "Infomation", "Video", "Instruction", "Ingredient And Measure", "Link Source", "Orther Food"]
 
+    // MARK: - Life Cycle
     init() { }
 
     init(idMeal: String) {
@@ -32,9 +41,20 @@ class DetailMealViewModel {
                 for item in detailMeal.meals {
                     self.detailMeals.append(item)
                 }
-                completion(true, "Loading Success")
+                completion(true, App.String.loadSuccess)
             }
         }
+    }
+
+    // MARK: - Enum
+    enum Section: Int {
+        case image = 0
+        case information
+        case video
+        case instruction
+        case ingrentMeasure
+        case linkSource
+        case otherFood
     }
 
     func getAPIRandomMeal(completion: @escaping (Bool, String) -> Void) {
@@ -46,34 +66,23 @@ class DetailMealViewModel {
                 for item in randomMeal.meals {
                     self.randomMeals.append(item)
                 }
-                completion(true, "Loading Success")
+                completion(true, App.String.loadSuccess)
             }
         }
     }
 
-
     // MARK: - Data Table
     func numberOfSections() -> Int {
-        return 7
+        return sections.count
     }
 
-    func numberOfRowsInSection(section: Int) -> Int {
-        if section == 0 {
+    func numberOfRowsInSection(section: Section) -> Int {
+        switch section {
+        case .image, .information, .video, .instruction, .ingrentMeasure, .linkSource:
             return detailMeals.count
-        } else if section == 1 {
-            return detailMeals.count
-        } else if section == 2 {
-            return detailMeals.count
-        } else if section == 3 {
-            return detailMeals.count
-        } else if section == 4 {
-            return detailMeals.count
-        } else if section == 5 {
-            return detailMeals.count
-        } else if section == 6 {
+        case .otherFood:
             return randomMeals.count
         }
-        return 0
     }
 
     func cellForRowAt(indexPath: IndexPath) -> DetailMealTableViewCellViewModel {

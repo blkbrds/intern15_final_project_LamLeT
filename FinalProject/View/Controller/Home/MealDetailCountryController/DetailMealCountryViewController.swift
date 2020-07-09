@@ -11,9 +11,11 @@ import SVProgressHUD
 
 final class DetailMealCountryViewController: BaseViewController {
 
-    // MARK: - Properties
+    // MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var collectionView: UICollectionView!
+    
+    // MARK: - Properties
     var viewModel: DetailMealCountryViewModel = DetailMealCountryViewModel()
     var isShowTableView: Bool = true
 
@@ -37,15 +39,14 @@ final class DetailMealCountryViewController: BaseViewController {
     private func loadAPI() {
         HUD.show()
         viewModel.getAPIListArea(detailAreaCompletion: { [weak self] (done, msg) in
-            guard let self = self else { return }
             HUD.dismiss()
+            guard let self = self else { return }
             if done {
                 self.updateUI()
             } else {
                 self.showAlert(message: msg)
             }
         })
-        HUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
         HUD.setOffsetFromCenter(DetailMealCountryViewModel.Configure.uiOffSet)
     }
 
@@ -137,7 +138,7 @@ extension DetailMealCountryViewController: UICollectionViewDataSource, UICollect
 // MARK: - UICollectionViewDelegateFlowLayout
 extension DetailMealCountryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return DetailMealCountryViewModel.Configure.sizeForCollection
+        return DetailMealCountryViewModel.Configure.sizeForCellCollection
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

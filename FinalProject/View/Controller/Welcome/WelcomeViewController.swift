@@ -14,7 +14,7 @@ struct Configure {
 
 final class WelcomeViewController: BaseViewController {
 
-    // MARK: - Properties
+    // MARK: - IBOutlet
     @IBOutlet private weak var nextButton: UIButton!
 
     // MARK: - Life Cycle
