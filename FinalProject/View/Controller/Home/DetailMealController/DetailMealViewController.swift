@@ -41,10 +41,10 @@ final class DetailMealViewController: BaseViewController {
     private func loadAPIDetail() {
         HUD.show()
         viewModel.getAPIDetailMeal { [weak self] (done, msg) in
+            HUD.dismiss()
             guard let self = self else {
                 return
             }
-            HUD.dismiss()
             if done {
                 self.updateView()
             } else {

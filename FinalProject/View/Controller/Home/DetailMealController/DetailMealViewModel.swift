@@ -18,7 +18,7 @@ final class DetailMealViewModel {
     }
 
     // MARK: Properties
-    var sections: [Section] = [.image, .video, .instruction, .ingrentMeasure, .linkSource, .otherFood]
+    var sections: [Section] = [.image, .information, .video, .instruction, .ingrentMeasure, .linkSource, .otherFood]
     var idMeal: String = ""
     var detailMeals: [Meal] = []
     var randomMeals: [Meal] = []
@@ -41,7 +41,7 @@ final class DetailMealViewModel {
                 for item in detailMeal.meals {
                     self.detailMeals.append(item)
                 }
-                completion(true, "Loading Success")
+                completion(true, App.String.loadSuccess)
             }
         }
     }
@@ -78,8 +78,10 @@ final class DetailMealViewModel {
 
     func numberOfRowsInSection(section: Section) -> Int {
         switch section {
-        case .image, .information, .video, .instruction, .ingrentMeasure, .linkSource, .otherFood:
+        case .image, .information, .video, .instruction, .ingrentMeasure, .linkSource:
             return detailMeals.count
+        case .otherFood:
+            return randomMeals.count
         }
     }
 

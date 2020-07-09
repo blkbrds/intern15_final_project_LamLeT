@@ -26,15 +26,11 @@ final class DetailMealTableViewCellViewModel {
     // MARK: - Functions
     func getLinkVideo() -> String {
         var idVideo: String = ""
-        if meal.urlVideoMeal == "" {
+        if meal.urlVideoMeal.isEmpty {
             return "No Has Video Tutorial"
         } else {
-            let arrayURLVideo = Array(meal.urlVideoMeal)
-            for i in 0...arrayURLVideo.count - 1 {
-                if arrayURLVideo[i] == "=" {
-                    let idVideoArray = arrayURLVideo[i + 1 ..< arrayURLVideo.endIndex]
-                    idVideo = String(idVideoArray)
-                }
+            if let range = meal.urlVideoMeal.range(of: "=") {
+                idVideo = String(meal.urlVideoMeal[range.upperBound...])
             }
         }
         return idVideo

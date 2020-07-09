@@ -31,7 +31,7 @@ final class VideoTableViewCell: UITableViewCell {
         guard let viewModel = viewModel else {
             return
         }
-        if viewModel.meal.urlVideoMeal == "" {
+        if viewModel.meal.urlVideoMeal.isEmpty {
             videoAlertLabel.isHidden = false
             videoAlertLabel.text = viewModel.getLinkVideo()
         } else {

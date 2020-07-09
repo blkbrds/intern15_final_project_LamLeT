@@ -83,10 +83,7 @@ class Networking {
                 if let _ = error {
                     completion(.failure(App.String.alertFailedToConnectAPI))
                 } else {
-                    if let data = data, let json = data.toJSON() {
-                        guard let meals = json["meals"] as? [JSON] else {
-                            return
-                        }
+                    if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
                         var categoryDetails: [Meal] = []
                         for item in meals {
                             let meals = Meal(json: item)
@@ -116,10 +113,7 @@ class Networking {
                 if let _ = error {
                     completion(.failure(App.String.alertFailedToConnectAPI))
                 } else {
-                    if let data = data, let json = data.toJSON() {
-                        guard let meals = json["meals"] as? [JSON] else {
-                            return
-                        }
+                    if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
                         var areas: [Meal] = []
                         for item in meals {
                             let area = Meal(json: item)
@@ -149,10 +143,7 @@ class Networking {
                 if let _ = error {
                     completion(.failure(App.String.alertFailedToConnectAPI))
                 } else {
-                    if let data = data, let json = data.toJSON() {
-                        guard let meals = json["meals"] as? [JSON] else {
-                            return
-                        }
+                    if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
                         var areaDetails: [Meal] = []
                         for item in meals {
                             let meals = Meal(json: item)
@@ -183,10 +174,7 @@ class Networking {
                 if let _ = error {
                     completion(.failure(App.String.alertFailedToConnectAPI))
                 } else {
-                    if let data = data, let json = data.toJSON() {
-                        guard let meals = json["meals"] as? [JSON] else {
-                            return
-                        }
+                    if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
                         var detailMeals: [Meal] = []
                         for item in meals {
                             let meals = Meal(json: item)
