@@ -101,6 +101,7 @@ extension DetailMealViewController: UITableViewDataSource {
             return cell
         case .instruction:
             let cell = tableView.dequeueReusableCell(withClass: InstructionsTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         case .ingrentMeasure:
             let cell = tableView.dequeueReusableCell(withClass: IngredientTableViewCell.self, for: indexPath)

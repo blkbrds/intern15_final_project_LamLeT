@@ -130,7 +130,6 @@ class Networking {
     }
 
     func getMealDetailArea(areaName: String, completion: @escaping APICompletion<MealResult>) {
-
         guard let url = URL(string: Api.Path.apiMealCategoryAndArea + "a=\(areaName)") else {
             completion(.failure(App.String.alertFailedAPI))
             return
