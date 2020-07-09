@@ -11,6 +11,16 @@ import UIKit
 
 class DetailMealCountryViewModel {
 
+    // MARK: - Define
+    struct Configure {
+        static let title: String = "Area Meal"
+        static let nameIconTable: String = "icon_tableView"
+        static let nameIconCollection: String = "icon_collectionView"
+        static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
+        static let sizeForCellCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+        static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+    }
+
     // MARK: - Properties
     var mealAreas: [Meal] = []
     var nameArea: String = ""
@@ -44,6 +54,12 @@ class DetailMealCountryViewModel {
     func cellForRowAt(indexPath: IndexPath) -> DetailCategoryCellViewModel {
         let item = mealAreas[indexPath.row]
         let model = DetailCategoryCellViewModel(meal: item)
+        return model
+    }
+
+    func pushIdMeal(indexPath: IndexPath) -> DetailMealViewModel {
+        let item = mealAreas[indexPath.row]
+        let model = DetailMealViewModel(meal: item)
         return model
     }
 

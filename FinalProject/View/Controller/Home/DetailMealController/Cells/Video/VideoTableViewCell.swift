@@ -7,12 +7,39 @@
 //
 
 import UIKit
+import WebKit
 
 final class VideoTableViewCell: UITableViewCell {
 
+    // MARK: - IBOutlet
+    @IBOutlet private weak var webView: WKWebView!
+    @IBOutlet private weak var videoAlertLabel: UILabel!
+
+    // MARK: - Properties
+    var viewModel: DetailMealTableViewCellViewModel? {
+        didSet {
+            updateView()
+        }
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        videoAlertLabel.isHidden = true
+    }
+
+    private func updateView() {
+        guard let viewModel = viewModel else {
+            return
+        }
+        if viewModel.meal.urlVideoMeal.isEmpty {
+            videoAlertLabel.isHidden = false
+            videoAlertLabel.text = viewModel.getLinkVideo()
+        } else {
+            guard let youtubeURL = URL(string: "\(DetailMealTableViewCellViewModel.Configure.urlVideo)\(viewModel.getLinkVideo())") else {
+                return
+            }
+            webView.load(URLRequest(url: youtubeURL))
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -20,5 +47,4 @@ final class VideoTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
 }

@@ -10,11 +10,19 @@ import Foundation
 import UIKit
 import MVVM
 
-class DetailCategoryViewModel {
+
+final class DetailCategoryViewModel {
 
     // MARK: - Properties
     var nameCategory: String = ""
     var mealCategory: [Meal] = []
+
+    // MARK: - Define
+    struct Configure {
+        static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
+        static let sizeForCellCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+        static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+    }
 
     init() { }
 
@@ -35,9 +43,15 @@ class DetailCategoryViewModel {
                 for item in detailCategory.meals {
                     self.mealCategory.append(item)
                 }
-                completion(true, "")
+                completion(true, App.String.loadSuccess)
             }
         }
+    }
+
+    func pushIdMeal(indexPath: IndexPath) -> DetailMealViewModel {
+        let item = mealCategory[indexPath.row]
+        let model = DetailMealViewModel(meal: item)
+        return model
     }
 
     // MARK: - TableView Data

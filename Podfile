@@ -16,9 +16,11 @@ target 'FinalProject' do
 
     # Utils
     pod 'SwiftLint', '0.27' # A tool to enforce Swift style and conventions.
+    pod 'SideMenu'
     pod 'SwifterSwift', '~> 4.6'
     pod 'SDWebImage', '4.4.6'
     pod 'SVProgressHUD', '~> 2.2'
+    pod 'RealmSwift', '~> 4.0'
     pod 'IQKeyboardManagerSwift', '~> 6.2' # Codeless drop-in universal library allows to prevent issues of keyboard sliding up and cover UITextField/UITextView. Neither need to write any code nor any setup required and much more.
     pod 'MVVM-Swift', '1.1.0' # MVVM Architect for iOS Application.
      

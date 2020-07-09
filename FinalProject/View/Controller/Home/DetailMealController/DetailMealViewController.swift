@@ -22,16 +22,88 @@ final class DetailMealViewController: BaseViewController {
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        configNavi()
+        updateView()
+    }
+
     override func setUpUI() {
         configNavi()
         registerTableCell()
     }
 
-    override func setUpData() { }
+    override func setUpData() {
+        loadAPIDetail()
+        loadAPIRandomMeal()
+    }
 
     // MARK: - Private Functions
     private func configNavi() {
+        viewModel.checkFavorites { (done, msg) in
+            if done {
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: DetailMealViewModel.Configure.iconAddFavorites), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+            } else {
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: DetailMealViewModel.Configure.iconRemoveFavorites), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+            }
+        }
+    }
 
+    @objc private func rightBarButtonTouchUpInside() {
+        if viewModel.isFavorites == false {
+            addToFavorites()
+        } else {
+            deteleToFavorties()
+        }
+    }
+
+    func addToFavorites() {
+        viewModel.addFavorites(addCompletion: { (done, msg) in
+            if done {
+                let image = UIImage(systemName: DetailMealViewModel.Configure.iconRemoveFavorites)
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+                print(msg)
+            } else {
+                self.showAlert(message: msg)
+            }
+        })
+    }
+
+    func deteleToFavorties() {
+        viewModel.deleteFavorites(deleteCompletion: { (done, msg) in
+            if done {
+                let image = UIImage(systemName: DetailMealViewModel.Configure.iconAddFavorites)
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+            } else {
+                self.showAlert(message: msg)
+            }
+        })
+    }
+
+
+    private func loadAPIDetail() {
+        HUD.show()
+        viewModel.getAPIDetailMeal { [weak self] (done, msg) in
+            HUD.dismiss()
+            guard let self = self else {
+                return
+            }
+            if done {
+                self.updateView()
+            } else {
+                self.showAlert(message: msg)
+            }
+        }
+        HUD.setOffsetFromCenter(DetailMealViewModel.Configure.uiOffSet)
+    }
+
+    private func loadAPIRandomMeal() {
+        viewModel.getAPIRandomMeal { (done, msg) in
+            if done {
+                self.updateView()
+            } else {
+                self.showAlert(message: msg)
+            }
+        }
     }
 
     private func registerTableCell() {
@@ -39,11 +111,15 @@ final class DetailMealViewController: BaseViewController {
         tableView.register(nibWithCellClass: InfoTableViewCell.self)
         tableView.register(nibWithCellClass: VideoTableViewCell.self)
         tableView.register(nibWithCellClass: InstructionsTableViewCell.self)
-        tableView.register(nibWithCellClass: IngredientTableViewCell.self)
-        tableView.register(nibWithCellClass: MeasureTableViewCell.self)
+        tableView.register(nibWithCellClass: IngredientMeasureTableViewCell.self)
         tableView.register(nibWithCellClass: SourceLinkTableViewCell.self)
-        tableView.delegate = self
+        tableView.register(nibWithCellClass: OtherFoodTableViewCell.self)
         tableView.dataSource = self
+    }
+
+    private func updateView() {
+        guard isViewLoaded else { return }
+        tableView.reloadData()
     }
 }
 
@@ -67,25 +143,48 @@ extension DetailMealViewController: UITableViewDataSource {
         switch section {
         case .image:
             let cell = tableView.dequeueReusableCell(withClass: ImageTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         case .information:
             let cell = tableView.dequeueReusableCell(withClass: InfoTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         case .video:
             let cell = tableView.dequeueReusableCell(withClass: VideoTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         case .instruction:
             let cell = tableView.dequeueReusableCell(withClass: InstructionsTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         case .ingrentMeasure:
-            let cell = tableView.dequeueReusableCell(withClass: IngredientTableViewCell.self, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withClass: IngredientMeasureTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         case .linkSource:
-            let cell = tableView.dequeueReusableCell(withClass: MeasureTableViewCell.self, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withClass: SourceLinkTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         case .otherFood:
-            let cell = tableView.dequeueReusableCell(withClass: MeasureTableViewCell.self, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withClass: OtherFoodTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowRandomMeal(indexPath: indexPath)
             return cell
         }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 6 {
+            let vc = DetailMealViewController()
+            vc.viewModel = viewModel.pushIdMeal(indexPath: indexPath)
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel.headerTitler[section]
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return DetailMealViewModel.Configure.spaceForSection
     }
 }

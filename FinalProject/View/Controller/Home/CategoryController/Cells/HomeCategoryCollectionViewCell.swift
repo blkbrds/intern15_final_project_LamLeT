@@ -42,5 +42,4 @@ final class HomeCategoryCollectionViewCell: UICollectionViewCell {
         }
         thumbnailCategoryImageView.sd_setImage(with: URL(string: viewModel.urlThumbnail))
     }
-
 }
