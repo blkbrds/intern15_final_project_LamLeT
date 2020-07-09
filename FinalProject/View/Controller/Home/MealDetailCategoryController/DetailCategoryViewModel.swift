@@ -11,7 +11,7 @@ import UIKit
 import MVVM
 
 class DetailCategoryViewModel {
-    
+
     // MARK: - Properties
     var nameCategory: String = ""
     var mealCategory: [Meal] = []
@@ -35,7 +35,7 @@ class DetailCategoryViewModel {
                 for item in detailCategory.meals {
                     self.mealCategory.append(item)
                 }
-                completion(true, "")
+                completion(true, App.String.loadSuccess)
             }
         }
     }

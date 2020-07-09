@@ -1,159 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "4F54454A-71BB-4830-A91D-D22953F08EAE"
+   uuid = "E8E851A5-87C9-47DD-A12A-CE3FE55A2A43"
    type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5508DEE8-719F-4FEE-9F9C-C707FF0AA9E7"
+            uuid = "9D699515-B77A-491C-9873-DAB91FC095E0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FinalProject/View/Controller/Home/CountryController/cells/CountryCellViewModel.swift"
+            filePath = "FinalProject/View/Controller/Home/DetailMealController/Cells/IngredientAndMeasure/IngredientMeasureCellViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "CountryCellViewModel"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-<<<<<<< HEAD
-=======
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-<<<<<<< HEAD
-            uuid = "B4C18BBF-0CFA-4715-99AC-9CFAC04B6C6D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FinalProject/View/Controller/Home/CountryController/cells/CountryCollectionViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "viewModel"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "B4C18BBF-0CFA-4715-99AC-9CFAC04B6C6D - 35f3994fef699146"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FinalProject.CountryCollectionViewCell.viewModel.modify : Swift.Optional&lt;FinalProject.CountryCellViewModel&gt;"
-                  moduleName = "FinalProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pci0002/intern15_final_project_LamLeT/FinalProject/View/Controller/Home/CountryController/cells/CountryCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "26">
-               </Location>
-               <Location
-                  uuid = "B4C18BBF-0CFA-4715-99AC-9CFAC04B6C6D - c7018cde4ca72225"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FinalProject.CountryCollectionViewCell.viewModel.modify : Swift.Optional&lt;FinalProject.CountryCellViewModel&gt; with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "FinalProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pci0002/intern15_final_project_LamLeT/FinalProject/View/Controller/Home/CountryController/cells/CountryCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "27">
-               </Location>
-               <Location
-                  uuid = "B4C18BBF-0CFA-4715-99AC-9CFAC04B6C6D - 5455f54bb98b14e2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FinalProject.CountryCollectionViewCell.init(frame: __C.CGRect) -&gt; FinalProject.CountryCollectionViewCell"
-                  moduleName = "FinalProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pci0002/intern15_final_project_LamLeT/FinalProject/View/Controller/Home/CountryController/cells/CountryCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "345">
-               </Location>
-               <Location
-                  uuid = "B4C18BBF-0CFA-4715-99AC-9CFAC04B6C6D - 25e8de88e8d4f3c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FinalProject.CountryCollectionViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;FinalProject.CountryCollectionViewCell&gt;"
-                  moduleName = "FinalProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pci0002/intern15_final_project_LamLeT/FinalProject/View/Controller/Home/CountryController/cells/CountryCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "301">
-               </Location>
-            </Locations>
-=======
-            uuid = "58D52FD5-8585-4DD3-83F2-6ACD22EC213D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FinalProject/View/Controller/Home/DetailMealController/Cells/Image/ImageTableViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "updateView()"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "init(ingredient:measure:)"
             landmarkType = "7">
->>>>>>> master
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-<<<<<<< HEAD
-<<<<<<< HEAD
-            uuid = "FF1EBC5F-1BA6-4D2A-8313-C67B02D7173C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FinalProject/View/Controller/Home/CountryController/cells/CountryCollectionViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "updateView()"
-=======
-            uuid = "2BCD61B7-C389-46B0-8649-AEE4AC3E3BBE"
-=======
-            uuid = "03B5BDA0-527F-4003-A8DA-0C17A8FCD4AC"
->>>>>>> master
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FinalProject/View/Controller/Home/DetailMealController/Cells/Video/VideoTableViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A05BEFC8-9BA9-4358-A248-044223B9BC44"
+            uuid = "D05E5548-5654-478E-8390-D23B8A944378"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FinalProject/View/Controller/Home/DetailMealController/Cells/DetailMealTableViewCellViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "32"
             endingLineNumber = "32"
             landmarkName = "init(meal:)"
@@ -183,5 +60,11 @@
 =======
 >>>>>>> master
 >>>>>>> master
+=======
+            startingLineNumber = "39"
+            endingLineNumber = "39">
+         </BreakpointContent>
+      </BreakpointProxy>
+>>>>>>> feature/load_api_detail_meal_for_ingredient_meassure_linkSource_ortherFood
    </Breakpoints>
 </Bucket>
