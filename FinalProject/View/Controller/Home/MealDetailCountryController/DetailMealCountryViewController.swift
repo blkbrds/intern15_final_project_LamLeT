@@ -111,6 +111,7 @@ extension DetailMealCountryViewController: UITableViewDataSource, UITableViewDel
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailMealViewController()
+        vc.viewModel = viewModel.pushIdMeal(indexPath: indexPath)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

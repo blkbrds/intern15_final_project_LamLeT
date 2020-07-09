@@ -47,6 +47,13 @@ class DetailMealCountryViewModel {
         return model
     }
 
+    func pushIdMeal(indexPath: IndexPath) -> DetailMealViewModel {
+        let item = mealAreas[indexPath.row]
+        let idMeal = item.idMeal
+        let model = DetailMealViewModel(idMeal: idMeal)
+        return model
+    }
+
     func heightForRowAt() -> CGFloat {
         return 250
     }

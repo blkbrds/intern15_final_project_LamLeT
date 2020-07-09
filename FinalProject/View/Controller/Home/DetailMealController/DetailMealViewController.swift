@@ -27,11 +27,29 @@ final class DetailMealViewController: BaseViewController {
         registerTableCell()
     }
 
-    override func setUpData() { }
+    override func setUpData() {
+        loadAPI()
+    }
 
     // MARK: - Private Functions
     private func configNavi() {
 
+    }
+
+    private func loadAPI() {
+        HUD.show()
+        viewModel.getAPIDetailMeal { [weak self] (done, msg) in
+            HUD.dismiss()
+            guard let self = self else {
+                return
+            }
+            if done {
+                self.updateView()
+            } else {
+                self.showAlert(message: msg)
+            }
+        }
+        HUD.setOffsetFromCenter(DetailMealViewModel.Configure.uiOffSet)
     }
 
     private func registerTableCell() {
@@ -42,8 +60,12 @@ final class DetailMealViewController: BaseViewController {
         tableView.register(nibWithCellClass: IngredientTableViewCell.self)
         tableView.register(nibWithCellClass: MeasureTableViewCell.self)
         tableView.register(nibWithCellClass: SourceLinkTableViewCell.self)
-        tableView.delegate = self
         tableView.dataSource = self
+    }
+
+    private func updateView() {
+        guard isViewLoaded else { return }
+        tableView.reloadData()
     }
 }
 
@@ -67,12 +89,15 @@ extension DetailMealViewController: UITableViewDataSource {
         switch section {
         case .image:
             let cell = tableView.dequeueReusableCell(withClass: ImageTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         case .information:
             let cell = tableView.dequeueReusableCell(withClass: InfoTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         case .video:
             let cell = tableView.dequeueReusableCell(withClass: VideoTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         case .instruction:
             let cell = tableView.dequeueReusableCell(withClass: InstructionsTableViewCell.self, for: indexPath)

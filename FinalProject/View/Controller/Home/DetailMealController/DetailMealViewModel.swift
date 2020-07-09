@@ -9,8 +9,40 @@
 import Foundation
 import UIKit
 
-class DetailMealViewModel {
+final class DetailMealViewModel {
 
+    // MARK: - Define
+    struct Configure {
+        static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
+    }
+
+    // MARK: Properties
+    var sections: [Section] = [.image, .video, .instruction, .ingrentMeasure, .linkSource, .otherFood]
+    var idMeal: String = ""
+    var detailMeals: [Meal] = []
+
+    // MARK: - Life Cycle
+    init() { }
+
+    init(idMeal: String) {
+        self.idMeal = idMeal
+    }
+
+    // MARK: Get API
+    func getAPIDetailMeal(completion: @escaping (Bool, String) -> Void) {
+        Networking.shared().getMealDetail(idMeal: idMeal) { (result) in
+            switch result {
+            case .failure(let error):
+                completion(false, error)
+            case .success(let detailMeal):
+                for item in detailMeal.meals {
+                    self.detailMeals.append(item)
+                }
+                completion(true, App.String.loadSuccess)
+            }
+        }
+    }
+    
     // MARK: - Enum
     enum Section: Int {
         case image = 0
@@ -21,17 +53,6 @@ class DetailMealViewModel {
         case linkSource
         case otherFood
     }
-    
-    // MARK: Properties
-    var idMeal: String = ""
-    private var sections: [Section] = [.image, .video, .instruction, .ingrentMeasure, .linkSource, .otherFood]
-    
-    // MARK: - Life Cycle
-    init() { }
-
-    init(meal: Meal) {
-        self.idMeal = meal.idMeal
-    }
 
     // MARK: - Data Table
     func numberOfSections() -> Int {
@@ -41,7 +62,13 @@ class DetailMealViewModel {
     func numberOfRowsInSection(section: Section) -> Int {
         switch section {
         case .image, .information, .video, .instruction, .ingrentMeasure, .linkSource, .otherFood:
-            return 1
+            return detailMeals.count
         }
+    }
+
+    func cellForRowAt(indexPath: IndexPath) -> DetailMealTableViewCellViewModel {
+        let item = detailMeals[indexPath.row]
+        let model = DetailMealTableViewCellViewModel(meal: item)
+        return model
     }
 }

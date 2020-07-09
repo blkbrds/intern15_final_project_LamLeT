@@ -7,9 +7,20 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class ImageTableViewCell: UITableViewCell {
 
+    // MARK: - IBOutlet
+    @IBOutlet weak var thumnailMealImageView: UIImageView!
+    
+    // MARK: - Properties
+    var viewModel: DetailMealTableViewCellViewModel? {
+        didSet {
+            updateView()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +32,10 @@ final class ImageTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    private func updateView() {
+        guard let viewModel = viewModel else {
+            return
+        }
+        thumnailMealImageView.sd_setImage(with: URL(string: viewModel.meal.urlMealThumbnail))
+    }
 }
