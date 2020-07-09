@@ -38,7 +38,7 @@ final class DetailMealViewModel {
                 for item in detailMeal.meals {
                     self.detailMeals.append(item)
                 }
-                completion(true, "Loading Success")
+                completion(true, App.String.loadSuccess)
             }
         }
     }
