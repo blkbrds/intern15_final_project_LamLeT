@@ -10,8 +10,10 @@ import UIKit
 
 final class CountryViewController: BaseViewController {
 
-    // MARK: - Properties
+    // MARK: - IBOutlet
     @IBOutlet private weak var collectionView: UICollectionView!
+
+    // MARK: - Properties
     var viewModel = CountryViewModel()
 
     // MARK: - Life Cycle
@@ -46,9 +48,8 @@ final class CountryViewController: BaseViewController {
     }
 
     private func configNavi() {
-        navigationController?.navigationBar.tintColor = UIColor.black
+        navigationController?.navigationBar.tintColor = .black
         title = App.String.titleCountry
-        navigationController?.navigationBar.tintColor = UIColor.black
     }
 
     private func registerColletionCell() {

@@ -7,11 +7,21 @@
 //
 
 import Foundation
+import UIKit
 
-class DetailMealViewModel {
+final class DetailMealViewModel {
+
+    // MARK: - Define
+    struct Configure {
+        static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
+    }
+
+    // MARK: Properties
+    var sections: [Section] = [.image, .video, .instruction, .ingrentMeasure, .linkSource, .otherFood]
     var idMeal: String = ""
     var detailMeals: [Meal] = []
 
+    // MARK: - Life Cycle
     init() { }
 
     init(idMeal: String) {
@@ -32,29 +42,28 @@ class DetailMealViewModel {
             }
         }
     }
+    
+    // MARK: - Enum
+    enum Section: Int {
+        case image = 0
+        case information
+        case video
+        case instruction
+        case ingrentMeasure
+        case linkSource
+        case otherFood
+    }
 
     // MARK: - Data Table
     func numberOfSections() -> Int {
-        return 7
+        return sections.count
     }
 
-    func numberOfRowsInSection(section: Int) -> Int {
-        if section == 0 {
-            return detailMeals.count
-        } else if section == 1 {
-            return detailMeals.count
-        } else if section == 2 {
-            return detailMeals.count
-        } else if section == 3 {
-            return detailMeals.count
-        } else if section == 4 {
-            return detailMeals.count
-        } else if section == 5 {
-            return detailMeals.count
-        } else if section == 6 {
+    func numberOfRowsInSection(section: Section) -> Int {
+        switch section {
+        case .image, .information, .video, .instruction, .ingrentMeasure, .linkSource, .otherFood:
             return detailMeals.count
         }
-        return 0
     }
 
     func cellForRowAt(indexPath: IndexPath) -> DetailMealTableViewCellViewModel {

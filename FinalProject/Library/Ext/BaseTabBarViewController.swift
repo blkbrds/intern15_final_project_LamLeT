@@ -21,15 +21,15 @@ final class BaseTabBarViewController: UITabBarController {
     private func setupUI() {
         let homeVC = CountryViewController()
         let homeNavi = UINavigationController(rootViewController: homeVC)
-        homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "ic_tabbar_home"), tag: 0)
+        homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
         
         let searchVC = SearchViewController()
         let searchNavi = UINavigationController(rootViewController: searchVC)
-        searchVC.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "ic_tabbar_search"), tag: 1)
+        searchVC.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 1)
 
         let favoritesVC = FavoritesViewController()
         let favoritesNavi = UINavigationController(rootViewController: favoritesVC)
-        favoritesVC.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(named: "heart"), tag: 2)
+        favoritesVC.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "heart"), tag: 2)
 
         self.viewControllers = [homeNavi, searchNavi, favoritesNavi]
         self.selectedIndex = 0
