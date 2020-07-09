@@ -8,20 +8,21 @@
 
 import UIKit
 
-protocol DetailTableViewDelegate: class {
-    func addFavorites(cell: DetailCategoryTableViewCell)
-    func deleteFavorites(cell: DetailCategoryTableViewCell)
+
+// MARK: - Define
+private struct Config {
+    static let radius: CGFloat = 10
 }
 
 final class DetailCategoryTableViewCell: UITableViewCell {
 
-    // MARK: - Properties
-    @IBOutlet weak var thumbnailMealImageView: UIImageView!
-    @IBOutlet weak var viewContent: UIView!
-    @IBOutlet weak var favoritesButton: UIButton!
-    @IBOutlet weak var nameMealLabel: UILabel!
-    weak var delegate: DetailTableViewDelegate?
+    // MARK: - IBOutlet
+    @IBOutlet private weak var thumbnailMealImageView: UIImageView!
+    @IBOutlet private weak var viewContent: UIView!
+    @IBOutlet private weak var favoritesButton: UIButton!
+    @IBOutlet private weak var nameMealLabel: UILabel!
 
+    // MARK: - Properties
     var viewModel: DetailCategoryCellViewModel? {
         didSet {
             updateView()
@@ -31,10 +32,8 @@ final class DetailCategoryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        viewContent.layer.cornerRadius = 10
-        viewContent.clipsToBounds = true
-        nameMealLabel.layer.cornerRadius = 10
-        nameMealLabel.clipsToBounds = true
+        viewContent.cornerRadius = Config.radius
+        nameMealLabel.cornerRadius = Config.radius
     }
     
     private func updateView() {
@@ -68,7 +67,6 @@ final class DetailCategoryTableViewCell: UITableViewCell {
 
     func addFavorites() {
         guard let viewModel = viewModel else { return }
-        //guard let delegate = delegate else { return }
         viewModel.addFavorites(completion: { (done, msg) in
             if done {
                 let image = UIImage(systemName: "heart.fill")

@@ -11,12 +11,13 @@ import SDWebImage
 
 final class HomeCategoryCollectionViewCell: UICollectionViewCell {
 
-    //MARK: - Properties
+    //MARK: - IBOutlet
     @IBOutlet private weak var thumbnailCategoryImageView: UIImageView!
     @IBOutlet private weak var nameCategoryView: UIView!
     @IBOutlet private weak var nameCategoryLabel: UILabel!
     @IBOutlet private weak var cellCategoryView: UIView!
 
+    // MARK: - Properties
     var viewModel: HomeCellCategoryViewModel? {
         didSet {
             updateView()

@@ -8,23 +8,23 @@
 
 import Foundation
 import RealmSwift
+import UIKit
 
-class DetailMealViewModel {
+
+
+
+final class DetailMealViewModel {
 
     // MARK: - Define
     struct Configure {
         static let spaceForSection: CGFloat = 10
         static let iconAddFavorites: String = "heart"
         static let iconRemoveFavorites: String = "heart.fill"
-        static let haveItem: String = "Item is Favorites"
-        static let notHaveItem: String = "Item not is Favorites"
-        static let addObjectSuccess: String = "Success To Add Object"
-        static let addObjectFailed: String = "Failed To Add Object"
-        static let deleteObjectSuccess: String = "Success To Delete Object"
-        static let deleteObjectFailed: String = "Failed To Delete Object"
+        static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
     }
 
-    // MARK: - Properties
+    // MARK: Properties
+    var sections: [Section] = [.image, .information, .video, .instruction, .ingrentMeasure, .linkSource, .otherFood]
     var idMeal: String = ""
     var detailMeals: [Meal] = []
     var randomMeals: [Meal] = []
@@ -36,6 +36,7 @@ class DetailMealViewModel {
     var imageMealURL: String = ""
     var isFavorites: Bool = false
 
+        // MARK: - Life Cycle
     init() { }
 
     init(meal: Meal) {
@@ -62,6 +63,17 @@ class DetailMealViewModel {
         }
     }
 
+    // MARK: - Enum
+    enum Section: Int {
+        case image = 0
+        case information
+        case video
+        case instruction
+        case ingrentMeasure
+        case linkSource
+        case otherFood
+    }
+
     func getAPIRandomMeal(completion: @escaping (Bool, String) -> Void) {
         Networking.shared().getMealRandom { (result) in
             switch result {
@@ -76,29 +88,18 @@ class DetailMealViewModel {
         }
     }
 
-
     // MARK: - Data Table
     func numberOfSections() -> Int {
-        return 7
+        return sections.count
     }
 
-    func numberOfRowsInSection(section: Int) -> Int {
-        if section == 0 {
+    func numberOfRowsInSection(section: Section) -> Int {
+        switch section {
+        case .image, .information, .video, .instruction, .ingrentMeasure, .linkSource:
             return detailMeals.count
-        } else if section == 1 {
-            return detailMeals.count
-        } else if section == 2 {
-            return detailMeals.count
-        } else if section == 3 {
-            return detailMeals.count
-        } else if section == 4 {
-            return detailMeals.count
-        } else if section == 5 {
-            return detailMeals.count
-        } else if section == 6 {
+        case .otherFood:
             return randomMeals.count
         }
-        return 0
     }
 
     func cellForRowAt(indexPath: IndexPath) -> DetailMealTableViewCellViewModel {

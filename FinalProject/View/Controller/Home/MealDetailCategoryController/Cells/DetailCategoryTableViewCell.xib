@@ -22,10 +22,37 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JjN-DU-6AV">
                                 <rect key="frame" x="0.0" y="0.0" width="276" height="250"/>
                             </imageView>
-                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asg-qA-c26">
+                            <view alpha="0.40000000596046448" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5BO-f1-euR">
+                                <rect key="frame" x="236" y="0.0" width="40" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0rt-3v-aUc">
+                                        <rect key="frame" x="6" y="7.5" width="28" height="25.5"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" backgroundImage="heart" catalog="system"/>
+                                        <connections>
+                                            <action selector="favoritesButtonTouchUpInside:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="myo-NO-Jes"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="0rt-3v-aUc" secondAttribute="trailing" constant="6" id="JXZ-r9-DqI"/>
+                                    <constraint firstItem="0rt-3v-aUc" firstAttribute="leading" secondItem="5BO-f1-euR" secondAttribute="leading" constant="6" id="KD2-CS-eLq"/>
+                                    <constraint firstAttribute="height" constant="40" id="bbX-Sk-55J"/>
+                                    <constraint firstAttribute="width" constant="40" id="dDU-st-FBY"/>
+                                    <constraint firstItem="0rt-3v-aUc" firstAttribute="top" secondItem="5BO-f1-euR" secondAttribute="top" constant="6" id="y57-g7-L8A"/>
+                                    <constraint firstAttribute="bottom" secondItem="0rt-3v-aUc" secondAttribute="bottom" constant="6" id="z1K-W6-9CF"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asg-qA-c26">
                                 <rect key="frame" x="0.0" y="200" width="276" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffp-sg-wW1">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffp-sg-wW1">
                                         <rect key="frame" x="0.0" y="0.0" width="276" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -40,47 +67,20 @@
                                     <constraint firstItem="ffp-sg-wW1" firstAttribute="top" secondItem="asg-qA-c26" secondAttribute="top" id="eqF-QI-HO2"/>
                                 </constraints>
                             </view>
-                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxy-MV-XF0">
-                                <rect key="frame" x="236" y="0.0" width="40" height="40"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IfC-Vt-7Js">
-                                        <rect key="frame" x="5" y="6.5" width="30" height="27.5"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" backgroundImage="heart" catalog="system"/>
-                                        <connections>
-                                            <action selector="favoritesButtonTouchUpInside:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ZyK-D8-RXV"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="IfC-Vt-7Js" firstAttribute="leading" secondItem="fxy-MV-XF0" secondAttribute="leading" constant="5" id="9Oj-eO-uGk"/>
-                                    <constraint firstAttribute="bottom" secondItem="IfC-Vt-7Js" secondAttribute="bottom" constant="5" id="d6L-Rw-L53"/>
-                                    <constraint firstAttribute="height" constant="40" id="m1c-QD-CMD"/>
-                                    <constraint firstAttribute="trailing" secondItem="IfC-Vt-7Js" secondAttribute="trailing" constant="5" id="oMm-93-SOk"/>
-                                    <constraint firstItem="IfC-Vt-7Js" firstAttribute="top" secondItem="fxy-MV-XF0" secondAttribute="top" constant="5" id="qsn-rg-49s"/>
-                                    <constraint firstAttribute="width" constant="40" id="uMw-iu-8wz"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="JjN-DU-6AV" secondAttribute="bottom" id="EMc-TX-r07"/>
+                            <constraint firstItem="5BO-f1-euR" firstAttribute="top" secondItem="uyb-B7-SLv" secondAttribute="top" id="G72-as-ybo"/>
                             <constraint firstAttribute="bottom" secondItem="asg-qA-c26" secondAttribute="bottom" id="GSr-O0-D6Z"/>
                             <constraint firstAttribute="trailing" secondItem="JjN-DU-6AV" secondAttribute="trailing" id="Kt0-rL-16X"/>
                             <constraint firstItem="asg-qA-c26" firstAttribute="leading" secondItem="uyb-B7-SLv" secondAttribute="leading" id="VW5-R1-CUp"/>
                             <constraint firstAttribute="height" constant="250" id="WtA-qI-hZY"/>
+                            <constraint firstAttribute="trailing" secondItem="5BO-f1-euR" secondAttribute="trailing" id="X2O-gf-OpA"/>
                             <constraint firstItem="JjN-DU-6AV" firstAttribute="top" secondItem="uyb-B7-SLv" secondAttribute="top" id="aib-zt-BAe"/>
                             <constraint firstItem="JjN-DU-6AV" firstAttribute="leading" secondItem="uyb-B7-SLv" secondAttribute="leading" id="axT-4h-J7h"/>
                             <constraint firstItem="asg-qA-c26" firstAttribute="height" secondItem="JjN-DU-6AV" secondAttribute="height" multiplier="0.2" id="bci-op-ihn"/>
                             <constraint firstAttribute="trailing" secondItem="asg-qA-c26" secondAttribute="trailing" id="eOC-NF-PVa"/>
-                            <constraint firstAttribute="trailing" secondItem="fxy-MV-XF0" secondAttribute="trailing" id="uQl-8K-Uqc"/>
-                            <constraint firstItem="fxy-MV-XF0" firstAttribute="top" secondItem="uyb-B7-SLv" secondAttribute="top" id="wWQ-7H-huN"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -93,7 +93,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="favoritesButton" destination="IfC-Vt-7Js" id="Fmi-1K-0Zi"/>
+                <outlet property="favoritesButton" destination="0rt-3v-aUc" id="Rf5-xA-tlp"/>
                 <outlet property="nameMealLabel" destination="ffp-sg-wW1" id="O9y-jy-CdY"/>
                 <outlet property="thumbnailMealImageView" destination="JjN-DU-6AV" id="mgY-1P-qTr"/>
                 <outlet property="viewContent" destination="uyb-B7-SLv" id="gXk-Uy-hut"/>
