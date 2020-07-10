@@ -41,10 +41,4 @@ final class VideoTableViewCell: UITableViewCell {
             webView.load(URLRequest(url: youtubeURL))
         }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 }

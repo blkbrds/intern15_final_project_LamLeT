@@ -204,10 +204,7 @@ class Networking {
                 if let _ = error {
                     completion(.failure(App.String.alertFailedToConnectAPI))
                 } else {
-                    if let data = data, let json = data.toJSON() {
-                        guard let meals = json["meals"] as? [JSON] else {
-                            return
-                        }
+                    if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
                         var randomMeals: [Meal] = []
                         for item in meals {
                             let meals = Meal(json: item)

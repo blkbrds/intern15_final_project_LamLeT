@@ -25,7 +25,7 @@ final class SourceLinkTableViewCell: UITableViewCell {
 
     private func updateView() {
         guard let viewModel = viewModel else { return }
-        if viewModel.meal.sourceLink == "" {
+        if viewModel.meal.sourceLink.isEmpty {
             let text = "No Has Source"
             let attributedString = NSMutableAttributedString(string: text)
             attributedString.addAttribute(.link, value: viewModel.meal.sourceLink, range: NSRange(location: 0, length: text.count))
@@ -37,13 +37,6 @@ final class SourceLinkTableViewCell: UITableViewCell {
             sourceLinkTextView.attributedText = attributedString
         }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
 
 extension SourceLinkTableViewCell: UITextViewDelegate {

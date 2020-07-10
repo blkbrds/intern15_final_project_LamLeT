@@ -11,6 +11,13 @@ import MVVM
 
 final class CountryViewModel {
 
+    // MARK: - Define
+    struct Configure {
+        static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
+        static let sizeForCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+        static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+    }
+
     // MARK: - Properties
     var areas: [Meal] = []
 
@@ -43,7 +50,7 @@ final class CountryViewModel {
         let model = CountryCellViewModel(meal: item, urlFlagCountry: urlFlag)
         return model
     }
-    
+
     func getNameArea(indexPath: IndexPath) -> DetailMealCountryViewModel {
         let item = areas[indexPath.row]
         let model = DetailMealCountryViewModel(nameArea: item.area)

@@ -8,10 +8,6 @@
 
 import UIKit
 
-private struct Configure {
-    static let title: String = "Cooking"
-}
-
 final class WelcomeViewController: BaseViewController {
 
     // MARK: - IBOutlet
@@ -24,7 +20,7 @@ final class WelcomeViewController: BaseViewController {
 
     override func setUpUI() {
         super.setUpUI()
-        title = Configure.title
+        title = App.String.titleCountry
         nextButton.cornerRadius = nextButton.height / 2
     }
 
