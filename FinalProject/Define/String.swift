@@ -26,5 +26,6 @@ extension App {
         static let iconBack = "icon_back"
         static let titleCountry = "Country"
         static let loadSuccess = "Loading Success"
+        static let titleHomeWelcome = "Cooking Junior"
     }
 }

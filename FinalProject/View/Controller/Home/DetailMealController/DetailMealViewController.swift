@@ -59,7 +59,7 @@ final class DetailMealViewController: BaseViewController {
             if done {
                 self.updateView()
             } else {
-                print("Failed")
+                self.showAlert(message: msg)
             }
         }
     }
