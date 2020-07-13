@@ -8,3 +8,12 @@
 
 import Foundation
 
+class SearchTableCellViewModel {
+    var mealName: String
+    var urlThumbnail: String
+    
+    init(meal: Meal) {
+        self.mealName = meal.mealName
+        self.urlThumbnail = meal.urlMealThumbnail
+    }
+}

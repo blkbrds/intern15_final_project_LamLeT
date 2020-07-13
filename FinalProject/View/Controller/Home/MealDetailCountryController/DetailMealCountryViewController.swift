@@ -101,6 +101,7 @@ extension DetailMealCountryViewController: UITableViewDataSource, UITableViewDel
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: DetailCategoryTableViewCell.self, for: indexPath)
+        cell.selectionStyle = .none
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
         return cell
     }

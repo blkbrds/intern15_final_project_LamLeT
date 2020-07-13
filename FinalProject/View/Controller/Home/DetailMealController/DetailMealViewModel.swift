@@ -10,9 +10,6 @@ import Foundation
 import RealmSwift
 import UIKit
 
-
-
-
 final class DetailMealViewModel {
 
     // MARK: - Define
@@ -36,7 +33,7 @@ final class DetailMealViewModel {
     var imageMealURL: String = ""
     var isFavorites: Bool = false
 
-        // MARK: - Life Cycle
+    // MARK: - Life Cycle
     init() { }
 
     init(meal: Meal) {
@@ -95,8 +92,10 @@ final class DetailMealViewModel {
 
     func numberOfRowsInSection(section: Section) -> Int {
         switch section {
-        case .image, .information, .video, .instruction, .ingrentMeasure, .linkSource:
+        case .image, .video, .instruction, .ingrentMeasure, .linkSource:
             return detailMeals.count
+        case .information:
+            return 4
         case .otherFood:
             return randomMeals.count
         }
@@ -104,7 +103,7 @@ final class DetailMealViewModel {
 
     func cellForRowAt(indexPath: IndexPath) -> DetailMealTableViewCellViewModel {
         let item = detailMeals[indexPath.row]
-        let model = DetailMealTableViewCellViewModel(meal: item)
+        let model = DetailMealTableViewCellViewModel(meal: item, indexPath: indexPath)
         return model
     }
 

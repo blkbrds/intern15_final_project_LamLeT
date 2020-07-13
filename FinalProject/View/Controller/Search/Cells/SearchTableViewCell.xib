@@ -89,6 +89,10 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="u0V-Sz-DIS"/>
+            <connections>
+                <outlet property="nameMealLabel" destination="5VK-Nd-Pft" id="G1b-kz-Upc"/>
+                <outlet property="thumbnailImageView" destination="279-yT-aiN" id="tM1-5d-MqY"/>
+            </connections>
             <point key="canvasLocation" x="-204" y="-41"/>
         </tableViewCell>
     </objects>

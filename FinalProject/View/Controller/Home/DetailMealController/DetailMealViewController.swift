@@ -115,6 +115,7 @@ final class DetailMealViewController: BaseViewController {
         tableView.register(nibWithCellClass: SourceLinkTableViewCell.self)
         tableView.register(nibWithCellClass: OtherFoodTableViewCell.self)
         tableView.dataSource = self
+        tableView.delegate = self
     }
 
     private func updateView() {
@@ -124,7 +125,7 @@ final class DetailMealViewController: BaseViewController {
 }
 
 // MARK: - UITableViewDataSource
-extension DetailMealViewController: UITableViewDataSource {
+extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
     }
@@ -147,7 +148,7 @@ extension DetailMealViewController: UITableViewDataSource {
             return cell
         case .information:
             let cell = tableView.dequeueReusableCell(withClass: InfoTableViewCell.self, for: indexPath)
-            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
+//            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         case .video:
             let cell = tableView.dequeueReusableCell(withClass: VideoTableViewCell.self, for: indexPath)

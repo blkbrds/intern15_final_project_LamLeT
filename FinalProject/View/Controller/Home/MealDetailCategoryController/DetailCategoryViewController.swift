@@ -110,6 +110,7 @@ extension DetailCategoryViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: DetailCategoryTableViewCell.self, for: indexPath)
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
+        cell.selectionStyle = .none
         return cell
     }
 
@@ -117,6 +118,16 @@ extension DetailCategoryViewController: UITableViewDelegate, UITableViewDataSour
         let vc = DetailMealViewController()
         vc.viewModel = viewModel.pushIdMeal(indexPath: indexPath)
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 10, 0)
+        cell.layer.transform = rotationTransform
+        cell.alpha = 0.5
+        UIView.animate(withDuration: 1.0) {
+            cell.layer.transform = CATransform3DIdentity
+            cell.alpha = 1.0
+        }
     }
 }
 
@@ -136,6 +147,16 @@ extension DetailCategoryViewController: UICollectionViewDelegate, UICollectionVi
         let vc = DetailMealViewController()
         vc.viewModel = viewModel.pushIdMeal(indexPath: indexPath)
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, -500, 0)
+        cell.layer.transform = rotationTransform
+        cell.alpha = 0.5
+        UIView.animate(withDuration: 1.0) {
+            cell.layer.transform = CATransform3DIdentity
+            cell.alpha = 1.0
+        }
     }
 }
 

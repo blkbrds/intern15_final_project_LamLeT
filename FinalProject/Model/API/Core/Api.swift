@@ -29,6 +29,9 @@ final class Api {
 
         static let apiRandomMeal = "\(pathURL)random.php"
 
+        static let apiSearchFirstLetter = "\(pathURL)search.php?f="
+
+        static let apiSearchByName = "\(pathURL)search.php?s="
     }
 }
 
