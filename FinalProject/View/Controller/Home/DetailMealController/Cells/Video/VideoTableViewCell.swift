@@ -28,10 +28,10 @@ final class VideoTableViewCell: UITableViewCell {
     }
 
     private func updateView() {
-        guard let viewModel = viewModel else {
+        guard let viewModel = viewModel, let urlVideoMeal = viewModel.meal.urlVideoMeal else {
             return
         }
-        if viewModel.meal.urlVideoMeal.isEmpty {
+        if urlVideoMeal.isEmpty {
             videoAlertLabel.isHidden = false
             videoAlertLabel.text = viewModel.getLinkVideo()
         } else {
