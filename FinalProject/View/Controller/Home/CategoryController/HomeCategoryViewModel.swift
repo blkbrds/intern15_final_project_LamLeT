@@ -42,7 +42,7 @@ class HomeCategoryViewModel {
         let categoryModel = HomeCellCategoryViewModel(categoryMeal: item)
         return categoryModel
     }
-    
+
     func getNameCategory(indexPath: IndexPath) -> DetailCategoryViewModel {
         let item = categoryMeals[indexPath.row]
         let detailCategoryModel = DetailCategoryViewModel(nameCategory: item.strCategory)

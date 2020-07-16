@@ -9,17 +9,15 @@
 import Foundation
 import UIKit
 
+
 final class DetailMealViewModel {
 
-    // MARK: - Define
-    struct Configure {
-        static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
-    }
-
     // MARK: Properties
-    var sections: [Section] = [.image, .video, .instruction, .ingrentMeasure, .linkSource, .otherFood]
+    var sections: [Section] = [.image, .information, .video, .instruction, .ingrentMeasure, .linkSource, .otherFood]
     var idMeal: String = ""
     var detailMeals: [Meal] = []
+    var randomMeals: [Meal] = []
+    var headerTitler: [String] = ["Image", "Infomation", "Video", "Instruction", "Ingredient And Measure", "Link Source", "Orther Food"]
 
     // MARK: - Life Cycle
     init() { }
@@ -42,7 +40,7 @@ final class DetailMealViewModel {
             }
         }
     }
-    
+
     // MARK: - Enum
     enum Section: Int {
         case image = 0
@@ -54,6 +52,20 @@ final class DetailMealViewModel {
         case otherFood
     }
 
+    func getAPIRandomMeal(completion: @escaping (Bool, String) -> Void) {
+        Networking.shared().getMealRandom { (result) in
+            switch result {
+            case .failure(let error):
+                completion(false, error)
+            case .success(let randomMeal):
+                for item in randomMeal.meals {
+                    self.randomMeals.append(item)
+                }
+                completion(true, "Loading Success")
+            }
+        }
+    }
+
     // MARK: - Data Table
     func numberOfSections() -> Int {
         return sections.count
@@ -61,14 +73,22 @@ final class DetailMealViewModel {
 
     func numberOfRowsInSection(section: Section) -> Int {
         switch section {
-        case .image, .information, .video, .instruction, .ingrentMeasure, .linkSource, .otherFood:
+        case .image, .information, .video, .instruction, .ingrentMeasure, .linkSource:
             return detailMeals.count
+        case .otherFood:
+            return randomMeals.count
         }
     }
 
     func cellForRowAt(indexPath: IndexPath) -> DetailMealTableViewCellViewModel {
         let item = detailMeals[indexPath.row]
         let model = DetailMealTableViewCellViewModel(meal: item)
+        return model
+    }
+
+    func cellForRowRandomMeal(indexPath: IndexPath) -> OtherFoodCellViewModel {
+        let item = randomMeals[indexPath.row]
+        let model = OtherFoodCellViewModel(meal: item)
         return model
     }
 }

@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8C-89-wUF">
-                        <rect key="frame" x="0.0" y="0.0" width="363" height="150"/>
+                        <rect key="frame" x="10" y="10" width="343" height="150"/>
                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="150" id="riq-oj-3nk"/>
@@ -39,11 +39,11 @@
                     <constraint firstAttribute="bottom" secondItem="h5i-O8-osI" secondAttribute="bottom" id="8o0-co-e6w"/>
                     <constraint firstAttribute="trailing" secondItem="h5i-O8-osI" secondAttribute="trailing" id="Cbi-XD-uiJ"/>
                     <constraint firstItem="h5i-O8-osI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="DOu-y9-sf1"/>
-                    <constraint firstAttribute="trailing" secondItem="S8C-89-wUF" secondAttribute="trailing" id="Jb2-Io-VaK"/>
-                    <constraint firstAttribute="bottom" secondItem="S8C-89-wUF" secondAttribute="bottom" id="eOF-lI-7c2"/>
-                    <constraint firstItem="S8C-89-wUF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fpa-aW-5Yg"/>
+                    <constraint firstAttribute="trailing" secondItem="S8C-89-wUF" secondAttribute="trailing" constant="10" id="Jb2-Io-VaK"/>
+                    <constraint firstAttribute="bottom" secondItem="S8C-89-wUF" secondAttribute="bottom" constant="10" id="eOF-lI-7c2"/>
+                    <constraint firstItem="S8C-89-wUF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="fpa-aW-5Yg"/>
                     <constraint firstItem="h5i-O8-osI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="p26-WY-kXN"/>
-                    <constraint firstItem="S8C-89-wUF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="zOh-WN-8DN"/>
+                    <constraint firstItem="S8C-89-wUF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="zOh-WN-8DN"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

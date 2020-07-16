@@ -28,7 +28,8 @@ final class DetailMealViewController: BaseViewController {
     }
 
     override func setUpData() {
-        loadAPI()
+        loadAPIDetail()
+        loadAPIRandomMeal()
     }
 
     // MARK: - Private Functions
@@ -36,7 +37,8 @@ final class DetailMealViewController: BaseViewController {
 
     }
 
-    private func loadAPI() {
+
+    private func loadAPIDetail() {
         HUD.show()
         viewModel.getAPIDetailMeal { [weak self] (done, msg) in
             HUD.dismiss()
@@ -49,7 +51,16 @@ final class DetailMealViewController: BaseViewController {
                 self.showAlert(message: msg)
             }
         }
-        HUD.setOffsetFromCenter(DetailMealViewModel.Configure.uiOffSet)
+    }
+    
+    private func loadAPIRandomMeal() {
+        viewModel.getAPIRandomMeal { (done, msg) in
+            if done {
+                self.updateView()
+            } else {
+                self.showAlert(message: msg)
+            }
+        }
     }
 
     private func registerTableCell() {
@@ -57,9 +68,9 @@ final class DetailMealViewController: BaseViewController {
         tableView.register(nibWithCellClass: InfoTableViewCell.self)
         tableView.register(nibWithCellClass: VideoTableViewCell.self)
         tableView.register(nibWithCellClass: InstructionsTableViewCell.self)
-        tableView.register(nibWithCellClass: IngredientTableViewCell.self)
-        tableView.register(nibWithCellClass: MeasureTableViewCell.self)
+        tableView.register(nibWithCellClass: IngredientMeasureTableViewCell.self)
         tableView.register(nibWithCellClass: SourceLinkTableViewCell.self)
+        tableView.register(nibWithCellClass: OtherFoodTableViewCell.self)
         tableView.dataSource = self
     }
 
@@ -104,14 +115,21 @@ extension DetailMealViewController: UITableViewDataSource {
             cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         case .ingrentMeasure:
-            let cell = tableView.dequeueReusableCell(withClass: IngredientTableViewCell.self, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withClass: IngredientMeasureTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         case .linkSource:
-            let cell = tableView.dequeueReusableCell(withClass: MeasureTableViewCell.self, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withClass: SourceLinkTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
             return cell
         case .otherFood:
-            let cell = tableView.dequeueReusableCell(withClass: MeasureTableViewCell.self, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withClass: OtherFoodTableViewCell.self, for: indexPath)
+            cell.viewModel = viewModel.cellForRowRandomMeal(indexPath: indexPath)
             return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel.headerTitler[section]
     }
 }

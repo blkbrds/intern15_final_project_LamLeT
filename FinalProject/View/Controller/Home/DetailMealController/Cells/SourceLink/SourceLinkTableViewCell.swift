@@ -10,15 +10,35 @@ import UIKit
 
 final class SourceLinkTableViewCell: UITableViewCell {
 
+    // MARK: - IBOutlet
+    @IBOutlet private weak var sourceLinkTextView: UITextView!
+
+    // MARK: - Properties
+    var viewModel: DetailMealTableViewCellViewModel? {
+        didSet {
+            updateView()
+        }
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    private func updateView() {
+        showLink()
     }
-    
+
+    private func showLink(){
+        guard let viewModel = viewModel, let text = viewModel.meal.sourceLink else { return }
+        let attributedString = NSMutableAttributedString(string: text)
+        attributedString.addAttribute(.link, value: viewModel.meal.sourceLink, range: NSRange(location: 0, length: text.count))
+        sourceLinkTextView.attributedText = attributedString
+    }
+}
+
+extension SourceLinkTableViewCell: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        UIApplication.shared.open(URL)
+        return false
+    }
 }

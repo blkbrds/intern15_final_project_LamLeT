@@ -188,4 +188,34 @@ class Networking {
         }
         task.resume()
     }
+
+    func getMealRandom(completion: @escaping APICompletion<MealResult>) {
+        guard let url = URL(string: Api.Path.apiRandomMeal) else {
+            completion(.failure(App.String.alertFailedAPI))
+            return
+        }
+        let config = URLSessionConfiguration.ephemeral
+        config.waitsForConnectivity = true
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: url) { (data, response, error) in
+            DispatchQueue.main.async {
+                if let _ = error {
+                    completion(.failure(App.String.alertFailedToConnectAPI))
+                } else {
+                    if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
+                        var randomMeals: [Meal] = []
+                        for item in meals {
+                            let meals = Meal(json: item)
+                            randomMeals.append(meals)
+                        }
+                        let result = MealResult(meals: randomMeals)
+                        completion(.success(result))
+                    } else {
+                        completion(.failure(App.String.alertFailedToDataAPI))
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
 }

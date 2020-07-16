@@ -43,7 +43,7 @@ final class CountryViewModel {
         let model = CountryCellViewModel(meal: item, urlFlagCountry: urlFlag)
         return model
     }
-    
+
     func getNameArea(indexPath: IndexPath) -> DetailMealCountryViewModel {
         let item = areas[indexPath.row]
         let model = DetailMealCountryViewModel(nameArea: item.area)
