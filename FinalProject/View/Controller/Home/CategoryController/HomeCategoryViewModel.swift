@@ -11,14 +11,6 @@ import UIKit
 
 class HomeCategoryViewModel {
 
-    // MARK: - Define
-    struct Configure {
-        static let title: String = "Category Meal"
-        static let offSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
-        static let sizeForItem: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
-        static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
-    }
-
     // MARK: - Properties
     var categoryMeals: [CategoryMeal] = []
 

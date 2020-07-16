@@ -12,11 +12,6 @@ import UIKit
 
 final class DetailMealViewModel {
 
-    // MARK: - Define
-    struct Configure {
-        static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
-    }
-
     // MARK: Properties
     var sections: [Section] = [.image, .information, .video, .instruction, .ingrentMeasure, .linkSource, .otherFood]
     var idMeal: String = ""

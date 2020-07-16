@@ -13,14 +13,14 @@ final class HomeCategoryViewController: BaseViewController {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var listCategoryCollectionView: UICollectionView!
-    
+
     // MARK: - Properties
     private var viewModel = HomeCategoryViewModel()
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = HomeCategoryViewModel.Configure.title
+        title = DefineHomeCategory.title
     }
 
     // MARK: - Override Functions
@@ -53,7 +53,6 @@ final class HomeCategoryViewController: BaseViewController {
                 self.showAlert(message: msg)
             }
         }
-        HUD.setOffsetFromCenter(HomeCategoryViewModel.Configure.offSet)
     }
 
     private func updateView() {
@@ -78,11 +77,11 @@ extension HomeCategoryViewController: UICollectionViewDataSource, UICollectionVi
 // MARK: - UICollectionViewDelegateFlowLayout
 extension HomeCategoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return HomeCategoryViewModel.Configure.sizeForItem
+        return DefineHomeCategory.sizeForItem
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return HomeCategoryViewModel.Configure.spaceForCell
+        return DefineHomeCategory.spaceForCell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -92,4 +91,9 @@ extension HomeCategoryViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-
+// MARK: - Define
+private struct DefineHomeCategory {
+    static let title: String = "Category Meal"
+    static let sizeForItem: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+}
