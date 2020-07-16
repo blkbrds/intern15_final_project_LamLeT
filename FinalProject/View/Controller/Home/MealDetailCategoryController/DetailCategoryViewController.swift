@@ -86,7 +86,6 @@ final class DetailCategoryViewController: BaseViewController {
                 self.showAlert(message: msg)
             }
         })
-        HUD.setOffsetFromCenter(Config.uiOffSet)
     }
 
     private func updateUI() {
@@ -134,7 +133,6 @@ extension DetailCategoryViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - Define
 private struct DefineDetailCategory {
-    static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
     static let sizeForCellCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
     static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
 }
