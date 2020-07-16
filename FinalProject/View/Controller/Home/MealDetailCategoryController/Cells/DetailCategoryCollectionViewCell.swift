@@ -8,7 +8,7 @@
 
 import UIKit
 
-private struct Config {
+private struct DefineCategoryCollection {
     static let radius: CGFloat = 10
 }
 
@@ -30,8 +30,8 @@ final class DetailCategoryCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        viewForCell.cornerRadius = Config.radius
-        nameMealLabel.cornerRadius = Config.radius
+        viewForCell.cornerRadius = DefineCategoryCollection.radius
+        nameMealLabel.cornerRadius = DefineCategoryCollection.radius
     }
 
     // MARK: - Private functions

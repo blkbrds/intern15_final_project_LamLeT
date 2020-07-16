@@ -20,7 +20,7 @@ class Meal {
     var urlVideoMeal: String?
     var ingredient: String
     var measure: String
-    var sourceLink: String
+    var sourceLink: String?
     var thumbnail: UIImage?
 
     init(json: JSON) {
@@ -92,8 +92,6 @@ class Meal {
 
         if let strSource = json["strSource"] as? String {
             self.sourceLink = strSource
-        } else {
-            self.sourceLink = ""
-        }
+        } 
     }
 }

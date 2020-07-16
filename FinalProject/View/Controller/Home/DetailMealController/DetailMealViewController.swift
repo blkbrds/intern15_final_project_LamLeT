@@ -51,7 +51,6 @@ final class DetailMealViewController: BaseViewController {
                 self.showAlert(message: msg)
             }
         }
-        HUD.setOffsetFromCenter(DetailMealViewModel.Configure.uiOffSet)
     }
     
     private func loadAPIRandomMeal() {
