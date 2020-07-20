@@ -10,13 +10,13 @@ import UIKit
 import SideMenu
 
 
-final class CountryViewController: BaseViewController {
+// MARK: - Define
+private struct Configure {
+    static let sizeForCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+}
 
-    // MARK: - Define
-    private struct Configure {
-        static let sizeForCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
-        static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
-    }
+final class CountryViewController: BaseViewController {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var collectionView: UICollectionView!
