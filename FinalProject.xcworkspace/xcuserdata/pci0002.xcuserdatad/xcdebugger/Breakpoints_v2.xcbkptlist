@@ -7,145 +7,113 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9D699515-B77A-491C-9873-DAB91FC095E0"
+            uuid = "434A4783-68F1-4C51-A106-8A8B67E5609F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FinalProject/View/Controller/Home/DetailMealController/Cells/IngredientAndMeasure/IngredientMeasureCellViewModel.swift"
+            filePath = "FinalProject/View/Controller/Home/DetailMealController/DetailMealViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "CountryCellViewModel"
-            landmarkType = "3">
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "setUpData()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B4C18BBF-0CFA-4715-99AC-9CFAC04B6C6D"
+            uuid = "23B9D81B-531A-48D2-B40A-58080A05B31E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FinalProject/View/Controller/Home/CountryController/cells/CountryCollectionViewCell.swift"
+            filePath = "FinalProject/View/Controller/Home/DetailMealController/DetailMealViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "viewModel"
-            landmarkType = "24">
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "loadAPIRandomMeal(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F449DCE8-63EE-400B-89F6-897359C2BCDB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinalProject/View/Controller/Home/DetailMealController/DetailMealViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "loadAPIRandomMeal(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1BBDB2CE-3B08-46F7-934F-852E6C0A2402"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinalProject/View/Controller/Home/DetailMealController/DetailMealViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "loadAPIRandomMeal(completion:)"
+            landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "B4C18BBF-0CFA-4715-99AC-9CFAC04B6C6D - 35f3994fef699146"
+                  uuid = "1BBDB2CE-3B08-46F7-934F-852E6C0A2402 - 9fcc938a2a1e622f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "FinalProject.CountryCollectionViewCell.viewModel.modify : Swift.Optional&lt;FinalProject.CountryCellViewModel&gt;"
+                  symbolName = "FinalProject.DetailMealViewController.(loadAPIRandomMeal in _5DB690011A2EE58AC4078755C8F04FAE)(completion: () -&gt; ()) -&gt; ()"
                   moduleName = "FinalProject"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pci0002/intern15_final_project_LamLeT/FinalProject/View/Controller/Home/CountryController/cells/CountryCollectionViewCell.swift"
+                  urlString = "file:///Users/pci0002/intern15_final_project_LamLeT/FinalProject/View/Controller/Home/DetailMealController/DetailMealViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "26">
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "37">
                </Location>
                <Location
-                  uuid = "B4C18BBF-0CFA-4715-99AC-9CFAC04B6C6D - c7018cde4ca72225"
+                  uuid = "1BBDB2CE-3B08-46F7-934F-852E6C0A2402 - 4b3b11d299acadbe"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "FinalProject.CountryCollectionViewCell.viewModel.modify : Swift.Optional&lt;FinalProject.CountryCellViewModel&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  symbolName = "closure #1 (Swift.Bool, Swift.String) -&gt; () in FinalProject.DetailMealViewController.(loadAPIRandomMeal in _5DB690011A2EE58AC4078755C8F04FAE)(completion: () -&gt; ()) -&gt; ()"
                   moduleName = "FinalProject"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pci0002/intern15_final_project_LamLeT/FinalProject/View/Controller/Home/CountryController/cells/CountryCollectionViewCell.swift"
+                  urlString = "file:///Users/pci0002/intern15_final_project_LamLeT/FinalProject/View/Controller/Home/DetailMealController/DetailMealViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "27">
-               </Location>
-               <Location
-                  uuid = "B4C18BBF-0CFA-4715-99AC-9CFAC04B6C6D - 5455f54bb98b14e2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FinalProject.CountryCollectionViewCell.init(frame: __C.CGRect) -&gt; FinalProject.CountryCollectionViewCell"
-                  moduleName = "FinalProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pci0002/intern15_final_project_LamLeT/FinalProject/View/Controller/Home/CountryController/cells/CountryCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "345">
-               </Location>
-               <Location
-                  uuid = "B4C18BBF-0CFA-4715-99AC-9CFAC04B6C6D - 25e8de88e8d4f3c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FinalProject.CountryCollectionViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;FinalProject.CountryCollectionViewCell&gt;"
-                  moduleName = "FinalProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pci0002/intern15_final_project_LamLeT/FinalProject/View/Controller/Home/CountryController/cells/CountryCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "301">
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "139">
                </Location>
             </Locations>
-            uuid = "58D52FD5-8585-4DD3-83F2-6ACD22EC213D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FinalProject/View/Controller/Home/DetailMealController/Cells/Image/ImageTableViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "updateView()"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "init(ingredient:measure:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D05E5548-5654-478E-8390-D23B8A944378"
+            uuid = "9773F730-ED9C-4EDC-86F0-D30750ABB38B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FinalProject/View/Controller/Home/DetailMealController/Cells/DetailMealTableViewCellViewModel.swift"
+            filePath = "FinalProject/View/Controller/Home/DetailMealController/DetailMealViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "init(meal:)"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "loadAPIRandomMeal(completion:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "449B55DE-4CB5-4D30-BD74-8A3F4DF06DC9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FinalProject/View/Controller/Home/DetailMealController/DetailMealViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "init(idMeal:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-            startingLineNumber = "39"
-            endingLineNumber = "39">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

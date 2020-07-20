@@ -28,6 +28,10 @@ final class VideoTableViewCell: UITableViewCell {
     }
 
     private func updateView() {
+        showVideo()
+    }
+
+    private func showVideo() {
         guard let viewModel = viewModel, let urlVideoMeal = viewModel.meal.urlVideoMeal else {
             return
         }

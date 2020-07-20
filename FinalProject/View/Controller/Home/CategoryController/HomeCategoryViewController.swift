@@ -12,24 +12,29 @@ import SideMenu
 
 final class HomeCategoryViewController: BaseViewController {
 
+    // MARK: - Define
+    private struct Configure {
+        static let title: String = "Category Meal"
+        static let sizeForItem: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+        static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+    }
+
     // MARK: - IBOutlet
     @IBOutlet private weak var listCategoryCollectionView: UICollectionView!
 
     // MARK: - Properties
     private var viewModel = HomeCategoryViewModel()
-    var menu: SideMenuNavigationController?
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = DefineHomeCategory.title
+        title = Configure.title
     }
 
     // MARK: - Override Functions
     override func setUpUI() {
         registerCollectionView()
         configNavi()
-        sideMenu()
     }
 
     override func setUpData() {
@@ -40,25 +45,6 @@ final class HomeCategoryViewController: BaseViewController {
     private func configNavi() {
         title = App.String.titleCountry
         navigationController?.navigationBar.tintColor = UIColor.black
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_menu"), style: .plain, target: self, action: #selector(leftBarButtonTouchUpInside))
-    }
-
-    @objc func leftBarButtonTouchUpInside() {
-        guard let menu = menu else { return }
-        present(menu, animated: true, completion: nil)
-    }
-
-    private func sideMenu() {
-        let vc = SideMenuTableViewController()
-        vc.delegate = self
-        menu = SideMenuNavigationController(rootViewController: vc)
-        guard let menu = menu else { return }
-        SideMenuManager.default.leftMenuNavigationController = menu
-        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
-        menu.presentationStyle = .menuSlideIn
-        menu.menuWidth = UIScreen.main.bounds.width * 2 / 3
-        menu.leftSide = true
-        menu.setNavigationBarHidden(true, animated: false)
     }
 
     private func registerCollectionView() {
@@ -104,11 +90,11 @@ extension HomeCategoryViewController: UICollectionViewDataSource, UICollectionVi
 // MARK: - UICollectionViewDelegateFlowLayout
 extension HomeCategoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return DefineHomeCategory.sizeForItem
+        return Configure.sizeForItem
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return DefineHomeCategory.spaceForCell
+        return Configure.spaceForCell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -116,20 +102,4 @@ extension HomeCategoryViewController: UICollectionViewDelegateFlowLayout {
         vc.viewModel = viewModel.getNameCategory(indexPath: indexPath)
         self.navigationController?.pushViewController(vc, animated: true)
     }
-}
-
-// MARK: - SideMenuTableViewDelegate
-extension HomeCategoryViewController: SideMenuTableViewDelegate {
-    func pushToLocationMenu(vc: UIViewController) {
-        self.navigationController?.pushViewController(vc, animated: true)
-        guard let menu = menu else { return }
-        menu.dismiss(animated: true, completion: nil)
-    }
-}
-
-// MARK: - Define
-private struct DefineHomeCategory {
-    static let title: String = "Category Meal"
-    static let sizeForItem: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
-    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
 }

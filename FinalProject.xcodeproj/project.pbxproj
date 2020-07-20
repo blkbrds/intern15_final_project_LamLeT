@@ -38,12 +38,7 @@
 		F00DAA4D249B7990001A70BC /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F00DAA4B249B7990001A70BC /* FavoritesViewController.xib */; };
 		F01685BC249CB7E2006BE5C9 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01685BB249CB7E2006BE5C9 /* Meal.swift */; };
 		F01685BE249CC650006BE5C9 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01685BD249CC650006BE5C9 /* Networking.swift */; };
-		F02FE51024AD78D500B03D21 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02FE50E24AD78D500B03D21 /* SideMenuTableViewController.swift */; };
-		F02FE51124AD78D500B03D21 /* SideMenuTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02FE50F24AD78D500B03D21 /* SideMenuTableViewController.xib */; };
-		F02FE51424AD78E700B03D21 /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02FE51224AD78E700B03D21 /* SideMenuTableViewCell.swift */; };
-		F02FE51524AD78E700B03D21 /* SideMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02FE51324AD78E700B03D21 /* SideMenuTableViewCell.xib */; };
-		F02FE51C24ADDDF900B03D21 /* LogoMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02FE51A24ADDDF900B03D21 /* LogoMenuTableViewCell.swift */; };
-		F02FE51D24ADDDF900B03D21 /* LogoMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02FE51B24ADDDF900B03D21 /* LogoMenuTableViewCell.xib */; };
+		F0383C1E24C5508800CA9834 /* InfoTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0383C1D24C5508800CA9834 /* InfoTableViewModel.swift */; };
 		F06908F724A4668E006D9603 /* DetailMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06908F524A4668E006D9603 /* DetailMealViewController.swift */; };
 		F06908F824A4668E006D9603 /* DetailMealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F06908F624A4668E006D9603 /* DetailMealViewController.xib */; };
 		F06908FA24A466B6006D9603 /* DetailMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06908F924A466B6006D9603 /* DetailMealViewModel.swift */; };
@@ -67,17 +62,6 @@
 		F069094124AC2157006D9603 /* OtherFoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069093F24AC2157006D9603 /* OtherFoodTableViewCell.swift */; };
 		F069094224AC2157006D9603 /* OtherFoodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069094024AC2157006D9603 /* OtherFoodTableViewCell.xib */; };
 		F069094424AC2B6F006D9603 /* OtherFoodCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069094324AC2B6F006D9603 /* OtherFoodCellViewModel.swift */; };
-		F069090C24A47C95006D9603 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069090A24A47C95006D9603 /* VideoTableViewCell.swift */; };
-		F069090D24A47C95006D9603 /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069090B24A47C95006D9603 /* VideoTableViewCell.xib */; };
-		F069091024A47CA3006D9603 /* InstructionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069090E24A47CA3006D9603 /* InstructionsTableViewCell.swift */; };
-		F069091124A47CA3006D9603 /* InstructionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069090F24A47CA3006D9603 /* InstructionsTableViewCell.xib */; };
-		F069091424A47CB7006D9603 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069091224A47CB7006D9603 /* IngredientTableViewCell.swift */; };
-		F069091524A47CB7006D9603 /* IngredientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069091324A47CB7006D9603 /* IngredientTableViewCell.xib */; };
-		F069091824A47CC7006D9603 /* MeasureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069091624A47CC7006D9603 /* MeasureTableViewCell.swift */; };
-		F069091924A47CC7006D9603 /* MeasureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069091724A47CC7006D9603 /* MeasureTableViewCell.xib */; };
-		F069091C24A47CE1006D9603 /* SourceLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069091A24A47CE1006D9603 /* SourceLinkTableViewCell.swift */; };
-		F069091D24A47CE1006D9603 /* SourceLinkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F069091B24A47CE1006D9603 /* SourceLinkTableViewCell.xib */; };
-		F069092324AAED96006D9603 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F069092224AAED95006D9603 /* UIViewControllerExt.swift */; };
 		F0BE18DE249B613A004FA5AB /* NSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18DD249B613A004FA5AB /* NSURL.swift */; };
 		F0BE18E0249B6180004FA5AB /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18DF249B617F004FA5AB /* Api.swift */; };
 		F0BE18E2249B6264004FA5AB /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BE18E1249B6264004FA5AB /* StringExt.swift */; };
@@ -163,12 +147,7 @@
 		F00DAA4B249B7990001A70BC /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 		F01685BB249CB7E2006BE5C9 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		F01685BD249CC650006BE5C9 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
-		F02FE50E24AD78D500B03D21 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
-		F02FE50F24AD78D500B03D21 /* SideMenuTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuTableViewController.xib; sourceTree = "<group>"; };
-		F02FE51224AD78E700B03D21 /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
-		F02FE51324AD78E700B03D21 /* SideMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuTableViewCell.xib; sourceTree = "<group>"; };
-		F02FE51A24ADDDF900B03D21 /* LogoMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoMenuTableViewCell.swift; sourceTree = "<group>"; };
-		F02FE51B24ADDDF900B03D21 /* LogoMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoMenuTableViewCell.xib; sourceTree = "<group>"; };
+		F0383C1D24C5508800CA9834 /* InfoTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewModel.swift; sourceTree = "<group>"; };
 		F06908F524A4668E006D9603 /* DetailMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealViewController.swift; sourceTree = "<group>"; };
 		F06908F624A4668E006D9603 /* DetailMealViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailMealViewController.xib; sourceTree = "<group>"; };
 		F06908F924A466B6006D9603 /* DetailMealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealViewModel.swift; sourceTree = "<group>"; };
@@ -192,19 +171,6 @@
 		F069093F24AC2157006D9603 /* OtherFoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherFoodTableViewCell.swift; sourceTree = "<group>"; };
 		F069094024AC2157006D9603 /* OtherFoodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherFoodTableViewCell.xib; sourceTree = "<group>"; };
 		F069094324AC2B6F006D9603 /* OtherFoodCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherFoodCellViewModel.swift; sourceTree = "<group>"; };
-
-		F069090A24A47C95006D9603 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
-		F069090B24A47C95006D9603 /* VideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
-		F069090E24A47CA3006D9603 /* InstructionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsTableViewCell.swift; sourceTree = "<group>"; };
-		F069090F24A47CA3006D9603 /* InstructionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstructionsTableViewCell.xib; sourceTree = "<group>"; };
-		F069091224A47CB7006D9603 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
-		F069091324A47CB7006D9603 /* IngredientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientTableViewCell.xib; sourceTree = "<group>"; };
-		F069091624A47CC7006D9603 /* MeasureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureTableViewCell.swift; sourceTree = "<group>"; };
-		F069091724A47CC7006D9603 /* MeasureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeasureTableViewCell.xib; sourceTree = "<group>"; };
-		F069091A24A47CE1006D9603 /* SourceLinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceLinkTableViewCell.swift; sourceTree = "<group>"; };
-		F069091B24A47CE1006D9603 /* SourceLinkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SourceLinkTableViewCell.xib; sourceTree = "<group>"; };
-		F069092224AAED95006D9603 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
-
 		F0BE18DD249B613A004FA5AB /* NSURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURL.swift; sourceTree = "<group>"; };
 		F0BE18DF249B617F004FA5AB /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		F0BE18E1249B6264004FA5AB /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
@@ -504,7 +470,6 @@
 		F00DAA3A249B77D7001A70BC /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F02FE50824AD774000B03D21 /* SideMenuController */,
 				F0F746F0249C4CC5002BDE15 /* CategoryController */,
 				F0F4BDBA24A1A850000A2CD0 /* CountryController */,
 				F06908F324A465BD006D9603 /* DetailMealController */,
@@ -539,27 +504,6 @@
 				F00DAA3F249B78BF001A70BC /* WelcomeViewController.xib */,
 			);
 			path = Welcome;
-			sourceTree = "<group>";
-		};
-		F02FE50824AD774000B03D21 /* SideMenuController */ = {
-			isa = PBXGroup;
-			children = (
-				F02FE50D24AD78B500B03D21 /* cells */,
-				F02FE50E24AD78D500B03D21 /* SideMenuTableViewController.swift */,
-				F02FE50F24AD78D500B03D21 /* SideMenuTableViewController.xib */,
-			);
-			path = SideMenuController;
-			sourceTree = "<group>";
-		};
-		F02FE50D24AD78B500B03D21 /* cells */ = {
-			isa = PBXGroup;
-			children = (
-				F02FE51224AD78E700B03D21 /* SideMenuTableViewCell.swift */,
-				F02FE51324AD78E700B03D21 /* SideMenuTableViewCell.xib */,
-				F02FE51A24ADDDF900B03D21 /* LogoMenuTableViewCell.swift */,
-				F02FE51B24ADDDF900B03D21 /* LogoMenuTableViewCell.xib */,
-			);
-			path = cells;
 			sourceTree = "<group>";
 		};
 		F06908F324A465BD006D9603 /* DetailMealController */ = {
@@ -602,6 +546,7 @@
 			children = (
 				F069090224A47C7A006D9603 /* InfoTableViewCell.swift */,
 				F069090324A47C7A006D9603 /* InfoTableViewCell.xib */,
+				F0383C1D24C5508800CA9834 /* InfoTableViewModel.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -836,17 +781,14 @@
 				F0F4BDD824A1EB12000A2CD0 /* DetailCategoryTableViewCell.xib in Resources */,
 				F0F4BDD524A1EB12000A2CD0 /* DetailCategoryCollectionViewCell.xib in Resources */,
 				F069092B24AB2C20006D9603 /* InstructionsTableViewCell.xib in Resources */,
-				F02FE51D24ADDDF900B03D21 /* LogoMenuTableViewCell.xib in Resources */,
 				F0F746F9249C4D1B002BDE15 /* HomeCategoryViewController.xib in Resources */,
 				D10B9095249B19FA003E0A85 /* Preview Assets.xcassets in Resources */,
 				F069094224AC2157006D9603 /* OtherFoodTableViewCell.xib in Resources */,
 				F069092E24AB2C2C006D9603 /* IngredientMeasureTableViewCell.xib in Resources */,
 				F06908F824A4668E006D9603 /* DetailMealViewController.xib in Resources */,
 				F0F4BDC524A1B076000A2CD0 /* CountryCollectionViewCell.xib in Resources */,
-				F02FE51524AD78E700B03D21 /* SideMenuTableViewCell.xib in Resources */,
 				D10B9092249B19FA003E0A85 /* Assets.xcassets in Resources */,
 				F00DAA41249B78BF001A70BC /* WelcomeViewController.xib in Resources */,
-				F02FE51124AD78D500B03D21 /* SideMenuTableViewController.xib in Resources */,
 				F069093624AB2C4E006D9603 /* SourceLinkTableViewCell.xib in Resources */,
 				F069093D24AB2C90006D9603 /* DetailMealCountryViewController.xib in Resources */,
 				F0F746FE249C4E31002BDE15 /* HomeCategoryCollectionViewCell.xib in Resources */,
@@ -931,6 +873,7 @@
 				D10B90DE249B1DD5003E0A85 /* Font.swift in Sources */,
 				F0BE18E4249B65E6004FA5AB /* DataExt.swift in Sources */,
 				F0BE18E0249B6180004FA5AB /* Api.swift in Sources */,
+				F0383C1E24C5508800CA9834 /* InfoTableViewModel.swift in Sources */,
 				F0F4BDD424A1EB12000A2CD0 /* DetailCategoryTableViewCell.swift in Sources */,
 				F0F4BDC024A1AFB9000A2CD0 /* CountryViewModel.swift in Sources */,
 				F069090824A47C89006D9603 /* ImageTableViewCell.swift in Sources */,
@@ -939,7 +882,6 @@
 				F00DAA37249B76C6001A70BC /* BaseViewController.swift in Sources */,
 				D10B90DC249B1DD5003E0A85 /* Measurement.swift in Sources */,
 				F0F746FD249C4E31002BDE15 /* HomeCategoryCollectionViewCell.swift in Sources */,
-				F02FE51024AD78D500B03D21 /* SideMenuTableViewController.swift in Sources */,
 				F00DAA39249B7714001A70BC /* BaseTabBarViewController.swift in Sources */,
 				F069093724AB2C4E006D9603 /* SourceLinkTableViewCell.swift in Sources */,
 				F01685BC249CB7E2006BE5C9 /* Meal.swift in Sources */,
@@ -964,7 +906,6 @@
 				F069093C24AB2C90006D9603 /* DetailMealCountryViewModel.swift in Sources */,
 				D10B90D7249B1DD5003E0A85 /* String.swift in Sources */,
 				F0F4BDD724A1EB12000A2CD0 /* DetailCategoryCellViewModel.swift in Sources */,
-				F02FE51424AD78E700B03D21 /* SideMenuTableViewCell.swift in Sources */,
 				D10B90DA249B1DD5003E0A85 /* Configuration.swift in Sources */,
 				F0F4BDD624A1EB12000A2CD0 /* DetailCategoryCollectionViewCell.swift in Sources */,
 				F0F4BD8E24A04FA8000A2CD0 /* HomeCategoryViewModel.swift in Sources */,
@@ -978,7 +919,6 @@
 				D10B918D249B1FD8003E0A85 /* ResponseSerializer.swift in Sources */,
 				F0F4BDC724A1B0AE000A2CD0 /* CountryCellViewModel.swift in Sources */,
 				D10B908E249B19F2003E0A85 /* SceneDelegate.swift in Sources */,
-				F02FE51C24ADDDF900B03D21 /* LogoMenuTableViewCell.swift in Sources */,
 				D10B918B249B1FD8003E0A85 /* Error.swift in Sources */,
 				D10B9090249B19F2003E0A85 /* ContentView.swift in Sources */,
 				F069092724AB2C12006D9603 /* VideoTableViewCell.swift in Sources */,
