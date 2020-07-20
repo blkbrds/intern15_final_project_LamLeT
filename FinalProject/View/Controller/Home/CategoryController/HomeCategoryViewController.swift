@@ -11,6 +11,13 @@ import SVProgressHUD
 
 final class HomeCategoryViewController: BaseViewController {
 
+    // MARK: - Define
+    private struct Configure {
+        static let title: String = "Category Meal"
+        static let sizeForItem: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+        static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+    }
+
     // MARK: - IBOutlet
     @IBOutlet private weak var listCategoryCollectionView: UICollectionView!
 
@@ -20,7 +27,7 @@ final class HomeCategoryViewController: BaseViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = DefineHomeCategory.title
+        title = Configure.title
     }
 
     // MARK: - Override Functions
@@ -77,11 +84,11 @@ extension HomeCategoryViewController: UICollectionViewDataSource, UICollectionVi
 // MARK: - UICollectionViewDelegateFlowLayout
 extension HomeCategoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return DefineHomeCategory.sizeForItem
+        return Configure.sizeForItem
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return DefineHomeCategory.spaceForCell
+        return Configure.spaceForCell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -89,11 +96,4 @@ extension HomeCategoryViewController: UICollectionViewDelegateFlowLayout {
         vc.viewModel = viewModel.getNameCategory(indexPath: indexPath)
         self.navigationController?.pushViewController(vc, animated: true)
     }
-}
-
-// MARK: - Define
-private struct DefineHomeCategory {
-    static let title: String = "Category Meal"
-    static let sizeForItem: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
-    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
 }

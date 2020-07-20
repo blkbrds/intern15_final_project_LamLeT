@@ -16,6 +16,10 @@ struct MealResult {
     var meals: [Meal]
 }
 
+struct MealDetailResult {
+    var meal: Meal
+}
+
 //MARK: Enum
 enum APIResult<T> {
     case failure(String)
@@ -159,7 +163,7 @@ class Networking {
         task.resume()
     }
 
-    func getMealDetail(idMeal: String, completion: @escaping APICompletion<MealResult>) {
+    func getMealDetail(idMeal: String, completion: @escaping APICompletion<MealDetailResult>) {
         guard let url = URL(string: Api.Path.apiDetailMeal + "i=\(idMeal)") else {
             completion(.failure(App.String.alertFailedAPI))
             return
@@ -173,12 +177,13 @@ class Networking {
                     completion(.failure(App.String.alertFailedToConnectAPI))
                 } else {
                     if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
-                        var detailMeals: [Meal] = []
+                        var detailMeals: Meal?
                         for item in meals {
-                            let meals = Meal(json: item)
-                            detailMeals.append(meals)
+                            let meal = Meal(json: item)
+                            detailMeals = meal
                         }
-                        let result = MealResult(meals: detailMeals)
+                        guard let detailMeals1 = detailMeals else { return }
+                        let result = MealDetailResult(meal: detailMeals1)
                         completion(.success(result))
                     } else {
                         completion(.failure(App.String.alertFailedToDataAPI))
