@@ -25,7 +25,6 @@ final class InfoTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     // MARK: - Private Functions
@@ -37,11 +36,5 @@ final class InfoTableViewCell: UITableViewCell {
         areaLabel.text = viewModel.meal.area
         categoryLabel.text = viewModel.meal.category
         tagLabel.text = viewModel.meal.tags
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 }

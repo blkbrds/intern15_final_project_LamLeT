@@ -40,9 +40,9 @@ final class DetailMealViewController: BaseViewController {
     private func configNavi() {
         viewModel.checkFavorites { (done, msg) in
             if done {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: DetailMealViewModel.Configure.iconAddFavorites), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ConfigureDetailMeal.iconAddFavorites), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
             } else {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: DetailMealViewModel.Configure.iconRemoveFavorites), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ConfigureDetailMeal.iconRemoveFavorites), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
             }
         }
     }
@@ -58,7 +58,7 @@ final class DetailMealViewController: BaseViewController {
     func addToFavorites() {
         viewModel.addFavorites(addCompletion: { (done, msg) in
             if done {
-                let image = UIImage(systemName: DetailMealViewModel.Configure.iconRemoveFavorites)
+                let image = UIImage(systemName: ConfigureDetailMeal.iconRemoveFavorites)
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
                 print(msg)
             } else {
@@ -70,7 +70,7 @@ final class DetailMealViewController: BaseViewController {
     func deteleToFavorties() {
         viewModel.deleteFavorites(deleteCompletion: { (done, msg) in
             if done {
-                let image = UIImage(systemName: DetailMealViewModel.Configure.iconAddFavorites)
+                let image = UIImage(systemName: ConfigureDetailMeal.iconAddFavorites)
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
             } else {
                 self.showAlert(message: msg)
@@ -92,7 +92,6 @@ final class DetailMealViewController: BaseViewController {
                 self.showAlert(message: msg)
             }
         }
-        HUD.setOffsetFromCenter(DetailMealViewModel.Configure.uiOffSet)
     }
 
     private func loadAPIRandomMeal() {
@@ -114,6 +113,7 @@ final class DetailMealViewController: BaseViewController {
         tableView.register(nibWithCellClass: SourceLinkTableViewCell.self)
         tableView.register(nibWithCellClass: OtherFoodTableViewCell.self)
         tableView.dataSource = self
+        tableView.delegate = self
     }
 
     private func updateView() {
@@ -123,7 +123,7 @@ final class DetailMealViewController: BaseViewController {
 }
 
 // MARK: - UITableViewDataSource
-extension DetailMealViewController: UITableViewDataSource {
+extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
     }
@@ -174,8 +174,14 @@ extension DetailMealViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return viewModel.headerTitler[section]
     }
-    
+
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return DetailMealViewModel.Configure.spaceForSection
+        return ConfigureDetailMeal.spaceForSection
     }
+}
+
+private struct ConfigureDetailMeal {
+    static let spaceForSection: CGFloat = 10
+    static let iconAddFavorites: String = "heart"
+    static let iconRemoveFavorites: String = "heart.fill"
 }

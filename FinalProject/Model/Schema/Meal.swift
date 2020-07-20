@@ -17,10 +17,10 @@ class Meal {
     var instructions: String
     var urlMealThumbnail: String
     var tags: String
-    var urlVideoMeal: String
+    var urlVideoMeal: String?
     var ingredient: String
     var measure: String
-    var sourceLink: String
+    var sourceLink: String?
     var thumbnail: UIImage?
 
     var ingredientMeasure: [String:String] = [:]
@@ -63,13 +63,11 @@ class Meal {
         }
         if let urlVideoMeal = json["strYoutube"] as? String {
             self.urlVideoMeal = urlVideoMeal
-        } else {
-            self.urlVideoMeal = ""
         }
         var strIngredient = ""
         for i in 1...20 {
             if let ingredient = json["strIngredient\(i)"] as? String {
-                if ingredient != "" {
+                if !ingredient.isEmpty {
                     strIngredient += "\(i). " + ingredient + ":\n"
                 } else {
                     strIngredient += ""
@@ -79,10 +77,11 @@ class Meal {
             }
         }
         self.ingredient = strIngredient
+
         var strMeasure = ""
         for i in 1...20 {
             if let measure = json["strMeasure\(i)"] as? String {
-                if measure != "" {
+                if !measure.isEmpty {
                     strMeasure += measure + "\n"
                 } else {
                     strMeasure += ""
@@ -92,10 +91,9 @@ class Meal {
             }
         }
         self.measure = strMeasure
+
         if let strSource = json["strSource"] as? String {
             self.sourceLink = strSource
-        } else {
-            self.sourceLink = ""
-        }
+        } 
     }
 }

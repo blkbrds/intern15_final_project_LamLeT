@@ -15,20 +15,6 @@ import UIKit
 
 final class DetailMealViewModel {
 
-    // MARK: - Define
-    struct Configure {
-        static let spaceForSection: CGFloat = 10
-        static let iconAddFavorites: String = "heart"
-        static let iconRemoveFavorites: String = "heart.fill"
-        static let haveItem: String = "Item is Favorites"
-        static let notHaveItem: String = "Item not is Favorites"
-        static let addObjectSuccess: String = "Success To Add Object"
-        static let addObjectFailed: String = "Failed To Add Object"
-        static let deleteObjectSuccess: String = "Success To Delete Object"
-        static let deleteObjectFailed: String = "Failed To Delete Object"
-        static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
-    }
-
     // MARK: Properties
     var sections: [Section] = [.image, .information, .video, .instruction, .ingrentMeasure, .linkSource, .otherFood]
     var idMeal: String = ""
@@ -125,10 +111,10 @@ final class DetailMealViewModel {
             let meal = realm.objects(MealRealm.self).filter("idMeal = '\(idMeal)' AND isFavorites = true ")
             if meal.count == 0 {
                 isFavorites = false
-                checkCompletion(true, Configure.notHaveItem)
+                checkCompletion(true, App.String.notHaveItem)
             } else {
                 isFavorites = true
-                checkCompletion(false, Configure.haveItem)
+                checkCompletion(false, App.String.haveItem)
             }
         } catch { }
     }
@@ -145,10 +131,10 @@ final class DetailMealViewModel {
             try realm.write {
                 realm.add(meal)
                 isFavorites = true
-                addCompletion(true, Configure.addObjectSuccess)
+                addCompletion(true, App.String.addObjectSuccess)
             }
         } catch {
-            addCompletion(false, Configure.addObjectFailed)
+            addCompletion(false, App.String.addObjectFailed)
         }
     }
 
@@ -161,10 +147,10 @@ final class DetailMealViewModel {
             try realm.write {
                 realm.delete(meal)
                 isFavorites = false
-                deleteCompletion(true, Configure.deleteObjectSuccess)
+                deleteCompletion(true, App.String.deleteObjectSuccess)
             }
         } catch {
-            deleteCompletion(false, Configure.deleteObjectFailed)
+            deleteCompletion(false, App.String.deleteObjectFailed)
         }
     }
 }
