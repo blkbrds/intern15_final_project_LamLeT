@@ -52,7 +52,6 @@ final class CountryViewController: BaseViewController {
                 self.showAlert(message: msg)
             }
         }
-        HUD.setOffsetFromCenter(CountryViewModel.Configure.uiOffSet)
     }
 
     private func configNavi() {
@@ -111,11 +110,11 @@ extension CountryViewController: UICollectionViewDataSource, UICollectionViewDel
 // MARK: - UICollectionViewDelegateFlowLayout
 extension CountryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CountryViewModel.Configure.sizeForCollection
+        return Config.sizeForCollection
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return CountryViewModel.Configure.spaceForCell
+        return Config.spaceForCell
     }
 }
 
@@ -126,4 +125,11 @@ extension CountryViewController: SideMenuTableViewDelegate {
         guard let menu = menu else { return }
         menu.dismiss(animated: true, completion: nil)
     }
+}
+
+
+// MARK: - Define
+private struct Config {
+    static let sizeForCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
 }
