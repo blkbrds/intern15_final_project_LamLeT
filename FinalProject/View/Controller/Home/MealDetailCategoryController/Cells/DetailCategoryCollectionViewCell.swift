@@ -8,11 +8,11 @@
 
 import UIKit
 
-final class DetailCategoryCollectionViewCell: UICollectionViewCell {
+private struct Configure {
+    static let radius: CGFloat = 10
+}
 
-    private struct Configure {
-        static let radius: CGFloat = 10
-    }
+final class DetailCategoryCollectionViewCell: UICollectionViewCell {
 
     // MARK: - IBOutlets
     @IBOutlet private weak var nameMealLabel: UILabel!
@@ -36,9 +36,7 @@ final class DetailCategoryCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Private functions
     private func updateView() {
-        guard let viewModel = viewModel else {
-            return
-        }
+        guard let viewModel = viewModel else { return }
         nameMealLabel.text = viewModel.nameMeal
         thumbnailMealImageView.sd_setImage(with: URL(string: viewModel.urlThumnailMeal))
     }

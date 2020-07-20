@@ -24,9 +24,7 @@ final class InfoTableViewCell: UITableViewCell {
 
     // MARK: - Private Functions
     private func updateView() {
-        guard let viewModel = viewModel else {
-            return
-        }
+        guard let viewModel = viewModel else { return }
         nameLabel.text = viewModel.name
         valueLabel.text = viewModel.value
     }

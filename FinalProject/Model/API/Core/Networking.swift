@@ -177,13 +177,13 @@ class Networking {
                     completion(.failure(App.String.alertFailedToConnectAPI))
                 } else {
                     if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
-                        var detailMeals: Meal?
+                        var detailMeal: Meal?
                         for item in meals {
                             let meal = Meal(json: item)
-                            detailMeals = meal
+                            detailMeal = meal
                         }
-                        guard let detailMeals1 = detailMeals else { return }
-                        let result = MealDetailResult(meal: detailMeals1)
+                        guard let mealResult = detailMeal else { return }
+                        let result = MealDetailResult(meal: mealResult)
                         completion(.success(result))
                     } else {
                         completion(.failure(App.String.alertFailedToDataAPI))
