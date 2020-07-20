@@ -3,8 +3,6 @@
    uuid = "E8E851A5-87C9-47DD-A12A-CE3FE55A2A43"
    type = "0"
    version = "2.0">
-<<<<<<< HEAD
-=======
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
@@ -16,7 +14,6 @@
             filePath = "FinalProject/View/Controller/Home/DetailMealController/Cells/IngredientAndMeasure/IngredientMeasureCellViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
             startingLineNumber = "19"
             endingLineNumber = "19"
             landmarkName = "CountryCellViewModel"
@@ -26,7 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-<<<<<<< HEAD
             uuid = "B4C18BBF-0CFA-4715-99AC-9CFAC04B6C6D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -100,7 +96,6 @@
                   offsetFromSymbolStart = "301">
                </Location>
             </Locations>
-=======
             uuid = "58D52FD5-8585-4DD3-83F2-6ACD22EC213D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -111,11 +106,9 @@
             startingLineNumber = "40"
             endingLineNumber = "40"
             landmarkName = "updateView()"
-=======
             startingLineNumber = "20"
             endingLineNumber = "20"
             landmarkName = "init(ingredient:measure:)"
->>>>>>> feature/import_frameWork_side_menu
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -129,19 +122,12 @@
             filePath = "FinalProject/View/Controller/Home/DetailMealController/Cells/DetailMealTableViewCellViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-<<<<<<< HEAD
             startingLineNumber = "32"
             endingLineNumber = "32"
             landmarkName = "init(meal:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> feature/import_frameWork_side_menu
-<<<<<<< HEAD
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
@@ -155,19 +141,12 @@
             startingLineNumber = "19"
             endingLineNumber = "19"
             landmarkName = "init(idMeal:)"
->>>>>>> master
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-=======
->>>>>>> master
->>>>>>> master
-=======
             startingLineNumber = "39"
             endingLineNumber = "39">
          </BreakpointContent>
       </BreakpointProxy>
->>>>>>> feature/load_api_detail_meal_for_ingredient_meassure_linkSource_ortherFood
    </Breakpoints>
->>>>>>> master
 </Bucket>
