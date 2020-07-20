@@ -8,15 +8,15 @@
 
 import UIKit
 
-final class DetailMealViewController: BaseViewController {
+// MARK: - Define
+private struct Configure {
+    static let spaceForSection: CGFloat = 10
+    static let iconAddFavorites: String = "heart"
+    static let iconRemoveFavorites: String = "heart.fill"
+    static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
+}
 
-    // MARK: - Define
-    struct Configure {
-        static let spaceForSection: CGFloat = 10
-        static let iconAddFavorites: String = "heart"
-        static let iconRemoveFavorites: String = "heart.fill"
-        static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
-    }
+final class DetailMealViewController: BaseViewController {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView!
@@ -208,5 +208,12 @@ extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return Configure.spaceForSection
+
     }
+}
+
+private struct ConfigureDetailMeal {
+    static let spaceForSection: CGFloat = 10
+    static let iconAddFavorites: String = "heart"
+    static let iconRemoveFavorites: String = "heart.fill"
 }
