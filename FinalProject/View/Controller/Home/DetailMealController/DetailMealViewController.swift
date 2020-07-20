@@ -41,18 +41,16 @@ final class DetailMealViewController: BaseViewController {
     }
 
     override func setUpData() {
-        DispatchQueue.global(qos: .userInitiated).async {
-            let dispatchGroup = DispatchGroup()
-            dispatchGroup.enter()
-            self.loadAPIDetail {
-                dispatchGroup.leave()
-            }
-            dispatchGroup.enter()
-            self.loadAPIRandomMeal {
-                dispatchGroup.leave()
-            }
-            dispatchGroup.notify(queue: .main) { }
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        self.loadAPIDetail {
+            dispatchGroup.leave()
         }
+        dispatchGroup.enter()
+        self.loadAPIRandomMeal {
+            dispatchGroup.leave()
+        }
+        dispatchGroup.notify(queue: .main) { }
     }
 
     // MARK: - Private Functions
@@ -102,23 +100,22 @@ final class DetailMealViewController: BaseViewController {
         HUD.show()
         viewModel.getAPIDetailMeal { [weak self] (done, msg) in
             HUD.dismiss()
-            guard let self = self else {
-                return
-            }
+            guard let this = self else { return }
             if done {
-                self.updateView()
+                this.updateView()
             } else {
-                self.showAlert(message: msg)
+                this.showAlert(message: msg)
             }
         }
     }
 
     private func loadAPIRandomMeal(completion: @escaping() -> Void) {
-        viewModel.getAPIRandomMeal { (done, msg) in
+        viewModel.getAPIRandomMeal { [weak self] (done, msg) in
+            guard let this = self else { return }
             if done {
-                self.updateView()
+                this.updateView()
             } else {
-                self.showAlert(message: msg)
+                this.showAlert(message: msg)
             }
         }
     }

@@ -8,12 +8,12 @@
 
 import UIKit
 
-final class DetailCategoryTableViewCell: UITableViewCell {
+// MARK: - Define
+private struct Configure {
+    static let radius: CGFloat = 10
+}
 
-    // MARK: - Define
-    private struct Configure {
-        static let radius: CGFloat = 10
-    }
+final class DetailCategoryTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var thumbnailMealImageView: UIImageView!
@@ -36,9 +36,7 @@ final class DetailCategoryTableViewCell: UITableViewCell {
     }
     
     private func updateView() {
-        guard let viewModel = viewModel else {
-            return
-        }
+        guard let viewModel = viewModel else { return }
         nameMealLabel.text = viewModel.nameMeal
         thumbnailMealImageView.sd_setImage(with: URL(string: viewModel.urlThumnailMeal))
         viewModel.checkFavorites(completion: { (isExist, msg) in

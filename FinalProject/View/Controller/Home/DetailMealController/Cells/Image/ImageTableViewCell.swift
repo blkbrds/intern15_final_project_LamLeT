@@ -9,11 +9,12 @@
 import UIKit
 import SDWebImage
 
-final class ImageTableViewCell: UITableViewCell {
+// MARK: - Define
+private struct Configure {
+    static let cornerRadius: CGFloat = 10
+}
 
-    private struct Configure {
-        static let cornerRadius: CGFloat = 10
-    }
+final class ImageTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var thumnailMealImageView: UIImageView!
@@ -32,9 +33,7 @@ final class ImageTableViewCell: UITableViewCell {
     }
 
     private func updateView() {
-        guard let viewModel = viewModel else {
-            return
-        }
+        guard let viewModel = viewModel else { return }
         thumnailMealImageView.sd_setImage(with: URL(string: viewModel.meal.urlMealThumbnail))
     }
 }
