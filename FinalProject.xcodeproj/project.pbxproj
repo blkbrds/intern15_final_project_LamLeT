@@ -43,17 +43,15 @@
 		F01FA21124B068D900A2D6FF /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01FA21024B068D900A2D6FF /* FavoritesViewModel.swift */; };
 		F01FA21324B068ED00A2D6FF /* FavoritesTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01FA21224B068ED00A2D6FF /* FavoritesTableViewModel.swift */; };
 		F01FA21524B4113E00A2D6FF /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01FA21424B4113E00A2D6FF /* RealmManager.swift */; };
-		F02FE51024AD78D500B03D21 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02FE50E24AD78D500B03D21 /* SideMenuTableViewController.swift */; };
-		F02FE51124AD78D500B03D21 /* SideMenuTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02FE50F24AD78D500B03D21 /* SideMenuTableViewController.xib */; };
-		F02FE51424AD78E700B03D21 /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02FE51224AD78E700B03D21 /* SideMenuTableViewCell.swift */; };
-		F02FE51524AD78E700B03D21 /* SideMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02FE51324AD78E700B03D21 /* SideMenuTableViewCell.xib */; };
-		F02FE51C24ADDDF900B03D21 /* LogoMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02FE51A24ADDDF900B03D21 /* LogoMenuTableViewCell.swift */; };
-		F02FE51D24ADDDF900B03D21 /* LogoMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02FE51B24ADDDF900B03D21 /* LogoMenuTableViewCell.xib */; };
 		F02FE51F24AEDFC300B03D21 /* MealRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02FE51E24AEDFC300B03D21 /* MealRealm.swift */; };
+
 		F052C60024B703910074490E /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052C5FF24B703910074490E /* SearchViewModel.swift */; };
 		F052C60324B7039F0074490E /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052C60124B7039F0074490E /* SearchTableViewCell.swift */; };
 		F052C60424B7039F0074490E /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F052C60224B7039F0074490E /* SearchTableViewCell.xib */; };
 		F052C60624B703BD0074490E /* SearchTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052C60524B703BD0074490E /* SearchTableCellViewModel.swift */; };
+
+		F0383C1E24C5508800CA9834 /* InfoTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0383C1D24C5508800CA9834 /* InfoTableViewModel.swift */; };
+
 		F06908F724A4668E006D9603 /* DetailMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06908F524A4668E006D9603 /* DetailMealViewController.swift */; };
 		F06908F824A4668E006D9603 /* DetailMealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F06908F624A4668E006D9603 /* DetailMealViewController.xib */; };
 		F06908FA24A466B6006D9603 /* DetailMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06908F924A466B6006D9603 /* DetailMealViewModel.swift */; };
@@ -168,17 +166,15 @@
 		F01FA21024B068D900A2D6FF /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		F01FA21224B068ED00A2D6FF /* FavoritesTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewModel.swift; sourceTree = "<group>"; };
 		F01FA21424B4113E00A2D6FF /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmManager.swift; path = FinalProject/View/Controller/Favorites/Cells/RealmManager.swift; sourceTree = SOURCE_ROOT; };
-		F02FE50E24AD78D500B03D21 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
-		F02FE50F24AD78D500B03D21 /* SideMenuTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuTableViewController.xib; sourceTree = "<group>"; };
-		F02FE51224AD78E700B03D21 /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
-		F02FE51324AD78E700B03D21 /* SideMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuTableViewCell.xib; sourceTree = "<group>"; };
-		F02FE51A24ADDDF900B03D21 /* LogoMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoMenuTableViewCell.swift; sourceTree = "<group>"; };
-		F02FE51B24ADDDF900B03D21 /* LogoMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoMenuTableViewCell.xib; sourceTree = "<group>"; };
 		F02FE51E24AEDFC300B03D21 /* MealRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRealm.swift; sourceTree = "<group>"; };
+
 		F052C5FF24B703910074490E /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		F052C60124B7039F0074490E /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		F052C60224B7039F0074490E /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		F052C60524B703BD0074490E /* SearchTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableCellViewModel.swift; sourceTree = "<group>"; };
+
+		F0383C1D24C5508800CA9834 /* InfoTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewModel.swift; sourceTree = "<group>"; };
+
 		F06908F524A4668E006D9603 /* DetailMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealViewController.swift; sourceTree = "<group>"; };
 		F06908F624A4668E006D9603 /* DetailMealViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailMealViewController.xib; sourceTree = "<group>"; };
 		F06908F924A466B6006D9603 /* DetailMealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealViewModel.swift; sourceTree = "<group>"; };
@@ -504,7 +500,6 @@
 		F00DAA3A249B77D7001A70BC /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F02FE50824AD774000B03D21 /* SideMenuController */,
 				F0F746F0249C4CC5002BDE15 /* CategoryController */,
 				F0F4BDBA24A1A850000A2CD0 /* CountryController */,
 				F06908F324A465BD006D9603 /* DetailMealController */,
@@ -555,27 +550,7 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		F02FE50824AD774000B03D21 /* SideMenuController */ = {
-			isa = PBXGroup;
-			children = (
-				F02FE50D24AD78B500B03D21 /* cells */,
-				F02FE50E24AD78D500B03D21 /* SideMenuTableViewController.swift */,
-				F02FE50F24AD78D500B03D21 /* SideMenuTableViewController.xib */,
-			);
-			path = SideMenuController;
-			sourceTree = "<group>";
-		};
-		F02FE50D24AD78B500B03D21 /* cells */ = {
-			isa = PBXGroup;
-			children = (
-				F02FE51224AD78E700B03D21 /* SideMenuTableViewCell.swift */,
-				F02FE51324AD78E700B03D21 /* SideMenuTableViewCell.xib */,
-				F02FE51A24ADDDF900B03D21 /* LogoMenuTableViewCell.swift */,
-				F02FE51B24ADDDF900B03D21 /* LogoMenuTableViewCell.xib */,
-			);
-			path = cells;
-			sourceTree = "<group>";
-		};
+
 		F052C5FE24B7037C0074490E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -586,6 +561,7 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+
 		F06908F324A465BD006D9603 /* DetailMealController */ = {
 			isa = PBXGroup;
 			children = (
@@ -627,6 +603,7 @@
 				F069090224A47C7A006D9603 /* InfoTableViewCell.swift */,
 				F069090324A47C7A006D9603 /* InfoTableViewCell.xib */,
 				F0955D3E24B8669C00DFD518 /* InfoTableViewModel.swift */,
+
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -861,17 +838,14 @@
 				F0F4BDD824A1EB12000A2CD0 /* DetailCategoryTableViewCell.xib in Resources */,
 				F0F4BDD524A1EB12000A2CD0 /* DetailCategoryCollectionViewCell.xib in Resources */,
 				F069092B24AB2C20006D9603 /* InstructionsTableViewCell.xib in Resources */,
-				F02FE51D24ADDDF900B03D21 /* LogoMenuTableViewCell.xib in Resources */,
 				F0F746F9249C4D1B002BDE15 /* HomeCategoryViewController.xib in Resources */,
 				D10B9095249B19FA003E0A85 /* Preview Assets.xcassets in Resources */,
 				F069094224AC2157006D9603 /* OtherFoodTableViewCell.xib in Resources */,
 				F069092E24AB2C2C006D9603 /* IngredientMeasureTableViewCell.xib in Resources */,
 				F06908F824A4668E006D9603 /* DetailMealViewController.xib in Resources */,
 				F0F4BDC524A1B076000A2CD0 /* CountryCollectionViewCell.xib in Resources */,
-				F02FE51524AD78E700B03D21 /* SideMenuTableViewCell.xib in Resources */,
 				D10B9092249B19FA003E0A85 /* Assets.xcassets in Resources */,
 				F00DAA41249B78BF001A70BC /* WelcomeViewController.xib in Resources */,
-				F02FE51124AD78D500B03D21 /* SideMenuTableViewController.xib in Resources */,
 				F069093624AB2C4E006D9603 /* SourceLinkTableViewCell.xib in Resources */,
 				F069093D24AB2C90006D9603 /* DetailMealCountryViewController.xib in Resources */,
 				F0F746FE249C4E31002BDE15 /* HomeCategoryCollectionViewCell.xib in Resources */,
@@ -969,7 +943,7 @@
 				F052C60324B7039F0074490E /* SearchTableViewCell.swift in Sources */,
 				F0F746FD249C4E31002BDE15 /* HomeCategoryCollectionViewCell.swift in Sources */,
 				F01FA21124B068D900A2D6FF /* FavoritesViewModel.swift in Sources */,
-				F02FE51024AD78D500B03D21 /* SideMenuTableViewController.swift in Sources */,
+
 				F00DAA39249B7714001A70BC /* BaseTabBarViewController.swift in Sources */,
 				F069093724AB2C4E006D9603 /* SourceLinkTableViewCell.swift in Sources */,
 				F01685BC249CB7E2006BE5C9 /* Meal.swift in Sources */,
@@ -996,7 +970,7 @@
 				F069093C24AB2C90006D9603 /* DetailMealCountryViewModel.swift in Sources */,
 				D10B90D7249B1DD5003E0A85 /* String.swift in Sources */,
 				F0F4BDD724A1EB12000A2CD0 /* DetailCategoryCellViewModel.swift in Sources */,
-				F02FE51424AD78E700B03D21 /* SideMenuTableViewCell.swift in Sources */,
+
 				F01FA20E24B02E2300A2D6FF /* FavoritesTableViewCell.swift in Sources */,
 				D10B90DA249B1DD5003E0A85 /* Configuration.swift in Sources */,
 				F0F4BDD624A1EB12000A2CD0 /* DetailCategoryCollectionViewCell.swift in Sources */,
@@ -1013,7 +987,7 @@
 				F0F4BDC724A1B0AE000A2CD0 /* CountryCellViewModel.swift in Sources */,
 				D10B908E249B19F2003E0A85 /* SceneDelegate.swift in Sources */,
 				F01FA21324B068ED00A2D6FF /* FavoritesTableViewModel.swift in Sources */,
-				F02FE51C24ADDDF900B03D21 /* LogoMenuTableViewCell.swift in Sources */,
+	
 				D10B918B249B1FD8003E0A85 /* Error.swift in Sources */,
 				D10B9090249B19F2003E0A85 /* ContentView.swift in Sources */,
 				F02FE51F24AEDFC300B03D21 /* MealRealm.swift in Sources */,

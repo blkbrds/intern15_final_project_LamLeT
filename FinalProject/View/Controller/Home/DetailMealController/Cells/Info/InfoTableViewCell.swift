@@ -16,31 +16,16 @@ final class InfoTableViewCell: UITableViewCell {
 
 
     // MARK: - Properties
-    var viewModel: DetailMealTableViewCellViewModel? {
+    var viewModel: InforCellViewModel? {
         didSet {
             updateView()
         }
     }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-//        nameLabel.text = viewModel?.name
-//        valueLabel.text = viewModel?.value
-    }
-
     // MARK: - Private Functions
     private func updateView() {
-        guard let viewModel = viewModel else {
-            return
-        }
+        guard let viewModel = viewModel else { return }
         nameLabel.text = viewModel.name
         valueLabel.text = viewModel.value
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 }

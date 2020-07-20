@@ -40,7 +40,7 @@
                     <constraint firstItem="zcp-fs-Xo7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="l0f-EX-IFt"/>
                 </constraints>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <viewLayoutGuide key="safeArea" id="bbB-bV-wgx"/>
             <connections>
                 <outlet property="nameLabel" destination="zcp-fs-Xo7" id="EqP-WW-k6I"/>
                 <outlet property="valueLabel" destination="Obt-wk-l8S" id="yob-Ry-Wwf"/>
