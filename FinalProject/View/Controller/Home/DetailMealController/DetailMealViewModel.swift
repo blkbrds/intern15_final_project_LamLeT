@@ -34,19 +34,21 @@ final class DetailMealViewModel {
 
     // MARK: Get API
     func getAPIDetailMeal(completion: @escaping (Bool, String) -> Void) {
-        Networking.shared().getMealDetail(idMeal: idMeal) { (result) in
+        Networking.shared().getMealDetail(idMeal: idMeal) { [weak self] (result) in
+            guard let this = self else { return }
             switch result {
             case .failure(let error):
                 completion(false, error)
             case .success(let detailMeal):
-                self.meal = detailMeal.meal
-                guard let meal = self.meal else { return }
-                self.detailMeals.append(meal)
-                self.information.append(contentsOf: [meal.mealName, meal.area, meal.category, meal.tags])
-                self.ingredient = meal.ingredientArray
-                self.measure = meal.measureArray
-                self.category = meal.category
-                completion(true, App.String.loadSuccess)
+                this.meal = detailMeal.meal
+                if let meal = this.meal {
+                    this.detailMeals.append(meal)
+                    this.information.append(contentsOf: [meal.mealName, meal.area, meal.category, meal.tags])
+                    this.ingredient = meal.ingredientArray
+                    this.measure = meal.measureArray
+                    this.category = meal.category
+                    completion(true, App.String.loadSuccess)
+                }
             }
         }
     }
@@ -63,14 +65,14 @@ final class DetailMealViewModel {
     }
 
     func getAPIRandomMeal(completion: @escaping (Bool, String) -> Void) {
-        print(self.category)
-        Networking.shared().getMealRandom { (result) in
+        Networking.shared().getMealRandom { [weak self] (result) in
+            guard let this = self else { return }
             switch result {
             case .failure(let error):
                 completion(false, error)
             case .success(let randomMeal):
                 for item in randomMeal.meals {
-                    self.otherFood.append(item)
+                    this.otherFood.append(item)
                 }
                 completion(true, App.String.loadSuccess)
             }

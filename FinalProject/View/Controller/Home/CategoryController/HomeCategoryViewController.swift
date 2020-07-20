@@ -10,14 +10,14 @@ import UIKit
 import SVProgressHUD
 import SideMenu
 
-final class HomeCategoryViewController: BaseViewController {
+// MARK: - Define
+private struct Configure {
+    static let title: String = "Category Meal"
+    static let sizeForItem: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+}
 
-    // MARK: - Define
-    private struct Configure {
-        static let title: String = "Category Meal"
-        static let sizeForItem: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
-        static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
-    }
+final class HomeCategoryViewController: BaseViewController {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var listCategoryCollectionView: UICollectionView!

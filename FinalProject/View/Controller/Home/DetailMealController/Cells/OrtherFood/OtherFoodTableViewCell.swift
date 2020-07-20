@@ -8,12 +8,12 @@
 
 import UIKit
 
-final class OtherFoodTableViewCell: UITableViewCell {
+// MARK: - Define
+private struct Configure {
+    static let cornerRadius: CGFloat = 10
+}
 
-    // MARK: - Define
-    private struct Configure {
-        static let cornerRadius: CGFloat = 10
-    }
+final class OtherFoodTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var otherFoodView: UIView!
