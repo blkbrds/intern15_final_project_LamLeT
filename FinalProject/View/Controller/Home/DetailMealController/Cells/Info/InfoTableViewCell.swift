@@ -11,21 +11,15 @@ import UIKit
 final class InfoTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlet
-    @IBOutlet private weak var mealLabel: UILabel!
-    @IBOutlet private weak var areaLabel: UILabel!
-    @IBOutlet private weak var categoryLabel: UILabel!
-    @IBOutlet private weak var tagLabel: UILabel!
-    
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var valueLabel: UILabel!
+
+
     // MARK: - Properties
-    var viewModel: DetailMealTableViewCellViewModel? {
+    var viewModel: InforCellViewModel? {
         didSet {
             updateView()
         }
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
     }
 
     // MARK: - Private Functions
@@ -33,15 +27,7 @@ final class InfoTableViewCell: UITableViewCell {
         guard let viewModel = viewModel else {
             return
         }
-        mealLabel.text = viewModel.meal.mealName
-        areaLabel.text = viewModel.meal.area
-        categoryLabel.text = viewModel.meal.category
-        tagLabel.text = viewModel.meal.tags
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        nameLabel.text = viewModel.name
+        valueLabel.text = viewModel.value
     }
 }

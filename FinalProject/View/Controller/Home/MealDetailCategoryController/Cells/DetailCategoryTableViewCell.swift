@@ -8,13 +8,12 @@
 
 import UIKit
 
-
-// MARK: - Define
-private struct Config {
-    static let radius: CGFloat = 10
-}
-
 final class DetailCategoryTableViewCell: UITableViewCell {
+
+    // MARK: - Define
+    private struct Configure {
+        static let radius: CGFloat = 10
+    }
 
     // MARK: - IBOutlet
     @IBOutlet private weak var thumbnailMealImageView: UIImageView!
@@ -32,8 +31,8 @@ final class DetailCategoryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        viewContent.cornerRadius = Config.radius
-        nameMealLabel.cornerRadius = Config.radius
+        viewContent.cornerRadius = Configure.radius
+        nameMealLabel.cornerRadius = Configure.radius
     }
     
     private func updateView() {

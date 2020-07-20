@@ -11,6 +11,12 @@ import SVProgressHUD
 
 final class DetailCategoryViewController: BaseViewController {
 
+    // MARK: - Define
+    private struct Configure {
+        static let sizeForCellCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+        static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+    }
+
     // MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var collectionView: UICollectionView!
@@ -92,7 +98,6 @@ final class DetailCategoryViewController: BaseViewController {
                 self.showAlert(message: msg)
             }
         })
-        HUD.setOffsetFromCenter(DetailCategoryViewModel.Configure.uiOffSet)
     }
 
     private func updateUI() {
@@ -142,10 +147,10 @@ extension DetailCategoryViewController: UICollectionViewDelegate, UICollectionVi
 // MARK: - UICollectionViewDelegateFlowLayout
 extension DetailCategoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return DetailCategoryViewModel.Configure.sizeForCellCollection
+        return Configure.sizeForCellCollection
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return DetailCategoryViewModel.Configure.spaceForCell
+        return Configure.spaceForCell
     }
 }

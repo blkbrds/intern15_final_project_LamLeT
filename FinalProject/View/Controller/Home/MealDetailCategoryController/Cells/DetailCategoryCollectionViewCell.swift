@@ -8,11 +8,11 @@
 
 import UIKit
 
-private struct Config {
-    static let radius: CGFloat = 10
-}
-
 final class DetailCategoryCollectionViewCell: UICollectionViewCell {
+
+    private struct Configure {
+        static let radius: CGFloat = 10
+    }
 
     // MARK: - IBOutlets
     @IBOutlet private weak var nameMealLabel: UILabel!
@@ -32,8 +32,8 @@ final class DetailCategoryCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        viewForCell.cornerRadius = Config.radius
-        nameMealLabel.cornerRadius = Config.radius
+        viewForCell.cornerRadius = Configure.radius
+        nameMealLabel.cornerRadius = Configure.radius
     }
 
     // MARK: - Private functions

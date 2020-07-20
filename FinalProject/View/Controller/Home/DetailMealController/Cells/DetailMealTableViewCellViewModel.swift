@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 final class DetailMealTableViewCellViewModel {
 
     // MARK: - Define
@@ -26,11 +25,14 @@ final class DetailMealTableViewCellViewModel {
     // MARK: - Functions
     func getLinkVideo() -> String {
         var idVideo: String = ""
-        if meal.urlVideoMeal.isEmpty {
+        guard let urlVideoMeal = meal.urlVideoMeal else {
+            return ""
+        }
+        if urlVideoMeal.isEmpty {
             return "No Has Video Tutorial"
         } else {
-            if let range = meal.urlVideoMeal.range(of: "=") {
-                idVideo = String(meal.urlVideoMeal[range.upperBound...])
+            if let range = urlVideoMeal.range(of: "=") {
+                idVideo = String(urlVideoMeal[range.upperBound...])
             }
         }
         return idVideo

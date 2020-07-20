@@ -11,7 +11,7 @@ import UIKit
 final class InstructionsTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlet
-    @IBOutlet weak var instructionLabel: UILabel!
+    @IBOutlet private weak var instructionLabel: UILabel!
     
     // MARK: - Properties
     var viewModel: DetailMealTableViewCellViewModel? {
@@ -22,7 +22,6 @@ final class InstructionsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     private func updateView() {
@@ -31,11 +30,4 @@ final class InstructionsTableViewCell: UITableViewCell {
         }
         instructionLabel.text = viewModel.meal.instructions
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }
