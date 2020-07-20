@@ -10,6 +10,11 @@ import UIKit
 
 final class OtherFoodTableViewCell: UITableViewCell {
 
+    // MARK: - Define
+    private struct Configure {
+        static let cornerRadius: CGFloat = 10
+    }
+
     // MARK: - IBOutlet
     @IBOutlet private weak var otherFoodView: UIView!
     @IBOutlet private weak var otherFoodImageView: UIImageView!
@@ -26,8 +31,8 @@ final class OtherFoodTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        otherFoodView.layer.cornerRadius = OtherFoodCellViewModel.Configure.cornerRadius
-        nameOtherFoodLabel.layer.cornerRadius = OtherFoodCellViewModel.Configure.cornerRadius
+        otherFoodView.layer.cornerRadius = Configure.cornerRadius
+        nameOtherFoodLabel.layer.cornerRadius = Configure.cornerRadius
     }
 
     private func updateView() {

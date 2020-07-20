@@ -9,28 +9,28 @@
 import UIKit
 import SDWebImage
 
-struct Configure {
-    static let cornerRadius: CGFloat = 10
-}
-
 final class ImageTableViewCell: UITableViewCell {
+
+    private struct Configure {
+        static let cornerRadius: CGFloat = 10
+    }
 
     // MARK: - IBOutlet
     @IBOutlet private weak var thumnailMealImageView: UIImageView!
     @IBOutlet private weak var thumbmailView: UIView!
-    
+
     // MARK: - Properties
     var viewModel: DetailMealTableViewCellViewModel? {
         didSet {
             updateView()
         }
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         thumnailMealImageView.layer.cornerRadius = Configure.cornerRadius
     }
-    
+
     private func updateView() {
         guard let viewModel = viewModel else {
             return
