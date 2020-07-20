@@ -26,6 +26,14 @@ extension App {
         static let iconBack = "icon_back"
         static let titleCountry = "Country"
         static let loadSuccess = "Loading Success"
+        static let iconAddFavorites = "heart"
+        static let iconRemoveFavorites = "heart.fill"
+        static let haveItem = "Item is Favorites"
+        static let notHaveItem = "Item not is Favorites"
+        static let addObjectSuccess = "Success To Add Object"
+        static let addObjectFailed = "Failed To Add Object"
+        static let deleteObjectSuccess = "Success To Delete Object"
+        static let deleteObjectFailed = "Failed To Delete Object"
         static let titleHomeWelcome = "Cooking Junior"
     }
 }

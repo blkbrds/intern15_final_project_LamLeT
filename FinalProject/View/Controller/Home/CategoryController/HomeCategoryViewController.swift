@@ -8,6 +8,14 @@
 
 import UIKit
 import SVProgressHUD
+import SideMenu
+
+// MARK: - Define
+private struct Configure {
+    static let title: String = "Category Meal"
+    static let sizeForItem: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+}
 
 final class HomeCategoryViewController: BaseViewController {
 
@@ -20,13 +28,13 @@ final class HomeCategoryViewController: BaseViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = DefineHomeCategory.title
+        title = Configure.title
     }
 
     // MARK: - Override Functions
     override func setUpUI() {
         registerCollectionView()
-        navigationController?.navigationBar.tintColor = UIColor.black
+        configNavi()
     }
 
     override func setUpData() {
@@ -34,6 +42,11 @@ final class HomeCategoryViewController: BaseViewController {
     }
 
     // MARK: - Private Functions
+    private func configNavi() {
+        title = App.String.titleCountry
+        navigationController?.navigationBar.tintColor = UIColor.black
+    }
+
     private func registerCollectionView() {
         listCategoryCollectionView.register(nibWithCellClass: HomeCategoryCollectionViewCell.self)
         listCategoryCollectionView.dataSource = self
@@ -77,11 +90,11 @@ extension HomeCategoryViewController: UICollectionViewDataSource, UICollectionVi
 // MARK: - UICollectionViewDelegateFlowLayout
 extension HomeCategoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return DefineHomeCategory.sizeForItem
+        return Configure.sizeForItem
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return DefineHomeCategory.spaceForCell
+        return Configure.spaceForCell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -89,11 +102,4 @@ extension HomeCategoryViewController: UICollectionViewDelegateFlowLayout {
         vc.viewModel = viewModel.getNameCategory(indexPath: indexPath)
         self.navigationController?.pushViewController(vc, animated: true)
     }
-}
-
-// MARK: - Define
-private struct DefineHomeCategory {
-    static let title: String = "Category Meal"
-    static let sizeForItem: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
-    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
 }

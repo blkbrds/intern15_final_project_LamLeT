@@ -44,19 +44,22 @@
                                 <rect key="frame" x="211" y="0.0" width="40" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4E-g7-b9w">
-                                        <rect key="frame" x="5" y="6.5" width="30" height="27.5"/>
+                                        <rect key="frame" x="6" y="7.5" width="28" height="25.5"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" backgroundImage="heart.fill" catalog="system"/>
+                                        <state key="normal" backgroundImage="heart" catalog="system"/>
+                                        <connections>
+                                            <action selector="favoritesButtonTouchUpInside:" destination="gTV-IL-0wX" eventType="touchUpInside" id="dhO-jS-BtJ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="C4E-g7-b9w" secondAttribute="bottom" constant="6" id="3WL-Zg-uan"/>
                                     <constraint firstAttribute="width" constant="40" id="44I-lf-tzD"/>
-                                    <constraint firstAttribute="trailing" secondItem="C4E-g7-b9w" secondAttribute="trailing" constant="5" id="A4D-hn-RSf"/>
+                                    <constraint firstAttribute="trailing" secondItem="C4E-g7-b9w" secondAttribute="trailing" constant="6" id="CW4-Jl-Uxc"/>
                                     <constraint firstAttribute="height" constant="40" id="Kfn-Np-g3c"/>
-                                    <constraint firstItem="C4E-g7-b9w" firstAttribute="top" secondItem="5GE-bd-DPD" secondAttribute="top" constant="5" id="WvU-1I-LqU"/>
-                                    <constraint firstItem="C4E-g7-b9w" firstAttribute="leading" secondItem="5GE-bd-DPD" secondAttribute="leading" constant="5" id="XaG-x9-GEK"/>
-                                    <constraint firstAttribute="bottom" secondItem="C4E-g7-b9w" secondAttribute="bottom" constant="5" id="rqY-fD-g8F"/>
+                                    <constraint firstItem="C4E-g7-b9w" firstAttribute="leading" secondItem="5GE-bd-DPD" secondAttribute="leading" constant="6" id="RfI-19-4AA"/>
+                                    <constraint firstItem="C4E-g7-b9w" firstAttribute="top" secondItem="5GE-bd-DPD" secondAttribute="top" constant="6" id="tdD-pj-DCV"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -90,6 +93,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="251" height="183"/>
             <connections>
+                <outlet property="favoritesButton" destination="C4E-g7-b9w" id="ALR-wt-OhO"/>
                 <outlet property="nameMealLabel" destination="1jW-lO-EXF" id="8BS-fd-FKZ"/>
                 <outlet property="nameMealView" destination="Soo-Fe-1Kd" id="n3y-wi-qCf"/>
                 <outlet property="thumbnailMealImageView" destination="goO-dC-Mou" id="lnU-yW-uPZ"/>
@@ -99,6 +103,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="heart.fill" catalog="system" width="64" height="54"/>
+        <image name="heart" catalog="system" width="64" height="54"/>
     </resources>
 </document>

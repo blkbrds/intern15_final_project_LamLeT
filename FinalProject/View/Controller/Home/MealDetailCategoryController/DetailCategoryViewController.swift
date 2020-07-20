@@ -9,6 +9,12 @@
 import UIKit
 import SVProgressHUD
 
+// MARK: - Define
+private struct Configure {
+    static let sizeForCellCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+}
+
 final class DetailCategoryViewController: BaseViewController {
 
     // MARK: - IBOutlet
@@ -33,6 +39,12 @@ final class DetailCategoryViewController: BaseViewController {
         registerTableCell()
         registerCollectionCell()
         loadAPI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+        collectionView.reloadData()
     }
 
     // MARK: - Private Functions
@@ -105,6 +117,12 @@ extension DetailCategoryViewController: UITableViewDelegate, UITableViewDataSour
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DetailMealViewController()
+        vc.viewModel = viewModel.pushIdMeal(indexPath: indexPath)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
@@ -118,21 +136,21 @@ extension DetailCategoryViewController: UICollectionViewDelegate, UICollectionVi
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
         return cell
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = DetailMealViewController()
+        vc.viewModel = viewModel.pushIdMeal(indexPath: indexPath)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension DetailCategoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return DefineDetailCategory.sizeForCellCollection
+        return Configure.sizeForCellCollection
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return DefineDetailCategory.spaceForCell
+        return Configure.spaceForCell
     }
-}
-
-// MARK: - Define
-private struct DefineDetailCategory {
-    static let sizeForCellCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
-    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
 }
