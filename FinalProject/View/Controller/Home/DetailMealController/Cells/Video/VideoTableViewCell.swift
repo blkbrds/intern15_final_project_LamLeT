@@ -9,6 +9,11 @@
 import UIKit
 import WebKit
 
+// MARK: - Define
+private struct Configure {
+    static let urlVideo = "https://www.youtube.com/embed/"
+}
+
 final class VideoTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlet
@@ -28,23 +33,14 @@ final class VideoTableViewCell: UITableViewCell {
     }
 
     private func updateView() {
-        guard let viewModel = viewModel else {
-            return
-        }
-        if viewModel.meal.urlVideoMeal.isEmpty {
-            videoAlertLabel.isHidden = false
-            videoAlertLabel.text = viewModel.getLinkVideo()
-        } else {
-            guard let youtubeURL = URL(string: "\(DetailMealTableViewCellViewModel.Configure.urlVideo)\(viewModel.getLinkVideo())") else {
-                return
-            }
-            webView.load(URLRequest(url: youtubeURL))
-        }
+        showVideo()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    private func showVideo() {
+        if let viewModel = viewModel, let url = viewModel.meal.urlVideoMeal, let youtubeURL = URL(string: "\(Configure.urlVideo)\(viewModel.getLinkVideo())") {
+            videoAlertLabel.isHidden = !url.isEmpty
+            videoAlertLabel.text = viewModel.getLinkVideo()
+            webView.load(URLRequest(url: youtubeURL))
+        }
     }
 }

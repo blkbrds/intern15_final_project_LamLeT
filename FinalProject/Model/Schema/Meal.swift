@@ -17,13 +17,11 @@ class Meal {
     var instructions: String
     var urlMealThumbnail: String
     var tags: String
-    var urlVideoMeal: String
-    var ingredient: String
-    var measure: String
-    var sourceLink: String
+    var urlVideoMeal: String?
+    var ingredientArray: [String] = []
+    var measureArray: [String] = []
+    var sourceLink: String?
     var thumbnail: UIImage?
-
-    var ingredientMeasure: [String: String] = [:]
 
     init(json: JSON) {
         if let idMeal = json["idMeal"] as? String {
@@ -63,43 +61,23 @@ class Meal {
         }
         if let urlVideoMeal = json["strYoutube"] as? String {
             self.urlVideoMeal = urlVideoMeal
-        } else {
-            self.urlVideoMeal = ""
-        }
-        var strIngredient = ""
-        for i in 1...20 {
-            if let ingredient = json["strIngredient\(i)"] as? String {
-                if ingredient != "" {
-                    strIngredient += "\(i). " + ingredient + ":\n"
-                    ingredientMeasure["ingredient"] = ingredient
-                } else {
-                    strIngredient += ""
-                }
-            } else {
-                strIngredient += ""
-            }
-        }
-        self.ingredient = strIngredient
-        var strMeasure = ""
-        for i in 1...20 {
-            if let measure = json["strMeasure\(i)"] as? String {
-                if measure != "" {
-                    strMeasure += measure + "\n"
-                    ingredientMeasure["measure"] = measure
-                } else {
-                    strMeasure += ""
-                }
-            } else {
-                strMeasure += ""
-            }
-        }
-        self.measure = strMeasure
-        if let strSource = json["strSource"] as? String {
-            self.sourceLink = strSource
-        } else {
-            self.sourceLink = ""
         }
 
-        self.ingredientMeasure = [ingredient: measure]
+        var strIngredient = ""
+        for i in 1...20 {
+            if let ingredient = json["strIngredient\(i)"] as? String, !ingredient.isEmpty {
+                strIngredient = "\(i). " + ingredient
+                self.ingredientArray.append(strIngredient)
+            }
+        }
+        for i in 1...20 {
+            if let measure = json["strMeasure\(i)"] as? String, !measure.isEmpty {
+                self.measureArray.append(measure)
+            }
+        }
+
+        if let strSource = json["strSource"] as? String {
+            self.sourceLink = strSource
+        }
     }
 }

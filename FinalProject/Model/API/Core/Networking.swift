@@ -16,6 +16,10 @@ struct MealResult {
     var meals: [Meal]
 }
 
+struct MealDetailResult {
+    var meal: Meal
+}
+
 //MARK: Enum
 enum APIResult<T> {
     case failure(String)
@@ -150,7 +154,6 @@ class Networking {
                         }
                         let result = MealResult(meals: areaDetails)
                         completion(.success(result))
-
                     } else {
                         completion(.failure(App.String.alertFailedToDataAPI))
                     }
@@ -160,7 +163,7 @@ class Networking {
         task.resume()
     }
 
-    func getMealDetail(idMeal: String, completion: @escaping APICompletion<MealResult>) {
+    func getMealDetail(idMeal: String, completion: @escaping APICompletion<MealDetailResult>) {
         guard let url = URL(string: Api.Path.apiDetailMeal + "i=\(idMeal)") else {
             completion(.failure(App.String.alertFailedAPI))
             return
@@ -174,12 +177,13 @@ class Networking {
                     completion(.failure(App.String.alertFailedToConnectAPI))
                 } else {
                     if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
-                        var detailMeals: [Meal] = []
+                        var detailMeal: Meal?
                         for item in meals {
-                            let meals = Meal(json: item)
-                            detailMeals.append(meals)
+                            let meal = Meal(json: item)
+                            detailMeal = meal
                         }
-                        let result = MealResult(meals: detailMeals)
+                        guard let mealResult = detailMeal else { return }
+                        let result = MealDetailResult(meal: mealResult)
                         completion(.success(result))
                     } else {
                         completion(.failure(App.String.alertFailedToDataAPI))
@@ -203,10 +207,7 @@ class Networking {
                 if let _ = error {
                     completion(.failure(App.String.alertFailedToConnectAPI))
                 } else {
-                    if let data = data, let json = data.toJSON() {
-                        guard let meals = json["meals"] as? [JSON] else {
-                            return
-                        }
+                    if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
                         var randomMeals: [Meal] = []
                         for item in meals {
                             let meals = Meal(json: item)

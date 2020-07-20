@@ -15,28 +15,25 @@ import UIKit
 
 final class DetailMealViewModel {
 
-    // MARK: - Define
-    struct Configure {
-        static let spaceForSection: CGFloat = 10
-        static let iconAddFavorites: String = "heart"
-        static let iconRemoveFavorites: String = "heart.fill"
-        static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
-    }
-
     // MARK: Properties
     var sections: [Section] = [.image, .information, .video, .instruction, .ingrentMeasure, .linkSource, .otherFood]
     var idMeal: String = ""
     var detailMeals: [Meal] = []
-    var randomMeals: [Meal] = []
+    var otherFood: [Meal] = []
     var headerTitler: [String] = ["Image", "Infomation", "Video", "Instruction", "Ingredient And Measure", "Link Source", "Orther Food"]
-    var ingredientMeasure: [String: String] = [:]
+    var meal: Meal?
+    var ingredient: [String] = []
+    var measure: [String] = []
+    var infor: [String] = ["Name", "Area", "Category", "Tags"]
+    var information: [String] = []
+    var category: String = ""
 
     //MARK: Realm
     var nameMeal: String = ""
     var imageMealURL: String = ""
     var isFavorites: Bool = false
 
-        // MARK: - Life Cycle
+    // MARK: - Life Cycle
     init() { }
 
     init(meal: Meal) {
@@ -45,20 +42,25 @@ final class DetailMealViewModel {
         //MARK: Realm
         self.nameMeal = meal.mealName
         self.imageMealURL = meal.urlMealThumbnail
-        self.ingredientMeasure = meal.ingredientMeasure
     }
 
     // MARK: Get API
     func getAPIDetailMeal(completion: @escaping (Bool, String) -> Void) {
-        Networking.shared().getMealDetail(idMeal: idMeal) { (result) in
+        Networking.shared().getMealDetail(idMeal: idMeal) { [weak self] (result) in
+            guard let this = self else { return }
             switch result {
             case .failure(let error):
                 completion(false, error)
             case .success(let detailMeal):
-                for item in detailMeal.meals {
-                    self.detailMeals.append(item)
+                this.meal = detailMeal.meal
+                if let meal = this.meal {
+                    this.detailMeals.append(meal)
+                    this.information.append(contentsOf: [meal.mealName, meal.area, meal.category, meal.tags])
+                    this.ingredient = meal.ingredientArray
+                    this.measure = meal.measureArray
+                    this.category = meal.category
+                    completion(true, App.String.loadSuccess)
                 }
-                completion(true, App.String.loadSuccess)
             }
         }
     }
@@ -75,18 +77,20 @@ final class DetailMealViewModel {
     }
 
     func getAPIRandomMeal(completion: @escaping (Bool, String) -> Void) {
-        Networking.shared().getMealRandom { (result) in
+        Networking.shared().getMealRandom { [weak self] (result) in
+            guard let this = self else { return }
             switch result {
             case .failure(let error):
                 completion(false, error)
             case .success(let randomMeal):
                 for item in randomMeal.meals {
-                    self.randomMeals.append(item)
+                    this.otherFood.append(item)
                 }
                 completion(true, App.String.loadSuccess)
             }
         }
     }
+
 
     // MARK: - Data Table
     func numberOfSections() -> Int {
@@ -95,10 +99,14 @@ final class DetailMealViewModel {
 
     func numberOfRowsInSection(section: Section) -> Int {
         switch section {
-        case .image, .information, .video, .instruction, .ingrentMeasure, .linkSource:
+        case .image, .video, .instruction, .linkSource:
             return detailMeals.count
+        case .information:
+            return information.count
+        case .ingrentMeasure:
+            return ingredient.count
         case .otherFood:
-            return randomMeals.count
+            return otherFood.count
         }
     }
 
@@ -108,14 +116,28 @@ final class DetailMealViewModel {
         return model
     }
 
+    func cellForRowAtInformation(indexPath: IndexPath) -> InforCellViewModel {
+        let value = information[indexPath.row]
+        let name = infor[indexPath.row]
+        let viewModel = InforCellViewModel(name: name, value: value)
+        return viewModel
+    }
+
+    func cellForRowAtIngredientMeasure(indexPath: IndexPath) -> InforCellViewModel {
+        let name = ingredient[indexPath.row]
+        let value = measure[indexPath.row]
+        let viewModel = InforCellViewModel(name: name, value: value)
+        return viewModel
+    }
+
     func cellForRowRandomMeal(indexPath: IndexPath) -> OtherFoodCellViewModel {
-        let item = randomMeals[indexPath.row]
+        let item = otherFood[indexPath.row]
         let model = OtherFoodCellViewModel(meal: item)
         return model
     }
 
     func pushIdMeal(indexPath: IndexPath) -> DetailMealViewModel {
-        let item = randomMeals[indexPath.row]
+        let item = otherFood[indexPath.row]
         let model = DetailMealViewModel(meal: item)
         return model
     }
