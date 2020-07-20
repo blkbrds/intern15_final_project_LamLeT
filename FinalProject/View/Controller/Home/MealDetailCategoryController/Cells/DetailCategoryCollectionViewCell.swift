@@ -8,7 +8,7 @@
 
 import UIKit
 
-private struct DefineCategoryCollection {
+private struct Configure {
     static let radius: CGFloat = 10
 }
 
@@ -30,15 +30,13 @@ final class DetailCategoryCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        viewForCell.cornerRadius = DefineCategoryCollection.radius
-        nameMealLabel.cornerRadius = DefineCategoryCollection.radius
+        viewForCell.cornerRadius = Configure.radius
+        nameMealLabel.cornerRadius = Configure.radius
     }
 
     // MARK: - Private functions
     private func updateView() {
-        guard let viewModel = viewModel else {
-            return
-        }
+        guard let viewModel = viewModel else { return }
         nameMealLabel.text = viewModel.nameMeal
         thumbnailMealImageView.sd_setImage(with: URL(string: viewModel.urlThumnailMeal))
     }

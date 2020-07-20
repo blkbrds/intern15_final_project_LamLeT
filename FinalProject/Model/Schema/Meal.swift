@@ -18,8 +18,8 @@ class Meal {
     var urlMealThumbnail: String
     var tags: String
     var urlVideoMeal: String?
-    var ingredient: String
-    var measure: String
+    var ingredientArray: [String] = []
+    var measureArray: [String] = []
     var sourceLink: String?
     var thumbnail: UIImage?
 
@@ -64,36 +64,22 @@ class Meal {
         if let urlVideoMeal = json["strYoutube"] as? String {
             self.urlVideoMeal = urlVideoMeal
         }
+
         var strIngredient = ""
         for i in 1...20 {
-            if let ingredient = json["strIngredient\(i)"] as? String {
-                if !ingredient.isEmpty {
-                    strIngredient += "\(i). " + ingredient + ":\n"
-                } else {
-                    strIngredient += ""
-                }
-            } else {
-                strIngredient += ""
+            if let ingredient = json["strIngredient\(i)"] as? String, !ingredient.isEmpty {
+                strIngredient = "\(i). " + ingredient
+                self.ingredientArray.append(strIngredient)
             }
         }
-        self.ingredient = strIngredient
-
-        var strMeasure = ""
         for i in 1...20 {
-            if let measure = json["strMeasure\(i)"] as? String {
-                if !measure.isEmpty {
-                    strMeasure += measure + "\n"
-                } else {
-                    strMeasure += ""
-                }
-            } else {
-                strMeasure += ""
+            if let measure = json["strMeasure\(i)"] as? String, !measure.isEmpty {
+                self.measureArray.append(measure)
             }
         }
-        self.measure = strMeasure
 
         if let strSource = json["strSource"] as? String {
             self.sourceLink = strSource
-        } 
+        }
     }
 }
