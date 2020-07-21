@@ -7,10 +7,15 @@
 //
 
 import UIKit
-import SideMenu
 
 protocol CountryViewControllerDelegate: class {
     func controller(_ controller: CountryViewController, needPerformAction action: CountryViewController.Action)
+}
+// MARK: - Define
+private struct Configure {
+    static let sizeForCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+    static let sizeForCollectionRandom: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)), height: 250)
 }
 
 final class CountryViewController: BaseViewController {
@@ -30,7 +35,7 @@ final class CountryViewController: BaseViewController {
             }
         }
     }
-    
+
     enum Action {
         case pushToController(vc: UIViewController)
     }
@@ -75,7 +80,6 @@ final class CountryViewController: BaseViewController {
                 self.showAlert(message: msg)
             }
         }
-        HUD.setOffsetFromCenter(CountryViewModel.Configure.uiOffSet)
     }
 
 
@@ -164,15 +168,15 @@ extension CountryViewController: UICollectionViewDataSource, UICollectionViewDel
 extension CountryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
-            return CountryViewModel.Configure.sizeForCollectionRandom
+            return Configure.sizeForCollectionRandom
         } else if indexPath.section == 1 {
-            return CountryViewModel.Configure.sizeForCollection
+            return Configure.sizeForCollection
         }
-        return CountryViewModel.Configure.sizeForCollection
+        return Configure.sizeForCollection
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return CountryViewModel.Configure.spaceForCell
+        return Configure.spaceForCell
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -188,4 +192,6 @@ extension CountryViewController: UICollectionViewDelegateFlowLayout {
         // update the new position acquired
         lastContentOffset = scrollView.contentOffset.y
     }
+
+
 }

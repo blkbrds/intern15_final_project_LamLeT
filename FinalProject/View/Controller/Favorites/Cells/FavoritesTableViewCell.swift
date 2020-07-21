@@ -8,6 +8,11 @@
 
 import UIKit
 
+// MARK: - Define
+private struct Configure {
+    static let cornerRadius: CGFloat = 10
+}
+
 class FavoritesTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlet
@@ -25,16 +30,13 @@ class FavoritesTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        mealFatoritesView.layer.cornerRadius = 10
-        mealFatoritesView.clipsToBounds = true
-        mealNameLabel.layer.cornerRadius = 10
-        mealNameLabel.clipsToBounds = true
+        mealFatoritesView.layer.cornerRadius = Configure.cornerRadius
+        mealNameLabel.layer.cornerRadius = Configure.cornerRadius
+
     }
 
     private func updateView() {
-        guard let viewModel = viewModel else {
-            return
-        }
+        guard let viewModel = viewModel else { return }
         mealNameLabel.text = viewModel.nameMeal
         mealFavoriteImageView.sd_setImage(with: URL(string: viewModel.urlImageMeal))
     }

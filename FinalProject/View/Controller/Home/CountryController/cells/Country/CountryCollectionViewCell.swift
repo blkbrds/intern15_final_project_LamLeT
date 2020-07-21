@@ -8,6 +8,10 @@
 
 import UIKit
 
+private struct Configure {
+    static let cornerRadius: CGFloat = 10
+}
+
 class CountryCollectionViewCell: UICollectionViewCell {
 
     // MARK: - IBOutlet
@@ -19,10 +23,8 @@ class CountryCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        countryView.layer.cornerRadius = 10
-        countryView.clipsToBounds = true
-        areaNameLabel.layer.cornerRadius = 10
-        areaNameLabel.clipsToBounds = true
+        countryView.cornerRadius = Configure.cornerRadius
+        areaNameLabel.cornerRadius = Configure.cornerRadius
     }
 
     // MARK: - Properties
@@ -34,9 +36,7 @@ class CountryCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Private Functions
     private func updateView() {
-        guard let viewModel = viewModel else {
-            return
-        }
+        guard let viewModel = viewModel else { return }
         areaNameLabel.text = viewModel.nameArea
         flagCountryImageView.sd_setImage(with: URL(string: viewModel.urlFlagCountry))
     }

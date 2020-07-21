@@ -29,7 +29,7 @@ final class FavoritesViewController: BaseViewController {
 
     private func configNavi() {
         title = viewModel.title
-        let imageDelete = UIImage(systemName: FavoritesViewModel.Configure.nameIconDelete)
+        let imageDelete = UIImage(systemName: Configure.nameIconDelete)
         let backButton = UIBarButtonItem(image: imageDelete, style: .plain, target: self, action: #selector(deleteButtonTouchUpInside))
         navigationItem.leftBarButtonItem = backButton
         navigationItem.leftBarButtonItem?.tintColor = .black
@@ -90,7 +90,7 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
             }
         }
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailMealViewController()
         vc.viewModel = viewModel.pushToView(indexPath: indexPath)

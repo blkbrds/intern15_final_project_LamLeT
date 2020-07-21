@@ -18,20 +18,14 @@ final class Api {
             static let baseURL = "https://pro-asiantech.vn"
         #endif
         static let pathURL = "https://www.themealdb.com/api/json/v1/1/"
-
         static let apiListCategory = "\(pathURL)categories.php"
-
         static let apiMealCategoryAndArea = "\(pathURL)filter.php?"
-
         static let apiListArea = "\(pathURL)list.php?a=list"
-
         static let apiDetailMeal = "\(pathURL)lookup.php?"
-
         static let apiRandomMeal = "\(pathURL)random.php"
-
         static let apiSearchFirstLetter = "\(pathURL)search.php?f="
-
         static let apiSearchByName = "\(pathURL)search.php?s="
+
     }
 }
 

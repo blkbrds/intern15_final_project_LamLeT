@@ -8,6 +8,11 @@
 
 import UIKit
 
+// MARK: - Define
+private struct Configure {
+    static let cornerRadius: CGFloat = 10
+}
+
 final class OtherFoodTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlet
@@ -27,10 +32,8 @@ final class OtherFoodTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        otherFoodView.layer.cornerRadius = 10
-        otherFoodView.clipsToBounds = true
-        nameOtherFoodLabel.layer.cornerRadius = 10
-        nameOtherFoodLabel.clipsToBounds = true
+        otherFoodView.layer.cornerRadius = Configure.cornerRadius
+        nameOtherFoodLabel.layer.cornerRadius = Configure.cornerRadius
     }
 
     private func updateView() {

@@ -13,6 +13,14 @@ import SideMenu
 protocol HomeCategoryViewControllerDelegate: class {
     func controller(controller: HomeCategoryViewController, needPerformAction action: HomeCategoryViewController.Action)
 }
+// MARK: - Define
+private struct Configure {
+    static let title: String = "Category Meal"
+    static let sizeForItem: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+    static let sizeForCollectionRandom: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)), height: 250)
+    static let sizeForCollectionCountry: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)), height: 100)
+    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+}
 
 final class HomeCategoryViewController: BaseViewController {
 
@@ -31,7 +39,7 @@ final class HomeCategoryViewController: BaseViewController {
             }
         }
     }
-    
+
     enum Action {
         case pushTo(vc: UIViewController)
     }
@@ -85,7 +93,6 @@ final class HomeCategoryViewController: BaseViewController {
                 self.showAlert(message: msg)
             }
         }
-        HUD.setOffsetFromCenter(HomeCategoryViewModel.Configure.uiOffSet)
     }
 
     private func loadAPIRandom() {
@@ -158,21 +165,21 @@ extension HomeCategoryViewController: UICollectionViewDataSource, UICollectionVi
             delegate?.controller(controller: self, needPerformAction: .pushTo(vc: vc))
         }
     }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return Configure.spaceForCell
+    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension HomeCategoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
-            return HomeCategoryViewModel.Configure.sizeForCollectionRandom
+            return Configure.sizeForCollectionRandom
         } else if indexPath.section == 1 {
-            return HomeCategoryViewModel.Configure.sizeForCollection
+            return Configure.sizeForCollection
         }
-        return HomeCategoryViewModel.Configure.sizeForCollection
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return HomeCategoryViewModel.Configure.spaceForCell
+        return Configure.sizeForCollection
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -184,7 +191,6 @@ extension HomeCategoryViewController: UICollectionViewDelegateFlowLayout {
             // move down
             scrollDirection = .down
         }
-
         // update the new position acquired
         lastContentOffset = scrollView.contentOffset.y
     }

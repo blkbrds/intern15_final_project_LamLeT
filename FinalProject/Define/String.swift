@@ -35,5 +35,6 @@ extension App {
         static let deleteObjectSuccess = "Success To Delete Object"
         static let deleteObjectFailed = "Failed To Delete Object"
         static let noResultMeal = "The Meal Is Not In Data"
+        static let titleHomeWelcome = "Cooking Junior"
     }
 }

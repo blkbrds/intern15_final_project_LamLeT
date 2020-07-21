@@ -13,7 +13,7 @@ final class IngredientMeasureTableViewCell: UITableViewCell {
     // MARK: - IBOutlet
     @IBOutlet private weak var ingredientLabel: UILabel!
     @IBOutlet private weak var measureLabel: UILabel!
-    
+
     // MARK: - Properties
     var viewModel: InforCellViewModel? {
         didSet {
@@ -21,21 +21,9 @@ final class IngredientMeasureTableViewCell: UITableViewCell {
         }
     }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     private func updateView() {
         guard let viewModel = viewModel else { return }
         ingredientLabel.text = viewModel.name
         measureLabel.text = viewModel.value
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

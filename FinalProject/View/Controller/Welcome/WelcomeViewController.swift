@@ -8,14 +8,11 @@
 
 import UIKit
 
-struct Configure {
+private struct Configure {
     static let title: String = "Welcome"
 }
 
 final class WelcomeViewController: BaseViewController {
-
-    // MARK: - IBOutlet
-   // @IBOutlet private weak var nextButton: UIButton!
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -27,8 +24,4 @@ final class WelcomeViewController: BaseViewController {
         title = Configure.title
     }
 
-    // MARK: - Actions
-//    @IBAction private func nextHomeButtonTouchUpInside(_ sender: Any) {
-//        SceneDelegate.shared.changeRoot()
-//    }
 }

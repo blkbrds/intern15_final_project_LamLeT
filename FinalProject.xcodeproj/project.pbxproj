@@ -87,7 +87,9 @@
 		F0D37E0F24C0659200967447 /* RandomMealCountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D37E0E24C0659200967447 /* RandomMealCountryViewModel.swift */; };
 		F0D37E1524C0747F00967447 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D37E1324C0747F00967447 /* HomeViewController.swift */; };
 		F0D37E1624C0747F00967447 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D37E1424C0747F00967447 /* HomeViewController.xib */; };
-		F0F4BD8C24A04E19000A2CD0 /* HomeCellCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4BD8B24A04E19000A2CD0 /* HomeCellCategoryViewModel.swift */; };
+		F0D6FBC624C69C2C009E05C8 /* HomeCellCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D6FBC324C69C2C009E05C8 /* HomeCellCategoryViewModel.swift */; };
+		F0D6FBC724C69C2C009E05C8 /* HomeCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D6FBC424C69C2C009E05C8 /* HomeCategoryCollectionViewCell.xib */; };
+		F0D6FBC824C69C2C009E05C8 /* HomeCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D6FBC524C69C2C009E05C8 /* HomeCategoryCollectionViewCell.swift */; };
 		F0F4BD8E24A04FA8000A2CD0 /* HomeCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4BD8D24A04FA8000A2CD0 /* HomeCategoryViewModel.swift */; };
 		F0F4BD9224A05676000A2CD0 /* CategoryMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4BD9124A05676000A2CD0 /* CategoryMeal.swift */; };
 		F0F4BDBD24A1A851000A2CD0 /* CountryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0F4BDBB24A1A850000A2CD0 /* CountryViewController.xib */; };
@@ -105,8 +107,6 @@
 		F0F4BDDF24A2168F000A2CD0 /* ItemArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4BDDE24A2168F000A2CD0 /* ItemArray.swift */; };
 		F0F746F8249C4D1B002BDE15 /* HomeCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F746F6249C4D1B002BDE15 /* HomeCategoryViewController.swift */; };
 		F0F746F9249C4D1B002BDE15 /* HomeCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0F746F7249C4D1B002BDE15 /* HomeCategoryViewController.xib */; };
-		F0F746FD249C4E31002BDE15 /* HomeCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F746FB249C4E31002BDE15 /* HomeCategoryCollectionViewCell.swift */; };
-		F0F746FE249C4E31002BDE15 /* HomeCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0F746FC249C4E31002BDE15 /* HomeCategoryCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,7 +215,9 @@
 		F0D37E0E24C0659200967447 /* RandomMealCountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMealCountryViewModel.swift; sourceTree = "<group>"; };
 		F0D37E1324C0747F00967447 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F0D37E1424C0747F00967447 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		F0F4BD8B24A04E19000A2CD0 /* HomeCellCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellCategoryViewModel.swift; sourceTree = "<group>"; };
+		F0D6FBC324C69C2C009E05C8 /* HomeCellCategoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCellCategoryViewModel.swift; sourceTree = "<group>"; };
+		F0D6FBC424C69C2C009E05C8 /* HomeCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		F0D6FBC524C69C2C009E05C8 /* HomeCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		F0F4BD8D24A04FA8000A2CD0 /* HomeCategoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCategoryViewModel.swift; sourceTree = "<group>"; };
 		F0F4BD9124A05676000A2CD0 /* CategoryMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMeal.swift; sourceTree = "<group>"; };
 		F0F4BDBB24A1A850000A2CD0 /* CountryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountryViewController.xib; sourceTree = "<group>"; };
@@ -233,8 +235,6 @@
 		F0F4BDDE24A2168F000A2CD0 /* ItemArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemArray.swift; sourceTree = "<group>"; };
 		F0F746F6249C4D1B002BDE15 /* HomeCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryViewController.swift; sourceTree = "<group>"; };
 		F0F746F7249C4D1B002BDE15 /* HomeCategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCategoryViewController.xib; sourceTree = "<group>"; };
-		F0F746FB249C4E31002BDE15 /* HomeCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
-		F0F746FC249C4E31002BDE15 /* HomeCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -676,9 +676,9 @@
 		F06B878824BEB49700CCE48A /* CategoryCell */ = {
 			isa = PBXGroup;
 			children = (
-				F0F746FB249C4E31002BDE15 /* HomeCategoryCollectionViewCell.swift */,
-				F0F4BD8B24A04E19000A2CD0 /* HomeCellCategoryViewModel.swift */,
-				F0F746FC249C4E31002BDE15 /* HomeCategoryCollectionViewCell.xib */,
+				F0D6FBC524C69C2C009E05C8 /* HomeCategoryCollectionViewCell.swift */,
+				F0D6FBC424C69C2C009E05C8 /* HomeCategoryCollectionViewCell.xib */,
+				F0D6FBC324C69C2C009E05C8 /* HomeCellCategoryViewModel.swift */,
 			);
 			path = CategoryCell;
 			sourceTree = "<group>";
@@ -906,12 +906,12 @@
 				D10B9095249B19FA003E0A85 /* Preview Assets.xcassets in Resources */,
 				F069094224AC2157006D9603 /* OtherFoodTableViewCell.xib in Resources */,
 				F069092E24AB2C2C006D9603 /* IngredientMeasureTableViewCell.xib in Resources */,
+				F0D6FBC724C69C2C009E05C8 /* HomeCategoryCollectionViewCell.xib in Resources */,
 				F06908F824A4668E006D9603 /* DetailMealViewController.xib in Resources */,
 				D10B9092249B19FA003E0A85 /* Assets.xcassets in Resources */,
 				F00DAA41249B78BF001A70BC /* WelcomeViewController.xib in Resources */,
 				F069093624AB2C4E006D9603 /* SourceLinkTableViewCell.xib in Resources */,
 				F069093D24AB2C90006D9603 /* DetailMealCountryViewController.xib in Resources */,
-				F0F746FE249C4E31002BDE15 /* HomeCategoryCollectionViewCell.xib in Resources */,
 				F069092624AB2C12006D9603 /* VideoTableViewCell.xib in Resources */,
 				F0D37E0D24C0552E00967447 /* CountryCollectionViewCell.xib in Resources */,
 				F069090524A47C7A006D9603 /* InfoTableViewCell.xib in Resources */,
@@ -1011,7 +1011,6 @@
 				F00DAA37249B76C6001A70BC /* BaseViewController.swift in Sources */,
 				D10B90DC249B1DD5003E0A85 /* Measurement.swift in Sources */,
 				F052C60324B7039F0074490E /* SearchTableViewCell.swift in Sources */,
-				F0F746FD249C4E31002BDE15 /* HomeCategoryCollectionViewCell.swift in Sources */,
 				F01FA21124B068D900A2D6FF /* FavoritesViewModel.swift in Sources */,
 				F0D37E0324C042C300967447 /* HomePageViewController.swift in Sources */,
 				F00DAA39249B7714001A70BC /* BaseTabBarViewController.swift in Sources */,
@@ -1021,10 +1020,12 @@
 				D10B918A249B1FD8003E0A85 /* RequestSerializer.swift in Sources */,
 				F0BE18DE249B613A004FA5AB /* NSURL.swift in Sources */,
 				F069092A24AB2C20006D9603 /* InstructionsTableViewCell.swift in Sources */,
+				F0D6FBC824C69C2C009E05C8 /* HomeCategoryCollectionViewCell.swift in Sources */,
 				F06B878724BEA40C00CCE48A /* RandomMealViewModel.swift in Sources */,
 				F01FA21524B4113E00A2D6FF /* RealmManager.swift in Sources */,
 				F069094124AC2157006D9603 /* OtherFoodTableViewCell.swift in Sources */,
 				F0F746F8249C4D1B002BDE15 /* HomeCategoryViewController.swift in Sources */,
+				F0D6FBC624C69C2C009E05C8 /* HomeCellCategoryViewModel.swift in Sources */,
 				F069092F24AB2C2C006D9603 /* IngredientMeasureTableViewCell.swift in Sources */,
 				D10B90C7249B1DBE003E0A85 /* Ratio.swift in Sources */,
 				F069092324AAED96006D9603 /* UIViewControllerExt.swift in Sources */,
@@ -1035,7 +1036,6 @@
 				F0F4BDD924A1EB12000A2CD0 /* DetailCategoryViewModel.swift in Sources */,
 				F0D37E0824C0493800967447 /* RandomCollectionViewCell.swift in Sources */,
 				F0D37E0F24C0659200967447 /* RandomMealCountryViewModel.swift in Sources */,
-				F0F4BD8C24A04E19000A2CD0 /* HomeCellCategoryViewModel.swift in Sources */,
 				F06908FA24A466B6006D9603 /* DetailMealViewModel.swift in Sources */,
 				F0F4BD9224A05676000A2CD0 /* CategoryMeal.swift in Sources */,
 				F01685BE249CC650006BE5C9 /* Networking.swift in Sources */,

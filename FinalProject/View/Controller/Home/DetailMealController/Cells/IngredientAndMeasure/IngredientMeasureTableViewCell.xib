@@ -45,7 +45,7 @@
                 <outlet property="ingredientLabel" destination="NKS-6L-66U" id="7Hc-aR-vcf"/>
                 <outlet property="measureLabel" destination="PxX-aP-bay" id="uE6-YX-9NV"/>
             </connections>
-            <point key="canvasLocation" x="-430" y="1"/>
+            <point key="canvasLocation" x="-278" y="0.0"/>
         </tableViewCell>
     </objects>
 </document>

@@ -11,13 +11,7 @@ import UIKit
 
 final class SearchViewModel {
 
-    // MARK: - Define
-    struct Configure {
-        static let title: String = "Search Meal"
-        static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
-        static let sizeForCellCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
-        static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
-    }
+  
 
     // MARK: - Properties
     var mealResult: [Meal] = []
@@ -40,9 +34,9 @@ final class SearchViewModel {
     func searchAPIByName(nameMeal: String?, completion: @escaping (Bool, String) -> Void) {
         guard let name = nameMeal,
             !name.isEmpty else {
-            self.mealResult = []
-            completion(true, App.String.loadSuccess)
-            return
+                self.mealResult = []
+                completion(true, App.String.loadSuccess)
+                return
         }
         Networking.shared().searchMealByName(name: name) { (mealResult) in
             switch mealResult {
@@ -69,7 +63,7 @@ final class SearchViewModel {
     func heightForRowAt() -> CGFloat {
         return 250
     }
-    
+
     func pushToView(indexPath: IndexPath) -> DetailMealViewModel {
         let item = mealResult[indexPath.row]
         let viewModel = DetailMealViewModel(meal: item)

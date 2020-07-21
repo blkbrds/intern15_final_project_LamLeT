@@ -32,8 +32,8 @@ final class SourceLinkTableViewCell: UITableViewCell {
             sourceLinkTextView.attributedText = attributedString
         } else {
             let text = viewModel.meal.sourceLink
-            let attributedString = NSMutableAttributedString(string: text)
-            attributedString.addAttribute(.link, value: viewModel.meal.sourceLink, range: NSRange(location: 0, length: text.count))
+            let attributedString = NSMutableAttributedString(string: text!)
+            attributedString.addAttribute(.link, value: viewModel.meal.sourceLink, range: NSRange(location: 0, length: text!.count))
             sourceLinkTextView.attributedText = attributedString
         }
     }

@@ -12,26 +12,18 @@ import UIKit
 
 final class DetailMealViewModel {
 
-    // MARK: - Define
-    struct Configure {
-        static let spaceForSection: CGFloat = 10
-        static let iconAddFavorites: String = "heart"
-        static let iconRemoveFavorites: String = "heart.fill"
-        static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
-    }
-
     // MARK: Properties
     var sections: [Section] = [.image, .information, .video, .instruction, .ingrentMeasure, .linkSource, .otherFood]
     var idMeal: String = ""
     var detailMeals: [Meal] = []
     var otherFood: [Meal] = []
-    var infor: [String] = ["Name", "Area", "Category", "Tags"]
-    var information: [String] = []
-    var headerTitler: [String] = ["Image", "Infomation", "Video", "Instruction", "Ingredient And Measure", "Link Source", "Orther Food"]
 
+    var headerTitler: [String] = ["Image", "Infomation", "Video", "Instruction", "Ingredient And Measure", "Link Source", "Orther Food"]
     var meal: Meal?
     var ingredient: [String] = []
     var measure: [String] = []
+    var infor: [String] = ["Name", "Area", "Category", "Tags"]
+    var information: [String] = []
     var category: String = ""
 
     //MARK: Realm
@@ -41,7 +33,7 @@ final class DetailMealViewModel {
 
     // MARK: - Life Cycle
     init() { }
-
+    
     init(idMeal: String) {
         self.idMeal = idMeal
     }
@@ -56,19 +48,21 @@ final class DetailMealViewModel {
 
     // MARK: Get API
     func getAPIDetailMeal(completion: @escaping (Bool, String) -> Void) {
-        Networking.shared().getMealDetail(idMeal: idMeal) { (result) in
+        Networking.shared().getMealDetail(idMeal: idMeal) { [weak self] (result) in
+            guard let this = self else { return }
             switch result {
             case .failure(let error):
                 completion(false, error)
             case .success(let detailMeal):
-                self.meal = detailMeal.meal
-                guard let meal = self.meal else { return }
-                self.detailMeals.append(meal)
-                self.information.append(contentsOf: [meal.mealName, meal.area, meal.category, meal.tags])
-                self.ingredient = meal.ingredientArray
-                self.measure = meal.measureArray
-                self.category = meal.category
-                completion(true, App.String.loadSuccess)
+                this.meal = detailMeal.meal
+                if let meal = this.meal {
+                    this.detailMeals.append(meal)
+                    this.information.append(contentsOf: [meal.mealName, meal.area, meal.category, meal.tags])
+                    this.ingredient = meal.ingredientArray
+                    this.measure = meal.measureArray
+                    this.category = meal.category
+                    completion(true, App.String.loadSuccess)
+                }
             }
         }
     }
@@ -86,14 +80,18 @@ final class DetailMealViewModel {
 
     func getAPIRandomMeal(completion: @escaping (Bool, String) -> Void) {
         Networking.shared().getMealForCategory(categoryName: category) { (result) in
-            switch result {
-            case .failure(let error):
-                completion(false, error)
-            case .success(let randomMeal):
-                for item in randomMeal.meals {
-                    self.otherFood.append(item)
+            Networking.shared().getMealRandom { [weak self] (result) in
+                guard let this = self else { return }
+                switch result {
+                case .failure(let error):
+                    completion(false, error)
+                case .success(let randomMeal):
+                    for item in randomMeal.meals {
+                        this.otherFood.append(item)
+                        this.otherFood.append(item)
+                    }
+                    completion(true, App.String.loadSuccess)
                 }
-                completion(true, App.String.loadSuccess)
             }
         }
     }
@@ -197,4 +195,5 @@ final class DetailMealViewModel {
             deleteCompletion(false, App.String.deleteObjectFailed)
         }
     }
+
 }

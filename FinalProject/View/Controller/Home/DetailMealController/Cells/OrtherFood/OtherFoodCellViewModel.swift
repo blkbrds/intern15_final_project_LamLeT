@@ -9,7 +9,8 @@
 import Foundation
 import RealmSwift
 
-class OtherFoodCellViewModel {
+
+final class OtherFoodCellViewModel {
     var idMeal: String = ""
     var otherMealName: String = ""
     var urlOtherMealImage: String = ""

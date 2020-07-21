@@ -8,6 +8,14 @@
 
 import UIKit
 
+// MARK: - Define
+private struct Configure {
+    static let title: String = "Search Meal"
+    static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
+    static let sizeForCellCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+}
+
 final class SearchViewController: BaseViewController {
 
     // MARK: - IBOutlet
@@ -60,7 +68,6 @@ final class SearchViewController: BaseViewController {
                 self.showAlert(message: msg)
             }
         }
-        HUD.setOffsetFromCenter(SearchViewModel.Configure.uiOffSet)
     }
 
     private func loadAPISearchByName(nameMeal: String?) {
@@ -80,6 +87,7 @@ final class SearchViewController: BaseViewController {
     }
 }
 
+
 // MARK: - UITableViewDataSourrce
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,6 +101,7 @@ extension SearchViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailMealViewController()
@@ -103,6 +112,7 @@ extension SearchViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - UISearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         var currentText = ""
@@ -111,7 +121,7 @@ extension SearchViewController: UISearchBarDelegate {
         }
         let keyword = (currentText as NSString).replacingCharacters(in: range, with: text)
         viewModel.mealResult = []
-        let additionalTime: DispatchTimeInterval = .seconds(1)
+        let additionalTime: DispatchTimeInterval = .seconds(2)
         DispatchQueue.main.asyncAfter(deadline: .now() + additionalTime) {
             self.loadAPISearchByName(nameMeal: keyword)
             self.view.endEditing(true)
@@ -121,6 +131,5 @@ extension SearchViewController: UISearchBarDelegate {
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
-        self.loadAPISearchByName(nameMeal: searchBar.text)
     }
 }

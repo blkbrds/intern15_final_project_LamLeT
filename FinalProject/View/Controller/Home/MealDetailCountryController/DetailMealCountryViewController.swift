@@ -9,6 +9,15 @@
 import UIKit
 import SVProgressHUD
 
+// MARK: - Define
+private struct Configure {
+    static let title: String = "Area Meal"
+    static let nameIconTable: String = "icon_tableView"
+    static let nameIconCollection: String = "icon_collectionView"
+    static let sizeForCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+}
+
 final class DetailMealCountryViewController: BaseViewController {
 
     // MARK: - IBOutlet
@@ -67,12 +76,11 @@ final class DetailMealCountryViewController: BaseViewController {
                 self.showAlert(message: msg)
             }
         })
-        HUD.setOffsetFromCenter(DetailMealCountryViewModel.Configure.uiOffSet)
     }
 
     private func configNavi() {
         title = viewModel.nameArea
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: DetailMealCountryViewModel.Configure.nameIconCollection), style: .plain, target: self, action: #selector(collectionViewButtonTouchUpInside))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: Configure.nameIconCollection), style: .plain, target: self, action: #selector(collectionViewButtonTouchUpInside))
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: App.String.iconBack), style: .plain, target: self, action: #selector(backToView))
         navigationItem.rightBarButtonItem?.tintColor = .black
         navigationItem.leftBarButtonItem?.tintColor = .black
@@ -82,12 +90,12 @@ final class DetailMealCountryViewController: BaseViewController {
     @objc private func collectionViewButtonTouchUpInside() {
         if isShowTableView == true {
             isShowTableView = false
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: DetailMealCountryViewModel.Configure.nameIconTable), style: .plain, target: self, action: #selector(collectionViewButtonTouchUpInside))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: Configure.nameIconTable), style: .plain, target: self, action: #selector(collectionViewButtonTouchUpInside))
             collectionView.isHidden = false
             collectionView.reloadData()
         } else {
             isShowTableView = true
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: DetailMealCountryViewModel.Configure.nameIconCollection), style: .plain, target: self, action: #selector(collectionViewButtonTouchUpInside))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: Configure.nameIconCollection), style: .plain, target: self, action: #selector(collectionViewButtonTouchUpInside))
             collectionView.isHidden = true
             tableView.reloadData()
         }
@@ -181,11 +189,11 @@ extension DetailMealCountryViewController: UICollectionViewDataSource, UICollect
 // MARK: - UICollectionViewDelegateFlowLayout
 extension DetailMealCountryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return DetailMealCountryViewModel.Configure.sizeForCellCollection
+        return Configure.sizeForCellCollection
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return DetailMealCountryViewModel.Configure.spaceForCell
+        return Configure.spaceForCell
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
