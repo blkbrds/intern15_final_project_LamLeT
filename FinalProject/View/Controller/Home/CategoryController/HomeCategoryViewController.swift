@@ -18,7 +18,7 @@ private struct Configure {
     static let title: String = "Category Meal"
     static let sizeForItem: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
     static let sizeForCollectionRandom: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)), height: 250)
-    static let sizeForCollectionCountry: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)), height: 100)
+    static let sizeForCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
     static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
 }
 
@@ -142,7 +142,6 @@ extension HomeCategoryViewController: UICollectionViewDataSource, UICollectionVi
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.section == 1 {
-
             let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, scrollDirection.ty, 0)
             cell.layer.transform = rotationTransform
             cell.alpha = 0.5

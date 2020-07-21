@@ -41,6 +41,7 @@ final class SearchViewModel {
         Networking.shared().searchMealByName(name: name) { (mealResult) in
             switch mealResult {
             case .failure(let error):
+                self.mealResult = []
                 completion(false, error)
             case .success(let result):
                 self.mealResult = result.meals

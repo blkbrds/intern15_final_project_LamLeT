@@ -57,6 +57,7 @@ final class DetailMealViewController: BaseViewController {
 
     // MARK: - Private Functions
     private func configNavi() {
+        navigationController?.navigationBar.tintColor = .black
         viewModel.checkFavorites { (done, msg) in
             if done {
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Configure.iconAddFavorites), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))

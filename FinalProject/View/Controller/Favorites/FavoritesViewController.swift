@@ -8,6 +8,10 @@
 
 import UIKit
 
+private struct Configure {
+    static let nameIconDelete: String = "trash"
+}
+
 final class FavoritesViewController: BaseViewController {
 
     // MARK: - IBOutlet
@@ -39,6 +43,7 @@ final class FavoritesViewController: BaseViewController {
         tableView.register(nibWithCellClass: FavoritesTableViewCell.self)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
     }
 
     private func fetchData() {

@@ -27,7 +27,7 @@ final class SearchViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = SearchViewModel.Configure.title
+        title = Configure.title
         // Do any additional setup after loading the view.
 
     }
@@ -76,7 +76,8 @@ final class SearchViewController: BaseViewController {
             if done {
                 self.updateUI()
             } else {
-                self.showAlert(message: msg)
+                self.showAlertSearch(message: msg)
+                self.updateUI()
             }
         }
     }
@@ -121,7 +122,7 @@ extension SearchViewController: UISearchBarDelegate {
         }
         let keyword = (currentText as NSString).replacingCharacters(in: range, with: text)
         viewModel.mealResult = []
-        let additionalTime: DispatchTimeInterval = .seconds(2)
+        let additionalTime: DispatchTimeInterval = .seconds(1)
         DispatchQueue.main.asyncAfter(deadline: .now() + additionalTime) {
             self.loadAPISearchByName(nameMeal: keyword)
             self.view.endEditing(true)

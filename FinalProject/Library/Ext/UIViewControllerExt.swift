@@ -15,4 +15,10 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: App.String.alertAction, style: .default, handler: nil))
         self.present(alert, animated: true)
     }
+    
+    func showAlertSearch(message: String) {
+           let alert = UIAlertController(title: App.String.alertSearch, message: message, preferredStyle: .alert)
+           alert.addAction(UIAlertAction(title: App.String.alertActionSearch, style: .default, handler: nil))
+           self.present(alert, animated: true)
+       }
 }
