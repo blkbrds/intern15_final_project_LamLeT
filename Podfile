@@ -16,7 +16,6 @@ target 'FinalProject' do
 
     # Utils
     pod 'SwiftLint', '0.27' # A tool to enforce Swift style and conventions.
-    pod 'SideMenu'
     pod 'SwifterSwift', '~> 4.6'
     pod 'SDWebImage', '4.4.6'
     pod 'SVProgressHUD', '~> 2.2'

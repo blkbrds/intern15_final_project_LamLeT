@@ -8,7 +8,6 @@
 
 import UIKit
 import SVProgressHUD
-import SideMenu
 
 // MARK: - Define
 private struct Configure {
