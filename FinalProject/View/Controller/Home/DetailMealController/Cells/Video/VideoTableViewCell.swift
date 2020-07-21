@@ -33,10 +33,6 @@ final class VideoTableViewCell: UITableViewCell {
     }
 
     private func updateView() {
-        showVideo()
-    }
-
-    private func showVideo() {
         if let viewModel = viewModel, let url = viewModel.meal.urlVideoMeal, let youtubeURL = URL(string: "\(Configure.urlVideo)\(viewModel.getLinkVideo())") {
             videoAlertLabel.isHidden = !url.isEmpty
             videoAlertLabel.text = viewModel.getLinkVideo()
