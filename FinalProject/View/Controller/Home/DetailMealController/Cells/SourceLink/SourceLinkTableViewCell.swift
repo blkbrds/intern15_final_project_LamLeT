@@ -18,13 +18,9 @@ final class SourceLinkTableViewCell: UITableViewCell {
         didSet {
             updateView()
         }
-    }   
-
-    private func updateView() {
-        showLink()
     }
 
-    private func showLink(){
+    private func updateView() {
         guard let viewModel = viewModel, let text = viewModel.meal.sourceLink else { return }
         let attributedString = NSMutableAttributedString(string: text)
         attributedString.addAttribute(.link, value: viewModel.meal.sourceLink, range: NSRange(location: 0, length: text.count))
