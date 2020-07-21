@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import SideMenu
-
 
 // MARK: - Define
 private struct Configure {
