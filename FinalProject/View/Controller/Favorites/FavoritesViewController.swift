@@ -8,6 +8,11 @@
 
 import UIKit
 
+// MARK: - Define
+private struct Configure {
+    static let nameIconDelete: String = "trash"
+}
+
 final class FavoritesViewController: BaseViewController {
 
     // MARK: - IBOutlet
@@ -29,7 +34,7 @@ final class FavoritesViewController: BaseViewController {
 
     private func configNavi() {
         title = viewModel.title
-        let imageDelete = UIImage(systemName: FavoritesViewModel.Configure.nameIconDelete)
+        let imageDelete = UIImage(systemName: Configure.nameIconDelete)
         let backButton = UIBarButtonItem(image: imageDelete, style: .plain, target: self, action: #selector(deleteButtonTouchUpInside))
         navigationItem.leftBarButtonItem = backButton
     }
@@ -55,7 +60,7 @@ final class FavoritesViewController: BaseViewController {
             if done {
                 self.fetchData()
             } else {
-                self.showAlert(message: FavoritesViewModel.Configure.failedDeleteObject)
+                self.showAlert(message: App.String.deleteObjectFailed)
             }
         }
     }
@@ -84,7 +89,7 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
                     viewModel.meals.remove(at: indexPath.row)
                     tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
                 } else {
-                    self.showAlert(message: FavoritesViewModel.Configure.failedDeleteObject)
+                    self.showAlert(message: App.String.deleteObjectFailed)
                 }
             }
         }

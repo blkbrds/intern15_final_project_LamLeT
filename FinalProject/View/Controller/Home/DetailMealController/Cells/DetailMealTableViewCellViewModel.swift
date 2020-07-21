@@ -41,7 +41,7 @@ final class DetailMealTableViewCellViewModel {
         if let url = meal.urlVideoMeal, let range = url.range(of: "=") {
             return String(url[range.upperBound...])
         } else {
-            return "No Has Video Tutorial"
+            return App.String.alertVideo
         }
     }
 }
