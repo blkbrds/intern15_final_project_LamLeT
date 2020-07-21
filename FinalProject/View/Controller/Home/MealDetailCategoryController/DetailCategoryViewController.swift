@@ -111,7 +111,7 @@ extension DetailCategoryViewController: UITableViewDelegate, UITableViewDataSour
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailMealViewController()
         vc.viewModel = viewModel.pushIdMeal(indexPath: indexPath)
@@ -130,7 +130,7 @@ extension DetailCategoryViewController: UICollectionViewDelegate, UICollectionVi
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
         return cell
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = DetailMealViewController()
         vc.viewModel = viewModel.pushIdMeal(indexPath: indexPath)
