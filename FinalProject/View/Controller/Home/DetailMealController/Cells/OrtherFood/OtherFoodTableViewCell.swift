@@ -31,8 +31,8 @@ final class OtherFoodTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        otherFoodView.layer.cornerRadius = Configure.cornerRadius
-        nameOtherFoodLabel.layer.cornerRadius = Configure.cornerRadius
+        otherFoodView.cornerRadius = Configure.cornerRadius
+        nameOtherFoodLabel.cornerRadius = Configure.cornerRadius
     }
 
     private func updateView() {

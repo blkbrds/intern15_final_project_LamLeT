@@ -43,11 +43,11 @@ final class DetailMealViewController: BaseViewController {
     override func setUpData() {
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
-        self.loadAPIDetail {
+        loadAPIDetail {
             dispatchGroup.leave()
         }
         dispatchGroup.enter()
-        self.loadAPIRandomMeal {
+        loadAPIRandomMeal {
             dispatchGroup.leave()
         }
         dispatchGroup.notify(queue: .main) { }
@@ -94,7 +94,6 @@ final class DetailMealViewController: BaseViewController {
             }
         })
     }
-
 
     private func loadAPIDetail(completion: @escaping() -> Void) {
         HUD.show()
@@ -159,37 +158,30 @@ extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
         case .image:
             let cell = tableView.dequeueReusableCell(withClass: ImageTableViewCell.self, for: indexPath)
             cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
-            cell.selectionStyle = .none
             return cell
         case .information:
             let cell = tableView.dequeueReusableCell(withClass: InfoTableViewCell.self, for: indexPath)
             cell.viewModel = viewModel.cellForRowAtInformation(indexPath: indexPath)
-            cell.selectionStyle = .none
             return cell
         case .video:
             let cell = tableView.dequeueReusableCell(withClass: VideoTableViewCell.self, for: indexPath)
             cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
-            cell.selectionStyle = .none
             return cell
         case .instruction:
             let cell = tableView.dequeueReusableCell(withClass: InstructionsTableViewCell.self, for: indexPath)
             cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
-            cell.selectionStyle = .none
             return cell
         case .ingrentMeasure:
             let cell = tableView.dequeueReusableCell(withClass: IngredientMeasureTableViewCell.self, for: indexPath)
             cell.viewModel = viewModel.cellForRowAtIngredientMeasure(indexPath: indexPath)
-            cell.selectionStyle = .none
             return cell
         case .linkSource:
             let cell = tableView.dequeueReusableCell(withClass: SourceLinkTableViewCell.self, for: indexPath)
             cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
-            cell.selectionStyle = .none
             return cell
         case .otherFood:
             let cell = tableView.dequeueReusableCell(withClass: OtherFoodTableViewCell.self, for: indexPath)
             cell.viewModel = viewModel.cellForRowRandomMeal(indexPath: indexPath)
-            cell.selectionStyle = .none
             return cell
         }
     }

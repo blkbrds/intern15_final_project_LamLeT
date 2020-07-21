@@ -37,5 +37,6 @@ extension App {
         static let fetchData = "Fetch Data Success"
         static let failedFetchData = "Failed Fetch Data"
         static let titleHomeWelcome = "Cooking Junior"
+        static let alertVideo = "No Has Video Tutorial"
     }
 }
