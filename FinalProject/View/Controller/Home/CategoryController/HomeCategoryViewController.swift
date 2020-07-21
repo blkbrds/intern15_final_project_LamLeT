@@ -8,7 +8,6 @@
 
 import UIKit
 import SVProgressHUD
-import SideMenu
 
 protocol HomeCategoryViewControllerDelegate: class {
     func controller(controller: HomeCategoryViewController, needPerformAction action: HomeCategoryViewController.Action)
