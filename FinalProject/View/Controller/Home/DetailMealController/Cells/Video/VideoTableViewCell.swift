@@ -33,11 +33,11 @@ final class VideoTableViewCell: UITableViewCell {
     }
 
     private func updateView() {
-        if let viewModel = viewModel, let url = viewModel.meal.urlVideoMeal, let youtubeURL = URL(string: "\(Configure.urlVideo)\(viewModel.getLinkVideo())") {
-            videoAlertLabel.isHidden = !url.isEmpty
-            videoAlertLabel.text = viewModel.getLinkVideo()
+        if let viewModel = viewModel, let url = viewModel.meal.urlVideoMeal, !url.isEmpty, let youtubeURL = URL(string: "\(Configure.urlVideo)\(viewModel.getLinkVideo())") {
             webView.load(URLRequest(url: youtubeURL))
+        } else if let viewModel = viewModel {
+            videoAlertLabel.isHidden = false
+            videoAlertLabel.text = viewModel.getLinkVideo()
         }
-
     }
 }
