@@ -8,6 +8,12 @@
 
 import UIKit
 
+// MARK: - Define
+private struct Configure {
+    static let sizeForCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+}
+
 final class CountryViewController: BaseViewController {
 
     // MARK: - IBOutlet
@@ -84,16 +90,10 @@ extension CountryViewController: UICollectionViewDataSource, UICollectionViewDel
 // MARK: - UICollectionViewDelegateFlowLayout
 extension CountryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return Config.sizeForCollection
+        return Configure.sizeForCollection
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return Config.spaceForCell
+        return Configure.spaceForCell
     }
-}
-
-// MARK: - Define
-struct Config {
-    static let sizeForCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
-    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
 }

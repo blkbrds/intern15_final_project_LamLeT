@@ -9,6 +9,11 @@
 import UIKit
 import SDWebImage
 
+// MARK: - Define
+private struct Configure {
+    static let cornerRadius: CGFloat = 10
+}
+
 final class HomeCategoryCollectionViewCell: UICollectionViewCell {
 
     //MARK: - IBOutlet
@@ -21,25 +26,21 @@ final class HomeCategoryCollectionViewCell: UICollectionViewCell {
     var viewModel: HomeCellCategoryViewModel? {
         didSet {
             updateView()
-        }		
+        }
     }
 
     // MARK: - Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        cellCategoryView.layer.cornerRadius = 10
-        cellCategoryView.clipsToBounds = true
-        nameCategoryLabel.layer.cornerRadius = 10
-        nameCategoryLabel.clipsToBounds = true
+        cellCategoryView.cornerRadius = Configure.cornerRadius
+        nameCategoryLabel.cornerRadius = Configure.cornerRadius
     }
 
     // MARK: - Private Function
     private func updateView() {
         nameCategoryLabel.text = viewModel?.nameCategory
-        guard let viewModel = viewModel else {
-            return
-        }
+        guard let viewModel = viewModel else { return }
         thumbnailCategoryImageView.sd_setImage(with: URL(string: viewModel.urlThumbnail))
     }
 

@@ -16,6 +16,10 @@ struct MealResult {
     var meals: [Meal]
 }
 
+struct MealDetailResult {
+    var meal: Meal
+}
+
 //MARK: Enum
 enum APIResult<T> {
     case failure(String)
@@ -81,18 +85,17 @@ class Networking {
             DispatchQueue.main.async {
                 if let _ = error {
                     completion(.failure(App.String.alertFailedToConnectAPI))
-                } else {
-                    if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
-                        var categoryDetails: [Meal] = []
-                        for item in meals {
-                            let meals = Meal(json: item)
-                            categoryDetails.append(meals)
-                        }
-                        let result = MealResult(meals: categoryDetails)
-                        completion(.success(result))
-                    } else {
-                        completion(.failure(App.String.alertFailedToDataAPI))
+                } else if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
+
+                    var categoryDetails: [Meal] = []
+                    for item in meals {
+                        let meals = Meal(json: item)
+                        categoryDetails.append(meals)
                     }
+                    let result = MealResult(meals: categoryDetails)
+                    completion(.success(result))
+                } else {
+                    completion(.failure(App.String.alertFailedToDataAPI))
                 }
             }
         }
@@ -111,18 +114,17 @@ class Networking {
             DispatchQueue.main.async {
                 if let _ = error {
                     completion(.failure(App.String.alertFailedToConnectAPI))
-                } else {
-                    if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
-                        var areas: [Meal] = []
-                        for item in meals {
-                            let area = Meal(json: item)
-                            areas.append(area)
-                        }
-                        let result = MealResult(meals: areas)
-                        completion(.success(result))
-                    } else {
-                        completion(.failure(App.String.alertFailedToDataAPI))
+                } else if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
+
+                    var areas: [Meal] = []
+                    for item in meals {
+                        let area = Meal(json: item)
+                        areas.append(area)
                     }
+                    let result = MealResult(meals: areas)
+                    completion(.success(result))
+                } else {
+                    completion(.failure(App.String.alertFailedToDataAPI))
                 }
             }
         }
@@ -141,25 +143,24 @@ class Networking {
             DispatchQueue.main.async {
                 if let _ = error {
                     completion(.failure(App.String.alertFailedToConnectAPI))
-                } else {
-                    if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
-                        var areaDetails: [Meal] = []
-                        for item in meals {
-                            let meals = Meal(json: item)
-                            areaDetails.append(meals)
-                        }
-                        let result = MealResult(meals: areaDetails)
-                        completion(.success(result))
-                    } else {
-                        completion(.failure(App.String.alertFailedToDataAPI))
+                } else if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
+
+                    var areaDetails: [Meal] = []
+                    for item in meals {
+                        let meals = Meal(json: item)
+                        areaDetails.append(meals)
                     }
+                    let result = MealResult(meals: areaDetails)
+                    completion(.success(result))
+                } else {
+                    completion(.failure(App.String.alertFailedToDataAPI))
                 }
             }
         }
         task.resume()
     }
 
-    func getMealDetail(idMeal: String, completion: @escaping APICompletion<MealResult>) {
+    func getMealDetail(idMeal: String, completion: @escaping APICompletion<MealDetailResult>) {
         guard let url = URL(string: Api.Path.apiDetailMeal + "i=\(idMeal)") else {
             completion(.failure(App.String.alertFailedAPI))
             return
@@ -171,19 +172,19 @@ class Networking {
             DispatchQueue.main.async {
                 if let _ = error {
                     completion(.failure(App.String.alertFailedToConnectAPI))
-                } else {
-                    if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
-                        var detailMeals: [Meal] = []
-                        for item in meals {
-                            let meals = Meal(json: item)
-                            detailMeals.append(meals)
-                        }
-                        let result = MealResult(meals: detailMeals)
-                        completion(.success(result))
-                    } else {
-                        completion(.failure(App.String.alertFailedToDataAPI))
+                } else if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
+                    var detailMeal: Meal?
+                    for item in meals {
+                        let meal = Meal(json: item)
+                        detailMeal = meal
                     }
+                    guard let mealResult = detailMeal else { return }
+                    let result = MealDetailResult(meal: mealResult)
+                    completion(.success(result))
+                } else {
+                    completion(.failure(App.String.alertFailedToDataAPI))
                 }
+
             }
         }
         task.resume()
@@ -201,18 +202,16 @@ class Networking {
             DispatchQueue.main.async {
                 if let _ = error {
                     completion(.failure(App.String.alertFailedToConnectAPI))
-                } else {
-                    if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
-                        var randomMeals: [Meal] = []
-                        for item in meals {
-                            let meals = Meal(json: item)
-                            randomMeals.append(meals)
-                        }
-                        let result = MealResult(meals: randomMeals)
-                        completion(.success(result))
-                    } else {
-                        completion(.failure(App.String.alertFailedToDataAPI))
+                } else if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
+                    var randomMeals: [Meal] = []
+                    for item in meals {
+                        let meals = Meal(json: item)
+                        randomMeals.append(meals)
                     }
+                    let result = MealResult(meals: randomMeals)
+                    completion(.success(result))
+                } else {
+                    completion(.failure(App.String.alertFailedToDataAPI))
                 }
             }
         }

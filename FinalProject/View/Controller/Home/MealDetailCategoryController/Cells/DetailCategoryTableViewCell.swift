@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK: - Define
-private struct DefineDetailCategoryTable {
+private struct Configure {
     static let radius: CGFloat = 10
 }
 
@@ -31,14 +31,12 @@ final class DetailCategoryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        viewContent.cornerRadius = DefineDetailCategoryTable.radius
-        nameMealLabel.cornerRadius = DefineDetailCategoryTable.radius
+        viewContent.cornerRadius = Configure.radius
+        nameMealLabel.cornerRadius = Configure.radius
     }
 
     private func updateView() {
-        guard let viewModel = viewModel else {
-            return
-        }
+        guard let viewModel = viewModel else { return }
         nameMealLabel.text = viewModel.nameMeal
         thumbnailMealImageView.sd_setImage(with: URL(string: viewModel.urlThumnailMeal))
     }

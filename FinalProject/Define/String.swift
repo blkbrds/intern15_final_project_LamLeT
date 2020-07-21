@@ -27,5 +27,6 @@ extension App {
         static let titleCountry = "Country"
         static let loadSuccess = "Loading Success"
         static let titleHomeWelcome = "Cooking Junior"
+        static let alertVideo = "No Has Video Tutorial"
     }
 }

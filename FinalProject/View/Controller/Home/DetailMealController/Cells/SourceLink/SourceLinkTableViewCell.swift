@@ -18,11 +18,7 @@ final class SourceLinkTableViewCell: UITableViewCell {
         didSet {
             updateView()
         }
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+    }   
 
     private func updateView() {
         showLink()
@@ -36,6 +32,7 @@ final class SourceLinkTableViewCell: UITableViewCell {
     }
 }
 
+// MARK: - UITextViewDelegate
 extension SourceLinkTableViewCell: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         UIApplication.shared.open(URL)

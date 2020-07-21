@@ -10,11 +10,6 @@ import Foundation
 
 final class DetailMealTableViewCellViewModel {
 
-    // MARK: - Define
-    struct Configure {
-        static let urlVideo = "https://www.youtube.com/embed/"
-    }
-
     // MARK: - Properties
     var meal: Meal
 
@@ -24,17 +19,10 @@ final class DetailMealTableViewCellViewModel {
 
     // MARK: - Functions
     func getLinkVideo() -> String {
-        var idVideo: String = ""
-        guard let urlVideoMeal = meal.urlVideoMeal else {
-            return ""
-        }
-        if urlVideoMeal.isEmpty {
-            return "No Has Video Tutorial"
+        if let url = meal.urlVideoMeal, let range = url.range(of: "=") {
+            return String(url[range.upperBound...])
         } else {
-            if let range = urlVideoMeal.range(of: "=") {
-                idVideo = String(urlVideoMeal[range.upperBound...])
-            }
+            return App.String.alertVideo
         }
-        return idVideo
     }
 }

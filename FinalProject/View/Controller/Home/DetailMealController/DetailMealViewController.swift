@@ -28,37 +28,41 @@ final class DetailMealViewController: BaseViewController {
     }
 
     override func setUpData() {
-        loadAPIDetail()
-        loadAPIRandomMeal()
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        loadAPIDetail {
+            dispatchGroup.leave()
+        }
+        dispatchGroup.enter()
+        loadAPIRandomMeal {
+            dispatchGroup.leave()
+        }
+        dispatchGroup.notify(queue: .main) { }
     }
 
     // MARK: - Private Functions
-    private func configNavi() {
+    private func configNavi() { }
 
-    }
-
-
-    private func loadAPIDetail() {
+    private func loadAPIDetail(completion: @escaping() -> Void) {
         HUD.show()
         viewModel.getAPIDetailMeal { [weak self] (done, msg) in
             HUD.dismiss()
-            guard let self = self else {
-                return
-            }
+            guard let this = self else { return }
             if done {
-                self.updateView()
+                this.updateView()
             } else {
-                self.showAlert(message: msg)
+                this.showAlert(message: msg)
             }
         }
     }
-    
-    private func loadAPIRandomMeal() {
-        viewModel.getAPIRandomMeal { (done, msg) in
+
+    private func loadAPIRandomMeal(completion: @escaping() -> Void) {
+        viewModel.getAPIRandomMeal { [weak self] (done, msg) in
+            guard let this = self else { return }
             if done {
-                self.updateView()
+                this.updateView()
             } else {
-                self.showAlert(message: msg)
+                this.showAlert(message: msg)
             }
         }
     }
@@ -104,7 +108,7 @@ extension DetailMealViewController: UITableViewDataSource {
             return cell
         case .information:
             let cell = tableView.dequeueReusableCell(withClass: InfoTableViewCell.self, for: indexPath)
-            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
+            cell.viewModel = viewModel.cellForRowAtInformation(indexPath: indexPath)
             return cell
         case .video:
             let cell = tableView.dequeueReusableCell(withClass: VideoTableViewCell.self, for: indexPath)
@@ -116,7 +120,7 @@ extension DetailMealViewController: UITableViewDataSource {
             return cell
         case .ingrentMeasure:
             let cell = tableView.dequeueReusableCell(withClass: IngredientMeasureTableViewCell.self, for: indexPath)
-            cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
+            cell.viewModel = viewModel.cellForRowAtIngredientMeasure(indexPath: indexPath)
             return cell
         case .linkSource:
             let cell = tableView.dequeueReusableCell(withClass: SourceLinkTableViewCell.self, for: indexPath)
@@ -128,7 +132,7 @@ extension DetailMealViewController: UITableViewDataSource {
             return cell
         }
     }
-    
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return viewModel.headerTitler[section]
     }
