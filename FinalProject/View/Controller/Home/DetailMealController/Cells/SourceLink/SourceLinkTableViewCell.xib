@@ -36,7 +36,7 @@
             <connections>
                 <outlet property="sourceLinkTextView" destination="5yj-j3-ycc" id="QxG-Tr-RR6"/>
             </connections>
-            <point key="canvasLocation" x="131.8840579710145" y="130.58035714285714"/>
+            <point key="canvasLocation" x="-238" y="113"/>
         </tableViewCell>
     </objects>
 </document>

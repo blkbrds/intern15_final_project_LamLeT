@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="FinalProject" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="qD0-co-Bfi" id="nhJ-YI-kec"/>
+                <outlet property="segmentControl" destination="nhp-vJ-mos" id="wU2-DC-Jj2"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nhp-vJ-mos">
+                    <rect key="frame" x="0.0" y="44" width="414" height="32"/>
+                    <segments>
+                        <segment title="Category"/>
+                        <segment title="Country"/>
+                    </segments>
+                </segmentedControl>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qD0-co-Bfi">
+                    <rect key="frame" x="0.0" y="75" width="414" height="787"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nhp-vJ-mos" secondAttribute="trailing" id="26K-XE-F6u"/>
+                <constraint firstItem="qD0-co-Bfi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8pf-xF-bRV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="qD0-co-Bfi" secondAttribute="bottom" id="c08-if-1Mx"/>
+                <constraint firstItem="nhp-vJ-mos" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="lks-m6-FUb"/>
+                <constraint firstItem="qD0-co-Bfi" firstAttribute="top" secondItem="nhp-vJ-mos" secondAttribute="bottom" id="lp2-0N-CPm"/>
+                <constraint firstItem="nhp-vJ-mos" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="mhC-1P-knV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qD0-co-Bfi" secondAttribute="trailing" id="pgd-fa-jlD"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="-277" y="-76"/>
+        </view>
+    </objects>
+</document>

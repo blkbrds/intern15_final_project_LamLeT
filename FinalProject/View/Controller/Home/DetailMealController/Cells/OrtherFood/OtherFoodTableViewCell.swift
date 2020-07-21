@@ -15,6 +15,7 @@ final class OtherFoodTableViewCell: UITableViewCell {
     @IBOutlet private weak var otherFoodImageView: UIImageView!
     @IBOutlet private weak var nameOtherFoodLabel: UILabel!
     @IBOutlet private weak var nameOtherFoodView: UIView!
+    @IBOutlet private weak var favoritesButton: UIButton!
 
     // MARK: - Properties
     var viewModel: OtherFoodCellViewModel = OtherFoodCellViewModel() {
@@ -26,12 +27,19 @@ final class OtherFoodTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        otherFoodView.layer.cornerRadius = OtherFoodCellViewModel.Configure.cornerRadius
-        nameOtherFoodLabel.layer.cornerRadius = OtherFoodCellViewModel.Configure.cornerRadius
+        otherFoodView.layer.cornerRadius = 10
+        otherFoodView.clipsToBounds = true
+        nameOtherFoodLabel.layer.cornerRadius = 10
+        nameOtherFoodLabel.clipsToBounds = true
     }
 
     private func updateView() {
         nameOtherFoodLabel.text = viewModel.otherMealName
         otherFoodImageView.sd_setImage(with: URL(string: viewModel.urlOtherMealImage))
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
     }
 }

@@ -16,12 +16,12 @@ typealias HUD = SVProgressHUD
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        HUD.setDefaultStyle(.dark)
-        HUD.setDefaultMaskType(.custom)
-        HUD.setBackgroundLayerColor(.clear)
-        HUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2))
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setDefaultMaskType(.custom)
+        SVProgressHUD.setBackgroundLayerColor(.clear)
+        HUD.setOffsetFromCenter(CountryViewModel.Configure.uiOffSet)
         return true
     }
 }

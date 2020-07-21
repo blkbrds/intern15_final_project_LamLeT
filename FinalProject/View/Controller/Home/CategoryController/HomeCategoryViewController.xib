@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeCategoryViewController" customModule="FinalProject" customModuleProvider="target">
             <connections>
-                <outlet property="listCategoryCollectionView" destination="tBZ-iB-d1u" id="FTB-W0-G41"/>
+                <outlet property="collectionView" destination="tBZ-iB-d1u" id="FTB-W0-G41"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -38,10 +38,10 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tBZ-iB-d1u" secondAttribute="bottom" id="5U9-49-43j"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tBZ-iB-d1u" secondAttribute="trailing" id="hhb-Ce-50h"/>
                 <constraint firstItem="tBZ-iB-d1u" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hlB-jK-Rzn"/>
-                <constraint firstItem="tBZ-iB-d1u" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="x4B-un-IU7"/>
+                <constraint firstItem="tBZ-iB-d1u" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="htf-3I-Ghp"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="132" y="135"/>
+            <point key="canvasLocation" x="131.8840579710145" y="134.59821428571428"/>
         </view>
     </objects>
 </document>

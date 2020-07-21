@@ -7,22 +7,18 @@
 //
 
 import Foundation
-import UIKit
+import RealmSwift
 
 class OtherFoodCellViewModel {
-    
-    // MARK: - Define
-    struct Configure {
-        static let cornerRadius: CGFloat = 10
-    }
-
-    // MARK: - Properties
+    var idMeal: String = ""
     var otherMealName: String = ""
     var urlOtherMealImage: String = ""
-
+    var isFavorites: Bool = false
+    
     init() { }
 
     init(meal: Meal) {
+        self.idMeal = meal.idMeal
         self.otherMealName = meal.mealName
         self.urlOtherMealImage = meal.urlMealThumbnail
     }

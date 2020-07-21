@@ -15,7 +15,7 @@ final class IngredientMeasureTableViewCell: UITableViewCell {
     @IBOutlet private weak var measureLabel: UILabel!
     
     // MARK: - Properties
-    var viewModel: DetailMealTableViewCellViewModel? {
+    var viewModel: InforCellViewModel? {
         didSet {
             updateView()
         }
@@ -28,8 +28,8 @@ final class IngredientMeasureTableViewCell: UITableViewCell {
     
     private func updateView() {
         guard let viewModel = viewModel else { return }
-        ingredientLabel.text = viewModel.meal.ingredient
-        measureLabel.text = viewModel.meal.measure
+        ingredientLabel.text = viewModel.name
+        measureLabel.text = viewModel.value
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

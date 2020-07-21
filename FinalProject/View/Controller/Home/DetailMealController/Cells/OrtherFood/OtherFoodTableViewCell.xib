@@ -69,7 +69,7 @@
                 <outlet property="otherFoodImageView" destination="BpD-8L-5b7" id="aOY-Nd-bEK"/>
                 <outlet property="otherFoodView" destination="aNC-hT-d7x" id="wrT-1Q-tQF"/>
             </connections>
-            <point key="canvasLocation" x="-507" y="-38"/>
+            <point key="canvasLocation" x="-278" y="-39"/>
         </tableViewCell>
     </objects>
 </document>

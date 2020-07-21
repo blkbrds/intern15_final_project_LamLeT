@@ -17,11 +17,12 @@ class Meal {
     var instructions: String
     var urlMealThumbnail: String
     var tags: String
-    var urlVideoMeal: String?
-    var ingredient: String
-    var measure: String
-    var sourceLink: String?
+    var urlVideoMeal: String
+    var sourceLink: String
     var thumbnail: UIImage?
+
+    var ingredientArray: [String] = []
+    var measureArray: [String] = []
 
     init(json: JSON) {
         if let idMeal = json["idMeal"] as? String {
@@ -61,37 +62,67 @@ class Meal {
         }
         if let urlVideoMeal = json["strYoutube"] as? String {
             self.urlVideoMeal = urlVideoMeal
+        } else {
+            self.urlVideoMeal = ""
         }
         var strIngredient = ""
         for i in 1...20 {
             if let ingredient = json["strIngredient\(i)"] as? String {
                 if !ingredient.isEmpty {
-                    strIngredient += "\(i). " + ingredient + ":\n"
+                    strIngredient = "\(i). " + ingredient
+                    self.ingredientArray.append(strIngredient)
                 } else {
-                    strIngredient += ""
+                    strIngredient = ""
                 }
             } else {
-                strIngredient += ""
+                strIngredient = ""
             }
         }
-        self.ingredient = strIngredient
-
         var strMeasure = ""
         for i in 1...20 {
             if let measure = json["strMeasure\(i)"] as? String {
                 if !measure.isEmpty {
-                    strMeasure += measure + "\n"
+                    strMeasure = measure
+                    self.measureArray.append(strMeasure)
                 } else {
-                    strMeasure += ""
+                    strMeasure = ""
                 }
             } else {
-                strMeasure += ""
+                strMeasure = ""
             }
         }
-        self.measure = strMeasure
-
         if let strSource = json["strSource"] as? String {
             self.sourceLink = strSource
-        } 
+        } else {
+            self.sourceLink = ""
+        }
     }
 }
+
+//        var strIngredient = ""
+//        for i in 1...20 {
+//            if let ingredient = json["strIngredient\(i)"] as? String {
+//                if !ingredient.isEmpty {
+//                    strIngredient += "\(i). " + ingredient + ":\n"
+//                } else {
+//                    strIngredient += ""
+//                }
+//            } else {
+//                strIngredient += ""
+//            }
+//        }
+//        self.ingredient = strIngredient
+//
+//        var strMeasure = ""
+//        for i in 1...20 {
+//            if let measure = json["strMeasure\(i)"] as? String {
+//                if !measure.isEmpty {
+//                    strMeasure += measure + "\n"
+//                } else {
+//                    strMeasure += ""
+//                }
+//            } else {
+//                strMeasure += ""
+//            }
+//        }
+//        self.measure = strMeasure

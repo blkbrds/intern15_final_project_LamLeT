@@ -8,10 +8,14 @@
 
 import UIKit
 
+struct Configure {
+    static let title: String = "Welcome"
+}
+
 final class WelcomeViewController: BaseViewController {
 
     // MARK: - IBOutlet
-    @IBOutlet private weak var nextButton: UIButton!
+   // @IBOutlet private weak var nextButton: UIButton!
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -20,12 +24,11 @@ final class WelcomeViewController: BaseViewController {
 
     override func setUpUI() {
         super.setUpUI()
-        title = App.String.titleCountry
-        nextButton.cornerRadius = nextButton.height / 2
+        title = Configure.title
     }
 
     // MARK: - Actions
-    @IBAction private func nextHomeButtonTouchUpInside(_ sender: Any) {
-        self.navigationController?.pushViewController(BaseTabBarViewController(), animated: true)
-    }
+//    @IBAction private func nextHomeButtonTouchUpInside(_ sender: Any) {
+//        SceneDelegate.shared.changeRoot()
+//    }
 }

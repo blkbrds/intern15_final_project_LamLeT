@@ -9,10 +9,6 @@
 import UIKit
 import SDWebImage
 
-struct Configure {
-    static let cornerRadius: CGFloat = 10
-}
-
 final class ImageTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlet
@@ -28,7 +24,15 @@ final class ImageTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        thumnailMealImageView.layer.cornerRadius = Configure.cornerRadius
+        // Initialization code
+        thumnailMealImageView.layer.cornerRadius = 10
+        thumnailMealImageView.clipsToBounds = true
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
     }
     
     private func updateView() {

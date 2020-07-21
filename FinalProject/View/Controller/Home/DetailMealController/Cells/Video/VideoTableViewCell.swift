@@ -28,10 +28,10 @@ final class VideoTableViewCell: UITableViewCell {
     }
 
     private func updateView() {
-        guard let viewModel = viewModel, let urlVideoMeal = viewModel.meal.urlVideoMeal else {
+        guard let viewModel = viewModel else {
             return
         }
-        if urlVideoMeal.isEmpty {
+        if viewModel.meal.urlVideoMeal.isEmpty {
             videoAlertLabel.isHidden = false
             videoAlertLabel.text = viewModel.getLinkVideo()
         } else {
@@ -40,5 +40,11 @@ final class VideoTableViewCell: UITableViewCell {
             }
             webView.load(URLRequest(url: youtubeURL))
         }
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
     }
 }

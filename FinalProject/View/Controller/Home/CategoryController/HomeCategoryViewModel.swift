@@ -11,8 +11,19 @@ import UIKit
 
 class HomeCategoryViewModel {
 
+    // MARK: - Define
+    struct Configure {
+        static let title: String = "Category Meal"
+        static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
+        static let sizeForCollectionRandom: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)), height: 250)
+        static let sizeForCollectionCountry: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)), height: 100)
+        static let sizeForCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
+        static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+    }
+
     // MARK: - Properties
     var categoryMeals: [CategoryMeal] = []
+    var randomeMeals: [Meal] = []
 
     // MARK: - Public Function
     func getAPIListCategory(listCategoryCompletion: @escaping (Bool, String) -> Void) {
@@ -32,9 +43,34 @@ class HomeCategoryViewModel {
         }
     }
 
+    func getAPIRandomMeal(completion: @escaping (Bool, String) -> Void) {
+        Networking.shared().getMealRandom { [weak self] (mealResult) in
+            guard let self = self else { return }
+            switch mealResult {
+            case .failure(let error):
+                completion(false, error)
+            case .success(let result):
+                for item in result.meals {
+                    self.randomeMeals = []
+                    self.randomeMeals.append(item)
+                }
+                completion(true, "Load API Random Meal Success")
+            }
+        }
+    }
+
     // MARK: - Data Collection
-    func numberOfItemsInSection() -> Int {
-        return categoryMeals.count
+    func numberOfSection() -> Int {
+        return 2
+    }
+
+    func numberOfItemsInSection(section: Int) -> Int {
+        if section == 0 {
+            return randomeMeals.count
+        } else if section == 1 {
+            return categoryMeals.count
+        }
+        return 0
     }
 
     func getListCategory(indexPath: IndexPath) -> HomeCellCategoryViewModel {
@@ -47,5 +83,17 @@ class HomeCategoryViewModel {
         let item = categoryMeals[indexPath.row]
         let detailCategoryModel = DetailCategoryViewModel(nameCategory: item.strCategory)
         return detailCategoryModel
+    }
+
+    func getRandomMeal(indexPath: IndexPath) -> RandomViewModel {
+        let item = randomeMeals[indexPath.row]
+        let viewModel = RandomViewModel(meal: item)
+        return viewModel
+    }
+
+    func pushIdMeal(indexPath: IndexPath) -> DetailMealViewModel {
+        let item = randomeMeals[indexPath.row]
+        let model = DetailMealViewModel(meal: item)
+        return model
     }
 }

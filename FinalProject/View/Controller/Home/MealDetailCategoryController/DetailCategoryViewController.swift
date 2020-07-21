@@ -16,6 +16,20 @@ final class DetailCategoryViewController: BaseViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
 
     // MARK: - Properties
+    enum ScrollDirection {
+        case up
+        case down
+
+        var ty: CGFloat {
+            switch self {
+            case .up: return -500
+            case .down: return 500
+            }
+        }
+    }
+
+    private var lastContentOffset: CGFloat = 0
+    private var scrollDirection: ScrollDirection = .up
     var viewModel: DetailCategoryViewModel = DetailCategoryViewModel()
     var isShowTableView: Bool = true
 
@@ -35,11 +49,19 @@ final class DetailCategoryViewController: BaseViewController {
         loadAPI()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+        collectionView.reloadData()
+    }
+
     // MARK: - Private Functions
     private func configNavi() {
         title = viewModel.nameCategory
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: App.String.iconCollection), style: .plain, target: self, action: #selector(collectionViewButtonTouchUpInside))
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: App.String.iconBack), style: .plain, target: self, action: #selector(backToView))
+        navigationItem.rightBarButtonItem?.tintColor = .black
+        navigationItem.leftBarButtonItem?.tintColor = .black
     }
 
     // MARK: - Action
@@ -86,6 +108,7 @@ final class DetailCategoryViewController: BaseViewController {
                 self.showAlert(message: msg)
             }
         })
+        HUD.setOffsetFromCenter(DetailCategoryViewModel.Configure.uiOffSet)
     }
 
     private func updateUI() {
@@ -103,7 +126,24 @@ extension DetailCategoryViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: DetailCategoryTableViewCell.self, for: indexPath)
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
+        cell.selectionStyle = .none
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DetailMealViewController()
+        vc.viewModel = viewModel.pushIdMeal(indexPath: indexPath)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 10, 0)
+        cell.layer.transform = rotationTransform
+        cell.alpha = 0.5
+        UIView.animate(withDuration: 1.0) {
+            cell.layer.transform = CATransform3DIdentity
+            cell.alpha = 1.0
+        }
     }
 }
 
@@ -118,21 +158,46 @@ extension DetailCategoryViewController: UICollectionViewDelegate, UICollectionVi
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
         return cell
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = DetailMealViewController()
+        vc.viewModel = viewModel.pushIdMeal(indexPath: indexPath)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, scrollDirection.ty, 0)
+        cell.layer.transform = rotationTransform
+        cell.alpha = 0.5
+        UIView.animate(withDuration: 0.5) {
+            cell.layer.transform = CATransform3DIdentity
+            cell.alpha = 1.0
+        }
+    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension DetailCategoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return DefineDetailCategory.sizeForCellCollection
+        return DetailCategoryViewModel.Configure.sizeForCellCollection
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return DefineDetailCategory.spaceForCell
+        return DetailCategoryViewModel.Configure.spaceForCell
     }
-}
 
-// MARK: - Define
-private struct DefineDetailCategory {
-    static let sizeForCellCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
-    static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if lastContentOffset > scrollView.contentOffset.y {
+            // move up
+            scrollDirection = .up
+        }
+        else if (lastContentOffset < scrollView.contentOffset.y) {
+            // move down
+            scrollDirection = .down
+        }
+
+        // update the new position acquired
+        lastContentOffset = scrollView.contentOffset.y
+    }
+
 }
