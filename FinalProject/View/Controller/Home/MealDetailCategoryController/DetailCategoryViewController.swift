@@ -186,7 +186,7 @@ extension DetailCategoryViewController: UICollectionViewDelegate, UICollectionVi
 // MARK: - UICollectionViewDelegateFlowLayout
 extension DetailCategoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return DetailCategoryViewModel.Configure.sizeForCellCollection
+        return Configure.sizeForCellCollection
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

@@ -72,7 +72,7 @@ final class CountryViewController: BaseViewController {
             HUD.dismiss()
             if done {
                 self.updateView()
-                let additionalTime: DispatchTimeInterval = .seconds(Int(0.4))
+                let additionalTime: DispatchTimeInterval = .seconds(1)
                 DispatchQueue.main.asyncAfter(deadline: .now() + additionalTime) {
                     self.loadAPIRandom()
                 }
