@@ -38,5 +38,8 @@ extension App {
         static let titleHomeWelcome = "Cooking Junior"
         static let alertActionSearch = "OK"
         static let alertSearch = "Search The Meal"
+        static let nameIconDelete = "trash"
+        static let fetchData = "Fetch Data Success"
+        static let failedFetchData = "Failed Fetch Data"
     }
 }

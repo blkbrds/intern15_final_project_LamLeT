@@ -61,23 +61,23 @@ final class SearchViewController: BaseViewController {
         HUD.show()
         viewModel.searchAPIFirstLetter(firstLetter: firstLetter) { [weak self] (done, msg) in
             HUD.dismiss()
-            guard let self = self else { return }
+            guard let this = self else { return }
             if done {
-                self.updateUI()
+                this.updateUI()
             } else {
-                self.showAlert(message: msg)
+                this.showAlert(message: msg)
             }
         }
     }
 
     private func loadAPISearchByName(nameMeal: String?) {
         viewModel.searchAPIByName(nameMeal: nameMeal) { [weak self] (done, msg) in
-            guard let self = self else { return }
+            guard let this = self else { return }
             if done {
-                self.updateUI()
+                this.updateUI()
             } else {
-                self.showAlertSearch(message: msg)
-                self.updateUI()
+                this.showAlertSearch(message: msg)
+                this.updateUI()
             }
         }
     }
@@ -85,6 +85,7 @@ final class SearchViewController: BaseViewController {
     private func updateUI() {
         guard isViewLoaded else { return }
         tableView.reloadData()
+        searchBar.becomeFirstResponder()
     }
 }
 

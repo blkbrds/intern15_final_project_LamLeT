@@ -42,36 +42,38 @@ final class DetailCategoryCollectionViewCell: UICollectionViewCell {
         guard let viewModel = viewModel else { return }
         nameMealLabel.text = viewModel.nameMeal
         thumbnailMealImageView.sd_setImage(with: URL(string: viewModel.urlThumnailMeal))
-        viewModel.checkFavorites(completion: { (isExist, msg) in
+        viewModel.checkFavorites(completion: { [weak self] (isExist, msg) in
+            guard let this = self else { return }
             if isExist {
                 let image = UIImage(systemName: "heart.fill")
-                self.favoritesButton.setImage(image, for: .normal)
+                this.favoritesButton.setImage(image, for: .normal)
             } else {
                 let image = UIImage(systemName: "heart")
-                self.favoritesButton.setImage(image, for: .normal)
+                this.favoritesButton.setImage(image, for: .normal)
             }
         })
     }
-    
+
     // MARK: - IBAction
     @IBAction func favoritesButtonTouchUpInside(_ sender: Any) {
         guard let viewModel = viewModel else { return }
-        viewModel.checkFavorites(completion: { (isExist, msg) in
+        viewModel.checkFavorites(completion: { [weak self] (isExist, msg) in
+            guard let this = self else { return }
             if isExist {
-                self.deleteFavorites()
+                this.deleteFavorites()
             } else {
-                self.addFavorites()
+                this.addFavorites()
             }
         })
     }
 
     func addFavorites() {
         guard let viewModel = viewModel else { return }
-        //guard let delegate = delegate else { return }
-        viewModel.addFavorites(completion: { (done, msg) in
+        viewModel.addFavorites(completion: { [weak self] (done, msg) in
+            guard let this = self else { return }
             if done {
                 let image = UIImage(systemName: "heart.fill")
-                self.favoritesButton.setImage(image, for: .normal)
+                this.favoritesButton.setImage(image, for: .normal)
             } else {
                 print("Can't Add")
             }
@@ -80,10 +82,11 @@ final class DetailCategoryCollectionViewCell: UICollectionViewCell {
 
     func deleteFavorites() {
         guard let viewModel = viewModel else { return }
-        viewModel.deleteFavorites(completion: { (done, msg) in
+        viewModel.deleteFavorites(completion: { [weak self] (done, msg) in
+             guard let this = self else { return }
             if done {
                 let image = UIImage(systemName: "heart")
-                self.favoritesButton.setImage(image, for: .normal)
+                this.favoritesButton.setImage(image, for: .normal)
             } else {
                 print("Can't Delete")
             }

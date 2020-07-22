@@ -93,7 +93,7 @@ class Networking {
                     }
                     let result = MealResult(meals: categoryDetails)
                     completion(.success(result))
-                }
+                } 
             }
         }
         task.resume()

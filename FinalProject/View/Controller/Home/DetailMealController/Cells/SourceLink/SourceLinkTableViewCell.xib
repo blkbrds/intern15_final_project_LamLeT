@@ -16,27 +16,28 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5yj-j3-ycc">
+                    <button opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L4m-tJ-vUt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="Tap Me"/>
+                        <connections>
+                            <action selector="openWebTouchUpInside:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YUP-vY-Ru8"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="5yj-j3-ycc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="N7u-F7-EFy"/>
-                    <constraint firstAttribute="trailing" secondItem="5yj-j3-ycc" secondAttribute="trailing" id="asu-ZF-dNS"/>
-                    <constraint firstAttribute="bottom" secondItem="5yj-j3-ycc" secondAttribute="bottom" id="psG-ua-mjh"/>
-                    <constraint firstItem="5yj-j3-ycc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="t2T-zN-Qbl"/>
+                    <constraint firstAttribute="trailing" secondItem="L4m-tJ-vUt" secondAttribute="trailing" id="17p-7L-MX4"/>
+                    <constraint firstItem="L4m-tJ-vUt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="1Bz-nx-OyY"/>
+                    <constraint firstItem="L4m-tJ-vUt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="KcJ-kO-8HU"/>
+                    <constraint firstAttribute="bottom" secondItem="L4m-tJ-vUt" secondAttribute="bottom" id="ShZ-Pe-kRP"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="sourceLinkTextView" destination="5yj-j3-ycc" id="QxG-Tr-RR6"/>
+                <outlet property="openWebButton" destination="L4m-tJ-vUt" id="h0f-lF-ysG"/>
             </connections>
-            <point key="canvasLocation" x="-238" y="113"/>
+            <point key="canvasLocation" x="-36" y="135"/>
         </tableViewCell>
     </objects>
 </document>

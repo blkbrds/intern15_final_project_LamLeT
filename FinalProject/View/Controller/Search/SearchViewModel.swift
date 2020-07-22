@@ -11,20 +11,21 @@ import UIKit
 
 final class SearchViewModel {
 
-  
+
 
     // MARK: - Properties
     var mealResult: [Meal] = []
 
     // MARK: Get API
     func searchAPIFirstLetter(firstLetter: String, completion: @escaping (Bool, String) -> Void) {
-        Networking.shared().searchMealFirstLetter(firstLetter: firstLetter) { (mealResult) in
+        Networking.shared().searchMealFirstLetter(firstLetter: firstLetter) { [weak self] (mealResult) in
+            guard let this = self else { return }
             switch mealResult {
             case .failure(let error):
                 completion(false, error)
             case .success(let result):
                 for item in result.meals {
-                    self.mealResult.append(item)
+                    this.mealResult.append(item)
                 }
                 completion(true, App.String.loadSuccess)
             }
@@ -38,13 +39,14 @@ final class SearchViewModel {
                 completion(true, App.String.loadSuccess)
                 return
         }
-        Networking.shared().searchMealByName(name: name) { (mealResult) in
+        Networking.shared().searchMealByName(name: name) { [weak self] (mealResult) in
+            guard let this = self else { return }
             switch mealResult {
             case .failure(let error):
-                self.mealResult = []
+                this.mealResult = []
                 completion(false, error)
             case .success(let result):
-                self.mealResult = result.meals
+                this.mealResult = result.meals
                 completion(true, App.String.loadSuccess)
             }
         }

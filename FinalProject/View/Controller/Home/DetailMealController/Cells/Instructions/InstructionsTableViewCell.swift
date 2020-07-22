@@ -20,6 +20,7 @@ final class InstructionsTableViewCell: UITableViewCell {
         }
     }
 
+    // MARK: - Private Functions
     private func updateView() {
         guard let viewModel = viewModel else { return }
         instructionLabel.text = viewModel.meal.instructions

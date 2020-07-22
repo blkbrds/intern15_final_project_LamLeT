@@ -18,7 +18,7 @@ final class DetailMealViewModel {
     var detailMeals: [Meal] = []
     var otherFood: [Meal] = []
 
-    var headerTitler: [String] = ["Image", "Infomation", "Video", "Instruction", "Ingredient And Measure", "Link Source", "Orther Food"]
+    var headerTitler: [String] = ["Image", "Infomation", "Video", "Instruction", "Ingredient And Measure", "More Info", "Orther Food"]
     var meal: Meal?
     var ingredient: [String] = []
     var measure: [String] = []
@@ -33,9 +33,10 @@ final class DetailMealViewModel {
 
     // MARK: - Life Cycle
     init() { }
-    
-    init(idMeal: String) {
+
+    init(idMeal: String, nameMeal: String) {
         self.idMeal = idMeal
+        self.nameMeal = nameMeal
     }
 
     init(meal: Meal) {
@@ -46,7 +47,6 @@ final class DetailMealViewModel {
         self.imageMealURL = meal.urlMealThumbnail
     }
 
-    // MARK: Get API
     func getAPIDetailMeal(completion: @escaping (Bool, String) -> Void) {
         Networking.shared().getMealDetail(idMeal: idMeal) { [weak self] (result) in
             guard let this = self else { return }
@@ -79,19 +79,16 @@ final class DetailMealViewModel {
     }
 
     func getAPIRandomMeal(completion: @escaping (Bool, String) -> Void) {
-        Networking.shared().getMealForCategory(categoryName: category) { (result) in
-            Networking.shared().getMealRandom { [weak self] (result) in
-                guard let this = self else { return }
-                switch result {
-                case .failure(let error):
-                    completion(false, error)
-                case .success(let randomMeal):
-                    for item in randomMeal.meals {
-                        this.otherFood.append(item)
-                        this.otherFood.append(item)
-                    }
-                    completion(true, App.String.loadSuccess)
+        Networking.shared().getMealForCategory(categoryName: category) { [weak self] (result) in
+            guard let this = self else { return }
+            switch result {
+            case .failure(let error):
+                completion(false, error)
+            case .success(let randomMeal):
+                for item in randomMeal.meals {
+                    this.otherFood.append(item)
                 }
+                completion(true, App.String.loadSuccess)
             }
         }
     }

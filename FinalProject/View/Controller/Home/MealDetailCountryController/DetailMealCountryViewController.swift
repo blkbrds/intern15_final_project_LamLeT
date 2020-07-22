@@ -66,11 +66,11 @@ final class DetailMealCountryViewController: BaseViewController {
         HUD.show()
         viewModel.getAPIListArea(detailAreaCompletion: { [weak self] (done, msg) in
             HUD.dismiss()
-            guard let self = self else { return }
+            guard let this = self else { return }
             if done {
-                self.updateUI()
+                this.updateUI()
             } else {
-                self.showAlert(message: msg)
+                this.showAlert(message: msg)
             }
         })
     }

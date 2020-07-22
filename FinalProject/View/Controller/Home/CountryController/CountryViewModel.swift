@@ -18,15 +18,13 @@ final class CountryViewModel {
     // MARK: - Public Function
     func getAPIListArea(listAreaCompletion: @escaping (Bool, String) -> Void) {
         Networking.shared().getArea { [weak self] (areaResult) in
-            guard let self = self else {
-                return
-            }
+            guard let this = self else { return }
             switch areaResult {
             case .failure(let error):
                 listAreaCompletion(false, error)
             case .success(let result):
                 for item in result.meals {
-                    self.areas.append(item)
+                    this.areas.append(item)
                 }
                 listAreaCompletion(true, "Get List Area Success")
             }
@@ -35,14 +33,14 @@ final class CountryViewModel {
 
     func getAPIRandomMeal(completion: @escaping (Bool, String) -> Void) {
         Networking.shared().getMealRandom { [weak self] (mealResult) in
-            guard let self = self else { return }
+            guard let this = self else { return }
             switch mealResult {
             case .failure(let error):
                 completion(false, error)
             case .success(let result):
                 for item in result.meals {
-                    self.randomeMeals = []
-                    self.randomeMeals.append(item)
+                    this.randomeMeals = []
+                    this.randomeMeals.append(item)
                 }
                 completion(true, "Load API Random Meal Success")
             }

@@ -34,6 +34,7 @@ final class ImageTableViewCell: UITableViewCell {
         thumnailMealImageView.clipsToBounds = true
     }
 
+    // MARK: - Private Functions
     private func updateView() {
         guard let viewModel = viewModel else { return }
         thumnailMealImageView.sd_setImage(with: URL(string: viewModel.meal.urlMealThumbnail))

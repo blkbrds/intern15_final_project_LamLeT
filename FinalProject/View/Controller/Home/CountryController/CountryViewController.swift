@@ -68,16 +68,12 @@ final class CountryViewController: BaseViewController {
     private func loadAPI() {
         HUD.show()
         viewModel.getAPIListArea { [weak self] (done, msg) in
-            guard let self = self else { return }
+            guard let this = self else { return }
             HUD.dismiss()
             if done {
-                self.updateView()
-                let additionalTime: DispatchTimeInterval = .seconds(1)
-                DispatchQueue.main.asyncAfter(deadline: .now() + additionalTime) {
-                    self.loadAPIRandom()
-                }
+                this.loadAPIRandom()
             } else {
-                self.showAlert(message: msg)
+                this.showAlert(message: msg)
             }
         }
     }
@@ -85,16 +81,16 @@ final class CountryViewController: BaseViewController {
 
     private func loadAPIRandom() {
         viewModel.getAPIRandomMeal { [weak self] (done, error) in
-            guard let self = self else { return }
+            guard let this = self else { return }
             if done {
                 let indexSet = IndexSet(integer: 0)
-                self.collectionView.reloadSections(indexSet)
+                this.collectionView.reloadSections(indexSet)
                 let additionalTime: DispatchTimeInterval = .seconds(2)
                 DispatchQueue.main.asyncAfter(deadline: .now() + additionalTime) {
-                    self.loadAPIRandom()
+                    this.loadAPIRandom()
                 }
             } else {
-                self.showAlert(message: error)
+                this.showAlert(message: error)
             }
         }
     }
@@ -192,6 +188,4 @@ extension CountryViewController: UICollectionViewDelegateFlowLayout {
         // update the new position acquired
         lastContentOffset = scrollView.contentOffset.y
     }
-
-
 }

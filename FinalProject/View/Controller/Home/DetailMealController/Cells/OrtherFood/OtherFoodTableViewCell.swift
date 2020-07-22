@@ -36,13 +36,9 @@ final class OtherFoodTableViewCell: UITableViewCell {
         nameOtherFoodLabel.layer.cornerRadius = Configure.cornerRadius
     }
 
+    // MARK: - Private Functions
     private func updateView() {
         nameOtherFoodLabel.text = viewModel.otherMealName
         otherFoodImageView.sd_setImage(with: URL(string: viewModel.urlOtherMealImage))
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
     }
 }

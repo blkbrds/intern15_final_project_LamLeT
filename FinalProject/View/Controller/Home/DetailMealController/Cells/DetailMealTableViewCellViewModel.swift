@@ -18,7 +18,7 @@ final class DetailMealTableViewCellViewModel {
         self.meal = meal
     }
 
-//     MARK: - Functions
+    // MARK: - Functions
     func getLinkVideo() -> String {
         if let url = meal.urlVideoMeal, let range = url.range(of: "=") {
             return String(url[range.upperBound...])

@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import SafariServices
 
 // MARK: - Define
 private struct Configure {
     static let spaceForSection: CGFloat = 10
     static let iconAddFavorites: String = "heart"
     static let iconRemoveFavorites: String = "heart.fill"
-    static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
 }
 
 final class DetailMealViewController: BaseViewController {
@@ -43,28 +43,20 @@ final class DetailMealViewController: BaseViewController {
     }
 
     override func setUpData() {
-        let dispatchGroup = DispatchGroup()
-        dispatchGroup.enter()
-        self.loadAPIDetail {
-            dispatchGroup.leave()
-        }
-        dispatchGroup.enter()
-        self.loadAPIRandomMeal {
-            dispatchGroup.leave()
-        }
-        dispatchGroup.notify(queue: .main) { }
+        loadAPIDetail()
     }
 
     // MARK: - Private Functions
     private func configNavi() {
-        navigationController?.navigationBar.tintColor = .black
-        viewModel.checkFavorites { (done, msg) in
+        viewModel.checkFavorites { [weak self] (done, msg) in
+            guard let this = self else { return }
             if done {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Configure.iconAddFavorites), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Configure.iconAddFavorites), style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
             } else {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Configure.iconRemoveFavorites), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Configure.iconRemoveFavorites), style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
             }
         }
+        navigationController?.navigationBar.tintColor = UIColor.black
     }
 
     @objc private func rightBarButtonTouchUpInside() {
@@ -76,46 +68,47 @@ final class DetailMealViewController: BaseViewController {
     }
 
     func addToFavorites() {
-        viewModel.addFavorites(addCompletion: { (done, msg) in
+        viewModel.addFavorites(addCompletion: { [weak self] (done, msg) in
+            guard let this = self else { return }
             if done {
                 let image = UIImage(systemName: Configure.iconRemoveFavorites)
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
                 print(msg)
             } else {
-                self.showAlert(message: msg)
+                this.showAlert(message: msg)
             }
         })
     }
 
     func deteleToFavorties() {
-        viewModel.deleteFavorites(deleteCompletion: { (done, msg) in
+        viewModel.deleteFavorites(deleteCompletion: { [weak self] (done, msg) in
+            guard let this = self else { return }
             if done {
                 let image = UIImage(systemName: Configure.iconAddFavorites)
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
             } else {
-                self.showAlert(message: msg)
+                this.showAlert(message: msg)
             }
         })
     }
 
-
-    private func loadAPIDetail(completion: @escaping() -> Void) {
+    private func loadAPIDetail() {
         HUD.show()
         viewModel.getAPIDetailMeal { [weak self] (done, msg) in
             HUD.dismiss()
             guard let this = self else { return }
             if done {
+                this.loadAPIRandomMeal()
                 this.tableView.isHidden = false
-                this.updateView()
             } else {
                 this.showAlert(message: msg)
             }
         }
     }
 
-    private func loadAPIRandomMeal(completion: @escaping() -> Void) {
+    private func loadAPIRandomMeal() {
         viewModel.getAPIRandomMeal { [weak self] (done, msg) in
-            guard let this = self else { return }
+             guard let this = self else { return }
             if done {
                 this.updateView()
             } else {
@@ -123,7 +116,6 @@ final class DetailMealViewController: BaseViewController {
             }
         }
     }
-
 
     private func registerTableCell() {
         tableView.register(nibWithCellClass: ImageTableViewCell.self)
@@ -183,6 +175,7 @@ extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
         case .linkSource:
             let cell = tableView.dequeueReusableCell(withClass: SourceLinkTableViewCell.self, for: indexPath)
             cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
+            cell.delegate = self
             return cell
         case .otherFood:
             let cell = tableView.dequeueReusableCell(withClass: OtherFoodTableViewCell.self, for: indexPath)
@@ -205,5 +198,25 @@ extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return Configure.spaceForSection
+    }
+}
+
+extension DetailMealViewController: SourceLinkTableViewCellDelegate {
+    func openWeb(url: URL) {
+        let sfSafariVC = SFSafariViewController(url: url)
+        sfSafariVC.delegate = self
+        sfSafariVC.preferredControlTintColor = .systemGray
+        sfSafariVC.modalPresentationStyle = .formSheet
+        present(sfSafariVC, animated: true)
+    }
+}
+
+extension DetailMealViewController: SFSafariViewControllerDelegate {
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        controller.dismiss(animated: true)
+    }
+
+    func safariViewController(_ controller: SFSafariViewController, excludedActivityTypesFor URL: URL, title: String?) -> [UIActivity.ActivityType] {
+        return [.copyToPasteboard]
     }
 }

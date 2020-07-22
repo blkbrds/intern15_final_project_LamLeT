@@ -18,14 +18,14 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKS-6L-66U">
                         <rect key="frame" x="10" y="0.0" width="133.5" height="118"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PxX-aP-bay">
                         <rect key="frame" x="143.5" y="0.0" width="123.5" height="118"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -45,7 +45,7 @@
                 <outlet property="ingredientLabel" destination="NKS-6L-66U" id="7Hc-aR-vcf"/>
                 <outlet property="measureLabel" destination="PxX-aP-bay" id="uE6-YX-9NV"/>
             </connections>
-            <point key="canvasLocation" x="-278" y="0.0"/>
+            <point key="canvasLocation" x="200.72463768115944" y="-15.401785714285714"/>
         </tableViewCell>
     </objects>
 </document>

@@ -16,6 +16,14 @@ class HomeCategoryViewModel {
     var randomeMeals: [Meal] = []
 
     // MARK: - Public Function
+//    func updateAPI(completion: @escaping (Bool, String) -> Void) {
+//        let disPatchGroup = DispatchGroup()
+//        disPatchGroup.enter()
+//        getAPIRandomMeal { (done, error) in
+//            <#code#>
+//        }
+//    }
+    
     func getAPIListCategory(listCategoryCompletion: @escaping (Bool, String) -> Void) {
         Networking.shared().getCategory { [weak self] (mealResult) in
             guard let self = self else {

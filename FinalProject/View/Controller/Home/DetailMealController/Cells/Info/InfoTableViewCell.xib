@@ -18,13 +18,13 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcp-fs-Xo7">
                         <rect key="frame" x="10" y="0.0" width="95.5" height="81"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obt-wk-l8S">
                         <rect key="frame" x="105.5" y="0.0" width="372.5" height="81"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -45,7 +45,7 @@
                 <outlet property="nameLabel" destination="zcp-fs-Xo7" id="EqP-WW-k6I"/>
                 <outlet property="valueLabel" destination="Obt-wk-l8S" id="yob-Ry-Wwf"/>
             </connections>
-            <point key="canvasLocation" x="183" y="-10"/>
+            <point key="canvasLocation" x="-25" y="0.0"/>
         </tableViewCell>
     </objects>
 </document>
