@@ -47,11 +47,11 @@ final class DetailMealCountryViewController: BaseViewController {
         HUD.show()
         viewModel.getAPIListArea(detailAreaCompletion: { [weak self] (done, msg) in
             HUD.dismiss()
-            guard let self = self else { return }
+            guard let this = self else { return }
             if done {
-                self.updateUI()
+                this.updateUI()
             } else {
-                self.showAlert(message: msg)
+                this.showAlert(message: msg)
             }
         })
     }
@@ -123,7 +123,7 @@ extension DetailMealCountryViewController: UITableViewDataSource, UITableViewDel
     }
 }
 
-// MARK: - UICollectionDataSource, UICollectionDataSource
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension DetailMealCountryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection()

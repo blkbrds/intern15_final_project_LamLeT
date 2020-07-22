@@ -34,7 +34,7 @@ final class FavoritesViewController: BaseViewController {
 
     private func configNavi() {
         title = viewModel.title
-        let imageDelete = UIImage(systemName: Configure.nameIconDelete)
+        let imageDelete = UIImage(systemName: App.String.nameIconDelete)
         let backButton = UIBarButtonItem(image: imageDelete, style: .plain, target: self, action: #selector(deleteButtonTouchUpInside))
         navigationItem.leftBarButtonItem = backButton
     }
@@ -46,21 +46,23 @@ final class FavoritesViewController: BaseViewController {
     }
 
     private func fetchData() {
-        viewModel.fetchData { (done, error) in
+        viewModel.fetchData { [weak self] (done, error) in
+            guard let this = self else { return }
             if done {
-                self.updateUI()
+                this.updateUI()
             } else {
-                self.showAlert(message: error)
+                this.showAlert(message: error)
             }
         }
     }
 
     @objc func deleteButtonTouchUpInside() {
-        viewModel.deleteAll { (done) in
+        viewModel.deleteAll { [weak self] (done) in
+            guard let this = self else { return }
             if done {
-                self.fetchData()
+                this.fetchData()
             } else {
-                self.showAlert(message: App.String.deleteObjectFailed)
+                this.showAlert(message: App.String.deleteObjectFailed)
             }
         }
     }

@@ -41,25 +41,17 @@ final class DetailMealViewController: BaseViewController {
     }
 
     override func setUpData() {
-        let dispatchGroup = DispatchGroup()
-        dispatchGroup.enter()
-        loadAPIDetail {
-            dispatchGroup.leave()
-        }
-        dispatchGroup.enter()
-        loadAPIRandomMeal {
-            dispatchGroup.leave()
-        }
-        dispatchGroup.notify(queue: .main) { }
+        loadAPIDetail()
     }
 
     // MARK: - Private Functions
     private func configNavi() {
-        viewModel.checkFavorites { (done, msg) in
+        viewModel.checkFavorites { [weak self] (done, msg) in
+            guard let this = self else { return }
             if done {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Configure.iconAddFavorites), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ConfigureDetailMeal.iconAddFavorites), style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
             } else {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Configure.iconRemoveFavorites), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ConfigureDetailMeal.iconRemoveFavorites), style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
             }
         }
     }
@@ -73,42 +65,45 @@ final class DetailMealViewController: BaseViewController {
     }
 
     func addToFavorites() {
-        viewModel.addFavorites(addCompletion: { (done, msg) in
+        viewModel.addFavorites(addCompletion: { [weak self] (done, msg) in
+            guard let this = self else { return }
             if done {
-                let image = UIImage(systemName: Configure.iconRemoveFavorites)
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+                let image = UIImage(systemName: ConfigureDetailMeal.iconRemoveFavorites)
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
                 print(msg)
             } else {
-                self.showAlert(message: msg)
+                this.showAlert(message: msg)
             }
         })
     }
 
     func deteleToFavorties() {
-        viewModel.deleteFavorites(deleteCompletion: { (done, msg) in
+        viewModel.deleteFavorites(deleteCompletion: { [weak self] (done, msg) in
+            guard let this = self else { return }
             if done {
                 let image = UIImage(systemName: Configure.iconAddFavorites)
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
+
             } else {
-                self.showAlert(message: msg)
+                this.showAlert(message: msg)
             }
         })
     }
 
-    private func loadAPIDetail(completion: @escaping() -> Void) {
+    private func loadAPIDetail() {
         HUD.show()
         viewModel.getAPIDetailMeal { [weak self] (done, msg) in
             HUD.dismiss()
             guard let this = self else { return }
             if done {
-                this.updateView()
+                this.loadAPIRandomMeal()
             } else {
                 this.showAlert(message: msg)
             }
         }
     }
 
-    private func loadAPIRandomMeal(completion: @escaping() -> Void) {
+    private func loadAPIRandomMeal() {
         viewModel.getAPIRandomMeal { [weak self] (done, msg) in
             guard let this = self else { return }
             if done {
@@ -137,7 +132,7 @@ final class DetailMealViewController: BaseViewController {
     }
 }
 
-// MARK: - UITableViewDataSource
+// MARK: - UITableViewDataSource, UITableViewDelegate
 extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
