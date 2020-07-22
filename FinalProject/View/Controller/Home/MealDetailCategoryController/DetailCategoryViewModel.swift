@@ -40,12 +40,6 @@ final class DetailCategoryViewModel {
         }
     }
 
-    func pushIdMeal(indexPath: IndexPath) -> DetailMealViewModel {
-        let item = mealCategory[indexPath.row]
-        let model = DetailMealViewModel(meal: item)
-        return model
-    }
-
     // MARK: - TableView Data
     func numberOfRowsInSection() -> Int {
         return mealCategory.count
@@ -54,6 +48,12 @@ final class DetailCategoryViewModel {
     func cellForRowAt(indexPath: IndexPath) -> DetailCategoryCellViewModel {
         let item = mealCategory[indexPath.row]
         let model = DetailCategoryCellViewModel(meal: item)
+        return model
+    }
+
+    func pushIdMeal(indexPath: IndexPath) -> DetailMealViewModel {
+        let item = mealCategory[indexPath.row]
+        let model = DetailMealViewModel(meal: item)
         return model
     }
 }
