@@ -14,15 +14,6 @@ protocol FavoritesViewModelDelegate: class {
 }
 
 class FavoritesViewModel {
-    
-    // MARK: - Define
-    struct Configure {
-        static let fetchData: String = "Fetch Data Success"
-        static let failedFetchData: String = "Failed Fetch Data"
-        static let deleteObject: String = "Success To Delete Object"
-        static let failedDeleteObject: String = "Delete Object Failed"
-        static let nameIconDelete: String = "trash"
-    }
 
     // MARK: - Properties
     var title: String = "Meal Favorites"
@@ -53,9 +44,9 @@ class FavoritesViewModel {
 
             meals = Array(results)
 
-            completion(true, Configure.fetchData)
+            completion(true, App.String.fetchData)
         } catch {
-            completion(false, Configure.failedFetchData)
+            completion(false, App.String.failedFetchData)
         }
     }
 
@@ -94,15 +85,15 @@ class FavoritesViewModel {
             let id = getItem.idMeal
             let meal = realm.objects(MealRealm.self).filter("idMeal = '\(id)'")
             if meal.count == 0 {
-                completion(false, Configure.failedDeleteObject)
+                completion(false, App.String.deleteObjectFailed)
             } else {
                 try realm.write {
                     realm.delete(meal)
-                    completion(true, Configure.deleteObject)
+                    completion(true, App.String.deleteObjectSuccess)
                 }
             }
         } catch {
-            completion(false, Configure.failedDeleteObject)
+            completion(false, App.String.deleteObjectFailed)
         }
     }
 
