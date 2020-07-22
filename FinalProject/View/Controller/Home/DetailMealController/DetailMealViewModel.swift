@@ -7,8 +7,8 @@
 //
 
 import Foundation
+import RealmSwift
 import UIKit
-
 
 final class DetailMealViewModel {
 
@@ -25,11 +25,20 @@ final class DetailMealViewModel {
     var information: [String] = []
     var category: String = ""
 
+    //MARK: Realm
+    var nameMeal: String = ""
+    var imageMealURL: String = ""
+    var isFavorites: Bool = false
+
     // MARK: - Life Cycle
     init() { }
 
-    init(idMeal: String) {
-        self.idMeal = idMeal
+    init(meal: Meal) {
+        self.idMeal = meal.idMeal
+
+        //MARK: Realm
+        self.nameMeal = meal.mealName
+        self.imageMealURL = meal.urlMealThumbnail
     }
 
     // MARK: Get API
@@ -100,7 +109,7 @@ final class DetailMealViewModel {
 
     func cellForRowAt(indexPath: IndexPath) -> DetailMealTableViewCellViewModel {
         let item = detailMeals[indexPath.row]
-        let model = DetailMealTableViewCellViewModel(meal: item)
+        let model = DetailMealTableViewCellViewModel(meal: item, indexPath: indexPath)
         return model
     }
 
@@ -122,5 +131,61 @@ final class DetailMealViewModel {
         let item = otherFood[indexPath.row]
         let model = OtherFoodCellViewModel(meal: item)
         return model
+    }
+
+    func pushIdMeal(indexPath: IndexPath) -> DetailMealViewModel {
+        let item = otherFood[indexPath.row]
+        let model = DetailMealViewModel(meal: item)
+        return model
+    }
+
+    //MARK: Realm
+    func checkFavorites(checkCompletion: @escaping (Bool, String) -> Void) {
+        do {
+            let realm = try Realm()
+            let meal = realm.objects(MealRealm.self).filter("idMeal = '\(idMeal)' AND isFavorites = true ")
+            if meal.count == 0 {
+                isFavorites = false
+                checkCompletion(true, App.String.notHaveItem)
+            } else {
+                isFavorites = true
+                checkCompletion(false, App.String.haveItem)
+            }
+        } catch { }
+    }
+
+    func addFavorites(addCompletion: @escaping (Bool, String) -> Void) {
+        do {
+            let realm = try Realm()
+
+            let meal = MealRealm()
+            meal.idMeal = idMeal
+            meal.nameMeal = nameMeal
+            meal.imageURLMeal = imageMealURL
+            meal.isFavorites = true
+            try realm.write {
+                realm.add(meal)
+                isFavorites = true
+                addCompletion(true, App.String.addObjectSuccess)
+            }
+        } catch {
+            addCompletion(false, App.String.addObjectFailed)
+        }
+    }
+
+    func deleteFavorites(deleteCompletion: @escaping (Bool, String) -> Void) {
+        do {
+            let realm = try Realm()
+
+            let meal = realm.objects(MealRealm.self).filter("idMeal = '\(idMeal)'")
+
+            try realm.write {
+                realm.delete(meal)
+                isFavorites = false
+                deleteCompletion(true, App.String.deleteObjectSuccess)
+            }
+        } catch {
+            deleteCompletion(false, App.String.deleteObjectFailed)
+        }
     }
 }

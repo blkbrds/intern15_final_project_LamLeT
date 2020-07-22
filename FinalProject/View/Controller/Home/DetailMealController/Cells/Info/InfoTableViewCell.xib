@@ -12,38 +12,38 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="81" id="NSi-9A-4RG" customClass="InfoTableViewCell" customModule="FinalProject" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="478" height="81"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NSi-9A-4RG" id="FAG-dO-lmC">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="478" height="81"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2J-Jh-HYj">
-                        <rect key="frame" x="10" y="0.0" width="95.5" height="81"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcp-fs-Xo7">
+                        <rect key="frame" x="0.0" y="0.0" width="95.5" height="81"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vc9-Nc-4gF">
-                        <rect key="frame" x="105.5" y="0.0" width="372.5" height="81"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obt-wk-l8S">
+                        <rect key="frame" x="95.5" y="0.0" width="382.5" height="81"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Vc9-Nc-4gF" firstAttribute="leading" secondItem="w2J-Jh-HYj" secondAttribute="trailing" id="EFb-95-kD2"/>
-                    <constraint firstItem="Vc9-Nc-4gF" firstAttribute="top" secondItem="FAG-dO-lmC" secondAttribute="top" id="LTr-BZ-0VH"/>
-                    <constraint firstItem="w2J-Jh-HYj" firstAttribute="leading" secondItem="FAG-dO-lmC" secondAttribute="leading" constant="10" id="NC0-fb-ep1"/>
-                    <constraint firstItem="w2J-Jh-HYj" firstAttribute="top" secondItem="FAG-dO-lmC" secondAttribute="top" id="Wv7-fl-gxE"/>
-                    <constraint firstAttribute="trailing" secondItem="Vc9-Nc-4gF" secondAttribute="trailing" id="d3p-7m-5Ai"/>
-                    <constraint firstAttribute="bottom" secondItem="w2J-Jh-HYj" secondAttribute="bottom" id="oFV-HA-h2u"/>
-                    <constraint firstItem="w2J-Jh-HYj" firstAttribute="width" secondItem="FAG-dO-lmC" secondAttribute="width" multiplier="0.2" id="pYz-0x-vbJ"/>
-                    <constraint firstAttribute="bottom" secondItem="Vc9-Nc-4gF" secondAttribute="bottom" id="ueD-D2-DDS"/>
+                    <constraint firstItem="zcp-fs-Xo7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7Ny-KV-Wmp"/>
+                    <constraint firstItem="zcp-fs-Xo7" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.2" id="Am6-Pv-8KJ"/>
+                    <constraint firstAttribute="bottom" secondItem="zcp-fs-Xo7" secondAttribute="bottom" id="Bby-ek-Xac"/>
+                    <constraint firstItem="Obt-wk-l8S" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Mhk-a0-daq"/>
+                    <constraint firstItem="Obt-wk-l8S" firstAttribute="leading" secondItem="zcp-fs-Xo7" secondAttribute="trailing" id="cg1-L5-2zJ"/>
+                    <constraint firstAttribute="trailing" secondItem="Obt-wk-l8S" secondAttribute="trailing" id="eKj-Ji-cYU"/>
+                    <constraint firstAttribute="bottom" secondItem="Obt-wk-l8S" secondAttribute="bottom" id="ioA-83-ak7"/>
+                    <constraint firstItem="zcp-fs-Xo7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="l0f-EX-IFt"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="bbB-bV-wgx"/>
             <connections>
-                <outlet property="nameLabel" destination="w2J-Jh-HYj" id="YhD-q5-aCk"/>
-                <outlet property="valueLabel" destination="Vc9-Nc-4gF" id="jhg-IT-NYY"/>
+                <outlet property="nameLabel" destination="zcp-fs-Xo7" id="EqP-WW-k6I"/>
+                <outlet property="valueLabel" destination="Obt-wk-l8S" id="yob-Ry-Wwf"/>
             </connections>
             <point key="canvasLocation" x="183" y="-10"/>
         </tableViewCell>

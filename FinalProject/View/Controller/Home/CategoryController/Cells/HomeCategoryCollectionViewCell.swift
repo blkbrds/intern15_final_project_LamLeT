@@ -43,5 +43,4 @@ final class HomeCategoryCollectionViewCell: UICollectionViewCell {
         guard let viewModel = viewModel else { return }
         thumbnailCategoryImageView.sd_setImage(with: URL(string: viewModel.urlThumbnail))
     }
-
 }

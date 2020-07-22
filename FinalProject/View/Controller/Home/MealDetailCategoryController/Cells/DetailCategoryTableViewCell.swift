@@ -35,15 +35,60 @@ final class DetailCategoryTableViewCell: UITableViewCell {
         nameMealLabel.cornerRadius = Configure.radius
     }
 
+    // MARK: Private Function
     private func updateView() {
         guard let viewModel = viewModel else { return }
         nameMealLabel.text = viewModel.nameMeal
         thumbnailMealImageView.sd_setImage(with: URL(string: viewModel.urlThumnailMeal))
+        viewModel.checkFavorites(completion: { [weak self] (isExist, msg) in
+            guard let this = self else { return }
+            if isExist {
+                let image = UIImage(systemName: "heart.fill")
+                this.favoritesButton.setImage(image, for: .normal)
+            } else {
+                let image = UIImage(systemName: "heart")
+                this.favoritesButton.setImage(image, for: .normal)
+            }
+        })
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    // MARK: - IBAction
+    @IBAction func favoritesButtonTouchUpInside(_ sender: Any) {
+        guard let viewModel = viewModel else { return }
+        viewModel.checkFavorites(completion: { [weak self] (isExist, msg) in
+            guard let this = self else { return }
+            if isExist {
+                this.deleteFavorites()
+            } else {
+                this.addFavorites()
+            }
+        })
+    }
 
+    func addFavorites() {
+        guard let viewModel = viewModel else { return }
+        viewModel.addFavorites(completion: { [weak self] (done, msg) in
+            guard let this = self else { return }
+            if done {
+                let image = UIImage(systemName: "heart.fill")
+                this.favoritesButton.setImage(image, for: .normal)
+            } else {
+                print("Can't Add")
+            }
+        })
+    }
+
+    func deleteFavorites() {
+        guard let viewModel = viewModel else { return }
+        viewModel.deleteFavorites(completion: { [weak self] (done, msg) in
+            guard let this = self else { return }
+            if done {
+                let image = UIImage(systemName: "heart")
+                this.favoritesButton.setImage(image, for: .normal)
+            } else {
+                print("Can't Delete")
+            }
+        })
     }
 
 }

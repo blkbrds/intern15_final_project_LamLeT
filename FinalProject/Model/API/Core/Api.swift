@@ -23,6 +23,9 @@ final class Api {
         static let apiListArea = "\(pathURL)list.php?a=list"
         static let apiDetailMeal = "\(pathURL)lookup.php?"
         static let apiRandomMeal = "\(pathURL)random.php"
+        static let apiSearchFirstLetter = "\(pathURL)search.php?f="
+        static let apiSearchByName = "\(pathURL)search.php?s="
+
     }
 }
 

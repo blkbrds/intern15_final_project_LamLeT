@@ -94,8 +94,6 @@ class Networking {
                     }
                     let result = MealResult(meals: categoryDetails)
                     completion(.success(result))
-                } else {
-                    completion(.failure(App.String.alertFailedToDataAPI))
                 }
             }
         }
@@ -115,7 +113,6 @@ class Networking {
                 if let _ = error {
                     completion(.failure(App.String.alertFailedToConnectAPI))
                 } else if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
-
                     var areas: [Meal] = []
                     for item in meals {
                         let area = Meal(json: item)
@@ -123,8 +120,6 @@ class Networking {
                     }
                     let result = MealResult(meals: areas)
                     completion(.success(result))
-                } else {
-                    completion(.failure(App.String.alertFailedToDataAPI))
                 }
             }
         }
@@ -144,7 +139,6 @@ class Networking {
                 if let _ = error {
                     completion(.failure(App.String.alertFailedToConnectAPI))
                 } else if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
-
                     var areaDetails: [Meal] = []
                     for item in meals {
                         let meals = Meal(json: item)
@@ -152,8 +146,6 @@ class Networking {
                     }
                     let result = MealResult(meals: areaDetails)
                     completion(.success(result))
-                } else {
-                    completion(.failure(App.String.alertFailedToDataAPI))
                 }
             }
         }
@@ -181,10 +173,7 @@ class Networking {
                     guard let mealResult = detailMeal else { return }
                     let result = MealDetailResult(meal: mealResult)
                     completion(.success(result))
-                } else {
-                    completion(.failure(App.String.alertFailedToDataAPI))
                 }
-
             }
         }
         task.resume()
@@ -210,8 +199,62 @@ class Networking {
                     }
                     let result = MealResult(meals: randomMeals)
                     completion(.success(result))
+                } 
+            }
+        }
+        task.resume()
+    }
+
+    func searchMealFirstLetter(firstLetter: String, completion: @escaping APICompletion<MealResult>) {
+        guard let url = URL(string: Api.Path.apiSearchFirstLetter + firstLetter) else {
+            completion(.failure(App.String.alertFailedAPI))
+            return
+        }
+        let config = URLSessionConfiguration.ephemeral
+        config.waitsForConnectivity = true
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: url) { (data, response, error) in
+            DispatchQueue.main.async {
+                if let _ = error {
+                    completion(.failure(App.String.alertFailedToConnectAPI))
                 } else {
-                    completion(.failure(App.String.alertFailedToDataAPI))
+                    if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
+                        var searchMeal: [Meal] = []
+                        for item in meals {
+                            let meal = Meal(json: item)
+                            searchMeal.append(meal)
+                        }
+                        let result = MealResult(meals: searchMeal)
+                        completion(.success(result))
+                    } else {
+                        completion(.failure(App.String.noResultMeal))
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+
+    func searchMealByName(name: String, completion: @escaping APICompletion<MealResult>) {
+        guard let url = URL(string: Api.Path.apiSearchByName + name) else {
+            completion(.failure(App.String.alertFailedAPI))
+            return
+        }
+        let config = URLSessionConfiguration.ephemeral
+        config.waitsForConnectivity = true
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: url) { (data, response, error) in
+            DispatchQueue.main.async {
+                if let _ = error {
+                    completion(.failure(App.String.alertFailedToConnectAPI))
+                } else if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
+                    var searchMeal: [Meal] = []
+                    for item in meals {
+                        let meal = Meal(json: item)
+                        searchMeal.append(meal)
+                    }
+                    let result = MealResult(meals: searchMeal)
+                    completion(.success(result))
                 }
             }
         }

@@ -7,13 +7,11 @@
 //
 
 import Foundation
-import UIKit
 
 final class OtherFoodCellViewModel {
     var idMeal: String = ""
     var otherMealName: String = ""
     var urlOtherMealImage: String = ""
-    var isFavorites: Bool = false
 
     init() { }
 

@@ -12,6 +12,7 @@ import SVProgressHUD
 // MARK: - Define
 private struct Configure {
     static let title: String = "Category Meal"
+    static let sizeForCollection: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
     static let sizeForItem: CGSize = CGSize(width: (UIScreen.main.bounds.width - CGFloat(25)) / 2, height: 150)
     static let spaceForCell: UIEdgeInsets = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
 }
@@ -33,7 +34,7 @@ final class HomeCategoryViewController: BaseViewController {
     // MARK: - Override Functions
     override func setUpUI() {
         registerCollectionView()
-        navigationController?.navigationBar.tintColor = UIColor.black
+        configNavi()
     }
 
     override func setUpData() {
@@ -41,6 +42,11 @@ final class HomeCategoryViewController: BaseViewController {
     }
 
     // MARK: - Private Functions
+    private func configNavi() {
+        title = App.String.titleCountry
+        navigationController?.navigationBar.tintColor = UIColor.black
+    }
+
     private func registerCollectionView() {
         listCategoryCollectionView.register(nibWithCellClass: HomeCategoryCollectionViewCell.self)
         listCategoryCollectionView.dataSource = self
@@ -51,13 +57,11 @@ final class HomeCategoryViewController: BaseViewController {
         HUD.show()
         viewModel.getAPIListCategory { [weak self] (done, msg) in
             HUD.dismiss()
-            guard let self = self else {
-                return
-            }
+            guard let this = self else { return }
             if done {
-                self.updateView()
+                this.updateView()
             } else {
-                self.showAlert(message: msg)
+                this.showAlert(message: msg)
             }
         }
     }

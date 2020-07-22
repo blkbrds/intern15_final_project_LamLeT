@@ -28,6 +28,10 @@ final class CountryViewController: BaseViewController {
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        configNavi()
+    }
+
     override func setUpUI() {
         configNavi()
     }
@@ -41,19 +45,19 @@ final class CountryViewController: BaseViewController {
     private func loadAPI() {
         HUD.show()
         viewModel.getAPIListArea { [weak self] (done, msg) in
-            guard let self = self else { return }
+            guard let this = self else { return }
             HUD.dismiss()
             if done {
-                self.updateView()
+                this.updateView()
             } else {
-                self.showAlert(message: msg)
+                this.showAlert(message: msg)
             }
         }
     }
 
     private func configNavi() {
-        navigationController?.navigationBar.tintColor = .black
         title = App.String.titleCountry
+        navigationController?.navigationBar.tintColor = UIColor.black
     }
 
     private func registerColletionCell() {

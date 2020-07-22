@@ -8,6 +8,13 @@
 
 import UIKit
 
+// MARK: - Define
+private struct Configure {
+    static let spaceForSection: CGFloat = 10
+    static let iconAddFavorites: String = "heart"
+    static let iconRemoveFavorites: String = "heart.fill"
+}
+
 final class DetailMealViewController: BaseViewController {
 
     // MARK: - IBOutlet
@@ -22,41 +29,80 @@ final class DetailMealViewController: BaseViewController {
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        configNavi()
+        updateView()
+    }
+
     override func setUpUI() {
         configNavi()
         registerTableCell()
     }
 
     override func setUpData() {
-        let dispatchGroup = DispatchGroup()
-        dispatchGroup.enter()
-        loadAPIDetail {
-            dispatchGroup.leave()
-        }
-        dispatchGroup.enter()
-        loadAPIRandomMeal {
-            dispatchGroup.leave()
-        }
-        dispatchGroup.notify(queue: .main) { }
+        loadAPIDetail()
     }
 
     // MARK: - Private Functions
-    private func configNavi() { }
+    private func configNavi() {
+        viewModel.checkFavorites { [weak self] (done, msg) in
+            guard let this = self else { return }
+            if done {
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Configure.iconAddFavorites), style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
+            } else {
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Configure.iconRemoveFavorites), style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
+            }
+        }
+    }
 
-    private func loadAPIDetail(completion: @escaping() -> Void) {
+    @objc private func rightBarButtonTouchUpInside() {
+        if viewModel.isFavorites == false {
+            addToFavorites()
+        } else {
+            deteleToFavorties()
+        }
+    }
+
+    func addToFavorites() {
+        viewModel.addFavorites(addCompletion: { [weak self] (done, msg) in
+            guard let this = self else { return }
+            if done {
+                let image = UIImage(systemName: Configure.iconRemoveFavorites)
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
+                print(msg)
+            } else {
+                this.showAlert(message: msg)
+            }
+        })
+    }
+
+    func deteleToFavorties() {
+        viewModel.deleteFavorites(deleteCompletion: { [weak self] (done, msg) in
+            guard let this = self else { return }
+            if done {
+                let image = UIImage(systemName: Configure.iconAddFavorites)
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
+
+            } else {
+                this.showAlert(message: msg)
+            }
+        })
+    }
+
+    private func loadAPIDetail() {
         HUD.show()
         viewModel.getAPIDetailMeal { [weak self] (done, msg) in
             HUD.dismiss()
             guard let this = self else { return }
             if done {
-                this.updateView()
+                this.loadAPIRandomMeal()
             } else {
                 this.showAlert(message: msg)
             }
         }
     }
 
-    private func loadAPIRandomMeal(completion: @escaping() -> Void) {
+    private func loadAPIRandomMeal() {
         viewModel.getAPIRandomMeal { [weak self] (done, msg) in
             guard let this = self else { return }
             if done {
@@ -76,6 +122,7 @@ final class DetailMealViewController: BaseViewController {
         tableView.register(nibWithCellClass: SourceLinkTableViewCell.self)
         tableView.register(nibWithCellClass: OtherFoodTableViewCell.self)
         tableView.dataSource = self
+        tableView.delegate = self
     }
 
     private func updateView() {
@@ -84,8 +131,8 @@ final class DetailMealViewController: BaseViewController {
     }
 }
 
-// MARK: - UITableViewDataSource
-extension DetailMealViewController: UITableViewDataSource {
+// MARK: - UITableViewDataSource, UITableViewDelegate
+extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
     }
@@ -133,7 +180,19 @@ extension DetailMealViewController: UITableViewDataSource {
         }
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 6 {
+            let vc = DetailMealViewController()
+            vc.viewModel = viewModel.pushIdMeal(indexPath: indexPath)
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return viewModel.headerTitler[section]
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return Configure.spaceForSection
     }
 }
