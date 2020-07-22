@@ -19,11 +19,8 @@ final class InstructionsTableViewCell: UITableViewCell {
             updateView()
         }
     }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
+    
+    // MARK: - Private Functions
     private func updateView() {
         guard let viewModel = viewModel else { return }
         instructionLabel.text = viewModel.meal.instructions

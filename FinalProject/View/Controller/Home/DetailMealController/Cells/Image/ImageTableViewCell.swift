@@ -32,6 +32,7 @@ final class ImageTableViewCell: UITableViewCell {
         thumnailMealImageView.layer.cornerRadius = Configure.cornerRadius
     }
 
+    // MARK: - Private Functions
     private func updateView() {
         guard let viewModel = viewModel else { return }
         thumnailMealImageView.sd_setImage(with: URL(string: viewModel.meal.urlMealThumbnail))

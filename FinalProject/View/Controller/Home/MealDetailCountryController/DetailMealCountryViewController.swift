@@ -122,7 +122,7 @@ extension DetailMealCountryViewController: UITableViewDataSource, UITableViewDel
     }
 }
 
-// MARK: - UICollectionDataSource, UICollectionDataSource
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension DetailMealCountryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection()
