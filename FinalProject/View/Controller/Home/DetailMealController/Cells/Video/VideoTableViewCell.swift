@@ -32,6 +32,7 @@ final class VideoTableViewCell: UITableViewCell {
         videoAlertLabel.isHidden = true
     }
 
+    // MARK: - Private Functions
     private func updateView() {
         if let viewModel = viewModel, let url = viewModel.meal.urlVideoMeal, let youtubeURL = URL(string: "\(Configure.urlVideo)\(viewModel.getLinkVideo())") {
             videoAlertLabel.isHidden = !url.isEmpty

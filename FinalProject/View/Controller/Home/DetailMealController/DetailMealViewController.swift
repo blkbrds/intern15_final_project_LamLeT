@@ -41,16 +41,7 @@ final class DetailMealViewController: BaseViewController {
     }
 
     override func setUpData() {
-        let dispatchGroup = DispatchGroup()
-        dispatchGroup.enter()
-        loadAPIDetail {
-            dispatchGroup.leave()
-        }
-        dispatchGroup.enter()
-        loadAPIRandomMeal {
-            dispatchGroup.leave()
-        }
-        dispatchGroup.notify(queue: .main) { }
+        loadAPIDetail()
     }
 
     // MARK: - Private Functions
@@ -95,20 +86,20 @@ final class DetailMealViewController: BaseViewController {
         })
     }
 
-    private func loadAPIDetail(completion: @escaping() -> Void) {
+    private func loadAPIDetail() {
         HUD.show()
         viewModel.getAPIDetailMeal { [weak self] (done, msg) in
             HUD.dismiss()
             guard let this = self else { return }
             if done {
-                this.updateView()
+                this.loadAPIRandomMeal()
             } else {
                 this.showAlert(message: msg)
             }
         }
     }
 
-    private func loadAPIRandomMeal(completion: @escaping() -> Void) {
+    private func loadAPIRandomMeal() {
         viewModel.getAPIRandomMeal { [weak self] (done, msg) in
             guard let this = self else { return }
             if done {
@@ -137,7 +128,7 @@ final class DetailMealViewController: BaseViewController {
     }
 }
 
-// MARK: - UITableViewDataSource
+// MARK: - UITableViewDataSource, UITableViewDelegate
 extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
