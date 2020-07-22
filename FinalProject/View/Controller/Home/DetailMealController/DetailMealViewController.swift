@@ -13,7 +13,6 @@ private struct Configure {
     static let spaceForSection: CGFloat = 10
     static let iconAddFavorites: String = "heart"
     static let iconRemoveFavorites: String = "heart.fill"
-    static let uiOffSet: UIOffset = UIOffset(horizontal: UIScreen.main.bounds.width / 2, vertical: UIScreen.main.bounds.height / 2)
 }
 
 final class DetailMealViewController: BaseViewController {
@@ -49,9 +48,9 @@ final class DetailMealViewController: BaseViewController {
         viewModel.checkFavorites { [weak self] (done, msg) in
             guard let this = self else { return }
             if done {
-                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ConfigureDetailMeal.iconAddFavorites), style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Configure.iconAddFavorites), style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
             } else {
-                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ConfigureDetailMeal.iconRemoveFavorites), style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Configure.iconRemoveFavorites), style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
             }
         }
     }
@@ -68,7 +67,7 @@ final class DetailMealViewController: BaseViewController {
         viewModel.addFavorites(addCompletion: { [weak self] (done, msg) in
             guard let this = self else { return }
             if done {
-                let image = UIImage(systemName: ConfigureDetailMeal.iconRemoveFavorites)
+                let image = UIImage(systemName: Configure.iconRemoveFavorites)
                 this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
                 print(msg)
             } else {
@@ -82,7 +81,6 @@ final class DetailMealViewController: BaseViewController {
             guard let this = self else { return }
             if done {
                 let image = UIImage(systemName: Configure.iconAddFavorites)
-                let image = UIImage(systemName: ConfigureDetailMeal.iconAddFavorites)
                 this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
 
             } else {
@@ -196,12 +194,5 @@ extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return Configure.spaceForSection
-
     }
-}
-
-private struct ConfigureDetailMeal {
-    static let spaceForSection: CGFloat = 10
-    static let iconAddFavorites: String = "heart"
-    static let iconRemoveFavorites: String = "heart.fill"
 }
