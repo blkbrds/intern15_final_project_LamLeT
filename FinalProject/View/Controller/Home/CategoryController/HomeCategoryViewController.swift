@@ -57,13 +57,11 @@ final class HomeCategoryViewController: BaseViewController {
         HUD.show()
         viewModel.getAPIListCategory { [weak self] (done, msg) in
             HUD.dismiss()
-            guard let self = self else {
-                return
-            }
+            guard let this = self else { return }
             if done {
-                self.updateView()
+                this.updateView()
             } else {
-                self.showAlert(message: msg)
+                this.showAlert(message: msg)
             }
         }
     }
