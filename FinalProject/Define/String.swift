@@ -34,5 +34,8 @@ extension App {
         static let deleteObjectSuccess = "Success To Delete Object"
         static let deleteObjectFailed = "Failed To Delete Object"
         static let alertVideo = "No Has Video Tutorial"
+        static let nameIconDelete = "trash"
+        static let fetchData = "Fetch Data Success"
+        static let failedFetchData = "Failed Fetch Data"
     }
 }
