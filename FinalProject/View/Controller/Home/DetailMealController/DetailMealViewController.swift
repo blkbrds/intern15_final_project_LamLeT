@@ -46,11 +46,12 @@ final class DetailMealViewController: BaseViewController {
 
     // MARK: - Private Functions
     private func configNavi() {
-        viewModel.checkFavorites { (done, msg) in
+        viewModel.checkFavorites { [weak self] (done, msg) in
+            guard let this = self else { return }
             if done {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Configure.iconAddFavorites), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ConfigureDetailMeal.iconAddFavorites), style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
             } else {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Configure.iconRemoveFavorites), style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ConfigureDetailMeal.iconRemoveFavorites), style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
             }
         }
     }
@@ -64,24 +65,28 @@ final class DetailMealViewController: BaseViewController {
     }
 
     func addToFavorites() {
-        viewModel.addFavorites(addCompletion: { (done, msg) in
+        viewModel.addFavorites(addCompletion: { [weak self] (done, msg) in
+            guard let this = self else { return }
             if done {
-                let image = UIImage(systemName: Configure.iconRemoveFavorites)
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+                let image = UIImage(systemName: ConfigureDetailMeal.iconRemoveFavorites)
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
                 print(msg)
             } else {
-                self.showAlert(message: msg)
+                this.showAlert(message: msg)
             }
         })
     }
 
     func deteleToFavorties() {
-        viewModel.deleteFavorites(deleteCompletion: { (done, msg) in
+        viewModel.deleteFavorites(deleteCompletion: { [weak self] (done, msg) in
+            guard let this = self else { return }
             if done {
                 let image = UIImage(systemName: Configure.iconAddFavorites)
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.rightBarButtonTouchUpInside))
+                let image = UIImage(systemName: ConfigureDetailMeal.iconAddFavorites)
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
+
             } else {
-                self.showAlert(message: msg)
+                this.showAlert(message: msg)
             }
         })
     }
