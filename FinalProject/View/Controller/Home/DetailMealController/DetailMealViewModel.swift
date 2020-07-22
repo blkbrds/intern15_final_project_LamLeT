@@ -10,9 +10,6 @@ import Foundation
 import RealmSwift
 import UIKit
 
-
-
-
 final class DetailMealViewModel {
 
     // MARK: Properties

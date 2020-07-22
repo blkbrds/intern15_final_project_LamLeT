@@ -14,7 +14,7 @@ protocol FavoritesViewModelDelegate: class {
 }
 
 class FavoritesViewModel {
-    
+
     // MARK: - Properties
     var title: String = "Meal Favorites"
     var meals: [MealRealm] = []
@@ -39,11 +39,8 @@ class FavoritesViewModel {
         do {
             // realm
             let realm = try Realm()
-
             let results = realm.objects(MealRealm.self)
-
             meals = Array(results)
-
             completion(true, App.String.fetchData)
         } catch {
             completion(false, App.String.failedFetchData)
@@ -65,14 +62,11 @@ class FavoritesViewModel {
     func deleteAll(completion: (Bool) -> ()) {
         do {
             let realm = try Realm()
-
             let results = realm.objects(MealRealm.self)
-
             try realm.write {
                 realm.delete(results)
             }
             completion(true)
-
         } catch {
             completion(false)
         }
