@@ -33,7 +33,7 @@ final class HomeCategoryViewController: BaseViewController {
     // MARK: - Override Functions
     override func setUpUI() {
         registerCollectionView()
-        navigationController?.navigationBar.tintColor = UIColor.black
+        configNavi()
     }
 
     override func setUpData() {
@@ -41,6 +41,11 @@ final class HomeCategoryViewController: BaseViewController {
     }
 
     // MARK: - Private Functions
+    private func configNavi() {
+        title = App.String.titleCountry
+        navigationController?.navigationBar.tintColor = UIColor.black
+    }
+
     private func registerCollectionView() {
         listCategoryCollectionView.register(nibWithCellClass: HomeCategoryCollectionViewCell.self)
         listCategoryCollectionView.dataSource = self

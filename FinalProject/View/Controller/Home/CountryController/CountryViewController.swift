@@ -28,6 +28,10 @@ final class CountryViewController: BaseViewController {
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        configNavi()
+    }
+
     override func setUpUI() {
         configNavi()
     }
@@ -52,8 +56,8 @@ final class CountryViewController: BaseViewController {
     }
 
     private func configNavi() {
-        navigationController?.navigationBar.tintColor = .black
         title = App.String.titleCountry
+        navigationController?.navigationBar.tintColor = UIColor.black
     }
 
     private func registerColletionCell() {

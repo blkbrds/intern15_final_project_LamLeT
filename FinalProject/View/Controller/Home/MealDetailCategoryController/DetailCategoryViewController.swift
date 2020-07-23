@@ -111,6 +111,12 @@ extension DetailCategoryViewController: UITableViewDelegate, UITableViewDataSour
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DetailMealViewController()
+        vc.viewModel = viewModel.pushIdMeal(indexPath: indexPath)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
@@ -123,6 +129,12 @@ extension DetailCategoryViewController: UICollectionViewDelegate, UICollectionVi
         let cell = collectionView.dequeueReusableCell(withClass: DetailCategoryCollectionViewCell.self, for: indexPath)
         cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = DetailMealViewController()
+        vc.viewModel = viewModel.pushIdMeal(indexPath: indexPath)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

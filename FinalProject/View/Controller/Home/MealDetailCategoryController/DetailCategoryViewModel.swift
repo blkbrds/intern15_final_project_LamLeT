@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MVVM
 
-class DetailCategoryViewModel {
+final class DetailCategoryViewModel {
 
     // MARK: - Properties
     var nameCategory: String = ""
@@ -38,6 +38,13 @@ class DetailCategoryViewModel {
                 completion(true, App.String.loadSuccess)
             }
         }
+    }
+
+    func pushIdMeal(indexPath: IndexPath) -> DetailMealViewModel {
+        let item = mealCategory[indexPath.row]
+        let idMeal = item.idMeal
+        let model = DetailMealViewModel(idMeal: idMeal)
+        return model
     }
 
     // MARK: - TableView Data
