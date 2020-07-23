@@ -17,17 +17,15 @@ class HomeCategoryViewModel {
     // MARK: - Public Function
     func getAPIListCategory(listCategoryCompletion: @escaping (Bool, String) -> Void) {
         Networking.shared().getCategory { [weak self] (mealResult) in
-            guard let self = self else {
-                return
-            }
+            guard let this = self else { return }
             switch mealResult {
             case .failure(let error):
                 listCategoryCompletion(false, error)
             case .success(let result):
                 for item in result.categories {
-                    self.categoryMeals.append(item)
+                    this.categoryMeals.append(item)
                 }
-                listCategoryCompletion(true, "Get List Category Success")
+                listCategoryCompletion(true, App.String.loadSuccess)
             }
         }
     }

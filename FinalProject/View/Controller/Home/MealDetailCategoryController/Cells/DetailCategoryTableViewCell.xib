@@ -89,7 +89,7 @@
                             <constraint firstAttribute="height" constant="250" id="WtA-qI-hZY"/>
                             <constraint firstItem="JjN-DU-6AV" firstAttribute="top" secondItem="uyb-B7-SLv" secondAttribute="top" id="aib-zt-BAe"/>
                             <constraint firstItem="JjN-DU-6AV" firstAttribute="leading" secondItem="uyb-B7-SLv" secondAttribute="leading" id="axT-4h-J7h"/>
-                            <constraint firstItem="asg-qA-c26" firstAttribute="height" secondItem="JjN-DU-6AV" secondAttribute="height" multiplier="0.183267" id="bci-op-ihn"/>
+                            <constraint firstItem="asg-qA-c26" firstAttribute="height" secondItem="JjN-DU-6AV" secondAttribute="height" multiplier="0.2" id="bci-op-ihn"/>
                             <constraint firstAttribute="trailing" secondItem="asg-qA-c26" secondAttribute="trailing" id="eOC-NF-PVa"/>
                             <constraint firstAttribute="trailing" secondItem="fxy-MV-XF0" secondAttribute="trailing" id="uQl-8K-Uqc"/>
                             <constraint firstItem="fxy-MV-XF0" firstAttribute="top" secondItem="uyb-B7-SLv" secondAttribute="top" id="wWQ-7H-huN"/>

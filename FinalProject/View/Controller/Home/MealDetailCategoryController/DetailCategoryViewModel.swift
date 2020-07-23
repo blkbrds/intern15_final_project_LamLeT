@@ -25,26 +25,17 @@ final class DetailCategoryViewModel {
     // MARK: - Get API
     func getAPIListCategory(completion: @escaping (Bool, String) -> Void) {
         Networking.shared().getMealForCategory(categoryName: nameCategory) { [weak self] (result) in
-            guard let self = self else {
-                return
-            }
+            guard let this = self else { return }
             switch result {
             case .failure(let error):
                 completion(false, error)
             case .success(let detailCategory):
                 for item in detailCategory.meals {
-                    self.mealCategory.append(item)
+                    this.mealCategory.append(item)
                 }
                 completion(true, App.String.loadSuccess)
             }
         }
-    }
-
-    func pushIdMeal(indexPath: IndexPath) -> DetailMealViewModel {
-        let item = mealCategory[indexPath.row]
-        let idMeal = item.idMeal
-        let model = DetailMealViewModel(idMeal: idMeal)
-        return model
     }
 
     // MARK: - TableView Data
@@ -55,6 +46,12 @@ final class DetailCategoryViewModel {
     func cellForRowAt(indexPath: IndexPath) -> DetailCategoryCellViewModel {
         let item = mealCategory[indexPath.row]
         let model = DetailCategoryCellViewModel(meal: item)
+        return model
+    }
+
+    func pushIdMeal(indexPath: IndexPath) -> DetailMealViewModel {
+        let item = mealCategory[indexPath.row]
+        let model = DetailMealViewModel(meal: item)
         return model
     }
 }

@@ -7,6 +7,14 @@
 //
 
 import UIKit
+import SafariServices
+
+// MARK: - Define
+private struct Configure {
+    static let spaceForSection: CGFloat = 10
+    static let iconAddFavorites: String = "heart"
+    static let iconRemoveFavorites: String = "heart.fill"
+}
 
 final class DetailMealViewController: BaseViewController {
 
@@ -22,41 +30,78 @@ final class DetailMealViewController: BaseViewController {
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        configNavi()
+    }
+
     override func setUpUI() {
         configNavi()
         registerTableCell()
     }
 
     override func setUpData() {
-        let dispatchGroup = DispatchGroup()
-        dispatchGroup.enter()
-        loadAPIDetail {
-            dispatchGroup.leave()
-        }
-        dispatchGroup.enter()
-        loadAPIRandomMeal {
-            dispatchGroup.leave()
-        }
-        dispatchGroup.notify(queue: .main) { }
+        loadAPIDetail()
     }
 
     // MARK: - Private Functions
-    private func configNavi() { }
+    private func configNavi() {
+        viewModel.checkFavorites { [weak self] (done, msg) in
+            guard let this = self else { return }
+            if done {
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Configure.iconAddFavorites), style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
+            } else {
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Configure.iconRemoveFavorites), style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
+            }
+        }
+    }
 
-    private func loadAPIDetail(completion: @escaping() -> Void) {
+    @objc private func rightBarButtonTouchUpInside() {
+        if viewModel.isFavorites == false {
+            addToFavorites()
+        } else {
+            deteleToFavorties()
+        }
+    }
+
+    private func addToFavorites() {
+        viewModel.addFavorites(completion: { [weak self] (done, msg) in
+            guard let this = self else { return }
+            if done {
+                let image = UIImage(systemName: Configure.iconRemoveFavorites)
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
+            } else {
+                this.showAlert(message: msg)
+            }
+        })
+    }
+
+    private func deteleToFavorties() {
+        viewModel.deleteFavorites(completion: { [weak self] (done, msg) in
+            guard let this = self else { return }
+            if done {
+                let image = UIImage(systemName: Configure.iconAddFavorites)
+                this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
+            } else {
+                this.showAlert(message: msg)
+            }
+        })
+    }
+
+    private func loadAPIDetail() {
         HUD.show()
         viewModel.getAPIDetailMeal { [weak self] (done, msg) in
             HUD.dismiss()
             guard let this = self else { return }
             if done {
-                this.updateView()
+                this.loadAPIRandomMeal()
             } else {
                 this.showAlert(message: msg)
             }
         }
     }
 
-    private func loadAPIRandomMeal(completion: @escaping() -> Void) {
+
+    private func loadAPIRandomMeal() {
         viewModel.getAPIRandomMeal { [weak self] (done, msg) in
             guard let this = self else { return }
             if done {
@@ -76,6 +121,7 @@ final class DetailMealViewController: BaseViewController {
         tableView.register(nibWithCellClass: SourceLinkTableViewCell.self)
         tableView.register(nibWithCellClass: OtherFoodTableViewCell.self)
         tableView.dataSource = self
+        tableView.delegate = self
     }
 
     private func updateView() {
@@ -84,7 +130,7 @@ final class DetailMealViewController: BaseViewController {
     }
 }
 
-// MARK: - UITableViewDataSource
+// MARK: - UITableViewDataSource, UITableViewDelegate
 extension DetailMealViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
@@ -125,6 +171,7 @@ extension DetailMealViewController: UITableViewDataSource {
         case .linkSource:
             let cell = tableView.dequeueReusableCell(withClass: SourceLinkTableViewCell.self, for: indexPath)
             cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
+            cell.delegate = self
             return cell
         case .otherFood:
             let cell = tableView.dequeueReusableCell(withClass: OtherFoodTableViewCell.self, for: indexPath)
@@ -135,5 +182,36 @@ extension DetailMealViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return viewModel.headerTitler[section]
+    }
+
+
+}
+
+// MARK: - UITableViewDelegate
+extension DetailMealViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return Configure.spaceForSection
+    }
+}
+
+// MARK: - SourceLinkTableViewCellDelegate
+extension DetailMealViewController: SourceLinkTableViewCellDelegate {
+    func openWeb(url: URL) {
+        let sfSafariVC = SFSafariViewController(url: url)
+        sfSafariVC.delegate = self
+        sfSafariVC.preferredControlTintColor = .systemGray
+        sfSafariVC.modalPresentationStyle = .formSheet
+        present(sfSafariVC, animated: true)
+    }
+}
+
+// MARK: - SFSafariViewControllerDelegate
+extension DetailMealViewController: SFSafariViewControllerDelegate {
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        controller.dismiss(animated: true)
+    }
+
+    func safariViewController(_ controller: SFSafariViewController, excludedActivityTypesFor URL: URL, title: String?) -> [UIActivity.ActivityType] {
+        return [.copyToPasteboard]
     }
 }
