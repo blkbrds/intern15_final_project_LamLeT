@@ -31,7 +31,7 @@ final class CountryViewModel {
                 for item in result.meals {
                     this.areas.append(item)
                 }
-                listAreaCompletion(true, "Get List Area Success")
+                listAreaCompletion(true, App.String.loadSuccess)
             }
         }
     }
