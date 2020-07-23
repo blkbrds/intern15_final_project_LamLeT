@@ -50,9 +50,8 @@ final class DetailCategoryViewModel {
     }
 
     func pushIdMeal(indexPath: IndexPath) -> DetailMealViewModel {
-        let item = mealCategory[indexPath.row]
-        let idMeal = item.idMeal
-        let model = DetailMealViewModel(idMeal: idMeal)
+        let item = mealCategory[indexPath.row].idMeal
+        let model = DetailMealViewModel(idMeal: item)
         return model
     }
 }
