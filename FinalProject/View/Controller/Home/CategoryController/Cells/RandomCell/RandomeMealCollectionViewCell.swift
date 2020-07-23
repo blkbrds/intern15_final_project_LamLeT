@@ -8,6 +8,11 @@
 
 import UIKit
 
+// MARK: - Define
+private struct Configure {
+    static let cornerRadius: CGFloat = 10
+}
+
 final class RandomeMealCollectionViewCell: UICollectionViewCell {
 
     // MARK: - MARK: IBOutlet
@@ -25,8 +30,7 @@ final class RandomeMealCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        randomMealView.layer.cornerRadius = 10
-        randomMealView.clipsToBounds = true
+        randomMealView.layer.cornerRadius = Configure.cornerRadius
     }
 
     private func updateView() {

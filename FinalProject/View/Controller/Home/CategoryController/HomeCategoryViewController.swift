@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SVProgressHUD
 
 protocol HomeCategoryViewControllerDelegate: class {
     func controller(controller: HomeCategoryViewController, needPerformAction action: HomeCategoryViewController.Action)
@@ -81,31 +80,27 @@ final class HomeCategoryViewController: BaseViewController {
         HUD.show()
         viewModel.getAPIListCategory { [weak self] (done, msg) in
             HUD.dismiss()
-            guard let self = self else { return }
+            guard let this = self else { return }
             if done {
-                self.updateView()
-                let additionalTime: DispatchTimeInterval = .seconds(1)
-                DispatchQueue.main.asyncAfter(deadline: .now() + additionalTime) {
-                    self.loadAPIRandom()
-                }
+                this.updateView()
+                this.loadAPIRandom()
             } else {
-                self.showAlert(message: msg)
+                this.showAlert(message: msg)
             }
         }
     }
 
     private func loadAPIRandom() {
         viewModel.getAPIRandomMeal { [weak self] (done, error) in
-            guard let self = self else { return }
+            guard let this = self else { return }
             if done {
                 let indexSet = IndexSet(integer: 0)
-                self.collectionView.reloadSections(indexSet)
-                let additionalTime: DispatchTimeInterval = .seconds(2)
-                DispatchQueue.main.asyncAfter(deadline: .now() + additionalTime) {
-                    self.loadAPIRandom()
+                this.collectionView.reloadSections(indexSet)
+                _ = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (timer) in
+                    this.loadAPIRandom()
                 }
             } else {
-                self.showAlert(message: error)
+                this.showAlert(message: error)
             }
         }
     }

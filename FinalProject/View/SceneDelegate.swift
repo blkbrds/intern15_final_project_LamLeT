@@ -23,20 +23,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowSence = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowSence)
-        let viewController = WelcomeViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.isNavigationBarHidden = true
-        window.rootViewController = navigationController
-        let additionalTime: DispatchTimeInterval = .seconds(3)
-        DispatchQueue.main.asyncAfter(deadline: .now() + additionalTime) {
-            self.changeRoot()
-        }
         self.window = window
         window.backgroundColor = .white
         window.makeKeyAndVisible()
+        configRootView(vc: WelcomeViewController())
+        _ = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { (timer) in
+            self.configRootView(vc: BaseTabBarViewController())
+        }
     }
 
-    func changeRoot() {
-        window?.rootViewController = BaseTabBarViewController()
+    func configRootView(vc: UIViewController) {
+        let navi = UINavigationController(rootViewController: vc)
+        navi.isNavigationBarHidden = true
+        window?.rootViewController = navi
     }
 }

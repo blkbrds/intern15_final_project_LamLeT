@@ -71,6 +71,7 @@ final class CountryViewController: BaseViewController {
             guard let this = self else { return }
             HUD.dismiss()
             if done {
+                this.updateView()
                 this.loadAPIRandom()
             } else {
                 this.showAlert(message: msg)
@@ -85,8 +86,7 @@ final class CountryViewController: BaseViewController {
             if done {
                 let indexSet = IndexSet(integer: 0)
                 this.collectionView.reloadSections(indexSet)
-                let additionalTime: DispatchTimeInterval = .seconds(2)
-                DispatchQueue.main.asyncAfter(deadline: .now() + additionalTime) {
+                _ = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (timer) in
                     this.loadAPIRandom()
                 }
             } else {

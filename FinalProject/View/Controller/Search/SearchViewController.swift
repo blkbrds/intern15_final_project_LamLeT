@@ -123,8 +123,7 @@ extension SearchViewController: UISearchBarDelegate {
         }
         let keyword = (currentText as NSString).replacingCharacters(in: range, with: text)
         viewModel.mealResult = []
-        let additionalTime: DispatchTimeInterval = .seconds(1)
-        DispatchQueue.main.asyncAfter(deadline: .now() + additionalTime) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.loadAPISearchByName(nameMeal: keyword)
             self.view.endEditing(true)
         }
@@ -133,5 +132,6 @@ extension SearchViewController: UISearchBarDelegate {
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
+        self.loadAPISearchByName(nameMeal: searchBar.text)
     }
 }
