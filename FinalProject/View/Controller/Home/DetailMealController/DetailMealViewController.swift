@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 // MARK: - Define
 private struct Configure {
@@ -62,21 +63,20 @@ final class DetailMealViewController: BaseViewController {
         }
     }
 
-    func addToFavorites() {
-        viewModel.addFavorites(addCompletion: { [weak self] (done, msg) in
+    private func addToFavorites() {
+        viewModel.addFavorites(completion: { [weak self] (done, msg) in
             guard let this = self else { return }
             if done {
                 let image = UIImage(systemName: Configure.iconRemoveFavorites)
                 this.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(this.rightBarButtonTouchUpInside))
-                print(msg)
             } else {
                 this.showAlert(message: msg)
             }
         })
     }
 
-    func deteleToFavorties() {
-        viewModel.deleteFavorites(deleteCompletion: { [weak self] (done, msg) in
+    private func deteleToFavorties() {
+        viewModel.deleteFavorites(completion: { [weak self] (done, msg) in
             guard let this = self else { return }
             if done {
                 let image = UIImage(systemName: Configure.iconAddFavorites)
@@ -131,7 +131,7 @@ final class DetailMealViewController: BaseViewController {
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
-extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
+extension DetailMealViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
     }
@@ -171,6 +171,7 @@ extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
         case .linkSource:
             let cell = tableView.dequeueReusableCell(withClass: SourceLinkTableViewCell.self, for: indexPath)
             cell.viewModel = viewModel.cellForRowAt(indexPath: indexPath)
+            cell.delegate = self
             return cell
         case .otherFood:
             let cell = tableView.dequeueReusableCell(withClass: OtherFoodTableViewCell.self, for: indexPath)
@@ -183,7 +184,34 @@ extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
         return viewModel.headerTitler[section]
     }
 
+
+}
+
+// MARK: - UITableViewDelegate
+extension DetailMealViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return Configure.spaceForSection
+    }
+}
+
+// MARK: - SourceLinkTableViewCellDelegate
+extension DetailMealViewController: SourceLinkTableViewCellDelegate {
+    func openWeb(url: URL) {
+        let sfSafariVC = SFSafariViewController(url: url)
+        sfSafariVC.delegate = self
+        sfSafariVC.preferredControlTintColor = .systemGray
+        sfSafariVC.modalPresentationStyle = .formSheet
+        present(sfSafariVC, animated: true)
+    }
+}
+
+// MARK: - SFSafariViewControllerDelegate
+extension DetailMealViewController: SFSafariViewControllerDelegate {
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        controller.dismiss(animated: true)
+    }
+
+    func safariViewController(_ controller: SFSafariViewController, excludedActivityTypesFor URL: URL, title: String?) -> [UIActivity.ActivityType] {
+        return [.copyToPasteboard]
     }
 }

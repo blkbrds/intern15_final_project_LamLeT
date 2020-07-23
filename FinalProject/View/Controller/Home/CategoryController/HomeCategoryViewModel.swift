@@ -25,7 +25,7 @@ class HomeCategoryViewModel {
                 for item in result.categories {
                     this.categoryMeals.append(item)
                 }
-                listCategoryCompletion(true, "Get List Category Success")
+                listCategoryCompletion(true, App.String.loadSuccess)
             }
         }
     }
