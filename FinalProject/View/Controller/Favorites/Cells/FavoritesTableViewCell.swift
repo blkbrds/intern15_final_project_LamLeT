@@ -13,13 +13,12 @@ private struct Configure {
     static let cornerRadius: CGFloat = 10
 }
 
-class FavoritesTableViewCell: UITableViewCell {
+final class FavoritesTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlet
-
-    @IBOutlet weak var mealFatoritesView: UIView!
-    @IBOutlet weak var mealNameLabel: UILabel!
-    @IBOutlet weak var mealFavoriteImageView: UIImageView!
+    @IBOutlet private weak var mealFatoritesView: UIView!
+    @IBOutlet private weak var mealNameLabel: UILabel!
+    @IBOutlet private weak var mealFavoriteImageView: UIImageView!
 
     // MARK: - Properties
     var viewModel: FavoritesTableViewModel? {
@@ -30,8 +29,8 @@ class FavoritesTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        mealFatoritesView.layer.cornerRadius = Configure.cornerRadius
-        mealNameLabel.layer.cornerRadius = Configure.cornerRadius
+        mealFatoritesView.cornerRadius = Configure.cornerRadius
+        mealNameLabel.cornerRadius = Configure.cornerRadius
     }
 
     private func updateView() {
@@ -41,10 +40,4 @@ class FavoritesTableViewCell: UITableViewCell {
         mealNameLabel.text = viewModel.nameMeal
         mealFavoriteImageView.sd_setImage(with: URL(string: viewModel.urlImageMeal))
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-    }
-
 }

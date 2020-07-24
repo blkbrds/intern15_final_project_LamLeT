@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FavoritesTableViewModel {
+final class FavoritesTableViewModel {
     var nameMeal: String
     var urlImageMeal: String
     
