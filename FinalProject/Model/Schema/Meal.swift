@@ -22,7 +22,6 @@ class Meal {
     var measureArray: [String] = []
     var sourceLink: String?
     var thumbnail: UIImage?
-    var ingredientMeasure: [String: String] = [:]
 
     init(json: JSON) {
         if let idMeal = json["idMeal"] as? String {
