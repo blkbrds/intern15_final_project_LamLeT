@@ -37,7 +37,6 @@ class FavoritesViewModel {
 
     func fetchData(completion: (Bool, String) -> ()) {
         do {
-            // realm
             let realm = try Realm()
             let results = realm.objects(MealRealm.self)
             meals = Array(results)
@@ -62,9 +61,7 @@ class FavoritesViewModel {
     func deleteAll(completion: (Bool) -> ()) {
         do {
             let realm = try Realm()
-
             let results = realm.objects(MealRealm.self)
-
             try realm.write {
                 realm.delete(results)
             }

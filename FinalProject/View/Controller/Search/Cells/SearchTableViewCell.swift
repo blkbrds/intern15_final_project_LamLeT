@@ -21,11 +21,6 @@ class SearchTableViewCell: UITableViewCell {
         }
     }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
     private func updateView() {
         guard let viewModel = viewModel else { return }
         nameMealLabel.text = viewModel.mealName

@@ -79,8 +79,7 @@ final class DetailMealCountryViewController: BaseViewController {
         title = viewModel.nameArea
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: App.String.iconCollection), style: .plain, target: self, action: #selector(collectionViewButtonTouchUpInside))
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: App.String.iconBack), style: .plain, target: self, action: #selector(backToView))
-        navigationItem.rightBarButtonItem?.tintColor = .black
-        navigationItem.leftBarButtonItem?.tintColor = .black
+        navigationController?.navigationBar.tintColor = UIColor.black
     }
 
     // MARK: - Action

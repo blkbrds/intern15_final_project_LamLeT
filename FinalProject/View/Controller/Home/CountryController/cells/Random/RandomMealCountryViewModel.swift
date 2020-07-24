@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RandomMealCountryViewModel {
+final class RandomMealCountryViewModel {
     var nameMeal: String
     var urlThumbnail: String
 

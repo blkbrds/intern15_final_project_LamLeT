@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 final class DetailMealTableViewCellViewModel {
 
     // MARK: - Properties
@@ -24,7 +23,6 @@ final class DetailMealTableViewCellViewModel {
             return String(url[range.upperBound...])
         } else {
             return "No Has Video Tutorial"
-
         }
     }
 }

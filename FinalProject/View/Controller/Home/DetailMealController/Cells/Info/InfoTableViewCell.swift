@@ -14,7 +14,6 @@ final class InfoTableViewCell: UITableViewCell {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var valueLabel: UILabel!
 
-
     // MARK: - Properties
     var viewModel: InforCellViewModel? {
         didSet {

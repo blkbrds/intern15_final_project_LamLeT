@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RandomCollectionViewCell: UICollectionViewCell {
+final class RandomCollectionViewCell: UICollectionViewCell {
 
     // MARK: - MARK: IBOutlet
     @IBOutlet private weak var randomMealView: UIView!

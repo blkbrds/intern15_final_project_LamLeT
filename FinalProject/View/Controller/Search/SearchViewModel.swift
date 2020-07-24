@@ -11,8 +11,6 @@ import UIKit
 
 final class SearchViewModel {
 
-
-
     // MARK: - Properties
     var mealResult: [Meal] = []
 

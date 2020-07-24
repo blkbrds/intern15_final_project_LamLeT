@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CountryCellViewModel {
+final class CountryCellViewModel {
     var nameArea: String
     var urlFlagCountry: String
     

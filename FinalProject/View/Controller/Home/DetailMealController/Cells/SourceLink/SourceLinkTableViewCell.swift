@@ -21,15 +21,10 @@ final class SourceLinkTableViewCell: UITableViewCell {
 
     // MARK: - Properties
     weak var delegate: SourceLinkTableViewCellDelegate?
-
     var viewModel: DetailMealTableViewCellViewModel? {
         didSet {
             updateView()
         }
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
     }
 
     // MARK: - Private Functions

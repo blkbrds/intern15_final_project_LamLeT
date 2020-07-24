@@ -34,14 +34,13 @@ class SearchTableCellViewModel {
                 completion(true, App.String.haveItem)
             }
         } catch {
-            completion(false, "")
+            completion(false, App.String.notHaveItem)
         }
     }
 
     func addFavorites(completion: @escaping (Bool, String) -> Void) {
         do {
             let realm = try Realm()
-
             let meal = MealRealm()
             meal.idMeal = idMeal
             meal.nameMeal = mealName
@@ -60,9 +59,7 @@ class SearchTableCellViewModel {
     func deleteFavorites(completion: @escaping (Bool, String) -> Void) {
         do {
             let realm = try Realm()
-
             let meal = realm.objects(MealRealm.self).filter("idMeal = '\(idMeal)'")
-
             try realm.write {
                 realm.delete(meal)
                 isFavorites = false

@@ -16,6 +16,7 @@ final class FavoritesViewController: BaseViewController {
     // MARK: - Properties
     var viewModel = FavoritesViewModel()
 
+    // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
@@ -27,12 +28,13 @@ final class FavoritesViewController: BaseViewController {
         registerTable()
     }
 
+    // MARK: - Private Functions
     private func configNavi() {
         title = viewModel.title
         let imageDelete = UIImage(systemName: App.String.nameIconDelete)
         let backButton = UIBarButtonItem(image: imageDelete, style: .plain, target: self, action: #selector(deleteButtonTouchUpInside))
         navigationItem.leftBarButtonItem = backButton
-        navigationItem.leftBarButtonItem?.tintColor = .black
+        navigationController?.navigationBar.tintColor = UIColor.black
     }
 
     private func registerTable() {
@@ -65,6 +67,7 @@ final class FavoritesViewController: BaseViewController {
     }
 
     private func updateUI() {
+        guard isViewLoaded else { return }
         tableView.reloadData()
     }
 }

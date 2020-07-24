@@ -8,7 +8,7 @@
 
 import UIKit
 
-
+// MARK: - Define
 private struct Configure {
     static let radius: CGFloat = 10
 }
@@ -67,7 +67,7 @@ final class DetailCategoryCollectionViewCell: UICollectionViewCell {
         })
     }
 
-    func addFavorites() {
+    private func addFavorites() {
         guard let viewModel = viewModel else { return }
         viewModel.addFavorites(completion: { [weak self] (done, msg) in
             guard let this = self else { return }
@@ -80,7 +80,7 @@ final class DetailCategoryCollectionViewCell: UICollectionViewCell {
         })
     }
 
-    func deleteFavorites() {
+    private func deleteFavorites() {
         guard let viewModel = viewModel else { return }
         viewModel.deleteFavorites(completion: { [weak self] (done, msg) in
              guard let this = self else { return }

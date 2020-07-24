@@ -26,7 +26,7 @@ class HomeCategoryViewModel {
                 for item in result.categories {
                     this.categoryMeals.append(item)
                 }
-                listCategoryCompletion(true, "Get List Category Success")
+                listCategoryCompletion(true, App.String.loadSuccess)
             }
         }
     }
@@ -42,7 +42,7 @@ class HomeCategoryViewModel {
                     this.randomeMeals = []
                     this.randomeMeals.append(item)
                 }
-                completion(true, "Load API Random Meal Success")
+                completion(true, App.String.loadSuccess)
             }
         }
     }

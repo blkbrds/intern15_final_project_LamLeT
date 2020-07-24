@@ -12,7 +12,7 @@ private struct Configure {
     static let cornerRadius: CGFloat = 10
 }
 
-class CountryCollectionViewCell: UICollectionViewCell {
+final class CountryCollectionViewCell: UICollectionViewCell {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var areaNameLabel: UILabel!

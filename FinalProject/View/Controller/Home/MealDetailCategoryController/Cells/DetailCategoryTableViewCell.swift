@@ -8,9 +8,7 @@
 
 import UIKit
 
-
 // MARK: - Define
-
 private struct Configure {
     static let radius: CGFloat = 10
 }
@@ -37,6 +35,7 @@ final class DetailCategoryTableViewCell: UITableViewCell {
         nameMealLabel.cornerRadius = Configure.radius
     }
 
+    // MARK: - Private Functions
     private func updateView() {
         guard let viewModel = viewModel else { return }
         nameMealLabel.text = viewModel.nameMeal
@@ -66,7 +65,7 @@ final class DetailCategoryTableViewCell: UITableViewCell {
         })
     }
 
-    func addFavorites() {
+    private func addFavorites() {
         guard let viewModel = viewModel else { return }
         viewModel.addFavorites(completion: { [weak self] (done, msg) in
             guard let this = self else { return }
@@ -79,7 +78,7 @@ final class DetailCategoryTableViewCell: UITableViewCell {
         })
     }
 
-    func deleteFavorites() {
+    private func deleteFavorites() {
         guard let viewModel = viewModel else { return }
         viewModel.deleteFavorites(completion: { [weak self] (done, msg) in
             guard let this = self else { return }
@@ -91,10 +90,4 @@ final class DetailCategoryTableViewCell: UITableViewCell {
             }
         })
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-    }
-
 }
