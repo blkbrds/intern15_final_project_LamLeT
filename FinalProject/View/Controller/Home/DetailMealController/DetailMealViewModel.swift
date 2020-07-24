@@ -140,24 +140,23 @@ final class DetailMealViewModel {
     }
 
     //MARK: Realm
-    func checkFavorites(checkCompletion: @escaping (Bool, String) -> Void) {
+    func checkFavorites(completion: @escaping (Bool, String) -> Void) {
         do {
             let realm = try Realm()
             let meal = realm.objects(MealRealm.self).filter("idMeal = '\(idMeal)' AND isFavorites = true ")
             if meal.count == 0 {
                 isFavorites = false
-                checkCompletion(true, App.String.notHaveItem)
+                completion(true, App.String.notHaveItem)
             } else {
                 isFavorites = true
-                checkCompletion(false, App.String.haveItem)
+                completion(false, App.String.haveItem)
             }
         } catch { }
     }
 
-    func addFavorites(addCompletion: @escaping (Bool, String) -> Void) {
+    func addFavorites(completion: @escaping (Bool, String) -> Void) {
         do {
             let realm = try Realm()
-
             let meal = MealRealm()
             meal.idMeal = idMeal
             meal.nameMeal = nameMeal
@@ -166,26 +165,24 @@ final class DetailMealViewModel {
             try realm.write {
                 realm.add(meal)
                 isFavorites = true
-                addCompletion(true, App.String.addObjectSuccess)
+                completion(true, App.String.addObjectSuccess)
             }
         } catch {
-            addCompletion(false, App.String.addObjectFailed)
+            completion(false, App.String.addObjectFailed)
         }
     }
 
-    func deleteFavorites(deleteCompletion: @escaping (Bool, String) -> Void) {
+    func deleteFavorites(completion: @escaping (Bool, String) -> Void) {
         do {
             let realm = try Realm()
-
             let meal = realm.objects(MealRealm.self).filter("idMeal = '\(idMeal)'")
-
             try realm.write {
                 realm.delete(meal)
                 isFavorites = false
-                deleteCompletion(true, App.String.deleteObjectSuccess)
+                completion(true, App.String.deleteObjectSuccess)
             }
         } catch {
-            deleteCompletion(false, App.String.deleteObjectFailed)
+            completion(false, App.String.deleteObjectFailed)
         }
     }
 }
