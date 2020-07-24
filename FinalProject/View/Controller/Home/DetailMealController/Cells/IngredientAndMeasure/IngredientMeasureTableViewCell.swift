@@ -21,6 +21,7 @@ final class IngredientMeasureTableViewCell: UITableViewCell {
         }
     }
 
+    // MARK: Private Functions
     private func updateView() {
         guard let viewModel = viewModel else { return }
         ingredientLabel.text = viewModel.name

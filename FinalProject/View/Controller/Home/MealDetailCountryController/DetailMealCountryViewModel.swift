@@ -23,13 +23,14 @@ class DetailMealCountryViewModel {
 
     // MARK: Get API
     func getAPIListArea(detailAreaCompletion: @escaping (Bool, String) -> Void) {
-        Networking.shared().getMealDetailArea(areaName: nameArea) { (detailAreaResult) in
+        Networking.shared().getMealDetailArea(areaName: nameArea) { [weak self] (detailAreaResult) in
+            guard let this = self else { return }
             switch detailAreaResult {
             case .failure(let error):
                 detailAreaCompletion(false, error)
             case .success(let detailMealArea):
                 for item in detailMealArea.meals {
-                    self.mealAreas.append(item)
+                    this.mealAreas.append(item)
                 }
                 detailAreaCompletion(true, App.String.loadSuccess)
             }

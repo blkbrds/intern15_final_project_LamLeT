@@ -45,12 +45,12 @@ final class CountryViewController: BaseViewController {
     private func loadAPI() {
         HUD.show()
         viewModel.getAPIListArea { [weak self] (done, msg) in
-            guard let self = self else { return }
             HUD.dismiss()
+            guard let this = self else { return }
             if done {
-                self.updateView()
+                this.updateView()
             } else {
-                self.showAlert(message: msg)
+                this.showAlert(message: msg)
             }
         }
     }

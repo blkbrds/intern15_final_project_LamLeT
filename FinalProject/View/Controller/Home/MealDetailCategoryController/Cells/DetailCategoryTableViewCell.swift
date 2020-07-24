@@ -35,15 +35,11 @@ final class DetailCategoryTableViewCell: UITableViewCell {
         nameMealLabel.cornerRadius = Configure.radius
     }
 
+    // MARK: Private Function
     private func updateView() {
         guard let viewModel = viewModel else { return }
         nameMealLabel.text = viewModel.nameMeal
         thumbnailMealImageView.sd_setImage(with: URL(string: viewModel.urlThumnailMeal))
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
     }
 
 }

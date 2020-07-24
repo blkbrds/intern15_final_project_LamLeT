@@ -147,6 +147,8 @@
 		F00DAA4B249B7990001A70BC /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 		F01685BB249CB7E2006BE5C9 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		F01685BD249CC650006BE5C9 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+
+		F02FE51E24AEDFC300B03D21 /* MealRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRealm.swift; sourceTree = "<group>"; };
 		F0383C1D24C5508800CA9834 /* InfoTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewModel.swift; sourceTree = "<group>"; };
 		F06908F524A4668E006D9603 /* DetailMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMealViewController.swift; sourceTree = "<group>"; };
 		F06908F624A4668E006D9603 /* DetailMealViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailMealViewController.xib; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				F01685BB249CB7E2006BE5C9 /* Meal.swift */,
+				F02FE51E24AEDFC300B03D21 /* MealRealm.swift */,
 				F0F4BD9124A05676000A2CD0 /* CategoryMeal.swift */,
 			);
 			path = Schema;
@@ -921,6 +924,7 @@
 				D10B908E249B19F2003E0A85 /* SceneDelegate.swift in Sources */,
 				D10B918B249B1FD8003E0A85 /* Error.swift in Sources */,
 				D10B9090249B19F2003E0A85 /* ContentView.swift in Sources */,
+				F02FE51F24AEDFC300B03D21 /* MealRealm.swift in Sources */,
 				F069092724AB2C12006D9603 /* VideoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
