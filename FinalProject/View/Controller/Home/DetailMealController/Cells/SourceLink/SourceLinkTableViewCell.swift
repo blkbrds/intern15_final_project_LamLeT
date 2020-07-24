@@ -7,13 +7,20 @@
 //
 
 import UIKit
+import SafariServices
+
+// MARK: - Protocol
+protocol SourceLinkTableViewCellDelegate: class {
+    func openWeb(url: URL)
+}
 
 final class SourceLinkTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlet
-    @IBOutlet private weak var sourceLinkTextView: UITextView!
+    @IBOutlet private weak var openWebButton: UIButton!
 
     // MARK: - Properties
+    weak var delegate: SourceLinkTableViewCellDelegate?
     var viewModel: DetailMealTableViewCellViewModel? {
         didSet {
             updateView()
@@ -22,17 +29,16 @@ final class SourceLinkTableViewCell: UITableViewCell {
 
     // MARK: - Private Functions
     private func updateView() {
-        guard let viewModel = viewModel, let text = viewModel.meal.sourceLink else { return }
-        let attributedString = NSMutableAttributedString(string: text)
-        attributedString.addAttribute(.link, value: viewModel.meal.sourceLink, range: NSRange(location: 0, length: text.count))
-        sourceLinkTextView.attributedText = attributedString
+        if let viewModel = viewModel, let sourceLink = viewModel.meal.sourceLink, sourceLink.isEmpty {
+            openWebButton.setTitle("No Has Link", for: .normal)
+        }
+    }
+
+    // MARK: - IBAction
+    @IBAction private func openWebTouchUpInside(_ sender: Any) {
+        if let delegate = delegate, let viewModel = viewModel, let sourceLink = viewModel.meal.sourceLink, let url = URL(string: sourceLink) {
+            delegate.openWeb(url: url)
+        }
     }
 }
 
-// MARK: - UITextViewDelegate
-extension SourceLinkTableViewCell: UITextViewDelegate {
-    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-        UIApplication.shared.open(URL)
-        return false
-    }
-}
