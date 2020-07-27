@@ -32,9 +32,8 @@ final class HomeCategoryCollectionViewCell: UICollectionViewCell {
     // MARK: - Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        cellCategoryView.layer.cornerRadius = Configure.cornerRadius
-        nameCategoryLabel.layer.cornerRadius = Configure.cornerRadius
+        cellCategoryView.cornerRadius = Configure.cornerRadius
+        nameCategoryLabel.cornerRadius = Configure.cornerRadius
     }
 
     // MARK: - Private Function

@@ -29,7 +29,6 @@ final class RandomeMealCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         randomMealView.layer.cornerRadius = Configure.cornerRadius
     }
 

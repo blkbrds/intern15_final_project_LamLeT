@@ -217,12 +217,12 @@ class Networking {
                 if let _ = error {
                     completion(.failure(App.String.alertFailedToConnectAPI))
                 } else if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
-                    var searchMeal: [Meal] = []
+                    var searchMeals: [Meal] = []
                     for item in meals {
                         let meal = Meal(json: item)
-                        searchMeal.append(meal)
+                        searchMeals.append(meal)
                     }
-                    let result = MealResult(meals: searchMeal)
+                    let result = MealResult(meals: searchMeals)
                     completion(.success(result))
                 }
             }
@@ -243,12 +243,12 @@ class Networking {
                 if let _ = error {
                     completion(.failure(App.String.alertFailedToConnectAPI))
                 } else if let data = data, let json = data.toJSON(), let meals = json["meals"] as? [JSON] {
-                    var searchMeal: [Meal] = []
+                    var searchMeals: [Meal] = []
                     for item in meals {
                         let meal = Meal(json: item)
-                        searchMeal.append(meal)
+                        searchMeals.append(meal)
                     }
-                    let result = MealResult(meals: searchMeal)
+                    let result = MealResult(meals: searchMeals)
                     completion(.success(result))
                 }
             }

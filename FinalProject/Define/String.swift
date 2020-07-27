@@ -41,5 +41,6 @@ extension App {
         static let nameIconDelete = "trash"
         static let fetchData = "Fetch Data Success"
         static let failedFetchData = "Failed Fetch Data"
+        static let Source = "No Has Source"
     }
 }

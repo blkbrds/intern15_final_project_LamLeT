@@ -24,17 +24,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowSence = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowSence)
         self.window = window
+        let navi = UINavigationController(rootViewController: WelcomeViewController())
+        navi.isNavigationBarHidden = true
+        window.rootViewController = navi
         window.backgroundColor = .white
         window.makeKeyAndVisible()
-        configRootView(vc: WelcomeViewController())
-        _ = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { (timer) in
-            self.configRootView(vc: BaseTabBarViewController())
-        }
     }
 
-    func configRootView(vc: UIViewController) {
-        let navi = UINavigationController(rootViewController: vc)
-        navi.isNavigationBarHidden = true
-        window?.rootViewController = navi
+    
+    func changeRoot(vc: UIViewController) {
+        window?.rootViewController = vc
     }
 }

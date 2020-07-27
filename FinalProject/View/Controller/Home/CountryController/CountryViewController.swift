@@ -177,15 +177,11 @@ extension CountryViewController: UICollectionViewDelegateFlowLayout {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if lastContentOffset > scrollView.contentOffset.y {
-            // move up
             scrollDirection = .up
         }
         else if (lastContentOffset < scrollView.contentOffset.y) {
-            // move down
             scrollDirection = .down
         }
-
-        // update the new position acquired
         lastContentOffset = scrollView.contentOffset.y
     }
 }

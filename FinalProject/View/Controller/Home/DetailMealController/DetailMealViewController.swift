@@ -108,7 +108,7 @@ final class DetailMealViewController: BaseViewController {
 
     private func loadAPIRandomMeal() {
         viewModel.getAPIRandomMeal { [weak self] (done, msg) in
-             guard let this = self else { return }
+            guard let this = self else { return }
             if done {
                 this.updateView()
             } else {
@@ -202,12 +202,16 @@ extension DetailMealViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension DetailMealViewController: SourceLinkTableViewCellDelegate {
-    func openWeb(url: URL) {
-        let sfSafariVC = SFSafariViewController(url: url)
-        sfSafariVC.delegate = self
-        sfSafariVC.preferredControlTintColor = .systemGray
-        sfSafariVC.modalPresentationStyle = .formSheet
-        present(sfSafariVC, animated: true)
+    func openWeb(url: String) {
+        if url.isEmpty {
+            showAlertSourceLink()
+        } else if let url = URL(string: url) {
+            let sfSafariVC = SFSafariViewController(url: url)
+            sfSafariVC.delegate = self
+            sfSafariVC.preferredControlTintColor = .systemGray
+            sfSafariVC.modalPresentationStyle = .overFullScreen
+            present(sfSafariVC, animated: true)
+        }
     }
 }
 

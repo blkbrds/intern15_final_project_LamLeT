@@ -17,11 +17,18 @@ final class WelcomeViewController: BaseViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        changeRoot()
     }
 
     override func setUpUI() {
         super.setUpUI()
         title = Configure.title
+    }
+
+    private func changeRoot() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            SceneDelegate.shared.changeRoot(vc: BaseTabBarViewController())
+        }
     }
 
 }

@@ -11,7 +11,7 @@ import SafariServices
 
 // MARK: - Protocol
 protocol SourceLinkTableViewCellDelegate: class {
-    func openWeb(url: URL)
+    func openWeb(url: String)
 }
 
 final class SourceLinkTableViewCell: UITableViewCell {
@@ -21,23 +21,23 @@ final class SourceLinkTableViewCell: UITableViewCell {
 
     // MARK: - Properties
     weak var delegate: SourceLinkTableViewCellDelegate?
-    var viewModel: DetailMealTableViewCellViewModel? {
-        didSet {
-            updateView()
-        }
-    }
+    var viewModel: DetailMealTableViewCellViewModel?
+//        didSet {
+//            updateView()
+//        }
+    
 
     // MARK: - Private Functions
-    private func updateView() {
-        if let viewModel = viewModel, let sourceLink = viewModel.meal.sourceLink, sourceLink.isEmpty {
-            openWebButton.setTitle("No Has Link", for: .normal)
-        }
-    }
+//    private func updateView() {
+//        if let viewModel = viewModel, let sourceLink = viewModel.meal.sourceLink, sourceLink.isEmpty {
+//            openWebButton.setTitle("No Has Link", for: .normal)
+//        }
+//    }
 
     // MARK: - IBAction
     @IBAction private func openWebTouchUpInside(_ sender: Any) {
-        if let delegate = delegate, let viewModel = viewModel, let sourceLink = viewModel.meal.sourceLink, let url = URL(string: sourceLink) {
-            delegate.openWeb(url: url)
+        if let delegate = delegate, let viewModel = viewModel, let sourceLink = viewModel.meal.sourceLink {
+            delegate.openWeb(url: sourceLink)
         }
     }
 }
